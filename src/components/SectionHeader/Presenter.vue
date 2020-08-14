@@ -33,7 +33,7 @@
         props: ["label","subtitle","name","watch","mainPicture","avatarStyle","link","presenterClass", "avatarClass"]
     };
 </script>
-<style>
+<style scoped>
 .avatar_Cami_12VD {
     background-image:url(../../assets/cami-main-mobile.jpg);
 }

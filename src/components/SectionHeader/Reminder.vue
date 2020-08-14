@@ -12,7 +12,7 @@
         </div>
         <div class="col-sm-12 col-lg-8">
             <div class="content_OqPHq">
-            <div class="text_3oKnO">{{title}}</div>
+            <div class="text_3oKnO">{{text}}</div>
             <div class="btn__r4xY">
                 <span>{{buttonTitle}}</span>
             </div>

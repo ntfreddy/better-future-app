@@ -34,24 +34,24 @@ export default {
     return {
       sectionHeader: {
         reminder: {
-          text: "Register to receive updates",
-          buttonTitle: "Register",
+          text: "Pour recevoir des mises à jour",
+          buttonTitle: "S'inscrire",
         },
         menu: {
           menuItems: [
-            { text: "Pray for me" },
-            { text: "Bible studies" },
-            { text: "Cami Oetman" },
-            { text: "Chris Holland" },
+            { text: "Priez pour moi" },
+            { text: "Études bibliques" },
+            { text: "Danielle Noélizaire" },
+            { text: "Simpson Gracia" },
           ],
-          menuItemHightlight: { text: "Register now" },
+          menuItemHightlight: { text: "Inscrivez-vous maintenant" },
         },
         presenters: [
           {
-            label: "Master class",
-            subtitle: "with",
-            name: "Cami Oetman",
-            watch: "Watch now",
+            label: "Qui se soucie de toi?",
+            subtitle: "avec",
+            name: "Danielle Noélizaire",
+            watch: "Regardez maintenant",
             mainPicture: require("./assets/cami-main.png"),
             avatarStyle: "background-image:url(@/assets/cami-main-mobile.jpg);",
             link: "/the-prediction/",
@@ -59,10 +59,10 @@ export default {
             avatarClass: "avatar_Cami_12VD"
           },
           {
-            label: "Weekly bible series",
-            subtitle: "with",
-            name: "Chris Holland",
-            watch: "Watch now",
+            label: "Qui connaît l'avenir?",
+            subtitle: "avec",
+            name: "Simpson Gracia",
+            watch: "Regardez maintenant",
             mainPicture: require("./assets/chriss-main.png"),
             avatarStyle:
               "background-image:url(../assets/chriss-main-mobile.jpg);",
@@ -73,30 +73,30 @@ export default {
         ],
       },
       sectionActions: {
-        label: "next step",
-        title: "How can we",
-        highlight: "serve you",
+        label: "prochaine étape",
+        title: "Comment pouvons-nous",
+        highlight: "vous servir",
         description:
-          "We can help you find freedom, healing and hope in Jesus. What is the next step for you?",
+          "Nous pouvons vous aider à trouver la liberté, la guérison et l'espérance en Jésus. Quelle est la prochaine étape pour vous?",
         actions: [
           {
-            id: "play",
-            title: "Pray for me",
+            id: "pray",
+            title: "Priez pour moi",
             desc:
-              "God loves to answer prayer. Leave your request and we will pray for you.",
+              "Dieu répond aux prières. Laissez votre requête et nous prierons pour vous.",
               icon: require("./assets/pray-hands-icon.svg")
           },
           {
             id: "bible",
-            title: "Start Bible study",
-            desc: "Find guidance for today in God's Word.",
+            title: "Commencer un étude biblique",
+            desc: "Trouvez des conseils pour aujourd'hui dans la Parole de Dieu.",
               icon: require("./assets/bible-icon.svg")
           },
           {
             id: "question",
-            title: "Ask a Bible question",
+            title: "Poser une question biblique",
             desc:
-              "Send your Bible question and we will help you find the answer",
+              "Posez votre question biblique et nous vous aiderons à trouver la réponse",
               icon: require("./assets/question-icon.svg")
           },
         ],
@@ -131,7 +131,7 @@ export default {
         description:
           "Throughout this series, you will learn that Jesus’ love for you can be found at the heart of Revelation, and that its prophecies reveal hope for your future.",
         link: "/the-prediction/",
-        watch: "Watch now",
+        watch: "Regardez maintenant",
       },
       sectionChriss: {
         label: "Weekly bible series",
@@ -140,7 +140,7 @@ export default {
         description:
           "This weekly program will help you explore difficult Biblical topics and learn to use the Bible to explain itself. This series will give you confidence in the Word of God, help you learn how to study your Bible more deeply and give you hope for the future.",
         link: "https://awr.org/watch-digging-deeper",
-        watch: "Watch now",
+        watch: "Regardez maintenant",
       },
       sectionEnroll: {
         label: "Join Us",
@@ -185,4 +185,6 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 </style>
