@@ -1,6 +1,6 @@
 <template>
-    <div class="col-sm-12 col-lg-6 content_2u34F cami_3A5nr">
-        <div class="avatar_1VmU2" style="background-image:url(../assets/cami-main-mobile.jpg);">
+    <div class="col-sm-12 col-lg-6 content_2u34F" :class="presenterClass">
+        <div class="avatar_1VmU2" :class="avatarClass">
             <div class="border_1WQEm"></div>
         </div>
         <div class="label_1ASOE">{{label}}</div>
@@ -30,10 +30,18 @@
 <script>
     export default {
         name: "Presenter",
-        props: ["label","subtitle","name","watch","mainPicture","avatarStyle","link"]
+        props: ["label","subtitle","name","watch","mainPicture","avatarStyle","link","presenterClass", "avatarClass"]
     };
 </script>
 <style>
+.avatar_Cami_12VD {
+    background-image:url(../../assets/cami-main-mobile.jpg);
+}
+
+.avatar_Chriss_12VD {
+    background-image:url(../../assets/chriss-main-mobile.jpg);
+}
+
 .content_2u34F {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -104,11 +112,11 @@
 .border_1WQEm {
     border-radius: 50%;
     border: 1px solid #fff;
-    width: 68px;
-    height: 68px;
+    width: 70px;
+    height: 70px;
     position: absolute;
-    top: -4px;
-    left: -5px
+    top: 0px;
+    left: 0px
 }
 
 @media (min-width:992px) {

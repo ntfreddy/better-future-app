@@ -3,9 +3,12 @@
     <div :id="id" class="card_2sjRH item-0_5Y_Vc">
       <div class="top_1aI4o">
         <div class="circle_33t-c"></div>
-        <svg viewBox="0 0 53 54" class="icon icon--pray-hands icon_2SKlE image_3yEvF">
+        <!--svg viewBox="0 0 53 54" class="icon icon--pray-hands icon_2SKlE image_3yEvF">
           <use xlink:href="#pray-hands">#shadow-root (closed)</use>
-        </svg>
+        </svg-->
+            <a href="#pray-hands">
+                <img :src="icon" alt="" width="53" height="54" class="icon icon_2SKlE image_3yEvF" />
+            </a>
       </div>
       <div>
         <div class="title_1Gsa9">{{title}}</div>
@@ -17,7 +20,7 @@
 <script>
     export default {
         name: "Action",
-        props: ["id","title","desc"]
+        props: ["id","title","desc", "icon"]
     };
 </script>
 <style scoped>

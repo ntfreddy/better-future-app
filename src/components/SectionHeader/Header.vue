@@ -7,7 +7,7 @@
                         <div class="list_1xenz">
                             <MenuItem v-for="menuItem in menu.menuItems" :key="menuItem" :text="menuItem.text" />
                         </div>
-                    <div class="register_2g_Un">{{menu.hightlightedMenuItem.text}}</div>
+                    <div class="register_2g_Un">{{menu.menuItemHightlight.text}}</div>
                 </div>
             </div>
         </div>

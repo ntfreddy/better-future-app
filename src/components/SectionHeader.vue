@@ -1,5 +1,5 @@
 <template>
-  <div id="section-header" class="header_3nK_z">
+  <div id="section-header" class="header_3nK_z hasReminder_2Fg0S">
     <div class="panel_HvvtT">
       <Reminder :text="data.reminder.text" :buttonTitle="data.reminder.buttonTitle" />
       <Header :menu="data.menu" />
@@ -28,7 +28,9 @@
                 :watch="presenter.watch"
                 :mainPicture="presenter.mainPicture"
                 :avatarStyle="presenter.avatarStyle" 
-                :link="presenter.link" />
+                :link="presenter.link"
+                :presenterClass="presenter.presenterClass"
+                :avatarClass="presenter.avatarClass" />
             </div>
         </div>
   </div>
@@ -51,6 +53,13 @@ export default {
 </script>
 
 <style>
+@media (max-width:991.98px){
+	.hasReminder_2Fg0S 
+	.cami_3A5nr{
+		margin-top:240px
+	}
+}
+
 .header_3nK_z {
   width: 100%;
   background-image: url("../assets/earth_key.jpg");

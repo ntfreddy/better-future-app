@@ -17,7 +17,8 @@
                 :key="action" 
                 :id="action.id" 
                 :title="action.title"
-                :desc="action.desc" />
+                :desc="action.desc" 
+                :icon="action.icon" />
           </div>
         </div>
       </div>
