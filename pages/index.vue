@@ -11,13 +11,13 @@
 </template>
 
 <script>
-import SectionHeader from "./components/SectionHeader";
-import SectionActions from "./components/SectionActions";
-import SectionBibleStudy from "./components/SectionBibleStudy";
-import SectionCami from "./components/SectionCami";
-import SectionChriss from "./components/SectionChriss";
-import SectionEnroll from "./components/SectionEnroll";
-import Footer from "./components/Footer";
+import SectionHeader from "../components/SectionHeader";
+import SectionActions from "../components/SectionActions";
+import SectionBibleStudy from "../components/SectionBibleStudy";
+import SectionCami from "../components/SectionCami";
+import SectionChriss from "../components/SectionChriss";
+import SectionEnroll from "../components/SectionEnroll";
+import Footer from "../components/Footer";
 
 export default {
   name: "App",
@@ -52,7 +52,7 @@ export default {
             subtitle: "avec",
             name: "Danielle Noélizaire",
             watch: "Regardez maintenant",
-            mainPicture: require("./assets/cami-main.png"),
+            mainPicture: require("../assets/cami-main.png"),
             avatarStyle: "background-image:url(@/assets/cami-main-mobile.jpg);",
             link: "/the-prediction/",
             presenterClass: "cami_3A5nr",
@@ -63,9 +63,9 @@ export default {
             subtitle: "avec",
             name: "Simpson Gracia",
             watch: "Regardez maintenant",
-            mainPicture: require("./assets/chriss-main.png"),
+            mainPicture: require("../assets/chriss-main.png"),
             avatarStyle:
-              "background-image:url(../assets/chriss-main-mobile.jpg);",
+              "background-image:url(@/assets/chriss-main-mobile.jpg);",
             link: "https://awr.org/watch-digging-deeper",
             presenterClass: "chris_Nsmgq",
             avatarClass: "avatar_Chriss_12VD"
@@ -84,20 +84,20 @@ export default {
             title: "Priez pour moi",
             desc:
               "Dieu répond aux prières. Laissez votre requête et nous prierons pour vous.",
-              icon: require("./assets/pray-hands-icon.svg")
+              icon: require("../assets/pray-hands-icon.svg")
           },
           {
             id: "bible",
             title: "Commencer un étude biblique",
             desc: "Trouvez des conseils pour aujourd'hui dans la Parole de Dieu.",
-              icon: require("./assets/bible-icon.svg")
+              icon: require("../assets/bible-icon.svg")
           },
           {
             id: "question",
             title: "Poser une question biblique",
             desc:
               "Posez votre question biblique et nous vous aiderons à trouver la réponse",
-              icon: require("./assets/question-icon.svg")
+              icon: require("../assets/question-icon.svg")
           },
         ],
       },

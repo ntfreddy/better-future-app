@@ -1,18 +1,15 @@
 <template>
-  <div xs="12" class="col-lg-4 col_ecetJ">
-    <div :id="id" class="card_2sjRH item-0_5Y_Vc">
-      <div class="top_1aI4o">
-        <div class="circle_33t-c"></div>
-        <!--svg viewBox="0 0 53 54" class="icon icon--pray-hands icon_2SKlE image_3yEvF">
-          <use xlink:href="#pray-hands">#shadow-root (closed)</use>
-        </svg-->
+  <div xs="12" class="col-lg-4" :class="$style.col">
+    <div :id="id" :class="[$style.card,$style.item-0]">
+      <div :class="$style.top">
+        <div :class="$style.circle"></div>
             <a href="#pray-hands">
-                <img :src="icon" alt="" width="53" height="54" class="icon icon_2SKlE image_3yEvF" />
+                <img :src="icon" alt="" width="53" height="54" class="icon" :class="[$style.icon, $style.image]" />
             </a>
       </div>
       <div>
-        <div class="title_1Gsa9">{{title}}</div>
-        <div class="desc_2y2rj" >{{desc}}</div>
+        <div :class="$style.title">{{title}}</div>
+        <div :class="$style.desc" >{{desc}}</div>
       </div>
     </div>
   </div>
@@ -23,14 +20,14 @@
         props: ["id","title","desc", "icon"]
     };
 </script>
-<style scoped>
+<style module>
 @media (max-width:991.98px) {
-    .col_ecetJ {
+    .col {
         margin-bottom: 30px
     }
 }
 
-.card_2sjRH {
+.card {
     width: 100%;
     min-height: 138px;
     height: 100%;
@@ -62,20 +59,20 @@
     padding: 30px 40px 60px
 }
 
-.card_2sjRH:hover {
+.card:hover {
     border-color: #2469c7;
     background: #2469c7
 }
 
-.card_2sjRH:hover .title_1Gsa9 {
+.card:hover .title {
     color: #fff
 }
 
-.card_2sjRH:hover .desc_2y2rj {
+.card:hover .desc {
     color: hsla(0, 0%, 100%, .6)
 }
 
-.card_2sjRH:hover .circle_33t-c {
+.card:hover .circle {
     width: 80px;
     height: 80px;
     top: -17px;
@@ -83,7 +80,7 @@
 }
 
 @media (max-width:991.98px) {
-    .card_2sjRH {
+    .card {
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -95,30 +92,30 @@
     }
 }
 
-.item-0_5Y_Vc .circle_33t-c {
+.item-0 .circle {
     top: -33%;
     left: 7%
 }
 
-.top_1aI4o {
+.top {
     margin-bottom: 37px;
     position: relative
 }
 
 @media (max-width:991.98px) {
-    .top_1aI4o {
+    .top {
         margin-right: 38px;
         margin-bottom: 0
     }
 }
 
-.image_3yEvF {
+.image {
     font-size: 52px;
     color: #2469c7;
     position: relative
 }
 
-.circle_33t-c {
+.circle {
     width: 44px;
     height: 44px;
     border-radius: 50%;
@@ -130,7 +127,7 @@
     transition: all .3s ease-in
 }
 
-.title_1Gsa9 {
+.title {
     font-weight: 500;
     font-size: 21px;
     line-height: 25px;
@@ -142,7 +139,7 @@
 }
 
 @media (max-width:991.98px) {
-    .title_1Gsa9 {
+    .title {
         font-size: 19px;
         line-height: 22px;
         margin-bottom: 8px;
@@ -150,7 +147,7 @@
     }
 }
 
-.desc_2y2rj {
+.desc {
     font-size: 14px;
     line-height: 21px;
     color: rgba(0, 0, 0, .6);
@@ -160,26 +157,26 @@
 }
 
 @media (prefers-color-scheme:dark) {
-    .circle_33t-c {
+    .circle {
         background-color: #2469c7
     }
-    .image_3yEvF,
-    .title_1Gsa9 {
+    .image,
+    .title {
         color: #fff
     }
-    .desc_2y2rj {
+    .desc {
         color: hsla(0, 0%, 100%, .6)
     }
 }
 
-.card_2sjRH:hover .circle_33t-c {
+.card:hover .circle {
     width: 80px;
     height: 80px;
     top: -17px;
     left: -13px
 }
 
-.icon_2SKlE {
+.icon {
     display: inline-block;
     width: 1em;
     height: 1em;
@@ -187,38 +184,38 @@
     vertical-align: middle
 }
 
-.icon_2SKlE use {
+.icon use {
     color: inherit;
     fill: currentColor
 }
 
-.icon_2SKlE.stroked_1yLoG use {
+.icon.stroked_1yLoG use {
     stroke: currentColor
 }
 
-.icon_2SKlE.hover-fill_2F_u8 use,
-.icon_2SKlE.nofill_1GHxw use {
+.icon.hover-fill_2F_u8 use,
+.icon.nofill_1GHxw use {
     fill: none
 }
 
-.icon_2SKlE.hover-fill_2F_u8 use:hover {
+.icon.hover-fill_2F_u8 use:hover {
     fill: currentColor
 }
 
-.icon_2SKlE.active-fill_1ZpLy use {
+.icon.active-fill_1ZpLy use {
     fill: none
 }
 
-.icon_2SKlE.active-fill_1ZpLy.is-active_2JuBa use {
+.icon.active-fill_1ZpLy.is-active_2JuBa use {
     fill: currentColor
 }
 
-.icon_2SKlE.big_ata0o {
+.icon.big{
     width: 2em;
     height: 2em
 }
 
-.icon_2SKlE.large_24yv8 {
+.icon.large {
     width: 3em;
     height: 3em
 }

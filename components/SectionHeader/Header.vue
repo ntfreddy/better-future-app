@@ -1,13 +1,13 @@
 <template>
-    <div class="container container_150oR">
+    <div class="container" :class="$style.container">
         <div class="row justify-content-center">
-            <div class="col-lg-12 column_81flN">
-                <div class="logoInContainer_1csj4"></div>
-                    <div class="content_39AhX">
-                        <div class="list_1xenz">
+            <div class="col-lg-12" :class="$style.column">
+                <div :class="$style.logoInContainer"></div>
+                    <div :class="$style.content">
+                        <div :class="$style.list">
                             <MenuItem v-for="menuItem in menu.menuItems" :key="menuItem" :text="menuItem.text" />
                         </div>
-                    <div class="register_2g_Un">{{menu.menuItemHightlight.text}}</div>
+                    <div :class="$style.register">{{menu.menuItemHightlight.text}}</div>
                 </div>
             </div>
         </div>
@@ -26,31 +26,31 @@ export default {
 };
 </script>
 
-<style>
-.container_150oR {
+<style module>
+.container {
     padding-top: 22px
 }
 
 @media (max-width:767.98px) {
-    .container_150oR {
+    .container {
         padding: 0
     }
 }
 
 
-.column_81flN {
+.column {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex
 }
 
 @media (max-width:991.98px) {
-    .column_81flN {
+    .column {
         display: none
     }
 }
 
-.logoInContainer_1csj4 {
+.logoInContainer {
     background: url(../../assets/unlocking-logo.svg);
     background-position: 50%;
     background-size: cover;
@@ -63,19 +63,19 @@ export default {
 }
 
 @media (max-width:991.98px) {
-    .logoInContainer_1csj4 {
+    .logoInContainer {
         display: none
     }
 }
 
 @media (min-width:992px) and (max-width:1199.98px) {
-    .logoInContainer_1csj4 {
+    .logoInContainer {
         width: 180px;
         margin-left: -30px
     }
 }
 
-.content_39AhX {
+.content {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -89,7 +89,7 @@ export default {
 }
 
 @media (min-width:992px) {
-    .content_39AhX {
+    .content {
         width: 100%;
         min-height: 98px;
         -webkit-box-pack: end;
@@ -99,12 +99,12 @@ export default {
 }
 
 @media (min-width:992px) and (max-width:1199.98px) {
-    .content_39AhX {
+    .content {
         padding: 0 25px
     }
 }
 
-.list_1xenz {
+.list {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -114,12 +114,12 @@ export default {
 }
 
 @media (max-width:991.98px) {
-    .list_1xenz {
+    .list {
         display: none
     }
 }
 
-.register_2g_Un {
+.register {
     padding: 7px 24px;
     font-weight: 700;
     font-size: 16px;
@@ -137,13 +137,13 @@ export default {
 }
 
 @media (max-width:991.98px) {
-    .register_2g_Un {
+    .register {
         display: none
     }
 }
 
 @media (min-width:992px) and (max-width:1199.98px) {
-    .register_2g_Un {
+    .register {
         margin-left: 15px;
         padding: 7px 30px
     }

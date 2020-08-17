@@ -1,7 +1,7 @@
 <template>
-    <div class="link_3ep5W">
-        <div class="line_2xwRg"></div>
-        <div class="title_lf2AC">{{text}}</div>
+    <div :class="$style.link">
+        <div :class="$style.line"></div>
+        <div :class="$style.title">{{text}}</div>
     </div>
 </template>
 <script>
@@ -10,8 +10,8 @@
         props: ["text"]
     };
 </script>
-<style>
-.link_3ep5W {
+<style module>
+.link {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -23,25 +23,25 @@
     position: relative
 }
 
-.link_3ep5W:not(:last-child) {
+.link:not(:last-child) {
     margin-right: 31px
 }
 
 @media (min-width:992px) and (max-width:1199.98px) {
-    .link_3ep5W:not(:last-child) {
+    .link:not(:last-child) {
         margin-right: 15px
     }
 }
 
-.link_3ep5W:hover .title_lf2AC {
+.link:hover .title {
     color: #fff
 }
 
-.link_3ep5W:hover .number_-BpaA {
+.link:hover .number_-BpaA {
     display: none
 }
 
-.link_3ep5W:hover .line_2xwRg {
+.link:hover .line {
     display: block;
     height: 1px;
     background: #fff;
@@ -49,7 +49,7 @@
     animation: increase_Ktm8F .3s ease-in
 }
 
-.line_2xwRg {
+.line {
     display: none;
     padding-top: 2px;
     margin-bottom: 6px;
@@ -59,7 +59,7 @@
     bottom: 30px
 }
 
-.title_lf2AC {
+.title {
     font-size: 16px;
     line-height: 24px;
     color: #fff;
@@ -67,9 +67,9 @@
     transition: all .3s ease-in
 }
 
-.title_lf2AC:active,
-.title_lf2AC:focus,
-.title_lf2AC:hover {
+.title:active,
+.title:focus,
+.title:hover {
     color: #2469c7
 }
 </style>
