@@ -18,3 +18,7 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+# issues
+
+1. You cannot target static webstite with spa. Use universal instead (https://github.com/nuxt/nuxt.js/issues/7886)

@@ -1,23 +1,23 @@
 <template>
-  <div class="footer_3YJkr">
+  <div :class="$style.footer">
     <div class="container">
-      <div class="row row_EtYN6">
+      <div class="row" :class="$style.row">
         <div class="col-sm-12 col-lg-3 order-sm-1 order-md-2">
-          <img src="../assets/footer-logo.svg" alt="Unlocking Bible Prophecies" class="logo_2Wwrn" />
+          <img src="../assets/footer-logo.svg" alt="Unlocking Bible Prophecies" :class="$style.logo" />
         </div>
         <div class="col-sm-12 col-md col-lg-3 offset-xl-1 order-sm-3 order-md-2">
-          <div class="text_C5tiP">{{data.presenterText}}</div>
-          <nav class="nav_ZzIDS terms_23AHf">
-            <a target="_blank" href="https://privacy.adventist.org/" rel="noopener" class="link_3qIS5">privacy policy</a>
+          <div :class="$style.text">{{data.presenterText}}</div>
+          <nav :class="[$style.nav, $style.terms]">
+            <a target="_blank" href="https://privacy.adventist.org/" rel="noopener" :class="$style.link">privacy policy</a>
           </nav>
         </div>
         <div class="col-sm-12 col-md-6 col-lg-5 order-sm-2 order-md-3">
-          <div class="partners_3bYDD">
-            <div class="title_2KNuK">{{data.partnerTitle}}</div>
-            <a v-for="partner in data.partners" :key="partner" :href="partner.link" target="_blank" class="link_2znc9">{{partner.name}}</a>
+          <div :class="$style.partners">
+            <div :class="$style.title">{{data.partnerTitle}}</div>
+            <a v-for="partner in data.partners" :key="partner" :href="partner.link" target="_blank" :class="$style.link">{{partner.name}}</a>
           </div>
         </div>
-        <div class="copyright_1WZc0 copyright_1mCFf">{{data.copyright}}</div>
+        <div :class="[$style.copyright, $style.copyright_1mCFf]">{{data.copyright}}</div>
       </div>
     </div>
   </div>
@@ -28,8 +28,8 @@ export default {
   props: ["data"]
 };
 </script>
-<style>
-.footer_3YJkr {
+<style module>
+.footer {
     width: 100%;
     background-color: #000;
     min-height: 182px;
@@ -37,32 +37,32 @@ export default {
     position: relative
 }
 
-.row_EtYN6 {
+.row {
     position: relative
 }
 
-.logo_2Wwrn {
+.logo {
     margin-bottom: 40px
 }
 
-.text_C5tiP {
+.text {
     font-size: 14px;
     line-height: 21px;
     color: #fff
 }
 
 @media (max-width:575.98px) {
-    .text_C5tiP:last-child {
+    .text:last-child {
         margin-bottom: 30px
     }
 }
 
-.link_3qIS5,
-.nav_ZzIDS {
+.link,
+.nav {
     display: block
 }
 
-.link_3qIS5 {
+.link {
     text-decoration: underline;
     margin-bottom: 5px;
     font-size: 16px;
@@ -71,25 +71,25 @@ export default {
     transition: all .2s ease-in
 }
 
-.link_3qIS5:active,
-.link_3qIS5:focus,
-.link_3qIS5:hover {
+.link:active,
+.link:focus,
+.link:hover {
     color: #2469c7
 }
 
-.terms_23AHf {
+.terms {
     display: block;
     color: #fff;
     margin-top: 20px
 }
 
 @media (max-width:575.98px) {
-    .terms_23AHf {
+    .terms {
         margin-bottom: 37px
     }
 }
 
-.partners_3bYDD {
+.partners {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -100,12 +100,12 @@ export default {
 }
 
 @media (max-width:767.98px) {
-    .partners_3bYDD {
+    .partners {
         margin-bottom: 20px
     }
 }
 
-.title_2KNuK {
+.title {
     font-weight: 700;
     font-size: 21px;
     line-height: 25px;
@@ -114,7 +114,7 @@ export default {
     margin-bottom: 23px
 }
 
-.link_2znc9 {
+.link {
     color: #fff;
     -webkit-transition: all .15s ease-in;
     transition: all .15s ease-in;
@@ -122,11 +122,11 @@ export default {
     margin-bottom: 4px
 }
 
-.link_2znc9:hover {
+.link:hover {
     color: #2469c7
 }
 
-.copyright_1WZc0 {
+.copyright {
     width: 100%;
     font-size: 14px;
     line-height: 21px;
@@ -134,13 +134,13 @@ export default {
 }
 
 @media (max-width:767.98px) {
-    .copyright_1WZc0 {
+    .copyright {
         max-width: 310px;
         font-size: 13px
     }
 }
 
-.copyright_w3H1L {
+.copyright {
     font-size: 14px;
     line-height: 16px;
     color: rgba(0, 0, 0, .3)
