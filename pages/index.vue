@@ -1,5 +1,6 @@
 <template>
   <div :class="$style.page">
+    <SectionHeaderVideo :data="sectionHeaderVideo" :scroll="scroll" />
     <SectionHeader :data="sectionHeader" :scroll="scroll" />
     <SectionActions :data="sectionActions" />
     <SectionBibleStudy :data="sectionBibleStudy" />
@@ -11,6 +12,7 @@
 </template>
 
 <script>
+import SectionHeaderVideo from "../components/SectionHeaderVideo";
 import SectionHeader from "../components/SectionHeader";
 import SectionActions from "../components/SectionActions";
 import SectionBibleStudy from "../components/SectionBibleStudy";
@@ -22,6 +24,7 @@ import Footer from "../components/Footer";
 export default {
   name: "Page",
   components: {
+    SectionHeaderVideo,
     SectionHeader,
     SectionActions,
     SectionBibleStudy,
@@ -32,6 +35,9 @@ export default {
   },
   data: function () {
     return {
+      sectionHeaderVideo: {
+
+      },
       sectionHeader: {
         reminder: {
           text: "Pour recevoir des mises à jour",
@@ -56,10 +62,10 @@ export default {
             name: "Danielle Noélizaire",
             watch: "Regardez maintenant",
             mainPicture: require("../assets/cami-main.png"),
-            avatarStyle: "background-image:url(@/assets/cami-main-mobile.jpg);",
+            avatarPicture: require("../assets/cami-main-mobile.jpg"),
             link: "/the-prediction/",
-            presenterClass: "cami_3A5nr",
-            avatarClass: "avatar_Cami_12VD",
+            presenterClass: "cami",
+            avatarPicture: require("../assets/cami-main-mobile.jpg"),
           },
           {
             label: "Qui connaît l'avenir?",
@@ -67,11 +73,9 @@ export default {
             name: "Simpson Gracia",
             watch: "Regardez maintenant",
             mainPicture: require("../assets/chriss-main.png"),
-            avatarStyle:
-              "background-image:url(@/assets/chriss-main-mobile.jpg);",
+            avatarPicture: require("../assets/chriss-main-mobile.jpg"),
             link: "https://awr.org/watch-digging-deeper",
-            presenterClass: "chris_Nsmgq",
-            avatarClass: "avatar_Chriss_12VD",
+            presenterClass: "chriss",
           },
         ],
       },

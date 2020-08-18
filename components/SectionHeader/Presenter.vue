@@ -1,48 +1,40 @@
 <template>
-    <div class="col-sm-12 col-lg-6 content_2u34F" :class="presenterClass">
-        <div class="avatar_1VmU2" :class="avatarClass">
-            <div class="border_1WQEm"></div>
+    <div class="col-sm-12 col-lg-6" :class="[$style.content, $style.cami]">
+        <div :class="[$style.avatar]" :style="'background-image: url(' + avatarPicture + ');'">
+            <div :class="$style.border"></div>
         </div>
-        <div class="label_1ASOE">{{label}}</div>
-        <div class="title_3y2K9"></div>
-        <div class="subtitle_26uy6">
+        <div :class="$style.label">{{label}}</div>
+        <div :class="$style.title"></div>
+        <div :class="$style.subtitle">
             {{subtitle}}
-            <span class="name_szR2C">{{name}}</span>
+            <span :class="$style.name">{{name}}</span>
         </div>
-        <a :href="link" target="_blank" class="action_23zzT">
-            <div class="circle_2lBvg">
-                <svg viewBox="0 0 13 17" class="icon icon--play icon_2SKlE play_1JOXD">
+        <a :href="link" target="_blank" :class="$style.action">
+            <div :class="$style.circle">
+                <svg viewBox="0 0 13 17" class="icon icon--play" :class="[$style.icon, $style.play]">
                     <use xlink:href="#play">
-                        #shadow-root (closed)
                         <svg viewbox="0 0 13 17" id="play" xmlns="http://www.w3.org/2000/svg">
                             <path d="M13 8.5L0 17V0l13 8.5z"></path>
                         </svg>
                     </use>
                 </svg>
             </div>
-            <div class="watch_38k5R">
+            <div :class="$style.watch">
                {{watch}}
             </div>
         </a>
-        <img :src="mainPicture" class="speaker_3gDN2">
+        <img :src="mainPicture" :class="$style.speaker">
     </div>
 </template>
 <script>
     export default {
         name: "Presenter",
-        props: ["label","subtitle","name","watch","mainPicture","avatarStyle","link","presenterClass", "avatarClass"]
+        props: ["label","subtitle","name","watch","mainPicture","avatarPicture","link","presenterClass"]
     };
 </script>
-<style scoped>
-.avatar_Cami_12VD {
-    background-image:url(../../assets/cami-main-mobile.jpg);
-}
+<style module>
 
-.avatar_Chriss_12VD {
-    background-image:url(../../assets/chriss-main-mobile.jpg);
-}
-
-.content_2u34F {
+.content {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -63,14 +55,14 @@
 }
 
 @media (min-width:768px) and (max-width:991.98px) {
-    .content_2u34F {
+    .content {
         margin-top: 50px;
         margin-bottom: 50px
     }
 }
 
 @media (max-width:991.98px) {
-    .content_2u34F {
+    .content {
         padding-top: 63px;
         padding-bottom: 25px;
         margin-top: 33px;
@@ -87,12 +79,12 @@
 }
 
 @media (max-width:575.98px) {
-    .content_2u34F {
+    .content {
         margin: 33px 13px
     }
 }
 
-.avatar_1VmU2 {
+.avatar {
     width: 70px;
     height: 70px;
     border-radius: 50%;
@@ -104,12 +96,12 @@
 }
 
 @media (min-width:992px) {
-    .avatar_1VmU2 {
+    .avatar {
         display: none
     }
 }
 
-.border_1WQEm {
+.border {
     border-radius: 50%;
     border: 1px solid #fff;
     width: 70px;
@@ -120,12 +112,12 @@
 }
 
 @media (min-width:992px) {
-    .border_1WQEm {
+    .border {
         display: none
     }
 }
 
-.label_1ASOE {
+.label {
     font-size: 14px;
     line-height: 145.4%;
     letter-spacing: 7px;
@@ -136,7 +128,7 @@
 }
 
 @media (max-width:991.98px) {
-    .label_1ASOE {
+    .label {
         font-size: 12px;
         letter-spacing: 3.8px;
         margin-top: 28px;
@@ -144,7 +136,7 @@
     }
 }
 
-.title_3y2K9 {
+.title {
     width: 250px;
     height: 43px;
     background-image: url(../../assets/digging_deeper.svg);
@@ -155,7 +147,7 @@
     margin-left: -20px
 }
 
-.subtitle_26uy6 {
+.subtitle {
     font-size: 31px;
     line-height: 39px;
     color: #fff;
@@ -164,13 +156,13 @@
 }
 
 @media (max-width:991.98px) {
-    .subtitle_26uy6 {
+    .subtitle {
         font-size: 24px;
         line-height: 28px
     }
 }
 
-.name_szR2C {
+.name {
     font-family: Bebas Neue;
     font-style: normal;
     font-weight: 500;
@@ -181,7 +173,7 @@
     text-transform: uppercase
 }
 
-.action_23zzT {
+.action {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -193,27 +185,27 @@
     text-decoration: unset!important
 }
 
-.action_23zzT:hover .circle_2lBvg {
+.action:hover .circle {
     background: #b3daff
 }
 
-.action_23zzT:hover .watch_38k5R {
+.action:hover .watch {
     color: hsla(0, 0%, 100%, .8)
 }
 
 @media (max-width:991.98px) {
-    .action_23zzT:hover .circle_2lBvg {
+    .action:hover .circle {
         background: hsla(0, 0%, 100%, 0)
     }
 }
 
 @media (max-width:991.98px) {
-    .action_23zzT {
+    .action {
         margin-top: 16px
     }
 }
 
-.circle_2lBvg {
+.circle {
     width: 46px;
     height: 46px;
     border-radius: 50%;
@@ -236,12 +228,12 @@
     animation: pulse_3rp4Y 3s ease-in infinite
 }
 
-.circle_2lBvg:hover {
+.circle:hover {
     background: #b3daff
 }
 
 @media (max-width:991.98px) {
-    .circle_2lBvg {
+    .circle {
         -webkit-animation: none;
         animation: none;
         width: 20px;
@@ -251,7 +243,7 @@
     }
 }
 
-.play_1JOXD {
+.play {
     color: #2469c7;
     width: 13px;
     height: 10px;
@@ -259,7 +251,7 @@
     margin-top: -1px
 }
 
-.icon_2SKlE {
+.icon {
     display: inline-block;
     width: 1em;
     height: 1em;
@@ -267,43 +259,43 @@
     vertical-align: middle
 }
 
-.icon_2SKlE use {
+.icon use {
     color: inherit;
     fill: currentColor
 }
 
-.icon_2SKlE.stroked_1yLoG use {
+.icon.strokedG use {
     stroke: currentColor
 }
 
-.icon_2SKlE.hover-fill_2F_u8 use,
-.icon_2SKlE.nofill_1GHxw use {
+.icon.hover-fill use,
+.icon.nofill_1GHxw use {
     fill: none
 }
 
-.icon_2SKlE.hover-fill_2F_u8 use:hover {
+.icon.hover-fill use:hover {
     fill: currentColor
 }
 
-.icon_2SKlE.active-fill_1ZpLy use {
+.icon.active-fill use {
     fill: none
 }
 
-.icon_2SKlE.active-fill_1ZpLy.is-active_2JuBa use {
+.icon.active-fill.is-active use {
     fill: currentColor
 }
 
-.icon_2SKlE.big_ata0o {
+.icon.big {
     width: 2em;
     height: 2em
 }
 
-.icon_2SKlE.large_24yv8 {
+.icon.large {
     width: 3em;
     height: 3em
 }
 
-.watch_38k5R {
+.watch {
     font-size: 13px;
     line-height: 15px;
     font-weight: 400;
@@ -317,12 +309,12 @@
 }
 
 @media (max-width:991.98px) {
-    .watch_38k5R {
+    .watch {
         margin-bottom: 0
     }
 }
 
-.speaker_3gDN2 {
+.speaker {
     width: 295px;
     height: 422px;
     -o-object-fit: contain;
@@ -332,7 +324,7 @@
 }
 
 @media (max-width:991.98px) {
-    .speaker_3gDN2 {
+    .speaker {
         display: none
     }
 }

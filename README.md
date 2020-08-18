@@ -17,8 +17,15 @@ $ npm run start
 $ npm run generate
 ```
 
+
+
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
 
-# issues
+# Issues
 
 1. You cannot target static webstite with spa. Use universal instead (https://github.com/nuxt/nuxt.js/issues/7886)
+
+# Dependencies
+
+1. npm install locomotive-scroll --save
+2. npm install swiper vue-awesome-swiper --save

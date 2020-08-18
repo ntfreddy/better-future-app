@@ -1,16 +1,20 @@
 <template>
-  <div id="section-header" class="header_3nK_z hasReminder_2Fg0S">
-    <div class="panel_HvvtT">
+  <div id="section-header" :class="[$style.header, $style.hasReminder]">
+    <div :class="$style.panel">
       <Reminder :text="data.reminder.text" :buttonTitle="data.reminder.buttonTitle" />
       <Header :menu="data.menu" :scroll="scroll" />
-      <div class="container mobilePanel_1x3eM">
-        <div class="row row_1j9GR">
-          <div class="col-12 mobileColumn_fU7gb">
-            <div class="content_39AhX">
-              <div class="logo_1989Q"></div>
-              <div class="mobileBurgerBox_2x-8l">
-                <svg viewBox="0 0 24 11" class="icon icon--burger icon_2SKlE mobileBurger_2_MS1">
-                  <use xlink:href="#burger"></use>
+      <div class="container" :class="$style.mobilePanel">
+        <div class="row" :class="$style.row">
+          <div class="col-12" :class="$style.mobileColumn">
+            <div :class="$style.content">
+              <div :class="$style.logo"></div>
+              <div :class="$style.mobileBurgerBox">
+                <svg viewBox="0 0 24 11" class="icon icon--burger" :class="[$style.icon, $style.mobileBurger]">
+                  <use xlink:href="#burger">
+                    <svg fill="none" viewBox="0 0 24 11" id="burger" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke="#fff" stroke-width="2" d="M24 1H0M24 10H12"></path>
+                    </svg>
+                  </use>
                 </svg>
               </div>
             </div>
@@ -27,10 +31,9 @@
                 :name="presenter.name"
                 :watch="presenter.watch"
                 :mainPicture="presenter.mainPicture"
-                :avatarStyle="presenter.avatarStyle" 
+                :avatarPicture="presenter.avatarPicture" 
                 :link="presenter.link"
-                :presenterClass="presenter.presenterClass"
-                :avatarClass="presenter.avatarClass" />
+                :presenterClass="presenter.presenterClass" />
             </div>
         </div>
   </div>
@@ -52,15 +55,15 @@ export default {
 };
 </script>
 
-<style>
+<style module>
 @media (max-width:991.98px){
-	.hasReminder_2Fg0S 
-	.cami_3A5nr{
+	.hasReminder 
+	.cami{
 		margin-top:240px
 	}
 }
 
-.header_3nK_z {
+.header {
   width: 100%;
   background-image: url("../assets/earth_key.jpg");
   background-position: top;
@@ -68,13 +71,13 @@ export default {
   background-size: cover;
 }
 
-.panel_HvvtT {
+.panel {
     position: relative;
     z-index: 11
 }
 
 @media (max-width:991.98px) {
-    .panel_HvvtT {
+    .panel {
         background: #121212;
         padding: 0;
         position: fixed;
@@ -84,29 +87,29 @@ export default {
     }
 }
 
-.mobilePanel_1x3eM {
+.mobilePanel {
     display: none
 }
 
 @media (max-width:991.98px) {
-    .mobilePanel_1x3eM {
+    .mobilePanel {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex
     }
 }
 
-.row_1j9GR {
+.row {
     width: 100%;
     margin: 0
 }
 
-.mobileColumn_fU7gb {
+.mobileColumn {
     width: 100%;
     padding: 0
 }
 
-.content_39AhX {
+.content {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -120,7 +123,7 @@ export default {
 }
 
 @media (min-width:992px) {
-    .content_39AhX {
+    .content {
         width: 100%;
         min-height: 98px;
         -webkit-box-pack: end;
@@ -130,12 +133,12 @@ export default {
 }
 
 @media (min-width:992px) and (max-width:1199.98px) {
-    .content_39AhX {
+    .content {
         padding: 0 25px
     }
 }
 
-.logo_1989Q {
+.logo {
     background: url(../assets/unlocking-logo.svg);
     background-position: 50%;
     background-size: cover;
@@ -146,7 +149,7 @@ export default {
 }
 
 @media (max-width:991.98px) {
-    .logo_1989Q {
+    .logo {
         width: 137px;
         height: 70px;
         margin-left: -24px
@@ -154,7 +157,7 @@ export default {
 }
 
 @media (min-width:992px) {
-    .logo_1989Q {
+    .logo {
         position: absolute;
         top: 30px;
         left: -5px;
@@ -164,8 +167,62 @@ export default {
     }
 }
 
-.mobileBurgerBox_2x-8l {
+.mobileBurgerBox {
     width: 140px;
     height: 70px
 }
+
+.mobileBurger {
+    font-size: 24px;
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    top: 23px;
+    right: 5px
+}
+
+.icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    line-height: 1em;
+    vertical-align: middle
+}
+
+.icon use {
+    color: inherit;
+    fill: currentColor
+}
+
+.icon.stroked use {
+    stroke: currentColor
+}
+
+.icon.hover-fill use,
+.icon.nofill use {
+    fill: none
+}
+
+.icon.hover-fill use:hover {
+    fill: currentColor
+}
+
+.icon.active-fill use {
+    fill: none
+}
+
+.icon.active-fill.is-active use {
+    fill: currentColor
+}
+
+.icon.big {
+    width: 2em;
+    height: 2em
+}
+
+.icon.large_24yv8 {
+    width: 3em;
+    height: 3em
+}
+
 </style>

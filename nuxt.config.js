@@ -27,15 +27,23 @@ export default {
     /*
      ** Global CSS
      */
-    css: [],
+    css: [
+        // swiper style
+        'swiper/swiper-bundle.css'
+    ],
     /*
      ** Plugins to load before mounting the App
      ** https://nuxtjs.org/guide/plugins
      */
     plugins: [{
-        src: "~/plugins/locomotiveScroll.js",
-        mode: "client"
-    }],
+            src: "~/plugins/locomotive-scroll.js",
+            mode: "client"
+        },
+        {
+            src: '~/plugins/vue-awesome-swiper.js',
+            ssr: false
+        }
+    ],
     /*
      ** Auto import components
      ** See https://nuxtjs.org/api/configuration-components
