@@ -1,5 +1,5 @@
 <template>
-  <div id="section-enroll" class="enroll_1_wEt" data-scroll-section>
+  <div id="section-enroll" class="enroll_1_wEt">
     <div class="container">
       <div class="bg_3Jv-W"></div>
       <img alt="Bookmark – Unlocking Bible Prophecies" src="../assets/open-bible-1.png" class="book1_K2y_R" />

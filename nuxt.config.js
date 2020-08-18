@@ -34,7 +34,7 @@ export default {
      */
     plugins: [{
         src: "~/plugins/locomotiveScroll.js",
-        ssr: "false"
+        mode: "client"
     }],
     /*
      ** Auto import components

@@ -1,5 +1,5 @@
 <template>
-  <div id="section-bible-study" class="registration_1wZW9" data-scroll-section>
+  <div id="section-bible-study" class="registration_1wZW9">
     <div class="container conatainer_1cvWr">
       <div class="bg_1Pe_G"></div>
       <div class="row">

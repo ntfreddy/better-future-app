@@ -1,5 +1,5 @@
 <template>
-  <div id="section-header" class="header_3nK_z hasReminder_2Fg0S" data-scroll-section>
+  <div id="section-header" class="header_3nK_z hasReminder_2Fg0S">
     <div class="panel_HvvtT">
       <Reminder :text="data.reminder.text" :buttonTitle="data.reminder.buttonTitle" />
       <Header :menu="data.menu" :scroll="scroll" />

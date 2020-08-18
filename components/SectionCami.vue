@@ -1,5 +1,5 @@
 <template>
-    <div id="section-cami" class="block_1kwPF" data-scroll-section>
+    <div id="section-cami" class="block_1kwPF">
         <div class="container container_1nDss">
             <div class="row">
                 <div class="col-sm-12 col-md-6 col-lg-6">

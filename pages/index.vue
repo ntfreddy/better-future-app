@@ -1,6 +1,6 @@
 <template>
-  <div id="app" data-scroll-container>
-    <SectionHeader :data="sectionHeader" :scroll="scroll"/>
+  <div :class="$style.page">
+    <SectionHeader :data="sectionHeader" :scroll="scroll" />
     <SectionActions :data="sectionActions" />
     <SectionBibleStudy :data="sectionBibleStudy" />
     <SectionCami :data="sectionCami" />
@@ -19,9 +19,8 @@ import SectionChriss from "../components/SectionChriss";
 import SectionEnroll from "../components/SectionEnroll";
 import Footer from "../components/Footer";
 
-
 export default {
-  name: "App",
+  name: "Page",
   components: {
     SectionHeader,
     SectionActions,
@@ -40,12 +39,15 @@ export default {
         },
         menu: {
           menuItems: [
-            { text: "Priez pour moi", target:"#section-actions"},
-            { text: "Études bibliques", target:"#section-bible-study"},
-            { text: "Danielle Noélizaire", target:"#section-cami"},
-            { text: "Simpson Gracia", target:"#section-chriss" },
+            { text: "Priez pour moi", target: "#section-actions" },
+            { text: "Études bibliques", target: "#section-bible-study" },
+            { text: "Danielle Noélizaire", target: "#section-cami" },
+            { text: "Simpson Gracia", target: "#section-chriss" },
           ],
-          menuItemHightlight: { text: "Inscrivez-vous maintenant", target:"#section-enroll" },
+          menuItemHightlight: {
+            text: "Inscrivez-vous maintenant",
+            target: "#section-enroll",
+          },
         },
         presenters: [
           {
@@ -57,7 +59,7 @@ export default {
             avatarStyle: "background-image:url(@/assets/cami-main-mobile.jpg);",
             link: "/the-prediction/",
             presenterClass: "cami_3A5nr",
-            avatarClass: "avatar_Cami_12VD"
+            avatarClass: "avatar_Cami_12VD",
           },
           {
             label: "Qui connaît l'avenir?",
@@ -69,7 +71,7 @@ export default {
               "background-image:url(@/assets/chriss-main-mobile.jpg);",
             link: "https://awr.org/watch-digging-deeper",
             presenterClass: "chris_Nsmgq",
-            avatarClass: "avatar_Chriss_12VD"
+            avatarClass: "avatar_Chriss_12VD",
           },
         ],
       },
@@ -85,20 +87,21 @@ export default {
             title: "Priez pour moi",
             desc:
               "Dieu répond aux prières. Laissez votre requête et nous prierons pour vous.",
-              icon: require("../assets/pray-hands-icon.svg")
+            icon: require("../assets/pray-hands-icon.svg"),
           },
           {
             id: "bible",
             title: "Commencer un étude biblique",
-            desc: "Trouvez des conseils pour aujourd'hui dans la Parole de Dieu.",
-              icon: require("../assets/bible-icon.svg")
+            desc:
+              "Trouvez des conseils pour aujourd'hui dans la Parole de Dieu.",
+            icon: require("../assets/bible-icon.svg"),
           },
           {
             id: "question",
             title: "Poser une question biblique",
             desc:
               "Posez votre question biblique et nous vous aiderons à trouver la réponse",
-              icon: require("../assets/question-icon.svg")
+            icon: require("../assets/question-icon.svg"),
           },
         ],
       },
@@ -185,17 +188,20 @@ export default {
   },
   mounted() {
     this.scroll = new this.locomotiveScroll({
-      el: document.querySelector('[data-scroll-container]'),
-      smooth: true,
-      smoothMobile: true,
-      direction:"vertical"
+      el: document.querySelector("#app"),
+      smooth: false,
+      smoothMobile: false,
+      direction: "vertical",
     });
     console.log("scroll", this.scroll);
-  }
+  },
 };
 </script>
 
-<style>
-@import url('https://fonts.googleapis.com/css?family=Bebas+Neue');
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+<style module>
+.page {
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+}
 </style>
