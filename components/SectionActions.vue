@@ -1,5 +1,5 @@
 <template>
-  <div id="section-actions" class="actions_1K_lr">
+  <div id="section-actions" class="actions_1K_lr" data-scroll-section>
     <div class="bg_3o65N"></div>
     <div class="container">
       <div class="row">
@@ -14,7 +14,7 @@
         <div class="col-sm-12">
           <div class="row">
               <Action v-for="action in data.actions" 
-                :key="action" 
+                :key="action.id" 
                 :id="action.id" 
                 :title="action.title"
                 :desc="action.desc" 

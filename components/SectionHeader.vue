@@ -1,8 +1,8 @@
 <template>
-  <div id="section-header" class="header_3nK_z hasReminder_2Fg0S">
+  <div id="section-header" class="header_3nK_z hasReminder_2Fg0S" data-scroll-section>
     <div class="panel_HvvtT">
       <Reminder :text="data.reminder.text" :buttonTitle="data.reminder.buttonTitle" />
-      <Header :menu="data.menu" />
+      <Header :menu="data.menu" :scroll="scroll" />
       <div class="container mobilePanel_1x3eM">
         <div class="row row_1j9GR">
           <div class="col-12 mobileColumn_fU7gb">
@@ -21,7 +21,7 @@
       <div class="container">
             <div class="row">
               <Presenter v-for="presenter in data.presenters" 
-                :key="presenter" 
+                :key="presenter.label" 
                 :label="presenter.label" 
                 :subtitle="presenter.subtitle"
                 :name="presenter.name"
@@ -48,7 +48,7 @@ export default {
     Header,
     Presenter
   },  
-  props: ["data"]
+  props: ["data", "scroll"]
 };
 </script>
 

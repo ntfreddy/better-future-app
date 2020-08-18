@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-    <SectionHeader :data="sectionHeader" />
+  <div id="app" data-scroll-container>
+    <SectionHeader :data="sectionHeader" :scroll="scroll"/>
     <SectionActions :data="sectionActions" />
     <SectionBibleStudy :data="sectionBibleStudy" />
     <SectionCami :data="sectionCami" />
@@ -18,6 +18,7 @@ import SectionCami from "../components/SectionCami";
 import SectionChriss from "../components/SectionChriss";
 import SectionEnroll from "../components/SectionEnroll";
 import Footer from "../components/Footer";
+
 
 export default {
   name: "App",
@@ -39,12 +40,12 @@ export default {
         },
         menu: {
           menuItems: [
-            { text: "Priez pour moi" },
-            { text: "Études bibliques" },
-            { text: "Danielle Noélizaire" },
-            { text: "Simpson Gracia" },
+            { text: "Priez pour moi", target:"#section-actions"},
+            { text: "Études bibliques", target:"#section-bible-study"},
+            { text: "Danielle Noélizaire", target:"#section-cami"},
+            { text: "Simpson Gracia", target:"#section-chriss" },
           ],
-          menuItemHightlight: { text: "Inscrivez-vous maintenant" },
+          menuItemHightlight: { text: "Inscrivez-vous maintenant", target:"#section-enroll" },
         },
         presenters: [
           {
@@ -179,8 +180,18 @@ export default {
           { name: "Launch a Watch Party (Coming Soon)", link: "#" },
         ],
       },
+      scroll: null,
     };
   },
+  mounted() {
+    this.scroll = new this.locomotiveScroll({
+      el: document.querySelector('[data-scroll-container]'),
+      smooth: true,
+      smoothMobile: true,
+      direction:"vertical"
+    });
+    console.log("scroll", this.scroll);
+  }
 };
 </script>
 

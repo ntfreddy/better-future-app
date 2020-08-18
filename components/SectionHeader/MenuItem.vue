@@ -1,5 +1,5 @@
 <template>
-    <div :class="$style.link">
+    <div :class="$style.link" :data-target="target" v-on:click="menuItemClickedOn($event)">
         <div :class="$style.line"></div>
         <div :class="$style.title">{{text}}</div>
     </div>
@@ -7,7 +7,14 @@
 <script>
     export default {
         name: "MenuItem",
-        props: ["text"]
+        props: ["text", "target", "scroll"],
+        methods: {
+            menuItemClickedOn: function(event){
+                const targetId = event.currentTarget.getAttribute("data-target");
+                const targetElement = document.querySelector(targetId);
+                this.scroll.scrollTo(targetElement);
+            }
+        }
     };
 </script>
 <style module>

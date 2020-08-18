@@ -14,7 +14,7 @@
         <div class="col-sm-12 col-md-6 col-lg-5 order-sm-2 order-md-3">
           <div :class="$style.partners">
             <div :class="$style.title">{{data.partnerTitle}}</div>
-            <a v-for="partner in data.partners" :key="partner" :href="partner.link" target="_blank" :class="$style.link">{{partner.name}}</a>
+            <a v-for="partner in data.partners" :key="partner.name" :href="partner.link" target="_blank" :class="$style.link">{{partner.name}}</a>
           </div>
         </div>
         <div :class="[$style.copyright, $style.copyright_1mCFf]">{{data.copyright}}</div>

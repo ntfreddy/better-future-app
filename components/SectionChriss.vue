@@ -1,5 +1,5 @@
 <template>
-    <div id="section-chriss" class="block_2lprE">
+    <div id="section-chriss" class="block_2lprE" data-scroll-section>
         <div class="bg_2dWKc"></div>
         <div class="container container_3-ZcA">
             <div class="row row_3MnZK">
