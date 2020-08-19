@@ -1,46 +1,19 @@
 <template>
-  <!--div v-swiper:mySwiper="swiperOption">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">Slide 1</div>
-      <div class="swiper-slide">Slide 2</div>
-      <div class="swiper-slide">Slide 3</div>
+  <!--div v-swiper:mySwiper="swiperOption" class="d-lg-flex d-none timeLine_AjIG1 ready_1qnle line_yMtTe">
+
+        <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(-1560px, 0px, 0px);">
+      <div v-for="slide in slides" :key="slide.episode" class="swiper-slide" >
+                 {{slide.title}}
+             </div>
     </div>
     <div class="swiper-pagination"></div>
+ 
   </div-->
-   <div v-swiper:mySwiper="swiperOption" class="d-lg-flex d-none timeLine_AjIG1 ready_1qnle line_yMtTe">
+   <div  class="d-lg-flex d-none timeLine_AjIG1 ready_1qnle line_yMtTe">
     <div class="container">
-      <div class="swiper-container swiperContainer_1sKij swiper-container-horizontal">
-        <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(-1560px, 0px, 0px);">
-          <div class="swiper-slide slide_zbNQv" style="margin-right: 20px;">
-            <div class="top_2uNWx">
-              <div class="label_8yXzv">
-                <div class="checked_j980D" style="display: none;">
-                  <svg viewBox="0 0 14 10" class="icon icon--checked icon_2SKlE check_3Yu77">
-                    <use xlink:href="#checked" />
-                  </svg>
-                </div>
-                <span>trailer</span>
-                <span style="display: none;">episode 0</span>
-              </div>
-              <div class="line_3PFJG"></div>
-            </div>
-            <div class="bottom_4cy4i">
-              <img
-                src="https://storage.googleapis.com/bible.awr.org/episodes/intro-small.jpg"
-                class="image_1VvVr"
-              />
-              <div class="clockBox_2AEDI" style="display: none;">
-                <svg viewBox="0 0 24 24" class="icon icon--clock icon_2SKlE clock_37Emv">
-                  <use xlink:href="#clock" />
-                </svg>
-              </div>
-              <div class="content_cRsEl">
-                <div class="date_1Eua6" style="display: none;">Wednesday, May 27</div>
-                <div class="title_3uuKD">Unlocking Bible Prophecies</div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide slide_zbNQv" style="margin-right: 20px;">
+      <div v-swiper:mySwiper="swiperOption" class="swiper-container swiperContainer_1sKij swiper-container-horizontal">
+        <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(-1560px, 0px, 0px);">       
+          <div v-for="slide in slides" :key="slide.episode" class="swiper-slide slide_zbNQv" style="margin-right: 20px;">
             <div class="top_2uNWx">
               <div class="label_8yXzv">
                 <div class="checked_j980D" style="display: none;">
@@ -49,400 +22,25 @@
                   </svg>
                 </div>
                 <span style="display: none;">trailer</span>
-                <span>episode 1</span>
+                <span>{{slide.episode}}</span>
               </div>
               <div class="line_3PFJG"></div>
             </div>
             <div class="bottom_4cy4i">
-              <img
-                src="https://storage.googleapis.com/bible.awr.org/episodes/the-prediction-small.jpg"
-                class="image_1VvVr"
-              />
+              <img :src="slide.thumbnail" class="image_1VvVr"/>
               <div class="clockBox_2AEDI" style="display: none;">
                 <svg viewBox="0 0 24 24" class="icon icon--clock icon_2SKlE clock_37Emv">
-                  <use xlink:href="#clock" />
+                  <use xlink:href="#clock">
+                      <svg fill="none" viewBox="0 0 24 24" id="clock" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M2.487 4.631a.934.934 0 00.6-.217L5.632 2.29a.938.938 0 00-1.2-1.44L1.886 2.974a.938.938 0 00.6 1.657zM18.366 2.29l2.546 2.124a.934.934 0 001.32-.12.937.937 0 00-.12-1.32L19.568.85a.937.937 0 10-1.2 1.44zM19.822 5.115a10.98 10.98 0 00-6.931-3.204V.937a.937.937 0 10-1.875 0v.982a10.979 10.979 0 00-6.838 3.196 10.99 10.99 0 00-3.24 7.822 10.99 10.99 0 003.24 7.823c.193.193.393.38.598.557l-.753 1.266a.938.938 0 001.61.959l.667-1.119A10.993 10.993 0 0012 24c2.032 0 3.983-.543 5.7-1.579l.666 1.12a.937.937 0 101.611-.958l-1.172-1.969a.937.937 0 00-1.361-.275A9.113 9.113 0 0112 22.125c-5.066 0-9.188-4.122-9.188-9.188C2.813 7.871 6.934 3.75 12 3.75c5.066 0 9.187 4.121 9.187 9.188a9.194 9.194 0 01-1.132 4.422.937.937 0 101.643.904 11.075 11.075 0 001.364-5.327 10.99 10.99 0 00-3.24-7.822z" fill="#fff"></path>
+                      <path d="M11.953 6.047a.937.937 0 00-.937.937v5.953c0 .25.098.488.274.663l2.652 2.652a.935.935 0 001.326 0 .938.938 0 000-1.326L12.89 12.55V6.984a.937.937 0 00-.938-.937z" fill="#fff"></path>
+                      </svg>
+                      </use>
                 </svg>
               </div>
               <div class="content_cRsEl">
-                <div class="date_1Eua6">Sunday, May 31</div>
-                <div class="title_3uuKD">The Prediction</div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide slide_zbNQv" style="margin-right: 20px;">
-            <div class="top_2uNWx">
-              <div class="label_8yXzv">
-                <div class="checked_j980D" style="display: none;">
-                  <svg viewBox="0 0 14 10" class="icon icon--checked icon_2SKlE check_3Yu77">
-                    <use xlink:href="#checked" />
-                  </svg>
-                </div>
-                <span style="display: none;">trailer</span>
-                <span>episode 2</span>
-              </div>
-              <div class="line_3PFJG"></div>
-            </div>
-            <div class="bottom_4cy4i">
-              <img
-                src="https://storage.googleapis.com/bible.awr.org/episodes/the-signs-small.jpg"
-                class="image_1VvVr"
-              />
-              <div class="clockBox_2AEDI" style="display: none;">
-                <svg viewBox="0 0 24 24" class="icon icon--clock icon_2SKlE clock_37Emv">
-                  <use xlink:href="#clock" />
-                </svg>
-              </div>
-              <div class="content_cRsEl">
-                <div class="date_1Eua6">Monday, June 1</div>
-                <div class="title_3uuKD">The Signs</div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide slide_zbNQv" style="margin-right: 20px;">
-            <div class="top_2uNWx">
-              <div class="label_8yXzv">
-                <div class="checked_j980D" style="display: none;">
-                  <svg viewBox="0 0 14 10" class="icon icon--checked icon_2SKlE check_3Yu77">
-                    <use xlink:href="#checked" />
-                  </svg>
-                </div>
-                <span style="display: none;">trailer</span>
-                <span>episode 3</span>
-              </div>
-              <div class="line_3PFJG"></div>
-            </div>
-            <div class="bottom_4cy4i">
-              <img
-                src="https://storage.googleapis.com/bible.awr.org/episodes/the-warning-small.jpg"
-                class="image_1VvVr"
-              />
-              <div class="clockBox_2AEDI" style="display: none;">
-                <svg viewBox="0 0 24 24" class="icon icon--clock icon_2SKlE clock_37Emv">
-                  <use xlink:href="#clock" />
-                </svg>
-              </div>
-              <div class="content_cRsEl">
-                <div class="date_1Eua6">Tuesday, June 2</div>
-                <div class="title_3uuKD">The Warning</div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide slide_zbNQv" style="margin-right: 20px;">
-            <div class="top_2uNWx">
-              <div class="label_8yXzv">
-                <div class="checked_j980D" style="display: none;">
-                  <svg viewBox="0 0 14 10" class="icon icon--checked icon_2SKlE check_3Yu77">
-                    <use xlink:href="#checked" />
-                  </svg>
-                </div>
-                <span style="display: none;">trailer</span>
-                <span>episode 4</span>
-              </div>
-              <div class="line_3PFJG"></div>
-            </div>
-            <div class="bottom_4cy4i">
-              <img
-                src="https://storage.googleapis.com/bible.awr.org/episodes/the-way-small.jpg"
-                class="image_1VvVr"
-              />
-              <div class="clockBox_2AEDI" style="display: none;">
-                <svg viewBox="0 0 24 24" class="icon icon--clock icon_2SKlE clock_37Emv">
-                  <use xlink:href="#clock" />
-                </svg>
-              </div>
-              <div class="content_cRsEl">
-                <div class="date_1Eua6">Wednesday, June 3</div>
-                <div class="title_3uuKD">The Way</div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide slide_zbNQv swiper-slide-prev" style="margin-right: 20px;">
-            <div class="top_2uNWx">
-              <div class="label_8yXzv">
-                <div class="checked_j980D" style="display: none;">
-                  <svg viewBox="0 0 14 10" class="icon icon--checked icon_2SKlE check_3Yu77">
-                    <use xlink:href="#checked" />
-                  </svg>
-                </div>
-                <span style="display: none;">trailer</span>
-                <span>episode 5</span>
-              </div>
-              <div class="line_3PFJG"></div>
-            </div>
-            <div class="bottom_4cy4i">
-              <img
-                src="https://storage.googleapis.com/bible.awr.org/episodes/the-authentic-seal-small.jpg"
-                class="image_1VvVr"
-              />
-              <div class="clockBox_2AEDI" style="display: none;">
-                <svg viewBox="0 0 24 24" class="icon icon--clock icon_2SKlE clock_37Emv">
-                  <use xlink:href="#clock" />
-                </svg>
-              </div>
-              <div class="content_cRsEl">
-                <div class="date_1Eua6">Thursday, June 4</div>
-                <div class="title_3uuKD">The Authentic Seal</div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide slide_zbNQv swiper-slide-active" style="margin-right: 20px;">
-            <div class="top_2uNWx">
-              <div class="label_8yXzv active_32GvD">
-                <div class="checked_j980D" style="display: none;">
-                  <svg viewBox="0 0 14 10" class="icon icon--checked icon_2SKlE check_3Yu77">
-                    <use xlink:href="#checked" />
-                  </svg>
-                </div>
-                <span style="display: none;">trailer</span>
-                <span>episode 6</span>
-              </div>
-              <div class="line_3PFJG"></div>
-            </div>
-            <div class="bottom_4cy4i">
-              <img
-                src="https://storage.googleapis.com/bible.awr.org/episodes/the-counterfeit-small.jpg"
-                class="image_1VvVr"
-              />
-              <div class="clockBox_2AEDI" style="display: none;">
-                <svg viewBox="0 0 24 24" class="icon icon--clock icon_2SKlE clock_37Emv">
-                  <use xlink:href="#clock" />
-                </svg>
-              </div>
-              <div class="content_cRsEl">
-                <div class="date_1Eua6">Friday, June 5</div>
-                <div class="title_3uuKD">The Counterfeit</div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide slide_zbNQv swiper-slide-next" style="margin-right: 20px;">
-            <div class="top_2uNWx">
-              <div class="label_8yXzv">
-                <div class="checked_j980D" style="display: none;">
-                  <svg viewBox="0 0 14 10" class="icon icon--checked icon_2SKlE check_3Yu77">
-                    <use xlink:href="#checked" />
-                  </svg>
-                </div>
-                <span style="display: none;">trailer</span>
-                <span>episode 7</span>
-              </div>
-              <div class="line_3PFJG"></div>
-            </div>
-            <div class="bottom_4cy4i">
-              <img
-                src="https://storage.googleapis.com/bible.awr.org/episodes/the-grave-small.jpg"
-                class="image_1VvVr"
-              />
-              <div class="clockBox_2AEDI" style="display: none;">
-                <svg viewBox="0 0 24 24" class="icon icon--clock icon_2SKlE clock_37Emv">
-                  <use xlink:href="#clock" />
-                </svg>
-              </div>
-              <div class="content_cRsEl">
-                <div class="date_1Eua6">Saturday, June 6</div>
-                <div class="title_3uuKD">The Grave</div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide slide_zbNQv" style="margin-right: 20px;">
-            <div class="top_2uNWx">
-              <div class="label_8yXzv">
-                <div class="checked_j980D" style="display: none;">
-                  <svg viewBox="0 0 14 10" class="icon icon--checked icon_2SKlE check_3Yu77">
-                    <use xlink:href="#checked" />
-                  </svg>
-                </div>
-                <span style="display: none;">trailer</span>
-                <span>episode 8</span>
-              </div>
-              <div class="line_3PFJG"></div>
-            </div>
-            <div class="bottom_4cy4i">
-              <img
-                src="https://storage.googleapis.com/bible.awr.org/episodes/the-rescue-small.jpg"
-                class="image_1VvVr"
-              />
-              <div class="clockBox_2AEDI" style="display: none;">
-                <svg viewBox="0 0 24 24" class="icon icon--clock icon_2SKlE clock_37Emv">
-                  <use xlink:href="#clock" />
-                </svg>
-              </div>
-              <div class="content_cRsEl">
-                <div class="date_1Eua6">Sunday, June 7</div>
-                <div class="title_3uuKD">The Rescue</div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide slide_zbNQv" style="margin-right: 20px;">
-            <div class="top_2uNWx">
-              <div class="label_8yXzv">
-                <div class="checked_j980D" style="display: none;">
-                  <svg viewBox="0 0 14 10" class="icon icon--checked icon_2SKlE check_3Yu77">
-                    <use xlink:href="#checked" />
-                  </svg>
-                </div>
-                <span style="display: none;">trailer</span>
-                <span>episode 9</span>
-              </div>
-              <div class="line_3PFJG"></div>
-            </div>
-            <div class="bottom_4cy4i">
-              <img
-                src="https://storage.googleapis.com/bible.awr.org/episodes/the-desolation-small.jpg"
-                class="image_1VvVr"
-              />
-              <div class="clockBox_2AEDI" style="display: none;">
-                <svg viewBox="0 0 24 24" class="icon icon--clock icon_2SKlE clock_37Emv">
-                  <use xlink:href="#clock" />
-                </svg>
-              </div>
-              <div class="content_cRsEl">
-                <div class="date_1Eua6">Monday, June 8</div>
-                <div class="title_3uuKD">The Desolation</div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide slide_zbNQv" style="margin-right: 20px;">
-            <div class="top_2uNWx">
-              <div class="label_8yXzv">
-                <div class="checked_j980D" style="display: none;">
-                  <svg viewBox="0 0 14 10" class="icon icon--checked icon_2SKlE check_3Yu77">
-                    <use xlink:href="#checked" />
-                  </svg>
-                </div>
-                <span style="display: none;">trailer</span>
-                <span>episode 10</span>
-              </div>
-              <div class="line_3PFJG"></div>
-            </div>
-            <div class="bottom_4cy4i">
-              <img
-                src="https://storage.googleapis.com/bible.awr.org/episodes/the-mark-small.jpg"
-                class="image_1VvVr"
-              />
-              <div class="clockBox_2AEDI" style="display: none;">
-                <svg viewBox="0 0 24 24" class="icon icon--clock icon_2SKlE clock_37Emv">
-                  <use xlink:href="#clock" />
-                </svg>
-              </div>
-              <div class="content_cRsEl">
-                <div class="date_1Eua6">Tuesday, June 9</div>
-                <div class="title_3uuKD">The Mark</div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide slide_zbNQv" style="margin-right: 20px;">
-            <div class="top_2uNWx">
-              <div class="label_8yXzv">
-                <div class="checked_j980D" style="display: none;">
-                  <svg viewBox="0 0 14 10" class="icon icon--checked icon_2SKlE check_3Yu77">
-                    <use xlink:href="#checked" />
-                  </svg>
-                </div>
-                <span style="display: none;">trailer</span>
-                <span>episode 11</span>
-              </div>
-              <div class="line_3PFJG"></div>
-            </div>
-            <div class="bottom_4cy4i">
-              <img
-                src="https://storage.googleapis.com/bible.awr.org/episodes/the-harlot-small.jpg"
-                class="image_1VvVr"
-              />
-              <div class="clockBox_2AEDI" style="display: none;">
-                <svg viewBox="0 0 24 24" class="icon icon--clock icon_2SKlE clock_37Emv">
-                  <use xlink:href="#clock" />
-                </svg>
-              </div>
-              <div class="content_cRsEl">
-                <div class="date_1Eua6">Wednesday, June 10</div>
-                <div class="title_3uuKD">The Harlot</div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide slide_zbNQv" style="margin-right: 20px;">
-            <div class="top_2uNWx">
-              <div class="label_8yXzv">
-                <div class="checked_j980D" style="display: none;">
-                  <svg viewBox="0 0 14 10" class="icon icon--checked icon_2SKlE check_3Yu77">
-                    <use xlink:href="#checked" />
-                  </svg>
-                </div>
-                <span style="display: none;">trailer</span>
-                <span>episode 12</span>
-              </div>
-              <div class="line_3PFJG"></div>
-            </div>
-            <div class="bottom_4cy4i">
-              <img
-                src="https://storage.googleapis.com/bible.awr.org/episodes/the-remnant-small.jpg"
-                class="image_1VvVr"
-              />
-              <div class="clockBox_2AEDI" style="display: none;">
-                <svg viewBox="0 0 24 24" class="icon icon--clock icon_2SKlE clock_37Emv">
-                  <use xlink:href="#clock" />
-                </svg>
-              </div>
-              <div class="content_cRsEl">
-                <div class="date_1Eua6">Thursday, June 11</div>
-                <div class="title_3uuKD">The Remnant</div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide slide_zbNQv" style="margin-right: 20px;">
-            <div class="top_2uNWx">
-              <div class="label_8yXzv">
-                <div class="checked_j980D" style="display: none;">
-                  <svg viewBox="0 0 14 10" class="icon icon--checked icon_2SKlE check_3Yu77">
-                    <use xlink:href="#checked" />
-                  </svg>
-                </div>
-                <span style="display: none;">trailer</span>
-                <span>episode 13</span>
-              </div>
-              <div class="line_3PFJG"></div>
-            </div>
-            <div class="bottom_4cy4i">
-              <img
-                src="https://storage.googleapis.com/bible.awr.org/episodes/the-new-life-small.jpg"
-                class="image_1VvVr"
-              />
-              <div class="clockBox_2AEDI" style="display: none;">
-                <svg viewBox="0 0 24 24" class="icon icon--clock icon_2SKlE clock_37Emv">
-                  <use xlink:href="#clock" />
-                </svg>
-              </div>
-              <div class="content_cRsEl">
-                <div class="date_1Eua6">Friday, June 12</div>
-                <div class="title_3uuKD">The New Life</div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide slide_zbNQv" style="margin-right: 20px;">
-            <div class="top_2uNWx">
-              <div class="label_8yXzv">
-                <div class="checked_j980D" style="display: none;">
-                  <svg viewBox="0 0 14 10" class="icon icon--checked icon_2SKlE check_3Yu77">
-                    <use xlink:href="#checked" />
-                  </svg>
-                </div>
-                <span style="display: none;">trailer</span>
-                <span>episode 14</span>
-              </div>
-              <div class="line_3PFJG"></div>
-            </div>
-            <div class="bottom_4cy4i">
-              <img
-                src="https://storage.googleapis.com/bible.awr.org/episodes/the-great-controversy-small.jpg"
-                class="image_1VvVr"
-              />
-              <div class="clockBox_2AEDI" style="display: none;">
-                <svg viewBox="0 0 24 24" class="icon icon--clock icon_2SKlE clock_37Emv">
-                  <use xlink:href="#clock" />
-                </svg>
-              </div>
-              <div class="content_cRsEl">
-                <div class="date_1Eua6">Saturday, June 13</div>
-                <div class="title_3uuKD">The Great Controversy</div>
+                <div class="date_1Eua6" >{{slide.date}}</div>
+                <div class="title_3uuKD">{{slide.title}}</div>
               </div>
             </div>
           </div>
@@ -450,27 +48,24 @@
         </div>
         <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
       </div>
-      <div
-        class="prev_1gqRz"
-        tabindex="0"
-        role="button"
-        aria-label="Previous slide"
-        aria-disabled="false"
-        style
-      >
+      <div class="prev_1gqRz" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="false" style>
         <svg viewBox="0 0 32 32" class="icon icon--next-slide icon_2SKlE iconBtm_3RH2q">
-          <use xlink:href="#next-slide" />
+          <use xlink:href="#next-slide">
+              <svg fill="none" viewBox="0 0 32 32" id="next-slide" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13 22l7-6.5L13 9" stroke="#2469C7" stroke-width="2"></path>
+              <circle cx="16" cy="16" r="15" stroke="#2469C7" stroke-width="2"></circle>
+              </svg>
+          </use>
         </svg>
       </div>
-      <div
-        class="next_3m-C-"
-        tabindex="0"
-        role="button"
-        aria-label="Next slide"
-        aria-disabled="false"
-      >
+      <div class="next_3m-C-" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false">
         <svg viewBox="0 0 32 32" class="icon icon--next-slide icon_2SKlE iconBtm_3RH2q">
-          <use xlink:href="#next-slide" />
+          <use xlink:href="#next-slide">
+              <svg fill="none" viewBox="0 0 32 32" id="next-slide" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13 22l7-6.5L13 9" stroke="#2469C7" stroke-width="2"></path>
+              <circle cx="16" cy="16" r="15" stroke="#2469C7" stroke-width="2"></circle>
+              </svg>
+          </use>
         </svg>
       </div>
     </div>
@@ -487,6 +82,8 @@ export default {
         pagination: {
           el: ".swiper-pagination",
         },
+        slidesPerView: 6,
+        centeredSlides: true,
       },
     };
   },
@@ -494,6 +91,7 @@ export default {
     console.log("Current Swiper instance object", this.mySwiper);
     this.mySwiper.slideTo(2, 1000, false);
   },
+  props:["slides"]
 };
 </script>
 <style>

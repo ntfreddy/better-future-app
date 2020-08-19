@@ -36,7 +36,113 @@ export default {
   data: function () {
     return {
       sectionHeaderVideo: {
-
+        slides: [
+          {
+            episode: "trailer",
+            thumbnail:
+              "https://storage.googleapis.com/bible.awr.org/episodes/intro-small.jpg",
+            date: "Wednesday, May 27",
+            title: "Unlocking Bible Prophecies",
+          },
+          {
+            episode: "episode 1",
+            thumbnail:
+              "https://storage.googleapis.com/bible.awr.org/episodes/the-prediction-small.jpg",
+            date: "Sunday, May 31",
+            title: "The Prediction",
+          },
+          {
+            episode: "episode 2",
+            thumbnail:
+              "https://storage.googleapis.com/bible.awr.org/episodes/the-signs-small.jpg",
+            date: "Monday, June 1",
+            title: "The Signs",
+          },
+          {
+            episode: "episode 3",
+            thumbnail:
+              "https://storage.googleapis.com/bible.awr.org/episodes/the-warning-small.jpg",
+            date: "Tuesday, June 2",
+            title: "The Warning",
+          },
+          {
+            episode: "episode 4",
+            thumbnail:
+              "https://storage.googleapis.com/bible.awr.org/episodes/the-way-small.jpg",
+            date: "Wednesday, June 3",
+            title: "The Way",
+          },
+          {
+            episode: "episode 5",
+            thumbnail:
+              "https://storage.googleapis.com/bible.awr.org/episodes/the-authentic-seal-small.jpg",
+            date: "Thursday, June 4",
+            title: "The Authentic Seal",
+          },
+          {
+            episode: "episode 6",
+            thumbnail:
+              "https://storage.googleapis.com/bible.awr.org/episodes/the-counterfeit-small.jpg",
+            date: "Friday, June 5",
+            title: "The Counterfeit",
+          },
+          {
+            episode: "episode 7",
+            thumbnail:
+              "https://storage.googleapis.com/bible.awr.org/episodes/the-grave-small.jpg",
+            date: "Saturday, June 6",
+            title: "The Grave",
+          },
+          {
+            episode: "episode 8",
+            thumbnail:
+              "https://storage.googleapis.com/bible.awr.org/episodes/the-rescue-small.jpg",
+            date: "Sunday, June 7",
+            title: "The Rescue",
+          },
+          {
+            episode: "episode 9",
+            thumbnail:
+              "https://storage.googleapis.com/bible.awr.org/episodes/the-desolation-small.jpg",
+            date: "Monday, June 8",
+            title: "The Desolation",
+          },
+          {
+            episode: "episode 10",
+            thumbnail:
+              "https://storage.googleapis.com/bible.awr.org/episodes/the-mark-small.jpg",
+            date: "Tuesday, June 9",
+            title: "The Mark",
+          },
+          {
+            episode: "episode 11",
+            thumbnail:
+              "https://storage.googleapis.com/bible.awr.org/episodes/the-harlot-small.jpg",
+            date: "Wednesday, June 10",
+            title: "The Harlot",
+          },
+          {
+            episode: "episode 12",
+            thumbnail:
+              "https://storage.googleapis.com/bible.awr.org/episodes/the-remnant-small.jpg",
+            date: "Thursday, June 11",
+            title: "The Remnant",
+          },
+          {
+            episode: "episode 13",
+            thumbnail:
+              "https://storage.googleapis.com/bible.awr.org/episodes/the-new-life-small.jpg",
+            date: "Friday, June 12",
+            title: "The New Life",
+          },
+          {
+            episode: "episode 14",
+            thumbnail:
+              "https://storage.googleapis.com/bible.awr.org/episodes/the-great-controversy-small.jpg",
+            date: "Saturday, June 13",
+            title: "The Great Controversy",
+          },
+        ],
       },
       sectionHeader: {
         reminder: {

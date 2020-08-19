@@ -1,5 +1,5 @@
 <template>
-  <div id="section-header" class="header_1NV2O showReminder_Z0Cxe">
+  <div id="section-header-video" class="header_1NV2O showReminder_Z0Cxe">
     <div class="inner_LVYhi ready_2aiKi">
       <div class="panel_3oR9C">
         <div class="reminder_2pbv5" style="display:none;">
@@ -187,7 +187,7 @@
           </div>
         </div>
       </div>
-      <Slider />
+      <Slider :slides="data.slides" />
       <div id="section-episode-video" class="videoContainer_5zja3">
         <div class="container container_olEqQ">
           <div class="row justify-content-center">
