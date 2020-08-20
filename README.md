@@ -38,3 +38,6 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 5. firebase init
 6. firebase deploy
 
+Project Console: https://console.firebase.google.com/project/better-future-app/overview
+Hosting URL: https://better-future-app.web.app 
+

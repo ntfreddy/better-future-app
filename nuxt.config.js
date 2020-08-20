@@ -36,12 +36,12 @@ export default {
      ** https://nuxtjs.org/guide/plugins
      */
     plugins: [{
-            src: "~/plugins/locomotive-scroll.js",
+            src: "@/plugins/locomotive-scroll",
             mode: "client"
         },
         {
-            src: '~/plugins/vue-awesome-swiper.js',
-            ssr: false
+            src: '@/plugins/vue-awesome-swiper',
+            mode: "client"
         }
     ],
     /*

@@ -2,6 +2,10 @@ export const state = () => ({
     list: []
 })
 
+export const getters = {
+
+}
+
 export const mutations = {
     add(state, text) {
         state.list.push({
@@ -14,4 +18,8 @@ export const mutations = {
         state.list = state.list.filter(item => item.id !== todo.id)
     },
     SET_EPISODE(state, episode) {}
+}
+
+export const actions = {
+
 }
