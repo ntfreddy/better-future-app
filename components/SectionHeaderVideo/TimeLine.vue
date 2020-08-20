@@ -11,7 +11,7 @@
   </div-->
    <div  class="d-lg-flex d-none timeLine_AjIG1 ready_1qnle line_yMtTe">
     <div class="container">
-      <div v-swiper:mySwiper="swiperOption" class="swiper-container swiperContainer_1sKij swiper-container-horizontal">
+      <div v-swiper:gallery="swiperOption" class="swiper-container swiperContainer_1sKij swiper-container-horizontal">
         <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(-1560px, 0px, 0px);">       
           <div v-for="slide in slides" :key="slide.episode" class="swiper-slide slide_zbNQv" style="margin-right: 20px;">
             <div class="top_2uNWx">
@@ -48,7 +48,7 @@
         </div>
         <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
       </div>
-      <div class="prev_1gqRz" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="false" style>
+      <div class="prev_1gqRz" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="false" style ref="btnPrev">
         <svg viewBox="0 0 32 32" class="icon icon--next-slide icon_2SKlE iconBtm_3RH2q">
           <use xlink:href="#next-slide">
               <svg fill="none" viewBox="0 0 32 32" id="next-slide" xmlns="http://www.w3.org/2000/svg">
@@ -58,7 +58,7 @@
           </use>
         </svg>
       </div>
-      <div class="next_3m-C-" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false">
+      <div class="next_3m-C-" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false" ref="btnNext">
         <svg viewBox="0 0 32 32" class="icon icon--next-slide icon_2SKlE iconBtm_3RH2q">
           <use xlink:href="#next-slide">
               <svg fill="none" viewBox="0 0 32 32" id="next-slide" xmlns="http://www.w3.org/2000/svg">
@@ -74,24 +74,52 @@
 
 <script>
 export default {
-  data : function() {
+   props: {
+      episodes: {
+          type: Array
+      }
+  },
+  data: function() {
     return {
-      banners: [
-      ],
+      activeSwiperIndex: this.activeIndex,
+      clickedIndex: 0,
+      lineVisible: false,
+      ready: this.ready,
       swiperOption: {
-        pagination: {
-          el: ".swiper-pagination",
+        slidesPerView: "auto",
+        spaceBetween: 20,
+        threshold: 40,
+        watchOverflow: false,
+        initialSlide: this.activeIndex,
+        pagination: false,
+        animating: true,
+        navigation: {
+            nextEl: this.$refs.btnPrev,
+            prevEl: this.$refs.btnNext
         },
-        slidesPerView: 6,
-        centeredSlides: true,
       },
     };
   },
-  mounted() {
-    console.log("Current Swiper instance object", this.mySwiper);
-    this.mySwiper.slideTo(2, 1000, false);
+  computed: {
+      activeIndex: function() {
+          return 10;//this.$store.state.episodes.activeIndex
+      }
   },
-  props:["slides"]
+  mounted() {
+    console.log("Current Swiper instance object", this.gallery);
+    this.gallery.slideTo(2, 1000, false);
+  },
+  props:["slides"],
+
+  methods: {
+      goToSlide: function(t) {
+          var e = this.episodes[t];
+          this.$store.commit("episodes/SET_EPISODE", e)
+      },
+      getImage: function(t) {
+          return t.youtubeId ? "https://img.youtube.com/vi/".concat(t.youtubeId, "/sddefault.jpg") : "/images/earth.jpg"
+      }
+  }
 };
 </script>
 <style>

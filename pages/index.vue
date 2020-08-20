@@ -169,7 +169,7 @@ export default {
             watch: "Regardez maintenant",
             mainPicture: require("../assets/cami-main.png"),
             avatarPicture: require("../assets/cami-main-mobile.jpg"),
-            link: "/the-prediction/",
+            link: "https://awr.org/watch-digging-deeper",
             presenterClass: "cami",
             avatarPicture: require("../assets/cami-main-mobile.jpg"),
           },
@@ -244,7 +244,7 @@ export default {
         title: "with Cami Oetman",
         description:
           "Throughout this series, you will learn that Jesus’ love for you can be found at the heart of Revelation, and that its prophecies reveal hope for your future.",
-        link: "/the-prediction/",
+        link: "https://awr.org/watch-digging-deeper",
         watch: "Regardez maintenant",
       },
       sectionChriss: {

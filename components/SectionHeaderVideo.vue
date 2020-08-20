@@ -187,7 +187,7 @@
           </div>
         </div>
       </div>
-      <Slider :slides="data.slides" />
+      <TimeLine :slides="data.slides" />
       <div id="section-episode-video" class="videoContainer_5zja3">
         <div class="container container_olEqQ">
           <div class="row justify-content-center">
@@ -214,11 +214,11 @@
 </template>
 
 <script>
-import Slider from "./SectionHeaderVideo/Slider";
+import TimeLine from "./SectionHeaderVideo/TimeLine";
 export default {
   name: "SectionHeaderVideo",
   components: {
-    Slider,
+    TimeLine,
   },
   props: ["data", "scroll"],
 };

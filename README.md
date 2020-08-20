@@ -29,3 +29,12 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 
 1. npm install locomotive-scroll --save
 2. npm install swiper vue-awesome-swiper --save
+
+# Deployment to Firebase (https://www.axfon.com/how-to-deploy-nuxt-js-in-firebase-hosting-with-firestore-realtime-database/)
+1. npm install -g firebase-tools
+2. cd better-future-app
+3. npm run generate
+4. firebase login
+5. firebase init
+6. firebase deploy
+
