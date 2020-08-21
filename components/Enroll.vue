@@ -41,7 +41,7 @@
               <div class="invalid-feedback">Please enter a valid email address</div>
             </div>
             <div class="register_2ztqz">
-              <Checkbox  value="true" class="policy_34h9p">
+              <Checkbox  value="false" class="policy_34h9p">
                  {{data.form.register.text}}
                     <a
                       :href="data.form.register.privacy.link"

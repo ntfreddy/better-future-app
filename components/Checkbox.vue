@@ -1,5 +1,5 @@
 <template>
-  <div ref="root" :class="[$style.checkbox, $style.checked]">
+  <div :class="rootClasses">
     <input id="checkbox-id-64" type="checkbox" :class="$style.input" :value="inputValue"  v-on:click="onClickedOn($event)"/>
     <label for="checkbox-id-64" :class="$style.label">
       <div :class="$style.wrapper">
@@ -28,19 +28,19 @@
 export default {
     data: function(){
         return {
-            inputValue : "false"
+            inputValue : this.value,
+            rootClasses : ""
         }
     },
   props: ["value"],
   methods: {
     onClickedOn: function (event) {
-      const rootElement = this.$refs.root;
       const checkedValue = document.querySelector("#checkbox-id-64").value;
       if (checkedValue == "true") {
-        rootElement.classList.remove(this.$style.checked);
+        this.rootClasses = [this.$style.checkbox];
         this.inputValue = "false";
       } else {
-        rootElement.classList.add(this.$style.checked);
+        this.rootClasses = [this.$style.checkbox, this.$style.checked];
         this.inputValue = "true";
       }
 
@@ -49,13 +49,12 @@ export default {
   },
   mounted: function () {
       this.inputValue = this.value;
-    const rootElement = this.$refs.root;
     const checkedValue = document.querySelector("#checkbox-id-64").value;
     console.log("checkedValue", checkedValue);
     if (checkedValue == "true") {
-      rootElement.classList.add(this.$style.checked);
+        this.rootClasses = [this.$style.checkbox, this.$style.checked];
     } else {
-      rootElement.classList.remove(this.$style.checked);
+        this.rootClasses = [this.$style.checkbox];
     }
   },
 };
