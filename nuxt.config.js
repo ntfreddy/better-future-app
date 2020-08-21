@@ -42,7 +42,10 @@ export default {
         {
             src: '@/plugins/vue-awesome-swiper.client',
             mode: "client"
-        }
+        },
+        /* {
+            src: '@/plugins/firebase',
+        }*/
     ],
     /*
      ** Auto import components
@@ -59,6 +62,7 @@ export default {
     modules: [
         // Doc: https://bootstrap-vue.js.org
         'bootstrap-vue/nuxt',
+        '@nuxtjs/firebase',
     ],
     /*
      ** Build configuration
@@ -83,6 +87,24 @@ export default {
         }*/
     },
     generate: {
+
+    },
+    firebase: {
+        config: {
+            apiKey: "AIzaSyC6h1NziWg3vXHurmvzaQOfaS0s45a1ob8",
+            authDomain: "better-future-app.firebaseapp.com",
+            databaseURL: "https://better-future-app.firebaseio.com",
+            projectId: "better-future-app",
+            storageBucket: "better-future-app.appspot.com",
+            messagingSenderId: "505959582940",
+            appId: "1:505959582940:web:3acb59a663680903b3b819",
+            measurementId: "G-NTYRRWCG6F"
+        },
+        onFirebaseHosting: true,
+        services: {
+            realtimeDb: true,
+        },
+        messaging: {}
 
     }
 }

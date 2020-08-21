@@ -41,3 +41,7 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 Project Console: https://console.firebase.google.com/project/better-future-app/overview
 Hosting URL: https://better-future-app.web.app 
 
+# Add firebase database
+1. npm i nuxt
+2. npm i firebase
+3. add plugin firebase.js

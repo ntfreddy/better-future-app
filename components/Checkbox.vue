@@ -1,6 +1,6 @@
 <template>
   <div :class="rootClasses">
-    <input id="checkbox-id-64" type="checkbox" :class="$style.input" :value="inputValue"  v-on:click="onClickedOn($event)"/>
+    <input id="checkbox-id-64" type="checkbox" :class="$style.input" :value="inputValue"  v-on:click="onClickedOn($event)" required/>
     <label for="checkbox-id-64" :class="$style.label">
       <div :class="$style.wrapper">
         <span :class="$style.box">
@@ -21,7 +21,7 @@
         <slot></slot>
       </span>
     </label>
-    <div class="invalid-feedback">You must agree before submitting.</div>
+    <div class="invalid-feedback" :class="$style['invalid-feedback']">You must agree before submitting.</div>
   </div>
 </template>
 <script>
@@ -108,7 +108,7 @@ export default {
 .checkbox {
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
+  display: block;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -221,5 +221,17 @@ export default {
 }
 .dark .text:hover {
   color: rgba(0, 0, 0, 0.7);
+}
+
+.invalid-feedback {
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  color: #ffb9b9;
+  /*
+  margin-top: -36px;
+  margin-bottom: 16px;*/
+  text-align: left;
 }
 </style>

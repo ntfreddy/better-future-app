@@ -17,7 +17,14 @@
           <div class="label_2JFi-">{{data.label}}</div>
           <h2 class="action_1toYO">{{data.action}}</h2>
           <div class="subaction_1iCF9">{{data.subaction}}</div>
-          <form id="registration" class="register_2ztqz was-validated" @submit.prevent="onSubmit" novalidate>
+          <form
+            ref="form"
+            id="registration"
+            class="register_2ztqz"
+            :class="wasValidated"
+            @submit.prevent="handleSignup"
+            novalidate
+          >
             <div class="form-group">
               <input
                 id="reg-form-firstname"
@@ -41,13 +48,13 @@
               <div class="invalid-feedback">Please enter a valid email address</div>
             </div>
             <div class="register_2ztqz">
-              <Checkbox  value="false" class="policy_34h9p">
-                 {{data.form.register.text}}
-                    <a
-                      :href="data.form.register.privacy.link"
-                      target="_blank"
-                      class="link_3Kiew"
-                    >{{data.form.register.privacy.text}}</a>
+              <Checkbox value="false" class="policy_34h9p">
+                {{data.form.register.text}}
+                <a
+                  :href="data.form.register.privacy.link"
+                  target="_blank"
+                  class="link_3Kiew"
+                >{{data.form.register.privacy.text}}</a>
               </Checkbox>
               <button
                 type="submit"
@@ -61,16 +68,30 @@
   </div>
 </template>
 <script>
-
 import Checkbox from "./Checkbox";
 export default {
   components: {
     Checkbox,
   },
+  data: function () {
+    return {
+      wasValidated: "",
+    };
+  },
   props: ["data"],
   methods: {
-    onSubmit: function () {},
+    handleSubmit: function () {},
+    handleSignup: function () {
+      if (this.$refs.form.checkValidity()) {
+        this.handleSubmit();
+      } else {
+        this.wasValidated = "was-validated";
+      }
+    },
   },
+  mounted: function(){
+     //alert(this.$store.state.episodes.episodes.activeIndex);
+  }
 };
 </script>
 <style scoped>
