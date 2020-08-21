@@ -214,9 +214,8 @@
 </template>
 
 <script>
-import TimeLine from "./SectionHeaderVideo/TimeLine";
+import TimeLine from "./TimeLine";
 export default {
-  name: "SectionHeaderVideo",
   components: {
     TimeLine,
   },

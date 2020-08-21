@@ -13,9 +13,9 @@
         </div>
         <div class="col-sm-12">
           <div class="row">
-              <Action v-for="action in data.actions" 
+              <Action v-for="(action, index) in data.actions" 
                 :key="action.id" 
-                :id="action.id" 
+                :id="index" 
                 :title="action.title"
                 :desc="action.desc" 
                 :icon="action.icon" />

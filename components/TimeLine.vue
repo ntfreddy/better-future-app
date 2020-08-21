@@ -9,11 +9,22 @@
     <div class="swiper-pagination"></div>
  
   </div-->
-   <div  class="d-lg-flex d-none timeLine_AjIG1 ready_1qnle line_yMtTe">
+  <div class="d-lg-flex d-none timeLine_AjIG1 ready_1qnle line_yMtTe">
     <div class="container">
-      <div v-swiper:gallery="swiperOption" class="swiper-container swiperContainer_1sKij swiper-container-horizontal">
-        <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(-1560px, 0px, 0px);">       
-          <div v-for="slide in slides" :key="slide.episode" class="swiper-slide slide_zbNQv" style="margin-right: 20px;">
+      <div
+        v-swiper:gallery="swiperOption"
+        class="swiper-container swiperContainer_1sKij swiper-container-horizontal"
+      >
+        <div
+          class="swiper-wrapper"
+          style="transition-duration: 0ms; transform: translate3d(-1560px, 0px, 0px);"
+        >
+          <div
+            v-for="slide in slides"
+            :key="slide.episode"
+            class="swiper-slide slide_zbNQv"
+            style="margin-right: 20px;"
+          >
             <div class="top_2uNWx">
               <div class="label_8yXzv">
                 <div class="checked_j980D" style="display: none;">
@@ -27,19 +38,30 @@
               <div class="line_3PFJG"></div>
             </div>
             <div class="bottom_4cy4i">
-              <img :src="slide.thumbnail" class="image_1VvVr"/>
+              <img :src="slide.thumbnail" class="image_1VvVr" />
               <div class="clockBox_2AEDI" style="display: none;">
                 <svg viewBox="0 0 24 24" class="icon icon--clock icon_2SKlE clock_37Emv">
                   <use xlink:href="#clock">
-                      <svg fill="none" viewBox="0 0 24 24" id="clock" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M2.487 4.631a.934.934 0 00.6-.217L5.632 2.29a.938.938 0 00-1.2-1.44L1.886 2.974a.938.938 0 00.6 1.657zM18.366 2.29l2.546 2.124a.934.934 0 001.32-.12.937.937 0 00-.12-1.32L19.568.85a.937.937 0 10-1.2 1.44zM19.822 5.115a10.98 10.98 0 00-6.931-3.204V.937a.937.937 0 10-1.875 0v.982a10.979 10.979 0 00-6.838 3.196 10.99 10.99 0 00-3.24 7.822 10.99 10.99 0 003.24 7.823c.193.193.393.38.598.557l-.753 1.266a.938.938 0 001.61.959l.667-1.119A10.993 10.993 0 0012 24c2.032 0 3.983-.543 5.7-1.579l.666 1.12a.937.937 0 101.611-.958l-1.172-1.969a.937.937 0 00-1.361-.275A9.113 9.113 0 0112 22.125c-5.066 0-9.188-4.122-9.188-9.188C2.813 7.871 6.934 3.75 12 3.75c5.066 0 9.187 4.121 9.187 9.188a9.194 9.194 0 01-1.132 4.422.937.937 0 101.643.904 11.075 11.075 0 001.364-5.327 10.99 10.99 0 00-3.24-7.822z" fill="#fff"></path>
-                      <path d="M11.953 6.047a.937.937 0 00-.937.937v5.953c0 .25.098.488.274.663l2.652 2.652a.935.935 0 001.326 0 .938.938 0 000-1.326L12.89 12.55V6.984a.937.937 0 00-.938-.937z" fill="#fff"></path>
-                      </svg>
-                      </use>
+                    <svg
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      id="clock"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2.487 4.631a.934.934 0 00.6-.217L5.632 2.29a.938.938 0 00-1.2-1.44L1.886 2.974a.938.938 0 00.6 1.657zM18.366 2.29l2.546 2.124a.934.934 0 001.32-.12.937.937 0 00-.12-1.32L19.568.85a.937.937 0 10-1.2 1.44zM19.822 5.115a10.98 10.98 0 00-6.931-3.204V.937a.937.937 0 10-1.875 0v.982a10.979 10.979 0 00-6.838 3.196 10.99 10.99 0 00-3.24 7.822 10.99 10.99 0 003.24 7.823c.193.193.393.38.598.557l-.753 1.266a.938.938 0 001.61.959l.667-1.119A10.993 10.993 0 0012 24c2.032 0 3.983-.543 5.7-1.579l.666 1.12a.937.937 0 101.611-.958l-1.172-1.969a.937.937 0 00-1.361-.275A9.113 9.113 0 0112 22.125c-5.066 0-9.188-4.122-9.188-9.188C2.813 7.871 6.934 3.75 12 3.75c5.066 0 9.187 4.121 9.187 9.188a9.194 9.194 0 01-1.132 4.422.937.937 0 101.643.904 11.075 11.075 0 001.364-5.327 10.99 10.99 0 00-3.24-7.822z"
+                        fill="#fff"
+                      />
+                      <path
+                        d="M11.953 6.047a.937.937 0 00-.937.937v5.953c0 .25.098.488.274.663l2.652 2.652a.935.935 0 001.326 0 .938.938 0 000-1.326L12.89 12.55V6.984a.937.937 0 00-.938-.937z"
+                        fill="#fff"
+                      />
+                    </svg>
+                  </use>
                 </svg>
               </div>
               <div class="content_cRsEl">
-                <div class="date_1Eua6" >{{slide.date}}</div>
+                <div class="date_1Eua6">{{slide.date}}</div>
                 <div class="title_3uuKD">{{slide.title}}</div>
               </div>
             </div>
@@ -48,23 +70,48 @@
         </div>
         <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
       </div>
-      <div class="prev_1gqRz" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="false" style ref="btnPrev">
+      <div
+        class="swiper-button-prev prev_1gqRz"
+        tabindex="0"
+        role="button"
+        aria-label="Previous slide"
+        aria-disabled="false"
+        style
+        ref="btnPrev"
+      >
         <svg viewBox="0 0 32 32" class="icon icon--next-slide icon_2SKlE iconBtm_3RH2q">
           <use xlink:href="#next-slide">
-              <svg fill="none" viewBox="0 0 32 32" id="next-slide" xmlns="http://www.w3.org/2000/svg">
-              <path d="M13 22l7-6.5L13 9" stroke="#2469C7" stroke-width="2"></path>
-              <circle cx="16" cy="16" r="15" stroke="#2469C7" stroke-width="2"></circle>
-              </svg>
+            <svg
+              fill="none"
+              viewBox="0 0 32 32"
+              id="next-slide"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M13 22l7-6.5L13 9" stroke="#2469C7" stroke-width="2" />
+              <circle cx="16" cy="16" r="15" stroke="#2469C7" stroke-width="2" />
+            </svg>
           </use>
         </svg>
       </div>
-      <div class="next_3m-C-" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false" ref="btnNext">
+      <div
+        class="swiper-button-next next_3m-C-"
+        tabindex="0"
+        role="button"
+        aria-label="Next slide"
+        aria-disabled="false"
+        ref="btnNext"
+      >
         <svg viewBox="0 0 32 32" class="icon icon--next-slide icon_2SKlE iconBtm_3RH2q">
           <use xlink:href="#next-slide">
-              <svg fill="none" viewBox="0 0 32 32" id="next-slide" xmlns="http://www.w3.org/2000/svg">
-              <path d="M13 22l7-6.5L13 9" stroke="#2469C7" stroke-width="2"></path>
-              <circle cx="16" cy="16" r="15" stroke="#2469C7" stroke-width="2"></circle>
-              </svg>
+            <svg
+              fill="none"
+              viewBox="0 0 32 32"
+              id="next-slide"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M13 22l7-6.5L13 9" stroke="#2469C7" stroke-width="2" />
+              <circle cx="16" cy="16" r="15" stroke="#2469C7" stroke-width="2" />
+            </svg>
           </use>
         </svg>
       </div>
@@ -74,12 +121,12 @@
 
 <script>
 export default {
-   props: {
-      episodes: {
-          type: Array
-      }
+  props: {
+    episodes: {
+      type: Array,
+    },
   },
-  data: function() {
+  data: function () {
     return {
       activeSwiperIndex: this.activeIndex,
       clickedIndex: 0,
@@ -94,32 +141,41 @@ export default {
         pagination: false,
         animating: true,
         navigation: {
-            nextEl: this.$refs.btnPrev,
-            prevEl: this.$refs.btnNext
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
         },
       },
     };
   },
   computed: {
-      activeIndex: function() {
-          return 10;//this.$store.state.episodes.activeIndex
-      }
+    activeIndex: function () {
+      return 10; //this.$store.state.episodes.activeIndex
+    },
   },
   mounted() {
+
+    this.gallery.on('click', this.clickOnSlide);
+
     console.log("Current Swiper instance object", this.gallery);
-    this.gallery.slideTo(2, 1000, false);
+    //this.gallery.slideTo(2, 1000, false);
   },
-  props:["slides"],
+  props: ["slides"],
 
   methods: {
-      goToSlide: function(t) {
-          var e = this.episodes[t];
-          this.$store.commit("episodes/SET_EPISODE", e)
-      },
-      getImage: function(t) {
-          return t.youtubeId ? "https://img.youtube.com/vi/".concat(t.youtubeId, "/sddefault.jpg") : "/images/earth.jpg"
-      }
-  }
+    clickOnSlide: function(event){
+      console.log("index", this.gallery.clickedIndex);
+      this.goToSlide(this.gallery.clickedIndex);
+    },
+    goToSlide: function (index) {
+      var e = this.episodes[index];
+      this.$store.commit("episodes/SET_EPISODE", e);
+    },
+    getImage: function (t) {
+      return t.youtubeId
+        ? "https://img.youtube.com/vi/".concat(t.youtubeId, "/sddefault.jpg")
+        : "/images/earth.jpg";
+    },
+  },
 };
 </script>
 <style>
@@ -270,13 +326,13 @@ export default {
   width: 100%;
   height: 100%;
   border-radius: 12px;
-  /*background: -webkit-gradient(
+  background: -webkit-gradient(
     linear,
     left bottom,
     left top,
     from(#000),
     color-stop(94.12%, transparent)
-  );*/
+  );
   background: linear-gradient(0deg, #000, transparent 94.12%);
 }
 .clockBox_2AEDI {
@@ -357,13 +413,13 @@ export default {
 }
 .prev_1gqRz {
   left: 0;
-  /*background: -webkit-gradient(
+  background: -webkit-gradient(
     linear,
     left top,
     right top,
     from(#010406),
     to(rgba(2, 3, 5, 0))
-  );*/
+  );
   background: linear-gradient(90deg, #010406 0, rgba(2, 3, 5, 0));
 }
 .prev_1gqRz .iconBtm_3RH2q {
@@ -373,13 +429,13 @@ export default {
 }
 .next_3m-C- {
   right: 0;
- /* background: -webkit-gradient(
+  background: -webkit-gradient(
     linear,
     right top,
     left top,
     from(#010406),
     to(rgba(2, 3, 5, 0))
-  );*/
+  );
   background: linear-gradient(270deg, #010406 0, rgba(2, 3, 5, 0));
   -webkit-box-pack: end;
   -ms-flex-pack: end;
@@ -398,5 +454,9 @@ export default {
 }
 .iconBtm_3RH2q:hover {
   opacity: 0.8;
+}
+
+.swiper-button-prev:after, .swiper-button-next:after {
+  opacity: 0;
 }
 </style>

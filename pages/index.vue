@@ -1,41 +1,41 @@
 <template>
   <div :class="$style.page">
-    <SectionHeaderVideo :data="sectionHeaderVideo" :scroll="scroll" />
+    <TheHeader :data="theHeader" :scroll="scroll" />
     <SectionHeader :data="sectionHeader" :scroll="scroll" />
     <SectionActions :data="sectionActions" />
     <SectionBibleStudy :data="sectionBibleStudy" />
     <SectionCami :data="sectionCami" />
     <SectionChriss :data="sectionChriss" />
-    <SectionEnroll :data="sectionEnroll" />
+    <Enroll :data="enroll" />
     <Footer :data="footer" />
   </div>
 </template>
 
 <script>
-import SectionHeaderVideo from "../components/SectionHeaderVideo";
+import TheHeader from "../components/TheHeader";
 import SectionHeader from "../components/SectionHeader";
 import SectionActions from "../components/SectionActions";
 import SectionBibleStudy from "../components/SectionBibleStudy";
 import SectionCami from "../components/SectionCami";
 import SectionChriss from "../components/SectionChriss";
-import SectionEnroll from "../components/SectionEnroll";
+import Enroll from "../components/Enroll";
 import Footer from "../components/Footer";
 
 export default {
   name: "Page",
   components: {
-    SectionHeaderVideo,
+    TheHeader,
     SectionHeader,
     SectionActions,
     SectionBibleStudy,
     SectionCami,
     SectionChriss,
-    SectionEnroll,
+    Enroll,
     Footer,
   },
   data: function () {
     return {
-      sectionHeaderVideo: {
+      theHeader: {
         slides: [
           {
             episode: "trailer",
@@ -256,7 +256,7 @@ export default {
         link: "https://awr.org/watch-digging-deeper",
         watch: "Regardez maintenant",
       },
-      sectionEnroll: {
+      enroll: {
         label: "Join Us",
         action: "Sign Up Today",
         subaction: "Don’t miss our updates!",
