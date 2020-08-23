@@ -5,7 +5,7 @@
                 <div :class="$style.logoInContainer"></div>
                     <div :class="$style.content">
                         <div :class="$style.list">
-                            <MenuItem v-for="menuItem in menu.menuItems" :key="menuItem.text" :text="menuItem.text" :target="menuItem.target" :scroll="scroll"/>
+                            <MenuItem v-for="menuItem in menu.menuItems" :key="menuItem.text" :text="menuItem.text" :target="menuItem.target" :lmS="lmS"/>
                         </div>
                     <div :class="$style.register" :data-target="menu.menuItemHightlight.target" v-on:click="menuItemClickedOn($event)">{{menu.menuItemHightlight.text}}</div>
                 </div>
@@ -18,16 +18,15 @@
 import MenuItem from "./MenuItem";
 
 export default {
-    name: "Header",
     components: {
         MenuItem
     },
-    props: ["menu", "scroll"],
+    props: ["menu", "lmS"],
     methods: {
         menuItemClickedOn: function(event){
             const targetId = event.currentTarget.getAttribute("data-target");
             const targetElement = document.querySelector(targetId);
-            this.scroll.scrollTo(targetElement);
+            this.lmS.scrollTo(targetElement);
         }
     }
 };

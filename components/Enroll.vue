@@ -17,14 +17,7 @@
           <div class="label_2JFi-">{{data.label}}</div>
           <h2 class="action_1toYO">{{data.action}}</h2>
           <div class="subaction_1iCF9">{{data.subaction}}</div>
-          <form
-            ref="form"
-            id="registration"
-            class="register_2ztqz"
-            :class="wasValidated"
-            @submit.prevent="handleSignup"
-            novalidate
-          >
+          <form id="registration" class="register_2ztqz" @submit.prevent="onSubmit">
             <div class="form-group">
               <input
                 id="reg-form-firstname"
@@ -32,9 +25,12 @@
                 type="text"
                 :placeholder="data.form.placeholder.firstname"
                 class="form-control input_EsH-v input"
-                required
+                v-model.trim="$v.firstName.$model"
               />
-              <div class="invalid-feedback">Please enter your first name</div>
+              <div
+                class="invalid-feedback"
+                v-if="$v.firstName.$dirty && !$v.firstName.required"
+              >Please enter your first name</div>
             </div>
             <div class="form-group">
               <input
@@ -43,12 +39,15 @@
                 :placeholder="data.form.placeholder.email"
                 class="form-control input_EsH-v input"
                 id="__BVID__63"
-                required
+                v-model.trim="$v.email.$model"
               />
-              <div class="invalid-feedback">Please enter a valid email address</div>
+              <div
+                class="invalid-feedback"
+                v-if="$v.email.$dirty && !$v.email.required"
+              >Please enter a valid email address</div>
             </div>
             <div class="register_2ztqz">
-              <Checkbox value="false" class="policy_34h9p">
+              <Checkbox value="false" class="policy_34h9p" @clicked="onCheckBoxClicked">
                 {{data.form.register.text}}
                 <a
                   :href="data.form.register.privacy.link"
@@ -68,33 +67,93 @@
   </div>
 </template>
 <script>
+import LoginButton from "./LoginButton";
+import Loading from "./Loading";
 import Checkbox from "./Checkbox";
+
+import { required, email } from "vuelidate/lib/validators";
+
 export default {
   components: {
+    LoginButton,
     Checkbox,
+    Loading,
+  },
+  validations: {
+    firstName: {
+      required,
+    },
+    email: {
+      required,
+      email,
+    },
   },
   data: function () {
     return {
-      wasValidated: "",
+      firstName: "",
+      email: "",
+      loading: false,
+      minLength: 1,
+      agreed: true,
     };
+  },
+  computed: {},
+  mounted: function () {
+    //console.log("mounted");
+    //alert(this.$store.state.episodes.episodes.activeIndex);
   },
   props: ["data"],
   methods: {
-    handleSubmit: function () {},
-    handleSignup: function () {
-      if (this.$refs.form.checkValidity()) {
-        this.handleSubmit();
+    onSubmit: function () {
+      //console.log("onSubmit");
+      this.loading = true;
+      if (this.validate() && this.agreed) {
+        //console.log("valid");
+        this.loading = false;
+        this.$session.start();
+        this.$session.set("firstName", this.firstName);
+        this.$session.set("email", this.email);
+
+        console.log("firstName", this.$session.get("firstName"));
+        console.log("email", this.$session.get("email"));
+
+        /*
+            this.$gtm && this.$gtm.push({
+                event: "registration.success"
+            });*/
+        setTimeout(function () {
+          console.log("setTimeout");
+          window.scrollTo(0, 0);
+        }, 500);
       } else {
-        this.wasValidated = "was-validated";
+        console.log("invalid");
+        this.loading = false;
       }
     },
+    validate: function () {
+      if (this.$v.$invalid) {
+        for (
+          var t = 0, e = ["firstName", "email", "agreed"];
+          t < e.length;
+          t++
+        ) {
+          var n = e[t];
+          this[n] || this.validateValue(n);
+        }
+        return false;
+      }
+      return true;
+    },
+    validateValue: function (name) {
+      this.$v[name].$touch();
+    },
+    onCheckBoxClicked (value) {
+      this.agreed = value;
+    }
   },
-  mounted: function(){
-     //alert(this.$store.state.episodes.episodes.activeIndex);
-  }
 };
 </script>
-<style scoped>
+<style>
 .enroll_1_wEt {
   min-height: 630px;
   display: -webkit-box;
@@ -521,6 +580,7 @@ export default {
 }
 
 .invalid-feedback {
+  display: block;
   font-family: Roboto;
   font-weight: 400;
   font-size: 14px;

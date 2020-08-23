@@ -2,7 +2,7 @@
   <div id="section-header" :class="[$style.header, $style.hasReminder]">
     <div :class="$style.panel">
       <Reminder :text="data.reminder.text" :buttonTitle="data.reminder.buttonTitle" />
-      <Header :menu="data.menu" :scroll="scroll" />
+      <Header :menu="data.menu" :lmS="lmS" />
       <div class="container" :class="$style.mobilePanel">
         <div class="row" :class="$style.row">
           <div class="col-12" :class="$style.mobileColumn">
@@ -51,7 +51,7 @@ export default {
     Header,
     Presenter
   },  
-  props: ["data", "scroll"]
+  props: ["data", "lmS"]
 };
 </script>
 

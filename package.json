@@ -16,7 +16,9 @@
         "locomotive-scroll": "^3.5.4",
         "nuxt": "^2.14.3",
         "swiper": "^5.4.5",
-        "vue-awesome-swiper": "^4.1.1"
+        "vue-awesome-swiper": "^4.1.1",
+        "vue-session": "^1.0.0",
+        "vuelidate": "^0.7.5"
     },
     "devDependencies": {}
 }

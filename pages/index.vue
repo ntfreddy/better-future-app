@@ -1,12 +1,12 @@
 <template>
-  <div :class="$style.page">
-    <TheHeader :data="theHeader" :scroll="scroll" />
-    <SectionHeader :data="sectionHeader" :scroll="scroll" />
+  <div :class="$style.page">    
+    <Enroll :data="enroll" />
+    <TheHeader :data="theHeader" :lmS="lmS" />
+    <SectionHeader :data="sectionHeader" :lmS="lmS" />
     <SectionActions :data="sectionActions" />
     <SectionBibleStudy :data="sectionBibleStudy" />
     <SectionCami :data="sectionCami" />
     <SectionChriss :data="sectionChriss" />
-    <Enroll :data="enroll" />
     <Footer :data="footer" />
   </div>
 </template>
@@ -293,17 +293,17 @@ export default {
           { name: "Launch a Watch Party (Coming Soon)", link: "#" },
         ],
       },
-      scroll: null,
+      lmS: null,
     };
   },
   mounted() {
-    this.scroll = new this.locomotiveScroll({
+    this.lmS = new this.locomotiveScroll({
       el: document.querySelector("#app"),
       smooth: false,
       smoothMobile: false,
       direction: "vertical",
     });
-    console.log("scroll", this.scroll);
+    console.log("scroll", this.lmS);
   },
 };
 </script>

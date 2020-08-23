@@ -1,12 +1,19 @@
 <template>
   <div :class="rootClasses">
-    <input id="checkbox-id-64" type="checkbox" :class="$style.input" :value="inputValue"  v-on:click="onClickedOn($event)" required/>
-    <label for="checkbox-id-64" :class="$style.label">
+    <input
+      id="checkbox-64"
+      type="checkbox"
+      :class="$style.input"
+      :value="inputValue"
+      v-on:click="onClickedOn($event)"
+      v-model.trim="checky"
+    />
+    <label for="checkbox-64" :class="$style.label">
       <div :class="$style.wrapper">
         <span :class="$style.box">
           <svg
             viewBox="0 0 13 10"
-            class="icon icon--check-2" 
+            class="icon icon--check-2"
             :class="[$style.icon, $style.checkIcon]"
           >
             <use xlink:href="#check-2">
@@ -21,40 +28,53 @@
         <slot></slot>
       </span>
     </label>
-    <div class="invalid-feedback" :class="$style['invalid-feedback']">You must agree before submitting.</div>
+    <div
+      v-if="$v.checky.$dirty && !$v.checky.required"
+      :class="$style['invalid-feedback']"
+    >You must agree before submitting.</div>
   </div>
 </template>
 <script>
+import { required } from "vuelidate/lib/validators";
+
 export default {
-    data: function(){
-        return {
-            inputValue : this.value,
-            rootClasses : ""
-        }
+  data: function () {
+    return {
+      inputValue: this.value,
+      rootClasses: "",
+      checky: false,
+    };
+  },
+  validations: {
+    checky: {
+      required(val) {
+        return val;
+      },
     },
+  },
   props: ["value"],
   methods: {
     onClickedOn: function (event) {
-      const checkedValue = document.querySelector("#checkbox-id-64").value;
-      if (checkedValue == "true") {
+      console.log("checky", this.checky);
+      if (this.checky) {
         this.rootClasses = [this.$style.checkbox];
         this.inputValue = "false";
       } else {
         this.rootClasses = [this.$style.checkbox, this.$style.checked];
         this.inputValue = "true";
       }
-
-      console.log("checkedValue",  this.inputValue);
+      this.$v.checky.$touch();
+      this.$emit("clicked", this.inputValue == "true");
+      console.log("checkedValue", this.inputValue);
     },
   },
   mounted: function () {
-      this.inputValue = this.value;
-    const checkedValue = document.querySelector("#checkbox-id-64").value;
-    console.log("checkedValue", checkedValue);
-    if (checkedValue == "true") {
-        this.rootClasses = [this.$style.checkbox, this.$style.checked];
+    this.inputValue = this.value;
+    console.log("checky", this.checky);
+    if (this.checky) {
+      this.rootClasses = [this.$style.checkbox, this.$style.checked];
     } else {
-        this.rootClasses = [this.$style.checkbox];
+      this.rootClasses = [this.$style.checkbox];
     }
   },
 };
@@ -62,47 +82,47 @@ export default {
 
 <style module>
 .icon {
-    display: inline-block;
-    width: 1em;
-    height: 1em;
-    line-height: 1em;
-    vertical-align: middle
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 1em;
+  vertical-align: middle;
 }
 
 .icon use {
-    color: inherit;
-    fill: currentColor
+  color: inherit;
+  fill: currentColor;
 }
 
 .icon.stroked use {
-    stroke: currentColor
+  stroke: currentColor;
 }
 
 .icon.hover-fill use,
 .icon.nofill use {
-    fill: none
+  fill: none;
 }
 
 .icon.hover-fill use:hover {
-    fill: currentColor
+  fill: currentColor;
 }
 
 .icon.active-filly use {
-    fill: none
+  fill: none;
 }
 
 .icon.active-filly.is-active use {
-    fill: currentColor
+  fill: currentColor;
 }
 
 .icon.big {
-    width: 2em;
-    height: 2em
+  width: 2em;
+  height: 2em;
 }
 
 .icon.large {
-    width: 3em;
-    height: 3em
+  width: 3em;
+  height: 3em;
 }
 
 .checkbox {

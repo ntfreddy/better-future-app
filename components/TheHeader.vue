@@ -219,7 +219,7 @@ export default {
   components: {
     TimeLine,
   },
-  props: ["data", "scroll"],
+  props: ["data", "locomotiveScroll"],
 };
 </script>
 

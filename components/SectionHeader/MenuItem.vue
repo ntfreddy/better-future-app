@@ -6,13 +6,12 @@
 </template>
 <script>
     export default {
-        name: "MenuItem",
-        props: ["text", "target", "scroll"],
+        props: ["text", "target", "lmS"],
         methods: {
             menuItemClickedOn: function(event){
                 const targetId = event.currentTarget.getAttribute("data-target");
                 const targetElement = document.querySelector(targetId);
-                this.scroll.scrollTo(targetElement);
+                this.lmS.scrollTo(targetElement);
             }
         }
     };

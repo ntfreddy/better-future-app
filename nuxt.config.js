@@ -43,6 +43,14 @@ export default {
             src: '@/plugins/vue-awesome-swiper.client',
             mode: "client"
         },
+        {
+            src: "@/plugins/vuelidate"
+        },
+        {
+            src: "@/plugins/vue-session.client",
+            mode: "client"
+        },
+
         /* {
             src: '@/plugins/firebase',
         }*/
@@ -72,19 +80,6 @@ export default {
         babel: {
             compact: true
         },
-        /*html: {
-            minify: {
-                collapseBooleanAttributes: true,
-                decodeEntities: true,
-                minifyCSS: true,
-                minifyJS: true,
-                processConditionalComments: true,
-                removeEmptyAttributes: true,
-                removeRedundantAttributes: true,
-                trimCustomFragments: true,
-                useShortDoctype: true
-            }
-        }*/
     },
     generate: {
 
