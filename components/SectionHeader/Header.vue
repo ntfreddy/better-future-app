@@ -5,7 +5,7 @@
                 <div :class="$style.logoInContainer"></div>
                     <div :class="$style.content">
                         <div :class="$style.list">
-                            <MenuItem v-for="menuItem in menu.menuItems" :key="menuItem.text" :text="menuItem.text" :target="menuItem.target" :lmS="lmS"/>
+                            <MenuItem v-for="menuItem in menu.menuItems" :key="menuItem.text" :text="menuItem.text" :target="menuItem.target"/>
                         </div>
                     <div :class="$style.register" :data-target="menu.menuItemHightlight.target" v-on:click="menuItemClickedOn($event)">{{menu.menuItemHightlight.text}}</div>
                 </div>
@@ -21,7 +21,7 @@ export default {
     components: {
         MenuItem
     },
-    props: ["menu", "lmS"],
+    props: ["menu"],
     methods: {
         menuItemClickedOn: function(event){
             const targetId = event.currentTarget.getAttribute("data-target");

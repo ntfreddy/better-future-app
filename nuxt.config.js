@@ -50,6 +50,10 @@ export default {
             src: "@/plugins/vue-session.client",
             mode: "client"
         },
+        {
+            src: "@/plugins/vue-load-script.client",
+            mode: "client"
+        },
 
         /* {
             src: '@/plugins/firebase',

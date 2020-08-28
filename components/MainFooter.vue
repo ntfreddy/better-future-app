@@ -17,14 +17,23 @@
             <a v-for="partner in data.partners" :key="partner.name" :href="partner.link" target="_blank" :class="$style.link">{{partner.name}}</a>
           </div>
         </div>
-        <div :class="[$style.copyright, $style.copyright_1mCFf]">{{data.copyright}}</div>
+        <Copyright />
       </div>
     </div>
   </div>
 </template>
 <script>
+import Copyright from "./Copyright";
+import Logo from "./Logo";
+import TermsList from "./TermsList";
+
 export default {
-  name: "Footer", 
+  name: "MainFooter", 
+  components: {
+      Copyright,
+      //Logo,
+      //TermsList
+  },
   props: ["data"]
 };
 </script>
@@ -126,23 +135,5 @@ export default {
     color: #2469c7
 }
 
-.copyright {
-    width: 100%;
-    font-size: 14px;
-    line-height: 21px;
-    color: hsla(0, 0%, 100%, .4)
-}
 
-@media (max-width:767.98px) {
-    .copyright {
-        max-width: 310px;
-        font-size: 13px
-    }
-}
-
-.copyright {
-    font-size: 14px;
-    line-height: 16px;
-    color: rgba(0, 0, 0, .3)
-}
 </style>

@@ -5,14 +5,28 @@
       <img
         alt="Bookmark – Unlocking Bible Prophecies"
         src="../assets/open-bible-1.png"
-        class="book1_K2y_R"
+        class="book1_K2y_R"        
+      v-if="!loading"
       />
       <img
         alt="Open Bible – Unlocking Bible Prophecies"
         src="../assets/open-bible-2.png"
-        class="book2_1CXky"
+        class="book2_1CXky"        
+      v-if="!loading"
       />
-      <div class="row justify-content-center">
+      <div class="row justify-content-center"
+      v-if="loading"
+      >
+        <div class="col-sm-10 col-md-7 col-lg-5 col-xl-4">
+          <div class="joined_1-RC3">
+            <img src="../assets/bell.svg" class="image_oKDST" />
+            <div class="joinedTitle_13joh">c</div>
+            <div class="desc_3Gbfc">We will remind you about the next program.</div>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center"
+      v-if="!loading">
         <div class="col-sm-10 col-md-7 col-lg-5 col-xl-4">
           <div class="label_2JFi-">{{data.label}}</div>
           <h2 class="action_1toYO">{{data.action}}</h2>
@@ -97,7 +111,11 @@ export default {
       agreed: true,
     };
   },
-  computed: {},
+  computed: {
+       state: function() {
+            return this.$session.firstName ? "joined" : "register"
+        }
+  },
   mounted: function () {
     //console.log("mounted");
     //alert(this.$store.state.episodes.episodes.activeIndex);
@@ -106,16 +124,35 @@ export default {
   methods: {
     onSubmit: function () {
       //console.log("onSubmit");
-      this.loading = true;
+      this.loading = false;
       if (this.validate() && this.agreed) {
         //console.log("valid");
-        this.loading = false;
+        this.loading = true;
         this.$session.start();
         this.$session.set("firstName", this.firstName);
         this.$session.set("email", this.email);
 
         console.log("firstName", this.$session.get("firstName"));
         console.log("email", this.$session.get("email"));
+
+
+        this.$loadScript("https://smtpjs.com/v3/smtp.js")
+        .then(() => {                                         //this Promise return nothing!!!
+            window.Email && window.Email.send({
+                Host : "smtp.gmail.com",
+                Username : 'meilleuravenir.tv@gmail.com',
+                Password : 'Me1lleuraven1r',
+                To : this.$session.get("email"),
+                From : "meilleuravenir.tv@gmail.com",
+                Subject : "Test",
+                Body : "test",
+            }).then(
+                message => alert(message)
+            );
+        })
+        .catch(() => {
+        // Failed to fetch script
+        });
 
         /*
             this.$gtm && this.$gtm.push({
@@ -147,9 +184,9 @@ export default {
     validateValue: function (name) {
       this.$v[name].$touch();
     },
-    onCheckBoxClicked (value) {
+    onCheckBoxClicked(value) {
       this.agreed = value;
-    }
+    },
   },
 };
 </script>
@@ -589,6 +626,31 @@ export default {
   margin-top: -36px;
   margin-bottom: 16px;
   text-align: left;
+}
+
+.image_oKDST {
+    width: 311px;
+    height: 311px;
+    background-position: 50%;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+.joinedTitle_13joh {
+    width: 250px;
+    font-family: Bebas Neue;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 48px;
+    margin-top: -55px;
+    margin-bottom: 16px;
+    letter-spacing: 1.8px;
+}
+
+.desc_3Gbfc, .joinedTitle_13joh {
+    text-align: center;
+    color: #fff;
 }
 
 .form-control.is-valid,

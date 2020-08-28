@@ -1,8 +1,8 @@
 <template>
   <div id="section-header" :class="[$style.header, $style.hasReminder]">
     <div :class="$style.panel">
-      <Reminder :text="data.reminder.text" :buttonTitle="data.reminder.buttonTitle" />
-      <Header :menu="data.menu" :lmS="lmS" />
+      <Reminder />
+      <Header :menu="data.menu" />
       <div class="container" :class="$style.mobilePanel">
         <div class="row" :class="$style.row">
           <div class="col-12" :class="$style.mobileColumn">
@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import Reminder from "./SectionHeader/Reminder";
+import Reminder from "./Reminder";
 import Header from "./SectionHeader/Header";
 import Presenter from "./SectionHeader/Presenter";
 
@@ -51,7 +51,7 @@ export default {
     Header,
     Presenter
   },  
-  props: ["data", "lmS"]
+  props: ["data"]
 };
 </script>
 

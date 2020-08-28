@@ -173,7 +173,7 @@ export default {
     getImage: function (t) {
       return t.youtubeId
         ? "https://img.youtube.com/vi/".concat(t.youtubeId, "/sddefault.jpg")
-        : "/images/earth.jpg";
+        : "../assets/earth.jpg";
     },
   },
 };

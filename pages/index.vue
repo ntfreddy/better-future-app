@@ -1,13 +1,12 @@
 <template>
   <div :class="$style.page">    
-    <Enroll :data="enroll" />
-    <TheHeader :data="theHeader" :lmS="lmS" />
-    <SectionHeader :data="sectionHeader" :lmS="lmS" />
+    <TheHeader :data="theHeader" />
+    <!-- <SectionHeader :data="sectionHeader"/>
     <SectionActions :data="sectionActions" />
     <SectionBibleStudy :data="sectionBibleStudy" />
     <SectionCami :data="sectionCami" />
-    <SectionChriss :data="sectionChriss" />
-    <Footer :data="footer" />
+    <SectionChriss :data="sectionChriss" /> -->
+    <Enroll :data="enroll" />
   </div>
 </template>
 
@@ -19,19 +18,17 @@ import SectionBibleStudy from "../components/SectionBibleStudy";
 import SectionCami from "../components/SectionCami";
 import SectionChriss from "../components/SectionChriss";
 import Enroll from "../components/Enroll";
-import Footer from "../components/Footer";
 
 export default {
   name: "Page",
   components: {
     TheHeader,
-    SectionHeader,
-    SectionActions,
-    SectionBibleStudy,
-    SectionCami,
-    SectionChriss,
+    // SectionHeader,
+    // SectionActions,
+    // SectionBibleStudy,
+    // SectionCami,
+    // SectionChriss,
     Enroll,
-    Footer,
   },
   data: function () {
     return {
@@ -275,35 +272,9 @@ export default {
           },
         },
       },
-      footer: {
-        copyright: "© 2020 Adventist World Radio. All rights reserved.",
-        presenterText:
-          "This series is being presented by Adventist World Radio.",
-        partnerTitle: "Become a partner",
-        partners: [
-          {
-            name: "Sign up to be a digital missionary",
-            link: "https://connect.adventist.org/digital/",
-          },
-          {
-            name: "Sign up to be a LIVE host",
-            link:
-              "https://forms.monday.com/forms/f3c3857cd1347f2297427e5b8213a045",
-          },
-          { name: "Launch a Watch Party (Coming Soon)", link: "#" },
-        ],
-      },
-      lmS: null,
     };
   },
   mounted() {
-    this.lmS = new this.locomotiveScroll({
-      el: document.querySelector("#app"),
-      smooth: false,
-      smoothMobile: false,
-      direction: "vertical",
-    });
-    console.log("scroll", this.lmS);
   },
 };
 </script>
