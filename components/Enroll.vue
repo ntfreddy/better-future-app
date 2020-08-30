@@ -20,7 +20,7 @@
         <div class="col-sm-10 col-md-7 col-lg-5 col-xl-4">
           <div class="joined_1-RC3">
             <img src="../assets/bell.svg" class="image_oKDST" />
-            <div class="joinedTitle_13joh">c</div>
+            <div class="joinedTitle_13joh">Thank you for joining us!</div>
             <div class="desc_3Gbfc">We will remind you about the next program.</div>
           </div>
         </div>
@@ -135,7 +135,7 @@ export default {
         console.log("firstName", this.$session.get("firstName"));
         console.log("email", this.$session.get("email"));
 
-
+/*
         this.$loadScript("https://smtpjs.com/v3/smtp.js")
         .then(() => {                                         //this Promise return nothing!!!
             window.Email && window.Email.send({
@@ -153,7 +153,7 @@ export default {
         .catch(() => {
         // Failed to fetch script
         });
-
+*/
         /*
             this.$gtm && this.$gtm.push({
                 event: "registration.success"
@@ -636,6 +636,20 @@ export default {
     background-repeat: no-repeat;
 }
 
+.joined_1-RC3 {
+  max-width: 310px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 0 auto;
+}
 
 .joinedTitle_13joh {
     width: 250px;

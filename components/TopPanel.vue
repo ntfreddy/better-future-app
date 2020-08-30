@@ -1,8 +1,8 @@
 <template>
   <div class="panel_3oR9C">
-    <Reminder v-show="!hideReminder && !isRegistred" />
+    <Reminder v-show="!hideReminder && !isRegistred" v-on:close="closeReminder($event)" />
 
-    <div class="burgerBox_iKUlt">
+    <div class="burgerBox_iKUlt" v-on:click="showNavigation($event)">
       <svg viewBox="0 0 24 11" class="icon icon--burger icon_2SKlE burger_1odGg">
         <use xlink:href="#burger">
           <svg fill="none" viewBox="0 0 24 11" id="burger" xmlns="http://www.w3.org/2000/svg">
@@ -15,36 +15,16 @@
       <div class="row justify-content-center">
         <div class="col-lg-12 column_3i0lk">
           <div class="logoInContainer_1vXT0"></div>
-          <div class="content_2tSnN" style="display: none;">
+          <div class="content_2tSnN"  v-show="showNav">
             <div class="list_2E554">
-              <div class="link_3vmMC">
+              <div v-for="item in navigation" :key="item.id" class="link_3vmMC" v-on:click="scrollTo('item.id')">
                 <div class="line_394cs"></div>
-                <div class="title_26Zvz">FAQ</div>
-              </div>
-              <div class="link_3vmMC">
-                <div class="line_394cs"></div>
-                <div class="title_26Zvz">Cami Oetman</div>
-              </div>
-              <div class="link_3vmMC">
-                <div class="line_394cs"></div>
-                <div class="title_26Zvz">Benefits</div>
-              </div>
-              <div class="link_3vmMC">
-                <div class="line_394cs"></div>
-                <div class="title_26Zvz">Audience</div>
-              </div>
-              <div class="link_3vmMC">
-                <div class="line_394cs"></div>
-                <div class="title_26Zvz">Advantages</div>
-              </div>
-              <div class="link_3vmMC">
-                <div class="line_394cs"></div>
-                <div class="title_26Zvz">Testimonials</div>
+                <div class="title_26Zvz">{{item.title}}</div>
               </div>
             </div>
-            <div class="register_1_S6s">Register</div>
+            <div class="register_1_S6s" v-show="!firstName" v-on:click="register">Register</div>
           </div>
-          <Welcome v-show="showNav" />
+          <Welcome v-show="!showNav" :nbr="2"/>
         </div>
       </div>
     </div>
@@ -87,7 +67,10 @@ export default {
       totalQuestions: "total", // "total" same as "state => state.count"
     }),
     firstName: function () {
-      return this.$session.firstName;
+      if (this.$session !== undefined) 
+        return this.$session.get("firstName");
+      else
+        return false;
     },
     episode: function () {
       return this.$store.state.episodes.episode;
@@ -96,8 +79,8 @@ export default {
       return this.$store.state.navigation.list;
     },
     isRegistred: function () {
-      //console.log("$session.exists : ", this.$session);
-      return false;//this.$session.exists;
+      console.log("$session.exists : ", this.$session !== undefined && this.$session.exists != undefined && this.$session.exists());
+      return this.$session !== undefined && this.$session.exists != undefined && this.$session.exists();
     },
   },
   watch: {
@@ -149,17 +132,20 @@ export default {
     register: function () {
       this.$form.goToRegister();
     },
-    scrollTo: function (t) {
-      this.$scroll.scrollTo(document.getElementById("section-".concat(t)));
+    scrollTo: function (id) {
+      this.$scroll.scrollTo(document.getElementById("section-".concat(id)));
     },
     openNavigation: function () {
       this.$popup.open("episodeNav");
     },
     showNavigation: function () {
+      //this.showNav = !this.showNav;
+      //console.log("showNav Top : ", this.showNav);
       this.$emit("update:show-nav", !this.showNav);
     },
     closeReminder: function () {
-      this.$session.set("hideReminder", !0);
+      console.log("closeReminder");
+      this.$session.set("hideReminder", true);
     },
     remind: function () {
       this.$form.goToRegister();
@@ -305,6 +291,11 @@ export default {
 .burgerBox_iKUlt.movedBurger_1bfus {
   top: 137px;
 }
+
+.showReminder_Z0Cxe .burgerBox_iKUlt{
+    padding-top: 130px;
+  }
+
 .burger_1odGg {
   font-size: 24px;
   cursor: pointer;

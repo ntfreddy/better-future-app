@@ -2,13 +2,13 @@
   <div id="app">
     <div>
       <Nuxt />
-      <ToTopButton  />
-      <BookBtn  />
+      <ToTopButton />
+      <BookBtn />
       <MainFooter :data="mainFooter" />
       <PopupsPlatform />
     </div>
   </div>
-<!-- End of HubSpot Embed Code -->
+  <!-- End of HubSpot Embed Code -->
 </template>
 <script>
 import ToTopButton from "../components/ToTopButton";
@@ -21,10 +21,10 @@ export default {
     ToTopButton,
     BookBtn,
     MainFooter,
-    PopupsPlatform
+    PopupsPlatform,
   },
-  data: function(){
-    return {      
+  data: function () {
+    return {
       mainFooter: {
         copyright: "© 2020 Adventist World Radio. All rights reserved.",
         presenterText:
@@ -43,13 +43,36 @@ export default {
           { name: "Launch a Watch Party (Coming Soon)", link: "#" },
         ],
       },
-    }
-  }
-}
+    };
+  },
+};
 </script>
 <style>
 @import url("https://fonts.googleapis.com/css?family=Bebas+Neue");
 @import url("https://fonts.googleapis.com/css?family=Roboto");
 
-
+body,
+html {
+  line-height: 1.5;
+  -webkit-overflow-scrolling: touch;
+}
+body,
+html {
+  font-size: 16px;
+  font-family: Roboto;
+  font-weight: 400;
+}
+body {
+  font-style: normal;
+  margin: 0;
+  background: #fff;
+  width: 100%;
+  overflow-x: hidden;
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #121212;
+  }
+}
 </style>
+c

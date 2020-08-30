@@ -6,13 +6,11 @@
           <div class="content_LtHlj">
             <p class="text_TQX0T">
               Welcome,
-              <span class="highlight_3OswU">Friend!</span>
-              <span
-                class="desc_3_jRW"
-              >If you want to get a complete immersion in the Bible, you need to register!</span>
+              <span class="highlight_3OswU">{{(firstName || "Friend") + "!"}}</span>
+              <span class="desc_3_jRW">{{text}}</span>
             </p>
-            <div class="register_3JMeQ">Register</div>
-            <div class="d-lg-none d-flex toogle_n8_Tr">
+            <div class="register_3JMeQ" v-show="!firstName">Register</div>
+            <div class="d-lg-none d-flex toogle_n8_Tr" v-on:click="openMobileNav">
               All episodes
               <svg viewBox="0 0 16 16" class="icon icon--dots icon_2SKlE dots_3GUsn">
                 <use xlink:href="#dots">
@@ -46,9 +44,13 @@ export default {
   components: {
     //Logo,
   },
+  props: ["nbr"],
   computed: {
     firstName: function () {
-      return this.$session.firstName;
+       if (this.$session !== undefined) 
+        return this.$session.get("firstName");
+      else
+        return undefined;
     },
     text: function () {
       return this.firstName

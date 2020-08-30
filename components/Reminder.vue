@@ -1,6 +1,6 @@
 <template>
-  <div class="reminder_2pbv5" style="display:block;">
-    <div class="closeBox_jsrtl">
+  <div class="reminder_2pbv5">
+    <div class="closeBox_jsrtl" v-on:click="$emit('close')">
       <svg viewBox="0 0 18 18" class="icon icon--cross icon_2SKlE close_ahHRa">
         <use xlink:href="#cross">
           <svg viewBox="0 0 18 18" id="cross">
@@ -15,7 +15,7 @@
     </div>
     <div class="container">
       <div class="row">
-        <div class="col-sm-12 col-lg-4">
+        <div class="col-sm-12 col-lg-4" v-on:click="$emit('remind')">
           <img src="../assets/reminder.svg" class="image_3VUaG" />
         </div>
         <div class="col-sm-12 col-lg-8">

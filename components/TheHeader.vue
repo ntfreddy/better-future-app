@@ -1,8 +1,8 @@
 <template>
-  <div id="section-header-video" class="header_1NV2O" v-bind:class="{showReminder_Z0Cxe : !hideReminder}">
+  <div id="section-header" class="header_1NV2O" v-bind:class="{showReminder_Z0Cxe : !hideReminder}">
     <div class="inner_LVYhi ready_2aiKi">
-      <TopPanel :showNav="!showNav" :hideReminder="hideReminder">
-        <Welcome v-show="showNav" />
+      <TopPanel :showNav="showNav" v-on:update:show-nav="showNav = $event" :hideReminder="hideReminder">
+        <Welcome class="d-lg-none d-flex" :nbr="1"/>
       </TopPanel>
       <div class="introBox_1smWl">
         <div class="container">
@@ -72,7 +72,10 @@ export default {
       activeIndex: "activeIndex",
     }),
     hideReminder: function () {
-      return false;//this.$session.hideReminder;
+      let v = (this.$session !== undefined && this.$session.get("hideReminder"));
+
+      console.log("hideReminder : ", v)
+      return v;
     },
     ...mapGetters({
       episodes: "episodes/episodes",
@@ -88,6 +91,12 @@ export default {
       SetStartTime: "episodes/SET_START_TIME",
       SetEpisode: "episodes/SET_EPISODE",
     }),
+    onUpdateShowNav(event){
+      this.showNav = event;
+      
+      console.log("event : ", event);
+      console.log("showNav Header : ", this.showNav);
+    },
     watch: function () {
       this.$scroll.scrollTo(
         document.getElementById("section-episode-video"),
