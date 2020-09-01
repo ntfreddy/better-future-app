@@ -21,7 +21,15 @@ export default {
             { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
         ],
         link: [
-            { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+            { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+            {
+                rel: "stylesheet",
+                href: "https://fonts.googleapis.com/css?family=Bebas+Neue",
+            },
+            {
+                rel: "stylesheet",
+                href: "https://fonts.googleapis.com/css?family=Roboto",
+            },
         ]
     },
     /*
@@ -54,10 +62,14 @@ export default {
             src: "@/plugins/vue-load-script.client",
             mode: "client"
         },
-
-        /* {
-            src: '@/plugins/firebase',
-        }*/
+        {
+            src: "@/plugins/form.client",
+            mode: "client"
+        },
+        /*
+                {
+                    src: '@/plugins/firebase',
+                } */
     ],
     /*
      ** Auto import components
@@ -75,6 +87,7 @@ export default {
         // Doc: https://bootstrap-vue.js.org
         'bootstrap-vue/nuxt',
         '@nuxtjs/firebase',
+        'nuxt-i18n',
     ],
     /*
      ** Build configuration
@@ -97,6 +110,23 @@ export default {
             realtimeDb: true,
         },
         messaging: {}
-
+    },
+    i18n: {
+        lazy: true,
+        langDir: 'lang/',
+        defaultLocale: 'fr',
+        locales: [{
+                name: 'English',
+                code: 'en',
+                iso: 'en-US',
+                file: 'en-US.js'
+            },
+            {
+                name: 'Français',
+                code: 'fr',
+                iso: 'fr-FR',
+                file: 'fr-FR.js'
+            }
+        ],
     }
 }

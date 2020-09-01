@@ -5,11 +5,11 @@
         <div class="col-lg-12">
           <div class="content_LtHlj">
             <p class="text_TQX0T">
-              Welcome,
-              <span class="highlight_3OswU">{{(firstName || "Friend") + "!"}}</span>
+              {{$t('welcome-text')}},
+              <span class="highlight_3OswU">{{(firstName || $t('welcome-text-highlight')) + "!"}}</span>
               <span class="desc_3_jRW">{{text}}</span>
             </p>
-            <div class="register_3JMeQ" v-show="!firstName">Register</div>
+            <div class="register_3JMeQ" v-show="!firstName" v-on:click="register">{{$t('welcome-register')}}</div>
             <div class="d-lg-none d-flex toogle_n8_Tr" v-on:click="openMobileNav">
               All episodes
               <svg viewBox="0 0 16 16" class="icon icon--dots icon_2SKlE dots_3GUsn">
@@ -54,13 +54,13 @@ export default {
     },
     text: function () {
       return this.firstName
-        ? "Join the broadcast with us."
-        : "If you want to get a complete immersion in the Bible, you need to register!";
+        ? this.$t("welcome-text-desc-notRegistered")
+        : this.$t("welcome-text-desc-registered");
     },
   },
   methods: {
     register: function () {
-      this.$form.goToRegister();
+      this.$form.goToRegister(this.$scrollTo);
     },
     openMobileNav: function () {
       this.$popup.open("episodeNav", {

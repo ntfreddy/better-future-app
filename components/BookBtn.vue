@@ -1,21 +1,45 @@
 <template>
-  <div class="wrapper_2zQuR">
-    <div class="content_h5vCw">
-      <div class="image_2dFQy"></div>
-      <div class="text_BENpy">
-        get a
-        <span class="highlight_2hvCI">free book</span> now
+  <div :class="$style.wrapper" v-show="!isBookWasOrdered" v-on:click="openPopup">
+    <div :class="$style.content">
+      <div :class="$style.image"></div>
+      <div :class="$style.text">
+        {{$t('bookBtn-text-1')}}
+        <span :class="$style.highlight">{{$t('bookBtn-text-highlight')}}</span>{{$t('bookBtn-text-2')}}
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  name:"BootBtn",
+  data: function() {
+      return {
+          inTopPosition: true,
+      }
+  },
+  computed: {
+      isBookWasOrdered: function() {
+          return this.$session !== undefined && this.$session.get("isBookWasOrdered");
+      }
+  },
+  mounted: function() {
+      var e = this;
+      window.addEventListener("scroll", (function() {
+          window.pageYOffset > 20 ? e.inTopPosition && (e.inTopPosition = !1) : e.inTopPosition || (e.inTopPosition = !0)
+      }
+      ))
+  },
+  methods: {
+      openPopup: function() {
+          this.$popup.open("get-book")
+      }
+  }
+};
 </script>
 
-<style>
-.wrapper_2zQuR {
+<style module>
+.wrapper {
   position: fixed;
   z-index: 100;
   cursor: pointer;
@@ -24,21 +48,21 @@ export default {};
   -webkit-transition: all 0.4s ease-in;
   transition: all 0.4s ease-in;
 }
-.wrapper_2zQuR:hover .content_h5vCw:before {
+.wrapper:hover .content:before {
   opacity: 0.04;
 }
 @media (max-width: 767.98px) {
-  .wrapper_2zQuR {
+  .wrapper {
     bottom: 18px;
   }
 }
-.content_h5vCw {
+.content {
   background: #c9daf0;
   border-radius: 16px;
   padding: 21px 13px 21px 103px;
   position: relative;
 }
-.content_h5vCw:before {
+.content:before {
   content: "";
   width: 100%;
   height: 100%;
@@ -52,18 +76,18 @@ export default {};
   transition: opacity 0.2s ease-in-out;
 }
 @media (max-width: 767.98px) {
-  .content_h5vCw {
+  .content {
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
     padding: 13px 16px 12px;
   }
-  .content_h5vCw,
-  .content_h5vCw:before {
+  .content,
+  .content:before {
     border-radius: 33px;
   }
 }
-.image_2dFQy {
+.image {
   position: absolute;
   bottom: -17px;
   left: 0;
@@ -75,11 +99,11 @@ export default {};
   background-repeat: no-repeat;
 }
 @media (max-width: 767.98px) {
-  .image_2dFQy {
+  .image {
     display: none;
   }
 }
-.text_BENpy {
+.text {
   font-weight: 700;
   font-size: 21px;
   line-height: 25px;
@@ -87,11 +111,11 @@ export default {};
   color: #000;
   width: 120px;
 }
-.text_BENpy .highlight_2hvCI {
+.text .highlight {
   color: #2469c7;
 }
 @media (max-width: 767.98px) {
-  .text_BENpy {
+  .text {
     width: auto;
     font-size: 17px;
     text-transform: capitalize;

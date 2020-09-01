@@ -1,5 +1,5 @@
 <template>
-  <div class="about_23wdH left_A-koV">
+  <div class="about_23wdH">
     <div class="blur_1oO7E">
       <div class="blurBackground_3E3wk"></div>
     </div>

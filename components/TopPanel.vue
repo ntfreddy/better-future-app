@@ -1,6 +1,6 @@
 <template>
   <div class="panel_3oR9C">
-    <Reminder v-show="!hideReminder && !isRegistred" v-on:close="closeReminder($event)" />
+    <Reminder v-show="showReminder" v-on:close="closeReminder($event)" />
 
     <div class="burgerBox_iKUlt" v-on:click="showNavigation($event)">
       <svg viewBox="0 0 24 11" class="icon icon--burger icon_2SKlE burger_1odGg">
@@ -58,7 +58,7 @@ export default {
     Reminder,
     Welcome,
   },
-  props: ["showNav", "hideReminder"],
+  props: ["showNav", "showReminder"],
   data: function () {
     return {};
   },
@@ -146,6 +146,7 @@ export default {
     closeReminder: function () {
       console.log("closeReminder");
       this.$session.set("hideReminder", true);
+      this.$emit("update:show-reminder", false);
     },
     remind: function () {
       this.$form.goToRegister();

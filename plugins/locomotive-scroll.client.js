@@ -13,11 +13,14 @@ export default (context, inject) => {
         direction: "vertical",
     });
     //console.log("scroll", lmS);
+    const func = function(target, offset, duration, easing, disableLerp, callback) {
+        lmS.scrollTo(target, offset, duration, easing, disableLerp, callback);
+    }
 
-    inject('scroll', lmS);
-    inject('scrollTo', lmS.scrollTo);
+    //inject('scroll', lmS);
+    inject('scrollTo', func);
 
     // For Nuxt <= 2.12, also add 👇
-    context.$scroll = lmS;
-    context.$scrollTo = lmS.scrollTo;
+    //context.$scroll = lmS;
+    context.$scrollTo = func;
 }

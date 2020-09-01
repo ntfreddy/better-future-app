@@ -20,37 +20,37 @@
         <div class="col-sm-10 col-md-7 col-lg-5 col-xl-4">
           <div class="joined_1-RC3">
             <img src="../assets/bell.svg" class="image_oKDST" />
-            <div class="joinedTitle_13joh">Thank you for joining us!</div>
-            <div class="desc_3Gbfc">We will remind you about the next program.</div>
+            <div class="joinedTitle_13joh">{{$t('enroll-joinedTitle')}}</div>
+            <div class="desc_3Gbfc">{{$t('enroll-joinedDesc')}}</div>
           </div>
         </div>
       </div>
       <div class="row justify-content-center"
       v-if="!loading">
         <div class="col-sm-10 col-md-7 col-lg-5 col-xl-4">
-          <div class="label_2JFi-">{{data.label}}</div>
-          <h2 class="action_1toYO">{{data.action}}</h2>
-          <div class="subaction_1iCF9">{{data.subaction}}</div>
+          <div class="label_2JFi-">{{$t('enroll-label')}}</div>
+          <h2 class="action_1toYO">{{$t('enroll-action')}}</h2>
+          <div class="subaction_1iCF9">{{$t('enroll-subaction')}}</div>
           <form id="registration" class="register_2ztqz" @submit.prevent="onSubmit">
             <div class="form-group">
               <input
                 id="reg-form-firstname"
                 name="firstname"
                 type="text"
-                :placeholder="data.form.placeholder.firstname"
+                :placeholder="$t('enroll-form-firstname-placeholder')"
                 class="form-control input_EsH-v input"
                 v-model.trim="$v.firstName.$model"
               />
               <div
                 class="invalid-feedback"
                 v-if="$v.firstName.$dirty && !$v.firstName.required"
-              >Please enter your first name</div>
+              >{{$t('enroll-form-firstname-error')}}</div>
             </div>
             <div class="form-group">
               <input
                 name="email"
                 type="email"
-                :placeholder="data.form.placeholder.email"
+                :placeholder="$t('enroll-form-email-placeholder')"
                 class="form-control input_EsH-v input"
                 id="__BVID__63"
                 v-model.trim="$v.email.$model"
@@ -58,21 +58,21 @@
               <div
                 class="invalid-feedback"
                 v-if="$v.email.$dirty && !$v.email.required"
-              >Please enter a valid email address</div>
+              >{{$t('enroll-form-email-error')}}</div>
             </div>
             <div class="register_2ztqz">
-              <Checkbox value="false" class="policy_34h9p" @clicked="onCheckBoxClicked">
-                {{data.form.register.text}}
+              <Checkbox value="false" class="policy_34h9p" @clicked="onCheckBoxClicked" error="You must agree before submitting.">
+                {{$t('enroll-form-privacy-policy')}}
                 <a
                   :href="data.form.register.privacy.link"
                   target="_blank"
                   class="link_3Kiew"
-                >{{data.form.register.privacy.text}}</a>
+                >{{$t('enroll-form-privacy-policy-link')}}</a>
               </Checkbox>
               <button
                 type="submit"
                 class="btn btn-secondary btn-block button_1UYTP"
-              >{{data.form.register.buttonTitle}}</button>
+              >{{$t('enroll-form-submit')}}</button>
             </div>
           </form>
         </div>
@@ -113,12 +113,14 @@ export default {
   },
   computed: {
        state: function() {
-            return this.$session.firstName ? "joined" : "register"
+            return this.$session !== undefined && this.$session.get("firstName") ? "joined" : "register"
         }
   },
   mounted: function () {
     //console.log("mounted");
     //alert(this.$store.state.episodes.episodes.activeIndex);
+    //console.log("form : ", this.$form);//
+    //this.$form.goToRegister(this.$scrollTo);
   },
   props: ["data"],
   methods: {

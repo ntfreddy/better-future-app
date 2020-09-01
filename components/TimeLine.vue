@@ -1,46 +1,44 @@
 <template>
-  <!--div v-swiper:mySwiper="swiperOption" class="d-lg-flex d-none timeLine_AjIG1 ready_1qnle line_yMtTe">
-
-        <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(-1560px, 0px, 0px);">
-      <div v-for="slide in slides" :key="slide.episode" class="swiper-slide" >
-                 {{slide.title}}
-             </div>
-    </div>
-    <div class="swiper-pagination"></div>
- 
-  </div-->
-  <div class="d-lg-flex d-none timeLine_AjIG1 ready_1qnle line_yMtTe">
+  <div class="d-lg-flex d-none" :class="[$style.timeLine, $style.ready]">
     <div class="container">
       <div
         v-swiper:gallery="swiperOption"
-        class="swiper-container swiperContainer_1sKij swiper-container-horizontal"
+        class="swiper-container swiper-container-horizontal" :class="$style.swiperContainer"
       >
         <div
           class="swiper-wrapper"
           style="transition-duration: 0ms; transform: translate3d(-1560px, 0px, 0px);"
         >
           <div
-            v-for="slide in slides"
-            :key="slide.episode"
-            class="swiper-slide slide_zbNQv"
+            ref="slide"
+            v-for="(episode, index) in episodes"
+            :key="episode.id"
+            class="swiper-slide"
+            :class="{[$style.slide]: true ,[$style.disableSlide]: ('closed' === episode.state)}"
             style="margin-right: 20px;"
+            v-on:click="goToSlide(index)"
           >
-            <div class="top_2uNWx">
-              <div class="label_8yXzv">
-                <div class="checked_j980D" style="display: none;">
-                  <svg viewBox="0 0 14 10" class="icon icon--checked icon_2SKlE check_3Yu77">
-                    <use xlink:href="#checked" />
+            <div :class="$style.top">
+              <div :class="{[$style.label]:true, [$style.active]: (activeIndex == index), [$style.today]: (episode.state == 'today'),[$style.closed]: (episode.state === 'closed'),[$style.finished]: (episode.state === 'finished'),}">
+                <div :class="$style.checked" v-show="(episode.state === 'finished')">
+                  <svg viewBox="0 0 14 10" class="icon icon--checked" :class="[$style.icon, $style.check]">
+                    <use xlink:href="#checked" >
+                      <svg fill="none" viewBox="0 0 14 10" id="checked" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1.5 4l4.75 4 6.25-6.5" stroke="#fff" stroke-width="2">
+                        </path>
+                        </svg>
+                      </use>
                   </svg>
                 </div>
                 <span style="display: none;">trailer</span>
-                <span>{{slide.episode}}</span>
+                <span>{{$t('timeLine-episode') + " " + index}}</span>
               </div>
-              <div class="line_3PFJG"></div>
+              <div :class="$style.line"></div>
             </div>
-            <div class="bottom_4cy4i">
-              <img :src="slide.thumbnail" class="image_1VvVr" />
-              <div class="clockBox_2AEDI" style="display: none;">
-                <svg viewBox="0 0 24 24" class="icon icon--clock icon_2SKlE clock_37Emv">
+            <div :class="$style.bottom">
+              <img :src="'https://storage.googleapis.com/bible.awr.org/episodes/' + episode.id + '-small.jpg'" :class="$style.image" />
+              <div :class="$style.clockBox" v-show="episode.state === 'today'">
+                <svg viewBox="0 0 24 24" class="icon icon--clock" :class="[$style.icon, $style.clock]">
                   <use xlink:href="#clock">
                     <svg
                       fill="none"
@@ -60,18 +58,18 @@
                   </use>
                 </svg>
               </div>
-              <div class="content_cRsEl">
-                <div class="date_1Eua6">{{slide.date}}</div>
-                <div class="title_3uuKD">{{slide.title}}</div>
+              <div :class="$style.content">
+                <div :class="$style.date" v-show="episode.id !== 'intro'">{{episode.date}}</div>
+                <div :class="$style.title">{{episode.title}}</div>
               </div>
             </div>
           </div>
-          <div class="swiper-slide empty_22ZNR" style="margin-right: 20px;"></div>
+          <div class="swiper-slide" :class="$style.empty" style="margin-right: 20px;"></div>
         </div>
         <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
       </div>
       <div
-        class="swiper-button-prev prev_1gqRz"
+        class="swiper-button-prev" :class="$style.prev"
         tabindex="0"
         role="button"
         aria-label="Previous slide"
@@ -79,7 +77,7 @@
         style
         ref="btnPrev"
       >
-        <svg viewBox="0 0 32 32" class="icon icon--next-slide icon_2SKlE iconBtm_3RH2q">
+        <svg viewBox="0 0 32 32" class="icon icon--next-slide" :class="[$style.icon, $style.iconBtm]">
           <use xlink:href="#next-slide">
             <svg
               fill="none"
@@ -94,14 +92,14 @@
         </svg>
       </div>
       <div
-        class="swiper-button-next next_3m-C-"
+        class="swiper-button-next" :class="$style.next"
         tabindex="0"
         role="button"
         aria-label="Next slide"
         aria-disabled="false"
         ref="btnNext"
       >
-        <svg viewBox="0 0 32 32" class="icon icon--next-slide icon_2SKlE iconBtm_3RH2q">
+        <svg viewBox="0 0 32 32" class="icon icon--next-slide" :class="[$style.icon, $style.iconBtm]">
           <use xlink:href="#next-slide">
             <svg
               fill="none"
@@ -121,11 +119,7 @@
 
 <script>
 export default {
-  props: {
-    episodes: {
-      type: Array,
-    },
-  },
+  props: ["episodes", "slides"],
   data: function () {
     return {
       activeSwiperIndex: this.activeIndex,
@@ -149,26 +143,28 @@ export default {
   },
   computed: {
     activeIndex: function () {
-      return 10; //this.$store.state.episodes.activeIndex
+      return this.$store.state.episodes.activeIndex
     },
   },
   mounted() {
-
-    this.gallery.on('click', this.clickOnSlide);
+    var slider = this.gallery;
+    //this.gallery.on('click', this.clickOnSlide);
+    this.gallery.on("transitionEnd", (function() {
+        slider.activeSwiperIndex = slider.realIndex
+    }))
 
     console.log("Current Swiper instance object", this.gallery);
     //this.gallery.slideTo(2, 1000, false);
   },
-  props: ["slides"],
-
   methods: {
-    clickOnSlide: function(event){
-      console.log("index", this.gallery.clickedIndex);
+   /* clickOnSlide: function(event){
       this.goToSlide(this.gallery.clickedIndex);
-    },
-    goToSlide: function (index) {
-      var e = this.episodes[index];
-      this.$store.commit("episodes/SET_EPISODE", e);
+    },*/
+    goToSlide: function (index) {      
+      
+      console.log("index", index);
+     var episode = this.episodes[index];
+     this.$store.commit("episodes/SET_EPISODE", episode);
     },
     getImage: function (t) {
       return t.youtubeId
@@ -178,30 +174,37 @@ export default {
   },
 };
 </script>
+
 <style>
-.timeLine_AjIG1 {
+.swiper-button-prev:after, .swiper-button-next:after {
+  opacity: 0;
+}
+
+</style>
+<style module>
+.timeLine {
   position: relative;
   opacity: 0;
   -webkit-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease;
 }
-.timeLine_AjIG1.ready_1qnle {
+.timeLine.ready {
   opacity: 1;
 }
 @media (max-width: 767.98px) {
-  .timeLine_AjIG1 {
+  .timeLine {
     padding-top: 15px;
   }
 }
-.swiperContainer_1sKij {
+.swiperContainer {
   overflow: visible;
   padding-top: 30px;
   width: calc(50vw + 50%);
 }
-.empty_22ZNR {
+.empty {
   width: 40px;
 }
-.slide_zbNQv {
+.slide {
   padding-top: 44px;
   width: 240px;
   position: relative;
@@ -216,7 +219,7 @@ export default {
   box-sizing: border-box;
   cursor: pointer;
 }
-.slide_zbNQv.disableSlide_2A08G .image_1VvVr {
+.slide.disableSlide .image {
   -webkit-filter: grayscale(100%);
   -moz-filter: grayscale(100%);
   -ms-filter: grayscale(100%);
@@ -225,20 +228,20 @@ export default {
   -webkit-filter: grey;
   filter: gray;
 }
-.slide_zbNQv.disableSlide_2A08G .title_3uuKD {
+.slide.disableSlide .title {
   color: hsla(0, 0%, 100%, 0.4);
 }
-.slide_zbNQv:nth-last-child(-n + 2) .line_3PFJG {
+.slide:nth-last-child(-n + 2) .line {
   width: 140%;
 }
-.top_2uNWx {
+.top {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: auto;
 }
-.label_8yXzv {
+.label {
   color: #fff;
   padding: 4px 15px 3px 14px;
   background: #2a2a2e;
@@ -256,22 +259,22 @@ export default {
   position: relative;
   z-index: 4;
 }
-.label_8yXzv.active_32GvD {
+.label.active {
   border: 2px solid #2469c7;
   padding: 3px 12px 3px 13px;
 }
-.label_8yXzv.finished_RIO9B {
+.label.finished {
   padding: 4px 25px 3px 14px;
 }
-.label_8yXzv.today_hVOsx {
+.label.today {
   padding: 4px 18px 2px 19px;
   background: #2469c7;
   color: #fff;
 }
-.label_8yXzv.closed_322Fx {
+.label.closed {
   color: hsla(0, 0%, 100%, 0.4);
 }
-.checked_j980D {
+.checked {
   width: 25px;
   height: 25px;
   background: #2469c7;
@@ -289,18 +292,18 @@ export default {
   top: -2px;
   right: -7px;
 }
-.check_3Yu77 {
+.check {
   font-size: 13px;
   color: #fff;
 }
-.line_3PFJG {
+.line {
   width: 110%;
   height: 2px;
   background-color: #303030;
   margin-top: -14px;
   z-index: 4;
 }
-.bottom_4cy4i {
+.bottom {
   width: 240px;
   height: 135px;
   position: relative;
@@ -317,7 +320,7 @@ export default {
   overflow: hidden;
   border-radius: 12px;
 }
-.bottom_4cy4i:after {
+.bottom:after {
   content: "";
   display: block;
   position: absolute;
@@ -335,7 +338,7 @@ export default {
   );
   background: linear-gradient(0deg, #000, transparent 94.12%);
 }
-.clockBox_2AEDI {
+.clockBox {
   position: absolute;
   top: 0;
   right: 0;
@@ -343,11 +346,11 @@ export default {
   background: #2469c7;
   border-radius: 0 12px;
 }
-.clock_37Emv {
+.clock {
   font-size: 24px;
   color: #fff;
 }
-.content_cRsEl {
+.content {
   position: relative;
   width: 240px;
   height: 135px;
@@ -366,18 +369,18 @@ export default {
   -ms-flex-direction: column;
   flex-direction: column;
 }
-.date_1Eua6 {
+.date {
   font-size: 14px;
   line-height: 21px;
   color: hsla(0, 0%, 100%, 0.4);
 }
-.title_3uuKD {
+.title {
   font-weight: 700;
   font-size: 19px;
   line-height: 22px;
   color: #fff;
 }
-.image_1VvVr {
+.image {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -387,8 +390,8 @@ export default {
   top: 0;
   left: 0;
 }
-.next_3m-C-,
-.prev_1gqRz {
+.next,
+.prev {
   content: "";
   bottom: 42px;
   width: 135px;
@@ -407,11 +410,11 @@ export default {
   outline: 0;
   z-index: 10;
 }
-.next_3m-C-.swiper-button-disabled,
-.prev_1gqRz.swiper-button-disabled {
+.next.swiper-button-disabled,
+.prev.swiper-button-disabled {
   display: none;
 }
-.prev_1gqRz {
+.prev {
   left: 0;
   background: -webkit-gradient(
     linear,
@@ -422,12 +425,12 @@ export default {
   );
   background: linear-gradient(90deg, #010406 0, rgba(2, 3, 5, 0));
 }
-.prev_1gqRz .iconBtm_3RH2q {
+.prev .iconBtm {
   -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
   margin-left: 20px;
 }
-.next_3m-C- {
+.next {
   right: 0;
   background: -webkit-gradient(
     linear,
@@ -441,10 +444,10 @@ export default {
   -ms-flex-pack: end;
   justify-content: flex-end;
 }
-.next_3m-C- .iconBtm_3RH2q {
+.next .iconBtm {
   margin-right: 20px;
 }
-.iconBtm_3RH2q {
+.iconBtm {
   font-size: 32px;
   cursor: pointer;
   color: #2469c7;
@@ -452,11 +455,51 @@ export default {
   transition: all 0.3s ease-in;
   position: relative;
 }
-.iconBtm_3RH2q:hover {
+.iconBtm:hover {
   opacity: 0.8;
 }
 
-.swiper-button-prev:after, .swiper-button-next:after {
-  opacity: 0;
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 1em;
+  vertical-align: middle;
+}
+
+.icon use {
+  color: inherit;
+  fill: currentColor;
+}
+
+.icon.stroked_1yLoG use {
+  stroke: currentColor;
+}
+
+.icon.hover-fill use,
+.icon.nofill use {
+  fill: none;
+}
+
+.icon.hover-fill use:hover {
+  fill: currentColor;
+}
+
+.icon.active-fill use {
+  fill: none;
+}
+
+.icon.active-fill.is-active use {
+  fill: currentColor;
+}
+
+.icon.big {
+  width: 2em;
+  height: 2em;
+}
+
+.icon.large {
+  width: 3em;
+  height: 3em;
 }
 </style>

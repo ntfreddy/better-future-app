@@ -31,13 +31,14 @@
     <div
       v-if="$v.checky.$dirty && !$v.checky.required"
       :class="$style['invalid-feedback']"
-    >You must agree before submitting.</div>
+    >{{error}}</div>
   </div>
 </template>
 <script>
 import { required } from "vuelidate/lib/validators";
 
 export default {
+  props: ["error"],
   data: function () {
     return {
       inputValue: this.value,

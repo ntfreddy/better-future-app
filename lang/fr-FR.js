@@ -1,0 +1,23 @@
+export default {
+    'welcome-text': 'Bienvenue',
+    'welcome-text-highlight': 'Ami(e)',
+    'welcome-register': "S'inscrire",
+    'welcome-text-desc-notRegisted': "Suivez la diffusion avec nous",
+    'welcome-text-desc-registered': "Si vous souhaitez obtenir une immersion complète dans la Bible, vous devez vous inscrire!",
+    'enroll-label': "Rejoignez-nous",
+    'enroll-action': "Inscrivez-vous aujourd'hui",
+    'enroll-subaction': "Ne manquez pas nos mises à jour!",
+    'enroll-form-firstname-placeholder': "Votre nom",
+    'enroll-form-firstname-error': "Entrez votre prénom",
+    'enroll-form-email-placeholder': "Votre courriel",
+    'enroll-form-email-error': "Entrez votre courriel",
+    'enroll-joinedTitle': "Merci de nous rejoindre!",
+    'enroll-joinedDesc': "Nous vous rappellerons le prochain programme.",
+    'enroll-form-privacy-policy': "J'accepte",
+    'enroll-form-privacy-policy-link': "La politique de confidentialité",
+    'enroll-form-submit': "S'inscrire maintenant",
+    'bookBtn-text-1': "Obtenir",
+    'bookBtn-text-highlight': "un livre",
+    'bookBtn-text-2': " gratuit",
+    'timeLine-episode': "épisode"
+}
