@@ -1,25 +1,60 @@
 <template>
-  <div class="wrapper_1dNaL" style>
-    <div class="btn_35Gd1">
-      <svg viewBox="0 0 23 32" class="icon icon--to-top icon_2SKlE arrows_37UQa">
-        <use xlink:href="#to-top">
-          <svg fill="none" viewBox="0 0 23 32" id="to-top" xmlns="http://www.w3.org/2000/svg">
+  <div ref="topBtn" :class="$style.wrapper" v-show="visible" v-on:click="backToTop">
+    <div :class="$style.btn">
+      <Icon id="to-top" viewBox="0 0 23 32" fill="none" :class="$style.arrows">
             <path d="M1 12.5L11.5 2l10 10" stroke="#fff" stroke-width="2" />
             <path opacity=".6" d="M1 21.5L11.5 11l10 10" stroke="#fff" stroke-width="2" />
             <path opacity=".3" d="M1 30.5L11.5 20l10 10" stroke="#fff" stroke-width="2" />
-          </svg>
-        </use>
-      </svg>
+      </Icon>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import Icon from "./Icon";
+
+export default {
+  name: "BackToTop",
+  components:{
+    Icon
+  },
+  props: {
+    visibleoffset: {
+      type: [String, Number],
+      default: 600,
+    },
+    right: {
+      type: String,
+      default: "30px",
+    },
+    bottom: {
+      type: String,
+      default: "40px",
+    },
+  },
+  data: function () {
+    return {
+      visible: false,
+    };
+  },
+  mounted: function () {
+    var e = this;
+    window.addEventListener("scroll", function () {
+      window.pageYOffset > 20
+        ? e.visible || (e.visible = true)
+        : e.visible && (e.visible = false);
+    });
+  },
+  methods: {
+    backToTop: function () {
+      this.$scrollTo(document.getElementById("top"));
+    },
+  },
+};
 </script>
 
-<style>
-.wrapper_1dNaL {
+<style module>
+.wrapper {
   border-radius: 50%;
   position: fixed;
   z-index: 100;
@@ -27,7 +62,7 @@ export default {};
   right: 90px;
   bottom: 16px;
 }
-.wrapper_1dNaL .btn_35Gd1 {
+.wrapper .btn {
   padding: 0;
   width: 60px;
   height: 60px;
@@ -46,7 +81,7 @@ export default {};
   -webkit-box-shadow: 0 6px 10px rgba(36, 105, 199, 0.4);
   box-shadow: 0 6px 10px rgba(36, 105, 199, 0.4);
 }
-.wrapper_1dNaL .btn_35Gd1:before {
+.wrapper .btn:before {
   content: "";
   width: 100%;
   height: 100%;
@@ -60,17 +95,17 @@ export default {};
   overflow: hidden;
   border-radius: 50%;
 }
-.wrapper_1dNaL.active_1Zsv1 .btn_35Gd1:before,
-.wrapper_1dNaL:focus .btn_35Gd1:before,
-.wrapper_1dNaL:hover .btn_35Gd1:before {
+.wrapper.active .btn:before,
+.wrapper:focus .btn:before,
+.wrapper:hover .btn:before {
   opacity: 0.08;
 }
 @media (max-width: 767.98px) {
-  .wrapper_1dNaL {
+  .wrapper {
     right: 83px;
   }
 }
-.arrows_37UQa {
+.arrows {
   font-size: 25px;
   z-index: 3;
 }

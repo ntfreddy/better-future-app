@@ -1,6 +1,5 @@
 <template>
-  <div :class="$style.copyright">
-    © 2020 Adventist World Radio. All rights reserved.</div>
+  <div :class="$style.copyright">{{$t('mainFooter-copyright')}}</div>
 </template>
 
 <script>

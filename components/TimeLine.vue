@@ -3,7 +3,8 @@
     <div class="container">
       <div
         v-swiper:gallery="swiperOption"
-        class="swiper-container swiper-container-horizontal" :class="$style.swiperContainer"
+        class="swiper-container swiper-container-horizontal"
+        :class="$style.swiperContainer"
       >
         <div
           class="swiper-wrapper"
@@ -19,16 +20,13 @@
             v-on:click="goToSlide(index)"
           >
             <div :class="$style.top">
-              <div :class="{[$style.label]:true, [$style.active]: (activeIndex == index), [$style.today]: (episode.state == 'today'),[$style.closed]: (episode.state === 'closed'),[$style.finished]: (episode.state === 'finished'),}">
+              <div
+                :class="{[$style.label]:true, [$style.active]: (activeIndex == index), [$style.today]: (episode.state == 'today'),[$style.closed]: (episode.state === 'closed'),[$style.finished]: (episode.state === 'finished'),}"
+              >
                 <div :class="$style.checked" v-show="(episode.state === 'finished')">
-                  <svg viewBox="0 0 14 10" class="icon icon--checked" :class="[$style.icon, $style.check]">
-                    <use xlink:href="#checked" >
-                      <svg fill="none" viewBox="0 0 14 10" id="checked" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M1.5 4l4.75 4 6.25-6.5" stroke="#fff" stroke-width="2">
-                        </path>
-                        </svg>
-                      </use>
-                  </svg>
+                  <Icon id="checked" fill="none" viewBox="0 0 14 10" :class="$style.check">
+                    <path d="M1.5 4l4.75 4 6.25-6.5" stroke="#fff" stroke-width="2"></path>
+                  </Icon>
                 </div>
                 <span style="display: none;">trailer</span>
                 <span>{{$t('timeLine-episode') + " " + index}}</span>
@@ -36,27 +34,21 @@
               <div :class="$style.line"></div>
             </div>
             <div :class="$style.bottom">
-              <img :src="'https://storage.googleapis.com/bible.awr.org/episodes/' + episode.id + '-small.jpg'" :class="$style.image" />
+              <img
+                :src="'https://storage.googleapis.com/bible.awr.org/episodes/' + episode.id + '-small.jpg'"
+                :class="$style.image"
+              />
               <div :class="$style.clockBox" v-show="episode.state === 'today'">
-                <svg viewBox="0 0 24 24" class="icon icon--clock" :class="[$style.icon, $style.clock]">
-                  <use xlink:href="#clock">
-                    <svg
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      id="clock"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M2.487 4.631a.934.934 0 00.6-.217L5.632 2.29a.938.938 0 00-1.2-1.44L1.886 2.974a.938.938 0 00.6 1.657zM18.366 2.29l2.546 2.124a.934.934 0 001.32-.12.937.937 0 00-.12-1.32L19.568.85a.937.937 0 10-1.2 1.44zM19.822 5.115a10.98 10.98 0 00-6.931-3.204V.937a.937.937 0 10-1.875 0v.982a10.979 10.979 0 00-6.838 3.196 10.99 10.99 0 00-3.24 7.822 10.99 10.99 0 003.24 7.823c.193.193.393.38.598.557l-.753 1.266a.938.938 0 001.61.959l.667-1.119A10.993 10.993 0 0012 24c2.032 0 3.983-.543 5.7-1.579l.666 1.12a.937.937 0 101.611-.958l-1.172-1.969a.937.937 0 00-1.361-.275A9.113 9.113 0 0112 22.125c-5.066 0-9.188-4.122-9.188-9.188C2.813 7.871 6.934 3.75 12 3.75c5.066 0 9.187 4.121 9.187 9.188a9.194 9.194 0 01-1.132 4.422.937.937 0 101.643.904 11.075 11.075 0 001.364-5.327 10.99 10.99 0 00-3.24-7.822z"
-                        fill="#fff"
-                      />
-                      <path
-                        d="M11.953 6.047a.937.937 0 00-.937.937v5.953c0 .25.098.488.274.663l2.652 2.652a.935.935 0 001.326 0 .938.938 0 000-1.326L12.89 12.55V6.984a.937.937 0 00-.938-.937z"
-                        fill="#fff"
-                      />
-                    </svg>
-                  </use>
-                </svg>
+                <Icon id="clock" fill="none" viewBox="0 0 24 24" :class="$style.clock">
+                  <path
+                    d="M2.487 4.631a.934.934 0 00.6-.217L5.632 2.29a.938.938 0 00-1.2-1.44L1.886 2.974a.938.938 0 00.6 1.657zM18.366 2.29l2.546 2.124a.934.934 0 001.32-.12.937.937 0 00-.12-1.32L19.568.85a.937.937 0 10-1.2 1.44zM19.822 5.115a10.98 10.98 0 00-6.931-3.204V.937a.937.937 0 10-1.875 0v.982a10.979 10.979 0 00-6.838 3.196 10.99 10.99 0 00-3.24 7.822 10.99 10.99 0 003.24 7.823c.193.193.393.38.598.557l-.753 1.266a.938.938 0 001.61.959l.667-1.119A10.993 10.993 0 0012 24c2.032 0 3.983-.543 5.7-1.579l.666 1.12a.937.937 0 101.611-.958l-1.172-1.969a.937.937 0 00-1.361-.275A9.113 9.113 0 0112 22.125c-5.066 0-9.188-4.122-9.188-9.188C2.813 7.871 6.934 3.75 12 3.75c5.066 0 9.187 4.121 9.187 9.188a9.194 9.194 0 01-1.132 4.422.937.937 0 101.643.904 11.075 11.075 0 001.364-5.327 10.99 10.99 0 00-3.24-7.822z"
+                    fill="#fff"
+                  />
+                  <path
+                    d="M11.953 6.047a.937.937 0 00-.937.937v5.953c0 .25.098.488.274.663l2.652 2.652a.935.935 0 001.326 0 .938.938 0 000-1.326L12.89 12.55V6.984a.937.937 0 00-.938-.937z"
+                    fill="#fff"
+                  />
+                </Icon>
               </div>
               <div :class="$style.content">
                 <div :class="$style.date" v-show="episode.id !== 'intro'">{{episode.date}}</div>
@@ -69,7 +61,8 @@
         <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
       </div>
       <div
-        class="swiper-button-prev" :class="$style.prev"
+        class="swiper-button-prev"
+        :class="$style.prev"
         tabindex="0"
         role="button"
         aria-label="Previous slide"
@@ -77,48 +70,37 @@
         style
         ref="btnPrev"
       >
-        <svg viewBox="0 0 32 32" class="icon icon--next-slide" :class="[$style.icon, $style.iconBtm]">
-          <use xlink:href="#next-slide">
-            <svg
-              fill="none"
-              viewBox="0 0 32 32"
-              id="next-slide"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M13 22l7-6.5L13 9" stroke="#2469C7" stroke-width="2" />
-              <circle cx="16" cy="16" r="15" stroke="#2469C7" stroke-width="2" />
-            </svg>
-          </use>
-        </svg>
+        <Icon id="prev-slide" fill="none" viewBox="0 0 32 32" :class="$style.iconBtm">
+          <path d="M13 22l7-6.5L13 9" stroke="#2469C7" stroke-width="2" />
+          <circle cx="16" cy="16" r="15" stroke="#2469C7" stroke-width="2" />
+        </Icon>
       </div>
       <div
-        class="swiper-button-next" :class="$style.next"
+        class="swiper-button-next"
+        :class="$style.next"
         tabindex="0"
         role="button"
         aria-label="Next slide"
         aria-disabled="false"
         ref="btnNext"
       >
-        <svg viewBox="0 0 32 32" class="icon icon--next-slide" :class="[$style.icon, $style.iconBtm]">
-          <use xlink:href="#next-slide">
-            <svg
-              fill="none"
-              viewBox="0 0 32 32"
-              id="next-slide"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M13 22l7-6.5L13 9" stroke="#2469C7" stroke-width="2" />
-              <circle cx="16" cy="16" r="15" stroke="#2469C7" stroke-width="2" />
-            </svg>
-          </use>
-        </svg>
+        <Icon id="next-slide" fill="none" viewBox="0 0 32 32" :class="$style.iconBtm">
+          <path d="M13 22l7-6.5L13 9" stroke="#2469C7" stroke-width="2" />
+          <circle cx="16" cy="16" r="15" stroke="#2469C7" stroke-width="2" />
+        </Icon>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Icon from "./Icon";
+
 export default {
+  name: "TimeLine",
+  components: {
+    Icon,
+  },
   props: ["episodes", "slides"],
   data: function () {
     return {
@@ -143,28 +125,27 @@ export default {
   },
   computed: {
     activeIndex: function () {
-      return this.$store.state.episodes.activeIndex
+      return this.$store.state.episodes.activeIndex;
     },
   },
   mounted() {
     var slider = this.gallery;
     //this.gallery.on('click', this.clickOnSlide);
-    this.gallery.on("transitionEnd", (function() {
-        slider.activeSwiperIndex = slider.realIndex
-    }))
+    this.gallery.on("transitionEnd", function () {
+      slider.activeSwiperIndex = slider.realIndex;
+    });
 
     console.log("Current Swiper instance object", this.gallery);
     //this.gallery.slideTo(2, 1000, false);
   },
   methods: {
-   /* clickOnSlide: function(event){
+    /* clickOnSlide: function(event){
       this.goToSlide(this.gallery.clickedIndex);
     },*/
-    goToSlide: function (index) {      
-      
+    goToSlide: function (index) {
       console.log("index", index);
-     var episode = this.episodes[index];
-     this.$store.commit("episodes/SET_EPISODE", episode);
+      var episode = this.episodes[index];
+      this.$store.commit("episodes/SET_EPISODE", episode);
     },
     getImage: function (t) {
       return t.youtubeId
@@ -176,10 +157,10 @@ export default {
 </script>
 
 <style>
-.swiper-button-prev:after, .swiper-button-next:after {
+.swiper-button-prev:after,
+.swiper-button-next:after {
   opacity: 0;
 }
-
 </style>
 <style module>
 .timeLine {
@@ -459,47 +440,4 @@ export default {
   opacity: 0.8;
 }
 
-.icon {
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  line-height: 1em;
-  vertical-align: middle;
-}
-
-.icon use {
-  color: inherit;
-  fill: currentColor;
-}
-
-.icon.stroked_1yLoG use {
-  stroke: currentColor;
-}
-
-.icon.hover-fill use,
-.icon.nofill use {
-  fill: none;
-}
-
-.icon.hover-fill use:hover {
-  fill: currentColor;
-}
-
-.icon.active-fill use {
-  fill: none;
-}
-
-.icon.active-fill.is-active use {
-  fill: currentColor;
-}
-
-.icon.big {
-  width: 2em;
-  height: 2em;
-}
-
-.icon.large {
-  width: 3em;
-  height: 3em;
-}
 </style>

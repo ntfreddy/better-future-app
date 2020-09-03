@@ -30,6 +30,10 @@ export default {
                 rel: "stylesheet",
                 href: "https://fonts.googleapis.com/css?family=Roboto",
             },
+            /*{
+                rel: "stylesheet",
+                href: "https://cdn.quilljs.com/1.2.6/quill.snow.css"
+            }*/
         ]
     },
     /*
@@ -37,7 +41,7 @@ export default {
      */
     css: [
         // swiper style
-        'swiper/css/swiper.css'
+        'swiper/css/swiper.css',
     ],
     /*
      ** Plugins to load before mounting the App
@@ -68,6 +72,10 @@ export default {
         },
         /*
                 {
+                    src: "@/plugins/vue-quill",
+                },*/
+        /*
+                {
                     src: '@/plugins/firebase',
                 } */
     ],
@@ -86,7 +94,7 @@ export default {
     modules: [
         // Doc: https://bootstrap-vue.js.org
         'bootstrap-vue/nuxt',
-        '@nuxtjs/firebase',
+        /*  '@nuxtjs/firebase',*/
         'nuxt-i18n',
     ],
     /*

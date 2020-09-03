@@ -11,17 +11,9 @@
     <label for="checkbox-64" :class="$style.label">
       <div :class="$style.wrapper">
         <span :class="$style.box">
-          <svg
-            viewBox="0 0 13 10"
-            class="icon icon--check-2"
-            :class="[$style.icon, $style.checkIcon]"
-          >
-            <use xlink:href="#check-2">
-              <svg fill="none" viewBox="0 0 13 10" id="check-2" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 3.5L6 8l5.5-7" stroke="#000" stroke-width="2" />
-              </svg>
-            </use>
-          </svg>
+          <Icon id="check-2" viewBox="0 0 13 10" fill="none" :class="$style.checkIcon">
+              <path d="M1 3.5L6 8l5.5-7" stroke="#000" stroke-width="2" />
+            </Icon>
         </span>
       </div>
       <span :class="$style.text" class="checkbox-text">
@@ -31,14 +23,14 @@
     <div
       v-if="$v.checky.$dirty && !$v.checky.required"
       :class="$style['invalid-feedback']"
-    >{{error}}</div>
+    >{{invalidFeedback}}</div>
   </div>
 </template>
 <script>
 import { required } from "vuelidate/lib/validators";
 
 export default {
-  props: ["error"],
+  props: ["invalidFeedback"],
   data: function () {
     return {
       inputValue: this.value,
@@ -82,50 +74,6 @@ export default {
 </script>
 
 <style module>
-.icon {
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  line-height: 1em;
-  vertical-align: middle;
-}
-
-.icon use {
-  color: inherit;
-  fill: currentColor;
-}
-
-.icon.stroked use {
-  stroke: currentColor;
-}
-
-.icon.hover-fill use,
-.icon.nofill use {
-  fill: none;
-}
-
-.icon.hover-fill use:hover {
-  fill: currentColor;
-}
-
-.icon.active-filly use {
-  fill: none;
-}
-
-.icon.active-filly.is-active use {
-  fill: currentColor;
-}
-
-.icon.big {
-  width: 2em;
-  height: 2em;
-}
-
-.icon.large {
-  width: 3em;
-  height: 3em;
-}
-
 .checkbox {
   display: -webkit-box;
   display: -ms-flexbox;

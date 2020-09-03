@@ -1,33 +1,30 @@
 <template>
-  <div class="welcome_3G-Y3">
+  <div :class="$style.welcome">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <div class="content_LtHlj">
-            <p class="text_TQX0T">
+          <div :class="$style.content">
+            <p :class="$style.text">
               {{$t('welcome-text')}},
-              <span class="highlight_3OswU">{{(firstName || $t('welcome-text-highlight')) + "!"}}</span>
-              <span class="desc_3_jRW">{{text}}</span>
+              <span
+                :class="$style.highlight"
+              >{{(firstName || $t('welcome-text-highlight')) + "!"}}</span>
+              <span :class="$style.desc">{{text}}</span>
             </p>
-            <div class="register_3JMeQ" v-show="!firstName" v-on:click="register">{{$t('welcome-register')}}</div>
-            <div class="d-lg-none d-flex toogle_n8_Tr" v-on:click="openMobileNav">
-              All episodes
-              <svg viewBox="0 0 16 16" class="icon icon--dots icon_2SKlE dots_3GUsn">
-                <use xlink:href="#dots">
-                  <svg
-                    fill="none"
-                    viewBox="0 0 16 16"
-                    id="dots"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g opacity=".4" fill="#fff">
-                      <path
-                        d="M0 0h3.2v3.2H0zM0 6.4h3.2v3.2H0zM0 12.8h3.2V16H0zM6.4 0h3.2v3.2H6.4zM6.4 6.4h3.2v3.2H6.4zM6.4 12.8h3.2V16H6.4zM12.8 0H16v3.2h-3.2zM12.8 6.4H16v3.2h-3.2zM12.8 12.8H16V16h-3.2z"
-                      />
-                    </g>
-                  </svg>
-                </use>
-              </svg>
+            <div
+              :class="$style.register"
+              v-show="!firstName"
+              v-on:click="register"
+            >{{$t('welcome-register')}}</div>
+            <div class="d-lg-none d-flex" :class="$style.toogle" v-on:click="openMobileNav">
+              {{$t('welcome-allEpisodes')}}
+              <Icon id="dots" fill="none" viewBox="0 0 16 16" :class="$style.dots">
+                <g opacity=".4" fill="#fff">
+                  <path
+                    d="M0 0h3.2v3.2H0zM0 6.4h3.2v3.2H0zM0 12.8h3.2V16H0zM6.4 0h3.2v3.2H6.4zM6.4 6.4h3.2v3.2H6.4zM6.4 12.8h3.2V16H6.4zM12.8 0H16v3.2h-3.2zM12.8 6.4H16v3.2h-3.2zM12.8 12.8H16V16h-3.2z"
+                  />
+                </g>
+              </Icon>
             </div>
           </div>
         </div>
@@ -38,19 +35,18 @@
 
 <script>
 import Logo from "./Logo";
+import Icon from "./Icon";
 
 export default {
   name: "Welcome",
   components: {
-    //Logo,
+    Icon,
   },
   props: ["nbr"],
   computed: {
     firstName: function () {
-       if (this.$session !== undefined) 
-        return this.$session.get("firstName");
-      else
-        return undefined;
+      if (this.$session !== undefined) return this.$session.get("firstName");
+      else return undefined;
     },
     text: function () {
       return this.firstName
@@ -71,8 +67,8 @@ export default {
 };
 </script>
 
-<style>
-.welcome_3G-Y3 {
+<style module>
+.welcome {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -88,12 +84,12 @@ export default {
   justify-content: center;
 }
 @media (max-width: 991.98px) {
-  .welcome_3G-Y3 {
+  .welcome {
     padding: 16px 0;
     z-index: 2;
   }
 }
-.content_LtHlj {
+.content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -103,13 +99,14 @@ export default {
   width: 100%;
 }
 @media (max-width: 991.98px) {
-  .content_LtHlj {
+  .content {
     width: 100%;
     -webkit-box-pack: end;
     -ms-flex-pack: end;
     justify-content: flex-end;
   }
 }
+/*
 .left_SCo9Z {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -127,8 +124,8 @@ export default {
   .logo_3FX2W {
     margin-right: 15px;
   }
-}
-.toogle_n8_Tr {
+}*/
+.toogle {
   border: 2px solid #2469c7;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -155,38 +152,38 @@ export default {
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
 }
-.toogle_n8_Tr:hover {
+.toogle:hover {
   color: hsla(0, 0%, 100%, 0.8);
 }
-.toogle_n8_Tr:hover .dots_3GUsn {
+.toogle:hover .dots {
   opacity: 0.8;
 }
-.register_3JMeQ,
-.text_TQX0T {
+.register,
+.text {
   font-size: 16px;
 }
-.dots_3GUsn {
+.dots {
   margin-left: 8px;
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
 }
-.dots_3GUsn,
-.text_TQX0T {
+.dots,
+.text {
   font-size: 16px;
   color: #fff;
 }
-.text_TQX0T {
+.text {
   width: 100%;
   font-weight: 700;
   line-height: 24px;
   margin: 0;
   text-align: right;
 }
-.text_TQX0T .highlight_3OswU {
+.text .highlight {
   color: #2469c7;
 }
 @media (max-width: 991.98px) {
-  .text_TQX0T {
+  .text {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -194,11 +191,11 @@ export default {
   }
 }
 @media (max-width: 991.98px) {
-  .desc_3_jRW {
+  .desc {
     display: none;
   }
 }
-.register_3JMeQ {
+.register {
   padding: 7px 50px;
   font-weight: 700;
   font-size: 19px;
@@ -215,17 +212,17 @@ export default {
   display: flex;
 }
 @media (max-width: 767.98px) {
-  .register_3JMeQ {
+  .register {
     margin-left: 0;
   }
 }
 @media (max-width: 575.98px) {
-  .register_3JMeQ {
+  .register {
     padding: 7px 30px;
   }
 }
 @media (max-width: 991.98px) {
-  .register_3JMeQ {
+  .register {
     display: none;
   }
 }

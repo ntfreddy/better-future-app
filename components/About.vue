@@ -1,34 +1,35 @@
 <template>
-  <div class="about_23wdH">
-    <div class="blur_1oO7E">
-      <div class="blurBackground_3E3wk"></div>
+  <div :class="$style.about">
+    <div :class="$style.blur">
+      <div :class="$style.blurBackground"></div>
     </div>
-    <div class="content_11NwZ active_2Y0MG">
-      <div class="label_2Tr2o" style="display:;">Today's topic</div>
-      <p class="title_7czUV">The Counterfeit</p>
-      <div class="bottom_V0swQ">
+    <div :class="{[$style.content]: true, [$style.active]: !locked}">
+      <div
+        :class="$style.label"
+        v-show="episode.id !== 'intro'"
+        v-on:click="onTimeout"
+      >{{$t('about-label')}}</div>
+      <p :class="$style.title">{{episode.title}}</p>
+      <div :class="$style.bottom">
         <div>
-          <div ssr="true" class="quill_3NdfW text_3lCcx">
-            <div class="notranslate quill-text textarea_32Afl ql-container ql-disabled">
-              <div class="ql-editor" data-gramm="false" contenteditable="false">
-                <p>This study will cover why the majority of the Christian world goes to church on Sunday. How did the day of worship change? Why? Who is behind this great deception?</p>
-              </div>
-              <div class="ql-clipboard" contenteditable="true" tabindex="-1"></div>
-            </div>
-          </div>
+          <QuillPreview
+            :ops="episode.announce.ops"
+            mini="false"
+            :class="$style.text"
+            v-show="episode.announce"
+          />
         </div>
-        <div class="buttons_Mmfad" style="display:;">
-          <div class="btn_1jeBI watchBtn_31UAW">
-            Watch episode
-            <svg viewBox="0 0 13 17" class="icon icon--play icon_2SKlE play_F77HD">
-              <use xlink:href="#play">
-                <svg viewBox="0 0 13 17" id="play" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M13 8.5L0 17V0l13 8.5z" />
-                </svg>
-              </use>
-            </svg>
+        <div :class="$style.buttons" v-show="!locked">
+          <div :class="[$style.btn, $style.watchBtn]" v-on:click="watch">
+            {{$t('about-watch') + ('intro' === episode.id ? $t('about-trailer') : $t('about-episode'))}}
+            <Icon id="play" viewBox="0 0 13 17" fill="white" :class="$style.play">
+              <path d="M13 8.5L0 17V0l13 8.5z" />
+            </Icon>
           </div>
-          <div class="btn_1jeBI listenBtn_3vpL9" style="display:;">Listen to audio</div>
+          <div
+            :class="[$style.btn, $style.listenBtn]"
+            v-show="episode.soundcloud"
+          >{{$t('about-listen')}}</div>
         </div>
       </div>
     </div>
@@ -36,37 +37,98 @@
 </template>
 
 <script>
-export default {};
+import { mapActions } from "vuex";
+
+import QuillPreview from "./QuillPreview";
+import Icon from "./Icon";
+
+export default {
+  name: "About",
+  props: ["episode"],
+  components: {
+    QuillPreview,
+    Icon,
+  },
+  data() {
+    return {
+      content: {
+        ops: [
+          {
+            insert:
+              "Throughout this series, you will learn that Jesus’ love for you can be found at the heart of Revelation, and that its prophecies reveal hope for your future.\\n",
+          },
+        ],
+      },
+      config: {
+        readOnly: false,
+        placeholder: "Compose an epic...",
+      },
+    };
+  },
+  computed: {
+    text: function () {
+      return this.episode && this.episode.announce
+        ? this.episode.announce
+        : this.episode && this.episode.description
+        ? this.episode.description
+        : null;
+    },
+    locked: function () {
+      if (!this.episode) return true;
+      var t = this.episode,
+        e = t.state,
+        n = t.distance;
+      return "closed" === e || ("today" === e && n > 0);
+    },
+  },
+  methods: {
+    ...mapActions({
+      UnlockEpisode: "episodes/UNLOCK_EPISODE",
+    }),
+    onTimeout: function () {
+      this.UnlockEpisode(this.episode);
+    },
+    watch: function () {
+      this.$emit("watch");
+    },
+    listen: function () {
+      this.$emit("listen");
+    },
+  },
+  mounted: function () {
+    console.log("announce : ", this.episode.announce);
+  },
+};
 </script>
 
-<style>
-.about_23wdH {
+<style module>
+.about {
   border-radius: 32px;
   overflow: hidden;
   position: relative;
 }
 @media (max-width: 767.98px) {
-  .about_23wdH {
+  .about {
     border-radius: 16px;
     min-height: 200px;
   }
 }
-.blur_1oO7E,
-.blurBackground_3E3wk {
+.blur,
+.blurBackground {
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
   left: 0;
 }
-.blurBackground_3E3wk {
+.blurBackground {
   background: url(../assets/earth.jpg) #000 no-repeat top fixed;
   -webkit-filter: blur(18px);
   filter: blur(18px);
   -webkit-transform: scale(1.13);
   transform: scale(1.13);
 }
-.content_11NwZ {
+.content {
   width: 100%;
   height: 100%;
   -webkit-box-sizing: border-box;
@@ -82,25 +144,25 @@ export default {};
   flex-direction: column;
   background: rgba(36, 105, 199, 0.3);
 }
-.content_11NwZ.active_2Y0MG {
+.content.active {
   background: rgba(0, 0, 0, 0.4);
 }
 @media (min-width: 576px) and (max-width: 767.98px) {
-  .content_11NwZ {
+  .content {
     padding: 30px 26px 91px;
   }
 }
 @media (max-width: 575.98px) {
-  .content_11NwZ {
+  .content {
     padding: 30px 14px 91px;
   }
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
-  .content_11NwZ {
+  .content {
     padding: 50px 30px 91px;
   }
 }
-.bottom_V0swQ {
+.bottom {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -113,7 +175,7 @@ export default {};
   justify-content: space-between;
   height: 100%;
 }
-.label_2Tr2o {
+.label {
   font-size: 14px;
   line-height: 145.4%;
   letter-spacing: 1.85px;
@@ -123,11 +185,11 @@ export default {};
   margin-bottom: 19px;
 }
 @media (max-width: 767.98px) {
-  .label_2Tr2o {
+  .label {
     margin-bottom: 14px;
   }
 }
-.title_7czUV {
+.title {
   font-family: Bebas Neue;
   font-size: 77px;
   line-height: 76px;
@@ -136,13 +198,13 @@ export default {};
   margin: 0 0 32px;
 }
 @media (max-width: 767.98px) {
-  .title_7czUV {
+  .title {
     font-size: 48px;
     line-height: 45px;
     margin-bottom: 17px;
   }
 }
-.text_3lCcx {
+.text {
   font-size: 16px;
   line-height: 24px;
   color: hsla(0, 0%, 100%, 0.6);
@@ -241,20 +303,20 @@ export default {};
   font-weight: 400;
   color: hsla(0, 0%, 100%, 0.6);
 }
-.buttons_Mmfad {
+.buttons {
   -webkit-box-align: end;
   -ms-flex-align: end;
   align-items: flex-end;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
-.btn_1jeBI,
-.buttons_Mmfad {
+.btn,
+.buttons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-.btn_1jeBI {
+.btn {
   color: #fff;
   border-radius: 40px;
   padding: 19px 42px 19px 51px;
@@ -278,24 +340,24 @@ export default {};
   cursor: pointer;
 }
 @media (max-width: 767.98px) {
-  .btn_1jeBI {
+  .btn {
     margin-top: 20px;
   }
 }
-.btn_1jeBI .play_F77HD {
+.btn .play {
   color: #fff;
   margin-left: 21px;
   font-size: 15px;
 }
-.btn_1jeBI.watchBtn_31UAW {
+.btn.watchBtn {
   margin-right: 20px;
 }
-.btn_1jeBI.listenBtn_3vpL9 {
+.btn.listenBtn {
   padding: 13px 34px;
   font-size: 13px;
 }
-.btn_1jeBI:hover,
-.btn_1jeBI:hover .play_F77HD {
+.btn:hover,
+.btn:hover .play {
   color: hsla(0, 0%, 100%, 0.9);
 }
 </style>

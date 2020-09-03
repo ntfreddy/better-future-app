@@ -10,22 +10,26 @@
         v-on:update:show-nav="showNav = $event"
         :hideReminder="hideReminder"
         :showReminder="showReminder"
-      >
+      />
         <Welcome class="d-lg-none d-flex" :nbr="1" />
-      </TopPanel>
       <div :class="$style.introBox">
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-12" :class="$style.content">
-              <div :class="$style.intro">
-                <About :class="$style.left"/>
+              <div :class="$style.intro" v-show="episode && episode.id">
+                <About
+                  :class="$style.left"
+                  :episode="episode"
+                  v-on:watch="watch"
+                  v-on:listen="listen"
+                />
                 <div
                   :class="$style.right"
-                  style="background-image:url(https://storage.googleapis.com/bible.awr.org/episodes/the-counterfeit.jpg);"
+                  :style="'background-image:url(https://storage.googleapis.com/bible.awr.org/episodes/' + episode.id + '.jpg);'"
                 ></div>
                 <div
                   :class="$style.cami"
-                  style="background-image:url(https://storage.googleapis.com/bible.awr.org/cami/the-counterfeit.png);"
+                  :style="'background-image:url(https://storage.googleapis.com/bible.awr.org/cami/' + episode.id + '.png);'"
                 ></div>
               </div>
             </div>
@@ -37,7 +41,7 @@
         <div class="container" :class="$style.container">
           <div class="row justify-content-center">
             <div class="col-12">
-              <Youtube />
+              <Youtube :youtubeId="episode.youtubeId" />
             </div>
           </div>
         </div>
@@ -64,7 +68,7 @@ export default {
     About,
     Youtube,
   },
-  props: ["data"],
+  props: [],
   data: function () {
     return {
       ready: false,
@@ -78,8 +82,8 @@ export default {
   },
   computed: {
     ...mapState({
-      episode: "episode",
-      activeIndex: "activeIndex",
+      episode: (state) => state.episodes.episode,
+      activeIndex: (state) => state.episodes.activeIndex,
     }),
     hideReminder: function () {
       let v =
@@ -120,22 +124,14 @@ export default {
       SetEpisode: "episodes/SET_EPISODE",
     }),
     watch: function () {
-      this.$scroll.scrollTo(
+      this.$scrollTo(
         document.getElementById("section-episode-video"),
-        500,
-        {
-          offset: -50,
-        }
+        -50,
+        500
       );
     },
     listen: function () {
-      this.$scroll.scrollTo(
-        document.getElementById("section-soundcloud"),
-        500,
-        {
-          offset: -50,
-        }
-      );
+      this.$scrollTo(document.getElementById("section-soundcloud"), -50, 500);
     },
     onResize: function () {
       this.showNav = false;
@@ -155,11 +151,12 @@ export default {
   width: 100%;
   padding: 0;
 }
+
 @media (max-width: 991.98px) {
   .header {
     padding-top: 70px;
   }
-  .header .showReminder {
+  .header.showReminder {
     padding-top: 170px;
   }
 }
@@ -179,6 +176,15 @@ export default {
 
 .line {
   padding-bottom: 40px;
+}
+
+.introBox {
+  padding-top: 26px;
+}
+@media (max-width: 991.98px) {
+  .introBox {
+    padding-top: 0;
+  }
 }
 
 .intro {
@@ -266,8 +272,19 @@ export default {
   }
 }
 
-.left{-webkit-box-sizing:border-box;box-sizing:border-box;width:693px;height:638px}@media (max-width:991.98px){.left{width:100%;height:100%;min-height:100px}}
-
+.left {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 693px;
+  height: 638px;
+}
+@media (max-width: 991.98px) {
+  .left {
+    width: 100%;
+    height: 100%;
+    min-height: 100px;
+  }
+}
 
 .content {
   display: -webkit-box;

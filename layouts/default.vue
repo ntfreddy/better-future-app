@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <div>
+      <span id="top"></span>
       <Nuxt />
       <ToTopButton />
       <BookBtn />

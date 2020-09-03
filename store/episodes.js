@@ -176,7 +176,18 @@ export const state = () => ({
         },
     ],
     activeIndex: 0,
-    episode: {}
+    episode: {
+        "id": "intro",
+        "title": "Unlocking Bible Prophecies",
+        "alias": "intro",
+        "youtubeId": "Nf7u04TVgu8",
+        "announce": {
+            "ops": [{
+                "insert": "Throughout this series, you will learn that Jesus’ love for you can be found at the heart of Revelation, and that its prophecies reveal hope for your future.\\n"
+            }]
+        },
+        "publicationDate": "2020-05-27T00:00:00"
+    },
 })
 
 export const getters = {
@@ -199,5 +210,5 @@ export const mutations = {
 }
 
 export const actions = {
-
+    UNLOCK_EPISODE(state) {},
 }
