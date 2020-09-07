@@ -11,14 +11,14 @@
     </div>
     <div class="container">
       <div class="row">
-        <div class="col-sm-12 col-lg-4" v-on:click="$emit('remind')">
+        <div class="col-sm-12 col-lg-4">
           <img src="../assets/reminder.svg" :class="$style.image" />
         </div>
         <div class="col-sm-12 col-lg-8">
-          <div :class="$style.content">
-            <div :class="$style.text">{{title}}</div>
+          <div :class="$style.content" v-on:click="$emit('remind')">
+            <div :class="$style.text">{{$t("reminder-text")}}</div>
             <div :class="$style.btn">
-              <span>Register</span>
+              <span>{{$t("reminder-btn")}}</span>
             </div>
           </div>
         </div>

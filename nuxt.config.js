@@ -70,10 +70,10 @@ export default {
             src: "@/plugins/form.client",
             mode: "client"
         },
-        /*
-                {
-                    src: "@/plugins/vue-quill",
-                },*/
+        {
+            src: "@/plugins/vue-popup.client",
+            mode: "client"
+        },
         /*
                 {
                     src: '@/plugins/firebase',

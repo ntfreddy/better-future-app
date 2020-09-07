@@ -21,6 +21,7 @@ export default {
     'bookBtn-text-highlight': "free book",
     'bookBtn-text-2': " now",
     'timeLine-episode': "episode",
+    'timeLine-trailer': "trailer",
     'about-label': "Today's topic",
     'about-watch': "Watch ",
     'about-trailer': "trailer",
@@ -30,5 +31,15 @@ export default {
     'mainFooter-organizer-text': "This series is being presented by Adventist World Radio.",
     'mainFooter-privacy-policy-link': "privacy policy",
     'mainFooter-partners-title': "Become a partner",
-    'mainFooter-copyright': "© 2020 Meilleur avenir TV. All rights reserved."
+    'copyright': "© 2020 Meilleur avenir TV. All rights reserved.",
+    'reminder-text': "Register to receive updates",
+    'reminder-btn': "Register",
+    'topPanel-btn': "Register",
+    'lifeMobileNav-close': "Close",
+    'lifeMobileNav-text': "Hello,",
+    'lifeMobileNav-friend': "Friend!",
+    'lifeMobileNav-toggle': "All episodes",
+    'lifeMobileNav-registration': "Registration",
+    'mobile-time-line-message-1': "To immerse yourself in Bible study, we suggest that you",
+    'mobile-time-line-message-2': "start browsing from the beginning!"
 }

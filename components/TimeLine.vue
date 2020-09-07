@@ -28,8 +28,8 @@
                     <path d="M1.5 4l4.75 4 6.25-6.5" stroke="#fff" stroke-width="2"></path>
                   </Icon>
                 </div>
-                <span style="display: none;">trailer</span>
-                <span>{{$t('timeLine-episode') + " " + index}}</span>
+                <span v-if="index === 0">{{$t('timeLine-trailer')}}</span>
+                <span v-else>{{$t('timeLine-episode') + " " + index}}</span>
               </div>
               <div :class="$style.line"></div>
             </div>
@@ -147,9 +147,9 @@ export default {
       var episode = this.episodes[index];
       this.$store.commit("episodes/SET_EPISODE", episode);
     },
-    getImage: function (t) {
-      return t.youtubeId
-        ? "https://img.youtube.com/vi/".concat(t.youtubeId, "/sddefault.jpg")
+    getImage: function (episode) {
+      return episode.youtubeId
+        ? "https://img.youtube.com/vi/".concat(episode.youtubeId, "/sddefault.jpg")
         : "../assets/earth.jpg";
     },
   },

@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.copyright">{{$t('mainFooter-copyright')}}</div>
+  <div :class="$style.copyright">{{$t('copyright')}}</div>
 </template>
 
 <script>

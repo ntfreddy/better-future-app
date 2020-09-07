@@ -16,7 +16,7 @@
               v-show="!firstName"
               v-on:click="register"
             >{{$t('welcome-register')}}</div>
-            <div class="d-lg-none d-flex" :class="$style.toogle" v-on:click="openMobileNav">
+            <div class="d-lg-none d-flex" :class="$style.toogle" v-on:click="onOpenPopup('life-episode-nav')">
               {{$t('welcome-allEpisodes')}}
               <Icon id="dots" fill="none" viewBox="0 0 16 16" :class="$style.dots">
                 <g opacity=".4" fill="#fff">
@@ -34,6 +34,8 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 import Logo from "./Logo";
 import Icon from "./Icon";
 
@@ -55,14 +57,17 @@ export default {
     },
   },
   methods: {
+    ...mapActions({
+      onOpenPopup: "OPEN"
+    }),
     register: function () {
       this.$form.goToRegister(this.$scrollTo);
     },
-    openMobileNav: function () {
+    /*openMobileNav: function () {
       this.$popup.open("episodeNav", {
         allEpisodes: true,
       });
-    },
+    },*/
   },
 };
 </script>

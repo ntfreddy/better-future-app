@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.wrapper" v-show="!isBookWasOrdered" v-on:click="openPopup">
+  <div :class="$style.wrapper" v-show="!isBookWasOrdered" v-on:click="onOpenPopup('get-book')">
     <div :class="$style.content">
       <div :class="$style.image"></div>
       <div :class="$style.text">
@@ -11,14 +11,19 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   name:"BootBtn",
+  components:{
+    
+  },
   data: function() {
       return {
           inTopPosition: true,
       }
   },
-  computed: {
+  computed: { 
       isBookWasOrdered: function() {
           return this.$session !== undefined && this.$session.get("isBookWasOrdered");
       }
@@ -30,10 +35,10 @@ export default {
       }
       ))
   },
-  methods: {
-      openPopup: function() {
-          this.$popup.open("get-book")
-      }
+  methods: {   
+    ...mapActions({
+      onOpenPopup: "OPEN"
+    }),
   }
 };
 </script>

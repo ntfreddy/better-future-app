@@ -194,7 +194,6 @@ export const getters = {
     episodes: state => {
         return state.episodes
     }
-
 }
 
 export const mutations = {

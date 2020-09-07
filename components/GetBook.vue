@@ -1,5 +1,5 @@
 <template>
-  <div class="popup_3xF9I" active-id="get-book">
+  <div class="popup_3xF9I">
     <div class="wrapper_3auGi">
       <div class="content_2CQKO">
         <div class="inner_LBK-7 notRegistred_2AVFj">
@@ -73,7 +73,19 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    modal: {
+      default: true,
+    },
+    closeOnClickModal: {
+      default: true,
+    },
+  },
+  mounted:function(){
+    //console.log("visible : ", this.openDelay);
+  }
+};
 </script>
 
 <style>
@@ -136,6 +148,7 @@ export default {};
   cursor: pointer;
   -webkit-transition: all 0.3s ease-in;
   transition: all 0.3s ease-in;
+  height:16px;
 }
 .close_30n8p:hover {
   opacity: 0.6;
@@ -221,7 +234,7 @@ export default {};
   transform: translateX(-50%);
   width: 330px;
   height: 520px;
-  background-image: url(/images/book.png);
+  background-image: url(../assets/book.png);
   background-repeat: no-repeat;
   background-position: 50%;
   background-size: cover;

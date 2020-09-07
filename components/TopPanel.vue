@@ -1,8 +1,8 @@
 <template>
   <div :class="$style.panel">
-    <Reminder v-show="showReminder" v-on:close="closeReminder($event)" />
+    <Reminder v-show="showReminder" v-on:close="closeReminder($event)" v-on:remind="remind"/>
 
-    <div :class="$style.burgerBox" v-on:click="showNavigation($event)">
+    <div :class="{[$style.burgerBox]:true, [$style.burgerBoxShift]:showReminder}" v-on:click="showNavigation($event)">
       <Icon id="burger" viewBox="0 0 24 11" fill="none" :class="$style.burger">
         <path stroke="#fff" stroke-width="2" d="M24 1H0M24 10H12" />
       </Icon>
@@ -23,7 +23,7 @@
                 <div :class="$style.title">{{item.title}}</div>
               </div>
             </div>
-            <div :class="$style.register" v-show="!firstName" v-on:click="register">Register</div>
+            <div :class="$style.register" v-show="!firstName" v-on:click="register">{{$t('topPanel-btn')}}</div>
           </div>
           <Welcome v-show="!showNav" :nbr="2" />
         </div>
@@ -34,7 +34,7 @@
         <div class="col-12" :class="$style.mobileColumn">
           <div :class="$style.content">
             <div :class="$style.logo"></div>
-            <div :class="$style.mobileBurgerBox">
+            <div :class="$style.mobileBurgerBox" v-on:click="openNavigation('life-mobile-nav')">
               <Icon id="burger" viewBox="0 0 24 11" fill="none" :class="$style.mobileBurger">
                 <path stroke="#fff" stroke-width="2" d="M24 1H0M24 10H12" />
               </Icon>
@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from "vuex";
+import { mapState, mapMutations, mapActions } from "vuex";
 
 import Reminder from "./Reminder";
 import Welcome from "./Welcome";
@@ -105,7 +105,10 @@ export default {
   },
   methods: {
     ...mapMutations({
-      SetNavList: "navigation/SET_NAV_LIST",
+      setNavList: "navigation/SET_NAV_LIST",
+    }),
+    ...mapActions({
+      openNavigation: "OPEN"
     }),
     setNavigation: function () {
       var nav = [
@@ -136,17 +139,17 @@ export default {
           id: "questions",
           title: "FAQ",
         }),
-        this.SetNavList(nav);
+        this.setNavList(nav);
     },
     register: function () {
-      this.$form.goToRegister();
+      this.$form.goToRegister(this.$scrollTo);
     },
     scrollTo: function (id) {
-      this.$scroll.scrollTo(document.getElementById("section-".concat(id)));
-    },
+      this.$scrollTo(document.getElementById("section-".concat(id)));
+    },/*
     openNavigation: function () {
-      this.$popup.open("episodeNav");
-    },
+      this.setActivePopup("PopupEpisodeNav");
+    },*/
     showNavigation: function () {
       //this.showNav = !this.showNav;
       //console.log("showNav Top : ", this.showNav);
@@ -158,7 +161,7 @@ export default {
       this.$emit("update:show-reminder", false);
     },
     remind: function () {
-      this.$form.goToRegister();
+      this.$form.goToRegister(this.$scrollTo);
     },
   },
 };
@@ -302,7 +305,7 @@ export default {
   top: 137px;
 }
 
-.showReminder .burgerBox {
+.burgerBoxShift {
   padding-top: 130px;
 }
 
