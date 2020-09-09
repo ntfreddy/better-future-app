@@ -105,6 +105,19 @@ export default {
         babel: {
             compact: true
         },
+        html: {
+            minify: {
+                collapseBooleanAttributes: false,
+                decodeEntities: false,
+                minifyCSS: false,
+                minifyJS: false,
+                processConditionalComments: false,
+                removeEmptyAttributes: false,
+                removeRedundantAttributes: false,
+                trimCustomFragments: false,
+                useShortDoctype: false
+            }
+        }
     },
     generate: {
 

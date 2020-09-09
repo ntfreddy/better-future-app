@@ -3,7 +3,7 @@ export const state = () => ({
     startTime: 0,
     episodes: [{
             "id": "intro",
-            "title": "Unlocking Bible Prophecies",
+            "title": "Peut-on espérer un meilleur avenir?",
             "alias": "intro",
             "youtubeId": "Nf7u04TVgu8",
             "announce": {

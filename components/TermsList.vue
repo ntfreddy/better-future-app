@@ -1,11 +1,11 @@
 <template>
-  <nav class="nav_ZzIDS terms_2ARkC">
+  <nav :class="$style.nav">
     <a
       target="_blank"
       href="https://privacy.adventist.org/"
       rel="noopener"
-      class="link_3qIS5"
-    >privacy policy</a>
+      :class="$style.link"
+    >{{$t('enroll-form-privacy-policy-text')}}</a>
   </nav>
 </template>
 
@@ -13,12 +13,12 @@
 export default {};
 </script>
 
-<style>
-.link_3qIS5,
-.nav_ZzIDS {
+<style module>
+.link,
+.nav {
   display: block;
 }
-.link_3qIS5 {
+.link {
   text-decoration: underline;
   margin-bottom: 5px;
   font-size: 16px;
@@ -26,9 +26,9 @@ export default {};
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
 }
-.link_3qIS5:active,
-.link_3qIS5:focus,
-.link_3qIS5:hover {
+.link:active,
+.link:focus,
+.link:hover {
   color: #2469c7;
 }
 </style>

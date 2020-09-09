@@ -1,155 +1,229 @@
 <template>
   <div :class="$style.page">    
     <TheHeader />
-    <!-- <SectionHeader :data="sectionHeader"/>
-    <SectionActions :data="sectionActions" />
-    <SectionBibleStudy :data="sectionBibleStudy" />
-    <SectionCami :data="sectionCami" />
-    <SectionChriss :data="sectionChriss" /> -->
     <Enroll />
   </div>
 </template>
 
 <script>
 import TheHeader from "../components/TheHeader";
-import SectionHeader from "../components/SectionHeader";
-import SectionActions from "../components/SectionActions";
-import SectionBibleStudy from "../components/SectionBibleStudy";
-import SectionCami from "../components/SectionCami";
-import SectionChriss from "../components/SectionChriss";
 import Enroll from "../components/Enroll";
 
 export default {
   name: "index",
   components: {
     TheHeader,
-    // SectionHeader,
-    // SectionActions,
-    // SectionBibleStudy,
-    // SectionCami,
-    // SectionChriss,
     Enroll,
   },
   data: function () {
     return {
-      sectionHeader: {
-        reminder: {
-          text: "Pour recevoir des mises à jour",
-          buttonTitle: "S'inscrire",
-        },
-        menu: {
-          menuItems: [
-            { text: "Priez pour moi", target: "#section-actions" },
-            { text: "Études bibliques", target: "#section-bible-study" },
-            { text: "Danielle Noélizaire", target: "#section-cami" },
-            { text: "Simpson Gracia", target: "#section-chriss" },
-          ],
-          menuItemHightlight: {
-            text: "Inscrivez-vous maintenant",
-            target: "#section-enroll",
-          },
-        },
-        presenters: [
-          {
-            label: "Qui se soucie de toi?",
-            subtitle: "avec",
-            name: "Danielle Noélizaire",
-            watch: "Regardez maintenant",
-            mainPicture: require("../assets/cami-main.png"),
-            avatarPicture: require("../assets/cami-main-mobile.jpg"),
-            link: "https://awr.org/watch-digging-deeper",
-            presenterClass: "cami",
-            avatarPicture: require("../assets/cami-main-mobile.jpg"),
-          },
-          {
-            label: "Qui connaît l'avenir?",
-            subtitle: "avec",
-            name: "Simpson Gracia",
-            watch: "Regardez maintenant",
-            mainPicture: require("../assets/chriss-main.png"),
-            avatarPicture: require("../assets/chriss-main-mobile.jpg"),
-            link: "https://awr.org/watch-digging-deeper",
-            presenterClass: "chriss",
-          },
-        ],
-      },
-      sectionActions: {
-        label: "prochaine étape",
-        title: "Comment pouvons-nous",
-        highlight: "vous servir",
-        description:
-          "Nous pouvons vous aider à trouver la liberté, la guérison et l'espérance en Jésus. Quelle est la prochaine étape pour vous?",
-        actions: [
-          {
-            id: "pray",
-            title: "Priez pour moi",
-            desc:
-              "Dieu répond aux prières. Laissez votre requête et nous prierons pour vous.",
-            icon: require("../assets/pray-hands-icon.svg"),
-          },
-          {
-            id: "bible",
-            title: "Commencer un étude biblique",
-            desc:
-              "Trouvez des conseils pour aujourd'hui dans la Parole de Dieu.",
-            icon: require("../assets/bible-icon.svg"),
-          },
-          {
-            id: "question",
-            title: "Poser une question biblique",
-            desc:
-              "Posez votre question biblique et nous vous aiderons à trouver la réponse",
-            icon: require("../assets/question-icon.svg"),
-          },
-        ],
-      },
-      sectionBibleStudy: {
-        titleHighlight: "Interactive Online",
-        title: "Bible Study",
-        text:
-          "Join our interactive online Bible study to learn more from God’s Word",
-        heading: "Register Today!",
-        headingHighlight: "Space Limited",
-        form: {
-          placeholder: {
-            firstname: "Please enter your name * ",
-            email: "Please enter a valid email address *",
-            phone: "Please enter your phone number",
-          },
-          register: {
-            text: "I agree to the",
-            buttonTitle: "Register now",
-            privacy: {
-              text: "privacy policy",
-              link: "https://privacy.adventist.org/",
-            },
-          },
-        },
-      },
-      sectionCami: {
-        label: "Master class",
-        titleHighlight: "Unlocking Bible Prophecies",
-        title: "with Cami Oetman",
-        description:
-          "Throughout this series, you will learn that Jesus’ love for you can be found at the heart of Revelation, and that its prophecies reveal hope for your future.",
-        link: "https://awr.org/watch-digging-deeper",
-        watch: "Regardez maintenant",
-      },
-      sectionChriss: {
-        label: "Weekly bible series",
-        titleHighlight: "Digger Deeper",
-        title: "with Chris Holland",
-        description:
-          "This weekly program will help you explore difficult Biblical topics and learn to use the Bible to explain itself. This series will give you confidence in the Word of God, help you learn how to study your Bible more deeply and give you hope for the future.",
-        link: "https://awr.org/watch-digging-deeper",
-        watch: "Regardez maintenant",
-      },
-    };
+          }
   },
   mounted() {
   },
 };
 </script>
+
+<style>
+.form-control {
+  border: 1px solid #fff;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 8px;
+  /*color: #fff !important;*/
+  font-size: 16px;
+  line-height: 24px;
+  height: calc(1.5em + 2rem);
+  padding: 17px 21px;
+}
+
+.form-control,
+.form-control:focus {
+  background-color: hsla(0, 0%, 100%, 0) !important;
+  outline: 0 !important;
+}
+
+.form-control:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: 2px solid #fff;
+  padding: 16px 21px;
+}
+
+.form-control::-webkit-input-placeholder {
+  color: hsla(0, 0%, 100%, 0.6);
+}
+
+.form-control:-moz-placeholder,
+.form-control::-moz-placeholder {
+  color: hsla(0, 0%, 100%, 0.6);
+}
+
+.form-control:-ms-input-placeholder {
+  color: hsla(0, 0%, 100%, 0.6);
+}
+
+.form-control::-ms-input-placeholder {
+  color: hsla(0, 0%, 100%, 0.6);
+}
+
+.form-control::placeholder {
+  color: hsla(0, 0%, 100%, 0.6);
+}
+
+.form-control.is-invalid,
+.was-validated .form-control:invalid {
+  border: 2px solid #ffb9b9;
+  padding: 17px 21px;
+  background-image: unset;
+}
+
+.form-control.is-invalid:focus,
+.was-validated .form-control:invalid:focus {
+  border: 2px solid #ffb9b9;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  padding: 17px 21px;
+  background-image: unset;
+}
+
+.invalid-feedback {
+  display: block;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  color: #ffb9b9;
+  margin-top: -36px;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.form-control.is-valid,
+.form-control.is-valid:focus,
+.was-validated .form-control:valid,
+.was-validated .form-control:valid:focus {
+  border: 2px solid #fff;
+  padding: 17px 21px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background-image: unset;
+}
+
+.btn {
+  border-radius: 40px;
+  padding: 19px 62px;
+  font-weight: 700;
+  font-size: 19px;
+  letter-spacing: 0.55px;
+  line-height: 22px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  outline: 0;
+}
+
+.btn:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  outline: 0;
+}
+
+.btn-group-sm > .btn,
+.btn-sm {
+  padding: 9px 22px 8px 17px;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000;
+}
+
+.btn-secondary {
+  background: #f7f3e7;
+  color: #000;
+  border: unset;
+  -webkit-transition: all 0s ease-in !important;
+  transition: all 0s ease-in !important;
+}
+
+.btn-secondary:active:hover,
+.btn-secondary:focus,
+.btn-secondary:hover {
+  background: #b2daff;
+  color: #000;
+}
+
+.btn-secondary:not(:disabled):not(.disabled).active,
+.btn-secondary:not(:disabled):not(.disabled):active,
+.show > .btn-secondary.dropdown-toggle {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background: #b2daff;
+  color: #000;
+}
+
+.btn-secondary:not(:disabled):not(.disabled).active:focus,
+.btn-secondary:not(:disabled):not(.disabled):active:focus,
+.show > .btn-secondary.dropdown-toggle:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.btn-secondary.disabled,
+.btn-secondary:disabled {
+  background: #dbeeff;
+  color: #000;
+}
+
+.btn-outline-primary {
+  border: 2px solid #f7f3e7;
+  color: #fff;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+
+.btn-outline-primary:active,
+.btn-outline-primary:focus,
+.btn-outline-primary:hover {
+  background: hsla(0, 0%, 100%, 0);
+  border-color: #f7f3e7;
+}
+
+.btn-group-sm > .btn:active.btn-outline-primary,
+.btn-group-sm > .btn:hover.btn-outline-primary,
+.btn-sm:active.btn-outline-primary,
+.btn-sm:hover.btn-outline-primary {
+  padding: 7px 20px 7px 15px;
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled).active,
+.btn-outline-primary:not(:disabled):not(.disabled).active:focus,
+.btn-outline-primary:not(:disabled):not(.disabled):active,
+.btn-outline-primary:not(:disabled):not(.disabled):active:focus,
+.show > .btn-outline-primary.dropdown-toggle,
+.show > .btn-outline-primary.dropdown-toggle:focus {
+  background: hsla(0, 0%, 100%, 0);
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.form-error {
+  margin-bottom: 40px;
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+  margin-top: unset !important;
+  margin-bottom: unset !important;
+  color: #ffb9b9;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.form-group--error .input {
+    border: 2px solid #ffb9b9;
+    padding: 17px 21px;
+}
+</style>
 
 <style module>
 .page {

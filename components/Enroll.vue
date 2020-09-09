@@ -29,7 +29,7 @@
           <h2 :class="$style.action">{{$t('enroll-action')}}</h2>
           <div :class="$style.subaction">{{$t('enroll-subaction')}}</div>
           <form id="registration" :class="$style.register" @submit.prevent="onSubmit">
-            <div class="form-group">
+            <div class="form-group" :class="{'form-group--error' : $v.firstName.$error}">
               <input
                 id="reg-form-firstname"
                 name="firstname"
@@ -44,7 +44,7 @@
                 v-if="$v.firstName.$dirty && !$v.firstName.required"
               >{{$t('enroll-form-firstname-error')}}</div>
             </div>
-            <div class="form-group">
+            <div class="form-group" :class="{'form-group--error' : $v.email.$error}">
               <input
                 name="email"
                 type="email"
@@ -61,10 +61,12 @@
             </div>
             <div :class="$style.register">
               <Checkbox
-                value="false"
+                id="checkbox-64"
+                :dark="false"
+                :value="false"
                 :class="$style.policy"
                 @clicked="onCheckBoxClicked"
-                invalidFeedback="You must agree before submitting."
+                :invalidFeedback="$t('enroll-form-agree-error')"
               >
                 {{$t('enroll-form-privacy-policy')}}
                 <a
@@ -86,17 +88,17 @@
   </div>
 </template>
 <script>
-import LoginButton from "./LoginButton";
-import Loading from "./Loading";
+//import LoginButton from "./LoginButton";
+//import Loading from "./Loading";
 import Checkbox from "./Checkbox";
+import Icon from "./Icon";
 
 import { required, email } from "vuelidate/lib/validators";
 
 export default {
   components: {
-    LoginButton,
     Checkbox,
-    Loading,
+    Icon,
   },
   validations: {
     firstName: {
@@ -124,7 +126,6 @@ export default {
     },
   },
   mounted: function () {},
-  props: [],
   methods: {
     onSubmit: function () {
       //console.log("onSubmit");
@@ -173,20 +174,17 @@ export default {
     },
     validate: function () {
       if (this.$v.$invalid) {
-        for (
-          var t = 0, e = ["firstName", "email", "agreed"];
-          t < e.length;
-          t++
-        ) {
-          var n = e[t];
-          this[n] || this.validateValue(n);
+        var controls = ["firstName", "email", "agreed"];
+        for (var index = 0; index < controls.length; index++) {
+          var control = controls[index];
+          this[control] || this.validateValue(control);
         }
         return false;
       }
       return true;
     },
-    validateValue: function (name) {
-      this.$v[name].$touch();
+    validateValue: function (control) {
+      this.$v[control].$touch();
     },
     onCheckBoxClicked(value) {
       this.agreed = value;
@@ -195,222 +193,6 @@ export default {
 };
 </script>
 
-<style>
-.button .btn-secondary_1LskZ {
-  width: 100%;
-}
-
-.button:active,
-.button:focus,
-.button:hover {
-  color: #000;
-  background-color: #b3daff;
-  border-color: #b3daff;
-}
-
-.button
-  .btn-outline-primary_m07qE:not(:disabled):not(.disabled_cs9yg).active_W3vgj,
-.button .btn-outline-primary_m07qE:not(:disabled):not(.disabled_cs9yg):active,
-.button .show_24XkV > .btn-outline-primary_m07qE.dropdown-toggle_2ihBH {
-  color: #000;
-  background-color: transparent;
-  border-color: #2469c7;
-}
-
-.form-control {
-  border: 1px solid #fff;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  border-radius: 8px;
-  color: #fff !important;
-  font-size: 16px;
-  line-height: 24px;
-  height: calc(1.5em + 2rem);
-  padding: 17px 21px;
-}
-
-.form-control,
-.form-control:focus {
-  background-color: hsla(0, 0%, 100%, 0) !important;
-  outline: 0 !important;
-}
-
-.form-control:focus {
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  border: 2px solid #fff;
-  padding: 16px 21px;
-}
-
-.form-control::-webkit-input-placeholder {
-  color: hsla(0, 0%, 100%, 0.6);
-}
-
-.form-control:-moz-placeholder,
-.form-control::-moz-placeholder {
-  color: hsla(0, 0%, 100%, 0.6);
-}
-
-.form-control:-ms-input-placeholder {
-  color: hsla(0, 0%, 100%, 0.6);
-}
-
-.form-control::-ms-input-placeholder {
-  color: hsla(0, 0%, 100%, 0.6);
-}
-
-.form-control::placeholder {
-  color: hsla(0, 0%, 100%, 0.6);
-}
-
-.form-control.is-invalid,
-.was-validated .form-control:invalid {
-  border: 2px solid #ffb9b9;
-  padding: 17px 21px;
-  background-image: unset;
-}
-
-.form-control.is-invalid:focus,
-.was-validated .form-control:invalid:focus {
-  border: 2px solid #ffb9b9;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  padding: 17px 21px;
-  background-image: unset;
-}
-
-.invalid-feedback {
-  display: block;
-  font-family: Roboto;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 21px;
-  color: #ffb9b9;
-  margin-top: -36px;
-  margin-bottom: 16px;
-  text-align: left;
-}
-
-.form-control.is-valid,
-.form-control.is-valid:focus,
-.was-validated .form-control:valid,
-.was-validated .form-control:valid:focus {
-  border: 2px solid #fff;
-  padding: 17px 21px;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  background-image: unset;
-}
-
-.btn {
-  border-radius: 40px;
-  padding: 19px 62px;
-  font-weight: 700;
-  font-size: 19px;
-  letter-spacing: 0.55px;
-  line-height: 22px;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-transition: all 0.3s ease-in;
-  transition: all 0.3s ease-in;
-  outline: 0;
-}
-
-.btn:focus {
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  outline: 0;
-}
-
-.btn-group-sm > .btn,
-.btn-sm {
-  padding: 9px 22px 8px 17px;
-  font-size: 16px;
-  line-height: 19px;
-  color: #000;
-}
-
-.btn-secondary {
-  background: #f7f3e7;
-  color: #000;
-  border: unset;
-  -webkit-transition: all 0s ease-in !important;
-  transition: all 0s ease-in !important;
-}
-
-.btn-secondary:active:hover,
-.btn-secondary:focus,
-.btn-secondary:hover {
-  background: #b2daff;
-  color: #000;
-}
-
-.btn-secondary:not(:disabled):not(.disabled).active,
-.btn-secondary:not(:disabled):not(.disabled):active,
-.show > .btn-secondary.dropdown-toggle {
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  background: #b2daff;
-  color: #000;
-}
-
-.btn-secondary:not(:disabled):not(.disabled).active:focus,
-.btn-secondary:not(:disabled):not(.disabled):active:focus,
-.show > .btn-secondary.dropdown-toggle:focus {
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-
-.btn-secondary.disabled,
-.btn-secondary:disabled {
-  background: #dbeeff;
-  color: #000;
-}
-
-.btn-outline-primary {
-  border: 2px solid #f7f3e7;
-  color: #fff;
-  -webkit-transition: background-color 0.3s ease;
-  transition: background-color 0.3s ease;
-}
-
-.btn-outline-primary:active,
-.btn-outline-primary:focus,
-.btn-outline-primary:hover {
-  background: hsla(0, 0%, 100%, 0);
-  border-color: #f7f3e7;
-}
-
-.btn-group-sm > .btn:active.btn-outline-primary,
-.btn-group-sm > .btn:hover.btn-outline-primary,
-.btn-sm:active.btn-outline-primary,
-.btn-sm:hover.btn-outline-primary {
-  padding: 7px 20px 7px 15px;
-}
-
-.btn-outline-primary:not(:disabled):not(.disabled).active,
-.btn-outline-primary:not(:disabled):not(.disabled).active:focus,
-.btn-outline-primary:not(:disabled):not(.disabled):active,
-.btn-outline-primary:not(:disabled):not(.disabled):active:focus,
-.show > .btn-outline-primary.dropdown-toggle,
-.show > .btn-outline-primary.dropdown-toggle:focus {
-  background: hsla(0, 0%, 100%, 0);
-  -webkit-box-shadow: none !important;
-  box-shadow: none !important;
-}
-
-.form-error {
-  margin-bottom: 40px;
-  position: absolute;
-  bottom: -25px;
-  left: 0;
-  margin-top: unset !important;
-  margin-bottom: unset !important;
-  color: #ffb9b9;
-  font-size: 14px;
-  line-height: 21px;
-}
-</style>
 <style module>
 .enroll {
   min-height: 630px;
@@ -427,17 +209,54 @@ export default {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-
-.enroll.success_2zpkz {
+.enroll.success {
   padding-top: 53px;
 }
-
 @media (max-width: 767.98px) {
   .enroll {
     padding-top: 120px;
   }
 }
-
+.book1 {
+  position: absolute;
+  top: -120px;
+  left: -380px;
+  width: 1000px;
+  height: 900px;
+}
+@media (max-width: 1599.98px) {
+  .book1 {
+    top: -115px;
+    left: -432px;
+    width: 930px;
+    height: 810px;
+  }
+}
+@media (max-width: 1199.98px) {
+  .book1 {
+    display: none;
+  }
+}
+.book2 {
+  position: absolute;
+  bottom: -260px;
+  right: -322px;
+  width: 850px;
+  height: 590px;
+}
+@media (max-width: 1599.98px) {
+  .book2 {
+    bottom: -239px;
+    right: -288px;
+    width: 750px;
+    height: 500px;
+  }
+}
+@media (max-width: 1199.98px) {
+  .book2 {
+    display: none;
+  }
+}
 .bg {
   width: 100%;
   height: 100%;
@@ -449,7 +268,6 @@ export default {
   background-size: contain;
   background-repeat: no-repeat;
 }
-
 @media (max-width: 991.98px) {
   .bg {
     background-image: url(../assets/schedule-bg.svg);
@@ -457,140 +275,26 @@ export default {
     height: 75%;
   }
 }
-
-.book1 {
-  position: absolute;
-  top: -120px;
-  left: -380px;
-  width: 1000px;
-  height: 900px;
-}
-
-@media (max-width: 1599.98px) {
-  .book1 {
-    top: -115px;
-    left: -432px;
-    width: 930px;
-    height: 810px;
-  }
-}
-
-@media (max-width: 1199.98px) {
-  .book1 {
-    display: none;
-  }
-}
-
-.book2 {
-  position: absolute;
-  bottom: -260px;
-  right: -322px;
-  width: 850px;
-  height: 590px;
-}
-
-@media (max-width: 1599.98px) {
-  .book2 {
-    bottom: -239px;
-    right: -288px;
-    width: 750px;
-    height: 500px;
-  }
-}
-
-@media (max-width: 1199.98px) {
-  .book2 {
-    display: none;
-  }
-}
-
-.label {
-  color: #000;
-  margin-bottom: 6px;
-  text-align: center;
-  font-weight: 800;
-  font-size: 14px;
-  line-height: 145.4%;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.action {
-  font-family: Bebas Neue;
-  font-weight: 500;
-  font-size: 48px;
-  line-height: 52px;
-  margin-bottom: 13px;
-}
-
-.action,
-.subaction {
-  text-align: center;
-  color: #fff;
-}
-
-.subaction {
-  font-size: 16px;
-  line-height: 24px;
-  margin-bottom: 60px;
-}
-
-.register {
-  width: 100%;
-  border-color: #2469c7 !important;
-}
-
-.input {
-  margin-bottom: 40px;
-}
-
-.box_3slHt {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+.content {
+  max-width: 320px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  height: 20px;
-  width: 20px;
-  background-color: #fff;
-  border-radius: 6px;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
+  margin: 0 auto;
 }
-
-.policy {
-  margin-bottom: 30px;
+@media (max-width: 767.98px) {
+  .content {
+    max-width: 100%;
+  }
 }
-
-.policy .link {
-  letter-spacing: 0.5px;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  color: #fff;
-  text-decoration: underline;
-}
-
-.policy .link:hover {
-  color: hsla(0, 0%, 100%, 0.8);
-}
-
-.image {
-  width: 311px;
-  height: 311px;
-  background-position: 50%;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
 .joined {
   max-width: 310px;
   display: -webkit-box;
@@ -605,7 +309,6 @@ export default {
   align-items: center;
   margin: 0 auto;
 }
-
 .joinedTitle {
   width: 250px;
   font-family: Bebas Neue;
@@ -616,10 +319,111 @@ export default {
   margin-bottom: 16px;
   letter-spacing: 1.8px;
 }
-
 .desc,
 .joinedTitle {
   text-align: center;
   color: #fff;
+}
+.desc {
+  font-size: 16px;
+  line-height: 24px;
+  width: 240px;
+  margin-bottom: 30px;
+}
+.done {
+  width: 64px;
+  height: 64px;
+}
+.image {
+  width: 311px;
+  height: 311px;
+  background-position: 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.label {
+  color: #000;
+  margin-bottom: 6px;
+  text-align: center;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 145.4%;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.action {
+  font-family: Bebas Neue;
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 52px;
+  margin-bottom: 13px;
+}
+.action,
+.subaction {
+  text-align: center;
+  color: #fff;
+}
+.subaction {
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 60px;
+}
+.buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.buttons > * {
+  margin: 0 10px;
+}
+.or {
+  margin: 20px 0 24px;
+  font-size: 16px;
+  line-height: 16px;
+  text-align: center;
+  color: #fff;
+}
+.input {
+  margin-bottom: 40px;
+}
+.register {
+  width: 100%;
+  border-color: #2469c7 !important;
+}
+.policy {
+  margin-bottom: 30px;
+}
+.policy .link {
+  letter-spacing: 0.5px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #fff;
+  text-decoration: underline;
+}
+.policy .link:hover {
+  color: hsla(0, 0%, 100%, 0.8);
+}
+.button .btn-secondary {
+  width: 100%;
+}
+.button:active,
+.button:focus,
+.button:hover {
+  color: #000;
+  background-color: #b3daff;
+  border-color: #b3daff;
+}
+.button
+  .btn-outline-primary:not(:disabled):not(.disabled).active,
+.button
+  .btn-outline-primary:not(:disabled):not(.disabled):active,
+.button .show > .btn-outline-primary.dropdown-toggle {
+  color: #000;
+  background-color: transparent;
+  border-color: #2469c7;
 }
 </style>

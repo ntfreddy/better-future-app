@@ -13,11 +13,11 @@
   <!-- End of HubSpot Embed Code -->
 </template>
 <script>
+import PopupsPlatform from "../components/PopupsPlatform";
 import ToTopButton from "../components/ToTopButton";
 import BookBtn from "../components/BookBtn";
 import MainFooter from "../components/MainFooter";
 import HubspotBot from "../components/HubspotBot";
-import PopupsPlatform from "../components/PopupsPlatform";
 
 export default {
   components: {
@@ -53,5 +53,5 @@ body {
     background: #121212;
   }
 }
+
 </style>
-c

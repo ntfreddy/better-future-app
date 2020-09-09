@@ -1,70 +1,76 @@
 <template>
-  <div class="popup_3xF9I">
-    <div class="wrapper_3auGi">
-      <div class="content_2CQKO">
-        <div class="inner_LBK-7 notRegistred_2AVFj">
-          <div class="closeBtn_nR227">
-            <svg viewBox="0 0 18 18" class="icon icon--cross icon_2SKlE close_30n8p">
-              <use xlink:href="#cross" />
-            </svg>
+  <div :class="$style.popup">
+    <div :class="$style.wrapper">
+      <div :class="$style.content">
+        <div :class="{[$style.inner]: true, [$style.notRegistred]:!isRegistred}">
+          <div :class="$style.closeBtn" v-on:click="close">
+            <Icon id="cross" fill="white" viewBox="0 0 18 18" :class="$style.close">
+              <path
+                d="M17.67.33a1.115 1.115 0 00-1.581 0L9 7.417 1.911.329a1.115 1.115 0 00-1.582 0 1.115 1.115 0 000 1.582L7.42 9l-7.09 7.088a1.115 1.115 0 000 1.582c.216.215.505.331.787.331.282 0 .571-.107.787-.331l7.089-7.089 7.089 7.089c.215.215.505.331.786.331.29 0 .572-.107.787-.331a1.115 1.115 0 000-1.582L10.582 9l7.089-7.09a1.115 1.115 0 000-1.58z"
+                fill-rule="nonzero"
+                stroke-width=".8"
+              ></path>
+            </Icon>
           </div>
-          <div class="left_35nT1">
-            <div class="title_YUgAD">
-              <span class="highlight_249us">Free Offer!</span>
+          <div :class="$style.left">
+            <div :class="$style.title">
+              <span :class="$style.highlight">{{highlightText}}</span>
             </div>
-            <div
-              class="desc_CfzMZ"
-            >Enjoy a copy of Cami’s favorite book! Register to get your free e-book today!</div>
-            <form id="registration" class="register_1fnOy">
-              <div class="form-group">
+            <div :class="$style.desc">{{description}}</div>
+            <form id="registration" :class="$style.register" @submit.prevent="onSubmit">
+              <div class="form-group" :class="{'form-group--error' : $v.firstName.$error}">
                 <input
+                  id="__BVID__257"
                   name="firstname"
                   type="text"
-                  placeholder="Enter your name"
-                  class="form-control input_1SdKA input"
-                  id="__BVID__257"
+                  :placeholder="$t('getBook-form-firstname-placeholder')"
+                  :class="$style.input"
+                  class="form-control input"
+                  v-model.trim="$v.firstName.$model"
                 />
-                <!---->
+                <div
+                  class="invalid-feedback"
+                  v-if="$v.firstName.$dirty && !$v.firstName.required"
+                >{{$t('getBook-form-firstname-error')}}</div>
               </div>
-              <div class="form-group">
+              <div class="form-group" :class="{'form-group--error' : $v.email.$error}">
                 <input
+                  id="__BVID__258"
                   name="email"
                   type="email"
-                  placeholder="Enter your email"
-                  class="form-control input_1SdKA input"
-                  id="__BVID__258"
+                  :placeholder="$t('getBook-form-email-placeholder')"
+                  :class="$style.input"
+                  class="form-control input"
+                  v-model.trim="$v.email.$model"
                 />
-                <!---->
-                <!---->
+                <div
+                  class="invalid-feedback"
+                  v-if="$v.email.$dirty && !$v.email.required"
+                >{{$t('getBook-form-email-error')}}</div>
+              </div>
+
+              <Checkbox
+                id="checkbox-id-259"
+                :dark="true"
+                :value="false"
+                :class="$style.policy"
+                @clicked="onCheckBoxClicked"
+                :invalidFeedback="$t('getBook-form-agree-error')"
+              >
+                {{$t('getBook-form-privacy-policy')}}
+                <a
+                  href="/privacy"
+                  target="_blank"
+                  :class="$style.link"
+                >{{$t('getBook-form-privacy-policy-text')}}</a>
+              </Checkbox>
+              <div :class="$style.button">
+                <span>{{$t('getBook-form-submit')}}</span>
               </div>
             </form>
-            <div class="checkbox_2oMY_ checked_2Q1D1 dark_rmGZs policy_3JKh2">
-              <input id="checkbox-id-259" type="checkbox" class="input_1JWT8" value="true" />
-              <label for="checkbox-id-259" class="label_Nx89H">
-                <div class="wrapper_1SNxd">
-                  <span class="box_3slHt hasBorder_3B_CO">
-                    <svg viewBox="0 0 13 10" class="icon icon--check-2 icon_2SKlE checkIcon_2VLjw">
-                      <use xlink:href="#check-2" />
-                    </svg>
-                  </span>
-                </div>
-                <span class="text_2pSav checkbox-text">
-                  I agree to the
-                  <a
-                    href="https://privacy.adventist.org/"
-                    target="_blank"
-                    class="link_R_C3x"
-                  >privacy policy</a>
-                </span>
-              </label>
-              <!---->
-            </div>
-            <div class="button_2WOHI">
-              <span>Get a book</span>
-            </div>
           </div>
-          <div class="right_31pcN">
-            <div class="image_20EtX"></div>
+          <div :class="$style.right">
+            <div :class="$style.image"></div>
           </div>
         </div>
       </div>
@@ -73,7 +79,16 @@
 </template>
 
 <script>
+import Checkbox from "./Checkbox";
+import Icon from "./Icon";
+
+import { required, email } from "vuelidate/lib/validators";
+
 export default {
+  components: {
+    Checkbox,
+    Icon,
+  },
   props: {
     modal: {
       default: true,
@@ -82,14 +97,71 @@ export default {
       default: true,
     },
   },
-  mounted:function(){
-    //console.log("visible : ", this.openDelay);
-  }
+  validations: {
+    firstName: {
+      required,
+    },
+    email: {
+      required,
+      email,
+    },
+  },
+  data: function () {
+    return {
+      loading: false,
+      firstName:
+        this.$session !== undefined && this.$session.get("firstName")
+          ? this.$session.get("firstName")
+          : "",
+      email:
+        this.$session !== undefined && this.$session.get("email")
+          ? this.$session.get("email")
+          : "",
+      state: "form",
+      description: this.$t('getBook-desc'),
+      highlightText: this.$t("getBook-highlight"),
+      agreed: true,
+    };
+  },
+  computed: {
+    isRegistred: function () {
+      return this.$session !== undefined && this.$session.exists;
+    },
+    title: function () {
+      return "success" === this.state ? "Thank you!" : "";
+    },
+  },
+  mounted: function () {
+    !this.autoopen && this.isRegistred && this.submit();
+  },
+  methods: {
+    close: function () {
+      this.$emit("close", false);
+    },
+    submit: function () {},
+    validate: function () {
+      if (this.$v.$invalid) {
+        var controls = ["firstName", "email", "agreed"];
+        for (var index = 0; index < controls.length; index++) {
+          var control = controls[index];
+          this[control] || this.validateValue(control);
+        }
+        return false;
+      }
+      return true;
+    },
+    validateValue: function (control) {
+      this.$v[control].$touch();
+    },
+    onCheckBoxClicked(value) {
+      this.agreed = value;
+    },
+  },
 };
 </script>
 
-<style>
-.popup_3xF9I {
+<style module>
+.popup {
   position: fixed;
   top: 0;
   right: 0;
@@ -98,7 +170,7 @@ export default {
   margin: 0;
   z-index: 100;
 }
-.wrapper_3auGi {
+.wrapper {
   position: relative;
   width: 100%;
   height: 100vh;
@@ -112,7 +184,7 @@ export default {
   justify-content: center;
   overflow: scroll;
 }
-.content_2CQKO {
+.content {
   position: absolute;
   max-height: 100vh;
   top: calc(50% + 40px);
@@ -123,23 +195,23 @@ export default {
   height: auto;
 }
 @media (max-width: 991.98px) {
-  .content_2CQKO {
+  .content {
     bottom: 0;
   }
 }
 @media (max-width: 767.98px) {
-  .content_2CQKO {
+  .content {
     top: calc(50% + 10px);
   }
 }
-.closeBtn_nR227 {
+.closeBtn {
   cursor: pointer;
   z-index: 10;
 }
-.closeBtn_nR227:hover .close_30n8p {
+.closeBtn:hover .close {
   opacity: 0.6;
 }
-.close_30n8p {
+.close {
   font-size: 16px;
   position: absolute;
   top: 29px;
@@ -148,12 +220,12 @@ export default {
   cursor: pointer;
   -webkit-transition: all 0.3s ease-in;
   transition: all 0.3s ease-in;
-  height:16px;
+  height: 16px;
 }
-.close_30n8p:hover {
+.close:hover {
   opacity: 0.6;
 }
-.inner_LBK-7 {
+.inner {
   width: 100%;
   position: relative;
   display: -webkit-box;
@@ -167,7 +239,7 @@ export default {
   background: #fff;
 }
 @media (max-width: 991.98px) {
-  .inner_LBK-7 {
+  .inner {
     -webkit-box-orient: vertical;
     -webkit-box-direction: reverse;
     -ms-flex-direction: column-reverse;
@@ -176,23 +248,23 @@ export default {
   }
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
-  .inner_LBK-7 {
+  .inner {
     border-bottom-left-radius: 38px;
     border-bottom-right-radius: 38px;
   }
 }
 @media (max-width: 767.98px) {
-  .inner_LBK-7 {
+  .inner {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
 }
 @media (max-width: 575.98px) {
-  .inner_LBK-7 {
+  .inner {
     width: 100vw;
   }
 }
-.right_31pcN {
+.right {
   width: 569px;
   min-height: 450px;
   background-color: #c9daf0;
@@ -202,31 +274,31 @@ export default {
   flex-shrink: 0;
 }
 @media (max-width: 991.98px) {
-  .right_31pcN {
+  .right {
     min-height: 230px;
     width: 100%;
   }
 }
 @media (min-width: 992px) and (max-width: 1199.98px) {
-  .right_31pcN {
+  .right {
     width: 450px;
   }
 }
-.notRegistred_2AVFj .image_20EtX {
+.notRegistred .image {
   top: -50px;
 }
 @media (min-width: 1440px) and (max-width: 1599.98px) {
-  .notRegistred_2AVFj .image_20EtX {
+  .notRegistred .image {
     top: -40px;
   }
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
-  .notRegistred_2AVFj.inner_LBK-7 {
+  .notRegistred.inner {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
 }
-.image_20EtX {
+.image {
   position: absolute;
   top: -100px;
   left: 50%;
@@ -240,13 +312,13 @@ export default {
   background-size: cover;
 }
 @media (max-width: 991.98px) {
-  .image_20EtX {
+  .image {
     width: 171px;
     height: 270px;
     top: -70px;
   }
 }
-.left_35nT1 {
+.left {
   padding: 60px 63px;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -270,19 +342,19 @@ export default {
   border-bottom-left-radius: 32px;
 }
 @media (max-width: 767.98px) {
-  .left_35nT1 {
+  .left {
     border-radius: 0;
     padding: 60px 38px;
     width: 100%;
   }
 }
 @media (min-width: 992px) and (max-width: 1199.98px) {
-  .left_35nT1 {
+  .left {
     width: 450px;
     padding: 60px 38px;
   }
 }
-.title_YUgAD {
+.title {
   font-family: Bebas Neue;
   font-weight: 500;
   font-size: 64px;
@@ -290,22 +362,22 @@ export default {
   color: #000;
   margin-bottom: 17px;
 }
-.title_YUgAD .highlight_249us {
+.title .highlight {
   color: #2469c7;
 }
 @media (max-width: 1199.98px) {
-  .title_YUgAD {
+  .title {
     font-size: 48px;
     line-height: 48px;
   }
 }
-.desc_CfzMZ {
+.desc {
   font-size: 16px;
   line-height: 24px;
   color: rgba(0, 0, 0, 0.6);
   margin-bottom: 40px;
 }
-.button_2WOHI {
+.button {
   border-radius: 40px;
   padding: 12px 45px;
   font-weight: 700;
@@ -323,7 +395,7 @@ export default {
   margin-top: 13px;
   position: relative;
 }
-.button_2WOHI:before {
+.button:before {
   content: "";
   width: 100%;
   height: 100%;
@@ -336,51 +408,51 @@ export default {
   -webkit-transition: opacity 0.2s ease-in-out;
   transition: opacity 0.2s ease-in-out;
 }
-.button_2WOHI span {
+.button span {
   z-index: 2;
   position: relative;
 }
-.button_2WOHI:active:before,
-.button_2WOHI:focus:before,
-.button_2WOHI:hover:before {
+.button:active:before,
+.button:focus:before,
+.button:hover:before {
   opacity: 0.08;
 }
-.button_2WOHI.disabled_3Wjsz {
+.button.disabled {
   pointer-events: none;
   opacity: 0.7;
 }
-.register_1fnOy {
+.register {
   width: 100%;
   border-color: #2469c7 !important;
 }
-.input_1SdKA {
+.input {
   margin-bottom: 40px;
-  border-color: rgba(0, 0, 0, 0.4);
+  border-color: rgba(0, 0, 0, 0.4) !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
-.input_1SdKA:focus {
+.input:focus {
   border: 2px solid #2469c7 !important;
 }
-.input_1SdKA::-webkit-input-placeholder {
-  color: rgba(0, 0, 0, 0.6);
+.input::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.6) !important;
 }
-.input_1SdKA:-moz-placeholder,
-.input_1SdKA::-moz-placeholder {
-  color: rgba(0, 0, 0, 0.6);
+.input:-moz-placeholder,
+.input::-moz-placeholder {
+  color: rgba(0, 0, 0, 0.6) !important;
 }
-.input_1SdKA:-ms-input-placeholder {
-  color: rgba(0, 0, 0, 0.6);
+.input:-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.6) !important;
 }
-.input_1SdKA::-ms-input-placeholder {
-  color: rgba(0, 0, 0, 0.6);
+.input::-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.6) !important;
 }
-.input_1SdKA::placeholder {
-  color: rgba(0, 0, 0, 0.6);
+.input::placeholder {
+  color: rgba(0, 0, 0, 0.6) !important;
 }
-.policy_3JKh2 {
+.policy {
   margin-bottom: 20px;
 }
-.policy_3JKh2 .link_R_C3x {
+.policy .link {
   color: #fff;
   letter-spacing: 0.5px;
   font-weight: 400;
@@ -389,7 +461,7 @@ export default {
   color: inherit;
   text-decoration: underline;
 }
-.policy_3JKh2 .link_R_C3x:hover {
+.policy .link:hover {
   color: rgba(0, 0, 0, 0.85);
 }
 </style>

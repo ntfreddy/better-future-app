@@ -1,16 +1,16 @@
 <template>
-  <div :class="rootClasses">
+  <div :class="{[$style.checkbox]: true, [$style.checked]: checky, [$style.dark]: dark}">
     <input
-      id="checkbox-64"
+      :id="id"
       type="checkbox"
       :class="$style.input"
       :value="inputValue"
       v-on:click="onClickedOn($event)"
       v-model.trim="checky"
     />
-    <label for="checkbox-64" :class="$style.label">
+    <label :for="id" :class="$style.label">
       <div :class="$style.wrapper">
-        <span :class="$style.box">
+        <span :class="{[$style.box]:true, [$style.hasBorder]:dark}">
           <Icon id="check-2" viewBox="0 0 13 10" fill="none" :class="$style.checkIcon">
               <path d="M1 3.5L6 8l5.5-7" stroke="#000" stroke-width="2" />
             </Icon>
@@ -30,11 +30,10 @@
 import { required } from "vuelidate/lib/validators";
 
 export default {
-  props: ["invalidFeedback"],
+  props: ["invalidFeedback", "id", "dark", "value"],
   data: function () {
     return {
       inputValue: this.value,
-      rootClasses: "",
       checky: false,
     };
   },
@@ -45,30 +44,19 @@ export default {
       },
     },
   },
-  props: ["value"],
   methods: {
     onClickedOn: function (event) {
       console.log("checky", this.checky);
-      if (this.checky) {
-        this.rootClasses = [this.$style.checkbox];
-        this.inputValue = "false";
-      } else {
-        this.rootClasses = [this.$style.checkbox, this.$style.checked];
-        this.inputValue = "true";
-      }
+      this.inputValue = !this.checky;
+      
       this.$v.checky.$touch();
-      this.$emit("clicked", this.inputValue == "true");
+      this.$emit("clicked", this.inputValue == true);
       console.log("checkedValue", this.inputValue);
     },
   },
   mounted: function () {
     this.inputValue = this.value;
     console.log("checky", this.checky);
-    if (this.checky) {
-      this.rootClasses = [this.$style.checkbox, this.$style.checked];
-    } else {
-      this.rootClasses = [this.$style.checkbox];
-    }
   },
 };
 </script>

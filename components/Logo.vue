@@ -1,13 +1,13 @@
 <template>
-  <div class="logo_23IPQ"></div>
+  <div :class="$style.logo"></div>
 </template>
 
 <script>
 export default {};
 </script>
 
-<style>
-.logo_23IPQ {
+<style module>
+.logo {
   background: url(../assets/unlocking-logo.svg);
   background-position: 50%;
   background-size: cover;

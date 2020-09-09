@@ -47,7 +47,7 @@
                 <div :class="$style.line"></div>
                 <div :class="$style.title">{{item.title}}</div>
               </div>
-              <TermsList />
+              <TermsList :class="$style.terms"/>
             </div>
             <Copyright :class="$style.copyright" />
           </div>
@@ -62,7 +62,7 @@ import { mapState, mapMutations } from "vuex";
 
 import Logo from "./Logo";
 import PopupPage from "./PopupPage";
-import MobileNav from "./MobileNav";
+import MobileTimeLine from "./MobileTimeLine";
 import Copyright from "./Copyright";
 import TermsList from "./TermsList";
 
@@ -71,7 +71,7 @@ export default {
   components: {
     Logo,
     PopupPage,
-    MobileNav,
+    MobileTimeLine,
     Copyright,
     TermsList,
   },
@@ -230,7 +230,7 @@ export default {
   color: hsla(0, 0%, 100%, 0.3);
   margin-bottom: 50px;
 }
-.terms_2ARkC {
+.terms {
   color: #fff;
   margin-bottom: 38px;
   margin-top: 51px;

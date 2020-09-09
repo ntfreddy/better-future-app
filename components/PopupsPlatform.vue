@@ -1,6 +1,5 @@
 <template>
   <div>
-    <NavigationPopup v-if="activeId === 'navigation-popup'" v-on:close="onClose" />
     <LifeMobileNav v-if="activeId === 'life-mobile-nav'" :allEpisodes="false" :hasEpisodes="hasEpisodes" v-on:close="onClose" />
     <LifeMobileNav v-if="activeId === 'life-episode-nav'" :allEpisodes="true" :hasEpisodes="hasEpisodes" v-on:close="onClose" />
     <GetBook v-if="activeId === 'get-book'" v-on:close="onClose" />
@@ -10,13 +9,11 @@
 <script>
 import { mapState, mapActions } from "vuex";
 
-import NavigationPopup from "./NavigationPopup";
 import LifeMobileNav from "./LifeMobileNav";
 import GetBook from "./GetBook";
 
 export default {
   components: {
-    NavigationPopup,
     LifeMobileNav,
     GetBook,
   },
