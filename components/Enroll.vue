@@ -174,7 +174,7 @@ export default {
     },
     validate: function () {
       if (this.$v.$invalid) {
-        var controls = ["firstName", "email", "agreed"];
+        var controls = ["firstName", "email"/*, "agreed"*/];
         for (var index = 0; index < controls.length; index++) {
           var control = controls[index];
           this[control] || this.validateValue(control);

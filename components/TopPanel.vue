@@ -25,7 +25,7 @@
             </div>
             <div :class="$style.register" v-show="!firstName" v-on:click="register">{{$t('topPanel-btn')}}</div>
           </div>
-          <Welcome v-show="!showNav" :nbr="2" />
+          <Welcome v-show="!showNav" />
         </div>
       </div>
     </div>

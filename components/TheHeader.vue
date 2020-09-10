@@ -1,17 +1,17 @@
 <template>
   <div
     id="section-header"
-    v-on:update:show-reminder="showReminder = $event"
     :class="{[$style.header]:true, [$style.showReminder] : showReminder}"
   >
     <div :class="[$style.inner, $style.ready]">
       <TopPanel
         :showNav="showNav"
         v-on:update:show-nav="showNav = $event"
+        v-on:update:show-reminder="showReminder = $event"
         :hideReminder="hideReminder"
         :showReminder="showReminder"
       />
-        <Welcome class="d-lg-none d-flex" :nbr="1" />
+        <Welcome class="d-lg-none d-flex" />
       <div :class="$style.introBox">
         <div class="container">
           <div class="row justify-content-center">

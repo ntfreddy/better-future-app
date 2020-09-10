@@ -44,7 +44,7 @@ export default {
   components: {
     Icon,
   },
-  props: ["nbr"],
+  props: [],
   computed: {
     firstName: function () {
       if (this.$session !== undefined) return this.$session.get("firstName");
