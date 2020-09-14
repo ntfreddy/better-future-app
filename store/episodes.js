@@ -8,169 +8,397 @@ export const state = () => ({
             "youtubeId": "Nf7u04TVgu8",
             "announce": {
                 "ops": [{
-                    "insert": "Throughout this series, you will learn that Jesus’ love for you can be found at the heart of Revelation, and that its prophecies reveal hope for your future.\\n"
+                    "insert": "Peut-on espérer un meilleur avenir?"
                 }]
             },
-            "publicationDate": "2020-05-27T00:00:00"
+            "publicationDate": "2020-09-15T00:00:00"
         },
         {
-            "id": "the-prediction",
-            "title": "The Prediction",
-            "alias": "the-prediction",
+            "id": "les-saintes-ecritures",
+            "title": "Les Saintes Écritures",
+            "alias": "les-saintes-ecritures",
+            "author": "Roselie Bernadin",
             "youtubeId": "7uwHK2amFCk",
             "soundcloud": "",
             "announce": {
                 "ops": [
-                    { "insert": "This study will explore the prophecy of Daniel chapter 2, which gives a prediction of the rise and fall of major world empires. This prophecy demonstrates the reliability of the Bible and shows that God can be trusted.\\n" }
+                    { "insert": "Les Saintes Écritures – l’Ancien et le Nouveau Testament – sont la Parole de Dieu écrite, donnée par l’inspiration divine." }
                 ]
             },
             "description": {
-                "ops": [
-                    { "insert": "Do you wonder what the future holds? Where is this world headed? Find answers in “The Prediction.”\\n" }
+                "ops": [{
+                        "insert": "Le centre des saintes écritures c’est Dieu qui depuis longtemps a établi un plan pour que la race humaine vive éternellement. Ceux qui sentent le vide dans leur vie, les Saintes écritures leurs donnent un but dans leur vie et ce but c’est vivre pour Dieu.",
+                    },
+                    { "insert": "Les saintes écritures contiennent plusieurs conseils pour avoir une meilleur santé. Dieu nous a montré depuis le début quoi manger pour être en bonne santé. Il montre des boissons à proscrire et montre comment notre corps est le temple de Dieu qui doit être pur sans aucune impureté." },
+                    { "insert": "La Bible commence en nous présentant le créateur le maître de toute chose. Si on fait sa volonté on respecte en même temps l’environnement qu’il a créé." },
+                    { "insert": "La Bible est un livre d’information plus que tout autre livre car elle contient des informations nécessaires pour nous permettre d’avoir la vie éternelle. Elle a été écrit par plusieurs auteurs qui ont en commun le fait qu’ils étaient tous inspiré par le même Esprit qui connaît tout." },
+                    { "insert": "La Bible contient des informations sur l’avenir. Avec elle, l’avenir est dévoilé aucune raison d’avoir peur." }
                 ]
             },
             "content": {
                 "ops": []
             },
-            "publicationDate": "2020-05-31T19:00:00",
+            "publicationDate": "2020-10-18T19:00:00",
+            "date": "Dimanche, le 18 octobre",
             "actions": [],
             "conversations": []
         },
         {
-            "id": "the-signs",
-            "title": "The Signs",
-            "alias": "the-signs",
+            "id": "le-fils",
+            "title": "Le fils",
+            "alias": "le-fils",
+            "author": "Sympson Gracia",
             "youtubeId": "tTk_bGfHVjE",
             "soundcloud": "",
             "announce": {
                 "ops": [{
-                    "insert": "This study will explore Matthew chapter 24, which predicts the signs of the end. It reveals the last event that must occur before the Second Coming of Christ. This will give you hope!\\n"
-                }]
+                        "insert": "Dieu, le Fils éternel, s’est incarné en Jésus-Christ"
+                    },
+                    { "insert": "" }
+                ]
             },
             "description": {
-                "ops": [{
-                    "insert": "COVID-19 and the rise of natural disasters have left many wondering what everything means. Is our planet headed for destruction? “The Signs” will provide an in-depth look at answers that may surprise you.\\n"
-                }]
+                "ops": [,
+                    {
+                        "insert": "Découragé ; Désespéré; Déçu; Etc. Ce sont ces problèmes que  l’humanité vit, elle ne sait quoi faire pour palier à ces problèmes qui génèrent un vide insoutenable et qui pousse les gens à chercher des solutions dans plusieurs domaine, mais malheureusement il ne semble pas en trouver, puisque la seule et unique solution se trouve en christ le fils de Dieu, par son sacrifice expiatoire. Il suffit de lui donner sa vie en l’acceptant comme son sauveur personnel."
+                    }, {
+                        "insert": "Par son sacrifice sur la croix du calvaire qui donne à l’humanité l’unique assurance aujourd’hui. Il est la solution au problème du péché, Jésus Christ, le fils de Dieu, est mort à sa place sur la croix afin de lui assurer un futur meilleur. Notez bien: Avant de monter au ciel après résurrection Jésus Christ a fait cette promesse à l’humanité dans Jean 14:3 Et, lorsque je m'en serai allé, et que je vous aurai préparé une place, je reviendrai, et je vous prendrai avec moi, afin que là où je suis vous y soyez aussi."
+                    }
+                ]
             },
             "content": {
                 "ops": []
             },
-            "publicationDate": "2020-06-01T19:00:00",
+            "publicationDate": "2020-10-19T19:00:00",
+            "date": "Lundi, le 19 octobre",
             "actions": [],
             "conversations": []
         },
         {
-            "id": "the-warning",
-            "title": "The Warning",
-            "alias": "the-warning",
+            "id": "la-creation",
+            "title": "La création",
+            "alias": "la-creation",
+            "author": "Ted Gracia",
             "youtubeId": "H6eCtwncaHI",
             "soundcloud": "",
             "announce": {
                 "ops": [{
-                    "insert": "Revelation chapter 14 give a threefold warning for this generation. This important study will give clear instruction on these time-sensitive messages. And the best part is that we can find good news in the midst of these warnings! \\n"
+                    "insert": "Dieu, dans les Écritures, a révélé le récit authentique et historique de son activité créatrice."
                 }]
             },
             "description": {
                 "ops": [{
-                    "insert": "In a world of confusion, is there any clear direction for our future? “The Warning” provides a framework for understanding God’s great love and how you can be prepared for what’s ahead.\\n"
-                }]
+                        "insert": ""
+                    }, { "insert": "" },
+                    { "insert": "" },
+                    { "insert": "" }
+                ]
             },
             "content": {
                 "ops": []
             },
-            "publicationDate": "2020-06-02T19:00:00",
+            "publicationDate": "2020-10-20T19:00:00",
+            "date": "Mardi, le 20 octobre",
             "actions": [],
             "conversations": []
         },
         {
-            "id": "the-way",
-            "title": "The Way",
-            "alias": "the-way",
+            "id": "le-grand-conflit",
+            "title": "Le Grand Conflit",
+            "alias": "the-wayle-grand-conflit",
+            "author": "Fulgence Ndagijimana",
             "youtubeId": "v-FnIloVxUQ",
             "soundcloud": "",
             "announce": {
                 "ops": [{
-                    "insert": "This study will focus on how to have an abundant life. It will explore the beauty of God’s law and the protection it provides.\\n"
+                    "insert": "L’humanité tout entière est actuellement impliquée dans un vaste conflit entre le Christ et Satan, concernant le caractère de Dieu, sa loi et sa souveraineté sur l’univers."
                 }]
             },
             "description": {
                 "ops": [{
-                    "insert": "What has happened to the values of yesteryear? How has our society become so self-centered, disrespectful, and entitled? Is there a better way? Is it possible we’ve forgotten our most foundational values? There is a different path, and “The Way” reveals that journey.\\n"
+                    "insert": ""
                 }]
             },
             "content": {
                 "ops": []
             },
-            "publicationDate": "2020-06-03T19:00:00",
+            "publicationDate": "2020-10-21T19:00:00",
+            "date": "Mercredi, le 21 octobre",
             "actions": [],
             "conversations": []
         },
         {
-            "id": "the-authentic-seal",
-            "title": "The Authentic Seal",
-            "alias": "the-authentic-seal",
+            "id": "vie-mort-et-resurrection-du-christ",
+            "title": "Vie, Mort et Résurrection du Christ",
+            "alias": "vie-mort-et-resurrection-du-christ",
+            "author": "Frédéric Ntawiniga",
             "youtubeId": "pNoIqJLJxF8",
             "soundcloud": "",
             "announce": {
                 "ops": [{
-                    "insert": "This study will cover the only commandment it seems the majority of the world has forgotten. This commandment is an antidote for our busy, stressed-out planet. This is a crucial message for all Christians today.\\n"
+                    "insert": "La vie du Christ, parfaitement soumise à la volonté divine, ses souffrances, sa mort et sa résurrection sont les moyens nécessaires auxquels Dieu a pourvu pour libérer l’homme du péché, en sorte que tous ceux qui, par la foi, acceptent ce rachat, obtiennent la vie éternelle."
                 }]
             },
             "description": {
                 "ops": [{
-                    "insert": "The world has increasingly forgotten about God and His ways. How is that possible? The answer is found in a day, which is “The Authentic Seal.”\\n"
+                    "insert": ""
                 }]
             },
             "content": {
                 "ops": []
             },
-            "publicationDate": "2020-06-04T19:00:00",
+            "publicationDate": "2020-10-22T19:00:00",
+            "date": "Jeudi, le 22 octobre",
             "actions": [],
             "conversations": []
         },
         {
-            "id": "the-counterfeit",
-            "title": "The Counterfeit",
-            "alias": "the-counterfeit",
+            "id": "l-experience-du-salut",
+            "title": "L’Expérience du Salut",
+            "alias": "l-experience-du-salut",
+            "author": "Barbara Cantave",
             "youtubeId": "OMOfznp4N38",
             "soundcloud": "",
             "announce": {
                 "ops": [
-                    { "insert": "This study will cover why the majority of the Christian world goes to church on Sunday. How did the day of worship change? Why? Who is behind this great deception?\\n" }
+                    { "insert": "Le Christ n’a pas connu le péché. Pourtant, dans son amour infini, Dieu l’a fait péché pour nous, afin que nous devenions en lui justice de Dieu." }
                 ]
             },
             "description": {
                 "ops": [{
-                    "insert": "Have you ever been scammed? Did you know that one of the greatest scams in history has been bought by almost everyone on the planet? What is it? How can you and I avoid it? Don’t miss the answer in “The Counterfeit.”\\n"
+                    "insert": ""
                 }]
             },
             "content": {
                 "ops": []
             },
-            "publicationDate": "2020-06-05T19:00:00",
+            "publicationDate": "2020-10-23T19:00:00",
+            "date": "Vendredi, le 23 octobre",
             "actions": [],
             "conversations": []
         },
         {
-            "id": "the-grave",
-            "title": "The Grave",
-            "alias": "the-grave",
+            "id": "croitre-en-christ",
+            "title": "Croître",
+            "alias": "croitre-en-christ",
+            "author": "Nahomy Noélizaire",
             "youtubeId": "wR6-VS2Y_2A",
             "soundcloud": "",
             "announce": {
                 "ops": [{
-                    "insert": "This study will focus on the nature of man and what happens when you die. Are your dead loved ones in heaven? The Bible tells us more than 50 times what death really is. This topic can bring peace to your heart.\\n"
+                    "insert": "Par sa mort sur la croix, Jésus a triomphé des forces du mal."
                 }]
             },
             "description": {
                 "ops": [{
-                    "insert": "What happens two minutes after you die? Is there life after death? Is there reincarnation? What about karma? Answers can be found in the Bible and they speak loudly from “The Grave.”\\n"
+                    "insert": ""
                 }]
             },
             "content": {
                 "ops": []
             },
-            "publicationDate": "2020-06-06T19:00:00",
+            "publicationDate": "2020-10-24T19:00:00",
+            "date": "Samedi, le 24 octobre",
+            "actions": [],
+            "conversations": []
+        },
+        {
+            "id": "la-loi-de-dieu",
+            "title": "La loi de Dieu",
+            "alias": "la-loi-de-dieu",
+            "author": "Wadner Cadet",
+            "youtubeId": "wR6-VS2Y_2A",
+            "soundcloud": "",
+            "announce": {
+                "ops": [{
+                    "insert": "Les grands principes de la loi de Dieu sont contenus dans les dix commandements et manifestés dans la vie du Christ."
+                }]
+            },
+            "description": {
+                "ops": [{
+                    "insert": ""
+                }]
+            },
+            "content": {
+                "ops": []
+            },
+            "publicationDate": "2020-10-25T19:00:00",
+            "date": "Dimanche, le 25 octobre",
+            "actions": [],
+            "conversations": []
+        },
+        {
+            "id": "le-sabbat",
+            "title": "Le Sabbat",
+            "alias": "le-sabbat",
+            "author": "Kerby C. Beaubrun",
+            "youtubeId": "wR6-VS2Y_2A",
+            "soundcloud": "",
+            "announce": {
+                "ops": [{
+                    "insert": "Au terme des six jours de la création, le Créateur bienveillant s’est reposé le septième jour et a institué le sabbat comme mémorial de la création pour toute l’humanité."
+                }]
+            },
+            "description": {
+                "ops": [{
+                    "insert": ""
+                }]
+            },
+            "content": {
+                "ops": []
+            },
+            "publicationDate": "2020-10-26T19:00:00",
+            "date": "Lundi, le 26 octobre",
+            "actions": [],
+            "conversations": []
+        },
+        {
+            "id": "le-bapteme",
+            "title": "Le Baptême",
+            "alias": "le-bapteme",
+            "author": "Paule Esther Jn Philippe",
+            "youtubeId": "wR6-VS2Y_2A",
+            "soundcloud": "",
+            "announce": {
+                "ops": [{
+                    "insert": "Par le baptême, nous confessons notre foi en la mort et la résurrection de Jésus-Christ, et nous témoignons de notre mort au péché et de notre décision de mener une vie nouvelle."
+                }]
+            },
+            "description": {
+                "ops": [{
+                    "insert": ""
+                }]
+            },
+            "content": {
+                "ops": []
+            },
+            "publicationDate": "2020-10-27T19:00:00",
+            "date": "Mardi, le 27 octobre",
+            "actions": [],
+            "conversations": []
+        },
+        {
+            "id": "la-gestion-chretienne-de-la-vie",
+            "title": "La Gestion Chrétienne de la Vie",
+            "alias": "la-gestion-chretienne-de-la-vie",
+            "author": "Danielle Noélizaire",
+            "youtubeId": "wR6-VS2Y_2A",
+            "soundcloud": "",
+            "announce": {
+                "ops": [{
+                    "insert": "Nous sommes les économes de Dieu : le Seigneur nous a en effet confié du temps, des occasions, des aptitudes, des possessions, les biens de la terre et les ressources du sol, et nous sommes responsables devant lui de leur bon usage."
+                }]
+            },
+            "description": {
+                "ops": [{
+                    "insert": ""
+                }]
+            },
+            "content": {
+                "ops": []
+            },
+            "publicationDate": "2020-10-28T19:00:00",
+            "date": "Mercredi, le 28 octobre",
+            "actions": [],
+            "conversations": []
+        },
+        {
+            "id": "l-etat-des-morts-et-la-resurrection",
+            "title": "L’État des morts et la Résurrection",
+            "alias": "l-etat-des-morts-et-la-resurrection",
+            "author": "Jacky Fle",
+            "youtubeId": "wR6-VS2Y_2A",
+            "soundcloud": "",
+            "announce": {
+                "ops": [{
+                    "insert": "Le salaire du péché, c’est la mort. Mais Dieu, qui seul est immortel, accordera la vie éternelle à ses rachetés."
+                }]
+            },
+            "description": {
+                "ops": [{
+                    "insert": ""
+                }]
+            },
+            "content": {
+                "ops": []
+            },
+            "publicationDate": "2020-10-29T19:00:00",
+            "date": "Jeudi, le 29 octobre",
+            "actions": [],
+            "conversations": []
+        },
+        {
+            "id": "la-seconde-venue-du-christ",
+            "title": "La Seconde venue du Christ",
+            "alias": "la-seconde-venue-du-christ",
+            "author": "Yvon Noel",
+            "youtubeId": "wR6-VS2Y_2A",
+            "soundcloud": "",
+            "announce": {
+                "ops": [{
+                    "insert": "La seconde venue du Christ est la bienheureuse espérance de l’Église, le point culminant de l’Évangile."
+                }]
+            },
+            "description": {
+                "ops": [{
+                    "insert": ""
+                }]
+            },
+            "content": {
+                "ops": []
+            },
+            "publicationDate": "2020-10-30T19:00:00",
+            "date": "Vendredi, le 30 octobre",
+            "actions": [],
+            "conversations": []
+        },
+        {
+            "id": "la-nouvelle-terre",
+            "title": "La Nouvelle Terre",
+            "alias": "la-nouvelle-terre",
+            "author": "Adeline Emile",
+            "youtubeId": "wR6-VS2Y_2A",
+            "soundcloud": "",
+            "announce": {
+                "ops": [{
+                    "insert": ""
+                }]
+            },
+            "description": {
+                "ops": [{
+                    "insert": ""
+                }]
+            },
+            "content": {
+                "ops": []
+            },
+            "publicationDate": "2020-10-31T19:00:00",
+            "date": "Samedi, le 31 octobre",
+            "actions": [],
+            "conversations": []
+        },
+        {
+            "id": "l-eglise-du-reste-et-son-mandat",
+            "title": "L’Église du Reste et son Mandat",
+            "alias": "l-eglise-du-reste-et-son-mandat",
+            "author": "Mae-Lyna Beaubrun-Fleury",
+            "youtubeId": "wR6-VS2Y_2A",
+            "soundcloud": "",
+            "announce": {
+                "ops": [{
+                    "insert": "L’Église universelle englobe tous ceux qui croient vraiment en Christ."
+                }]
+            },
+            "description": {
+                "ops": [{
+                    "insert": ""
+                }]
+            },
+            "content": {
+                "ops": []
+            },
+            "publicationDate": "2020-11-01T19:00:00",
+            "date": "Dimanche, le 1er novembre",
             "actions": [],
             "conversations": []
         },

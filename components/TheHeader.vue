@@ -29,7 +29,7 @@
                 ></div>
                 <div
                   :class="$style.cami"
-                  :style="'background-image:url(https://storage.googleapis.com/bible.awr.org/cami/' + episode.id + '.png);'"
+                  :style="'background-image:url(https://raw.githubusercontent.com/ntfreddy/think-future-app/master/assets/episode1.png);'"
                 ></div>
               </div>
             </div>
