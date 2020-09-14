@@ -1,4 +1,4 @@
-# better-future-app
+# think-future-app
 
 ## Build Setup
 
@@ -32,16 +32,21 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 
 # Deployment to Firebase (https://www.axfon.com/how-to-deploy-nuxt-js-in-firebase-hosting-with-firestore-realtime-database/)
 1. npm install -g firebase-tools
-2. cd better-future-app
+2. cd think-future-app
 3. npm run generate
 4. firebase login
 5. firebase init
 6. firebase deploy
 
-Project Console: https://console.firebase.google.com/project/better-future-app/overview
-Hosting URL: https://better-future-app.web.app 
+Project Console: https://console.firebase.google.com/project/think-future-app/overview
+Hosting URL: https://think-future-app.web.app 
 
 # Add firebase database
 1. npm i nuxt
 2. npm i firebase
 3. add plugin firebase.js
+
+
+# Start Functions emulators
+1. cd functions
+2. firebase emulators:start

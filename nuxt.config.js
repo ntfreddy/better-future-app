@@ -3,7 +3,7 @@ export default {
      ** Nuxt rendering mode
      ** See https://nuxtjs.org/api/configuration-mode
      */
-    mode: 'universal',
+    /* mode: 'universal',*/
     /*
      ** Nuxt target
      ** See https://nuxtjs.org/api/configuration-target
@@ -108,12 +108,13 @@ export default {
             lazy: true,
             langDir: 'lang/',
             defaultLocale: 'fr',
-            locales: [{
-                    name: 'English',
-                    code: 'en',
-                    iso: 'en-US',
-                    file: 'en-US.js'
-                },
+            locales: [
+                /*{
+                                    name: 'English',
+                                    code: 'en',
+                                    iso: 'en-US',
+                                    file: 'en-US.js'
+                                },*/
                 {
                     name: 'Français',
                     code: 'fr',
@@ -123,25 +124,31 @@ export default {
             ],
         }],
         /*['@nuxtjs/pwa', {
-            manifest: {
-                name: "Pensez l'avenir",
-                lang: 'fr',
-                orientation: 'portrait',
-                useWebmanifestExtension: false
+                                    manifest: {
+                                        name: "Pensez l'avenir",
+                                        lang: 'fr',
+                                        orientation: 'portrait',
+                                        useWebmanifestExtension: false
+                                    }
+                                }],
+                                ['nuxt-twa-module', {
+                                defaultUrl: 'https://think-future-app.web.app',
+                                defaultUrl: 'https://think-future-app.web.app',
+                                sha256Fingerprints: [],
+                                applicationId: 'tv.pensezlavenir.app',
+                                launcherName: "Pensez l'avenir",
+                                versionCode: 1,
+                                versionName: '1.0',
+                                statusBarColor: '#163F77',
+                                iconPath: '/static/icon.png',
+                                distFolder: '.nuxt/dist/client',
+                            }] */
+        [
+            '@nuxtjs/axios',
+            {
+
             }
-        }],
-        ['nuxt-twa-module', {
-        defaultUrl: 'https://better-future-app.web.app',
-        hostName: 'better-future-app.web.app',
-        sha256Fingerprints: [],
-        applicationId: 'tv.pensezlavenir.app',
-        launcherName: "Pensez l'avenir",
-        versionCode: 1,
-        versionName: '1.0',
-        statusBarColor: '#163F77',
-        iconPath: '/static/icon.png',
-        distFolder: '.nuxt/dist/client',
-    }] */
+        ]
     ],
     /*
      ** Build configuration

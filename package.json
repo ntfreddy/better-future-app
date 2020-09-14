@@ -1,5 +1,5 @@
 {
-    "name": "better-future-app",
+    "name": "think-future-app",
     "version": "1.0.0",
     "private": true,
     "scripts": {
@@ -9,13 +9,15 @@
         "generate": "nuxt generate"
     },
     "dependencies": {
+        "@nuxtjs/axios": "^5.12.2",
         "@nuxtjs/firebase": "^6.1.1",
         "bootstrap": "^4.5.0",
         "bootstrap-vue": "^2.15.0",
         "firebase": "^7.19.0",
         "hubspot": "^2.3.13",
         "locomotive-scroll": "^3.5.4",
-        "nuxt": "^2.14.3",
+        "node-fetch": "^2.6.1",
+        "nuxt": "^2.14.5",
         "nuxt-i18n": "^6.13.12",
         "swiper": "^5.4.5",
         "vue-awesome-swiper": "^4.1.1",

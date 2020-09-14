@@ -127,6 +127,21 @@ export default {
   },
   mounted: function () {},
   methods: {
+    async subscribe() {
+      this.$axios
+        .$post("http://localhost:5001/pensezlavenir-4df21/us-central1/subscribe", {
+          email: this.$session.get("email"),
+          fname: this.$session.get("firstName"),
+          lname: "",
+          tag: "registration"
+        })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    },
     onSubmit: function () {
       //console.log("onSubmit");
       this.loading = false;
@@ -139,6 +154,8 @@ export default {
 
         console.log("firstName", this.$session.get("firstName"));
         console.log("email", this.$session.get("email"));
+
+        this.subscribe();
 
         /*
         this.$loadScript("https://smtpjs.com/v3/smtp.js")
@@ -174,7 +191,7 @@ export default {
     },
     validate: function () {
       if (this.$v.$invalid) {
-        var controls = ["firstName", "email"/*, "agreed"*/];
+        var controls = ["firstName", "email" /*, "agreed"*/];
         for (var index = 0; index < controls.length; index++) {
           var control = controls[index];
           this[control] || this.validateValue(control);
@@ -417,10 +434,8 @@ export default {
   background-color: #b3daff;
   border-color: #b3daff;
 }
-.button
-  .btn-outline-primary:not(:disabled):not(.disabled).active,
-.button
-  .btn-outline-primary:not(:disabled):not(.disabled):active,
+.button .btn-outline-primary:not(:disabled):not(.disabled).active,
+.button .btn-outline-primary:not(:disabled):not(.disabled):active,
 .button .show > .btn-outline-primary.dropdown-toggle {
   color: #000;
   background-color: transparent;

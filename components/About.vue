@@ -51,14 +51,14 @@ export default {
   },
   data() {
     return {
-      content: {
+     /* content: {
         ops: [
           {
             insert:
               "Throughout this series, you will learn that Jesus’ love for you can be found at the heart of Revelation, and that its prophecies reveal hope for your future.\\n",
           },
         ],
-      },
+      },*/
       config: {
         readOnly: false,
         placeholder: "Compose an epic...",
