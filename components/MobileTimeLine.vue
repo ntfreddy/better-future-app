@@ -26,7 +26,7 @@
       </div>
       <div :class="$style.right">
         <img
-          :src="'https://storage.googleapis.com/bible.awr.org/episodes/' + episode.id + '-small.jpg'"
+          :src="'https://raw.githubusercontent.com/ntfreddy/think-future-app/master/assets/episodes/' + episode.id + '-small.jpg'"
           :class="$style.image"
         />
         <div :class="$style.clockBox" v-show="episode.state === 'today'">

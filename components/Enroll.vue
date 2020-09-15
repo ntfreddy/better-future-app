@@ -157,29 +157,6 @@ export default {
 
         this.subscribe();
 
-        /*
-        this.$loadScript("https://smtpjs.com/v3/smtp.js")
-        .then(() => {                                         //this Promise return nothing!!!
-            window.Email && window.Email.send({
-                Host : "smtp.gmail.com",
-                Username : 'meilleuravenir.tv@gmail.com',
-                Password : 'Me1lleuraven1r',
-                To : this.$session.get("email"),
-                From : "meilleuravenir.tv@gmail.com",
-                Subject : "Test",
-                Body : "test",
-            }).then(
-                message => alert(message)
-            );
-        })
-        .catch(() => {
-        // Failed to fetch script
-        });
-*/
-        /*
-            this.$gtm && this.$gtm.push({
-                event: "registration.success"
-            });*/
         setTimeout(function () {
           console.log("setTimeout");
           window.scrollTo(0, 0);

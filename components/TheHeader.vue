@@ -25,11 +25,11 @@
                 />
                 <div
                   :class="$style.right"
-                  :style="'background-image:url(https://storage.googleapis.com/bible.awr.org/episodes/' + episode.id + '.jpg);'"
+                  :style="'background-image:url(https://raw.githubusercontent.com/ntfreddy/think-future-app/master/assets/episodes/' + episode.id + '.jpg);'"
                 ></div>
                 <div
                   :class="$style.cami"
-                  :style="'background-image:url(https://raw.githubusercontent.com/ntfreddy/think-future-app/master/assets/episode1.png);'"
+                  :style="'background-image:url(https://raw.githubusercontent.com/ntfreddy/think-future-app/master/assets/episodes/episode1.png);'"
                 ></div>
               </div>
             </div>

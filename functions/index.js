@@ -10,14 +10,14 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 
 var Mailchimp = require('mailchimp-api-v3');
 
-var mailchimp = new Mailchimp("3884acf5cc2d7544ca851a543d963d32-us2");
+var mailchimp = new Mailchimp("");
 const cors = require('cors')({ origin: true });
 
 
 exports.subscribe = functions.https.onRequest((request, response) => {
     cors(request, response, () => {
 
-        mailchimp.post('/lists/56efe56ffe/members', {
+        mailchimp.post('/lists//members', {
                 email_address: request.body.email,
                 merge_fields: {
                     "FNAME": request.body.fname,

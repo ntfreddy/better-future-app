@@ -11,7 +11,7 @@ export const state = () => ({
                     "insert": "Peut-on espérer un meilleur avenir?"
                 }]
             },
-            "publicationDate": "2020-09-15T00:00:00"
+            "publicationDate": "2020-09-15T00:00:00",
         },
         {
             "id": "les-saintes-ecritures",
@@ -41,7 +41,8 @@ export const state = () => ({
             "publicationDate": "2020-10-18T19:00:00",
             "date": "Dimanche, le 18 octobre",
             "actions": [],
-            "conversations": []
+            "conversations": [],
+            "state": "finished"
         },
         {
             "id": "le-fils",
@@ -72,7 +73,8 @@ export const state = () => ({
             "publicationDate": "2020-10-19T19:00:00",
             "date": "Lundi, le 19 octobre",
             "actions": [],
-            "conversations": []
+            "conversations": [],
+            "state": "closed"
         },
         {
             "id": "la-creation",
@@ -100,7 +102,8 @@ export const state = () => ({
             "publicationDate": "2020-10-20T19:00:00",
             "date": "Mardi, le 20 octobre",
             "actions": [],
-            "conversations": []
+            "conversations": [],
+            "state": "closed"
         },
         {
             "id": "le-grand-conflit",
@@ -125,7 +128,8 @@ export const state = () => ({
             "publicationDate": "2020-10-21T19:00:00",
             "date": "Mercredi, le 21 octobre",
             "actions": [],
-            "conversations": []
+            "conversations": [],
+            "state": "today"
         },
         {
             "id": "vie-mort-et-resurrection-du-christ",
@@ -150,7 +154,8 @@ export const state = () => ({
             "publicationDate": "2020-10-22T19:00:00",
             "date": "Jeudi, le 22 octobre",
             "actions": [],
-            "conversations": []
+            "conversations": [],
+            "state": "closed"
         },
         {
             "id": "l-experience-du-salut",
@@ -175,7 +180,8 @@ export const state = () => ({
             "publicationDate": "2020-10-23T19:00:00",
             "date": "Vendredi, le 23 octobre",
             "actions": [],
-            "conversations": []
+            "conversations": [],
+            "state": "closed"
         },
         {
             "id": "croitre-en-christ",
@@ -200,7 +206,8 @@ export const state = () => ({
             "publicationDate": "2020-10-24T19:00:00",
             "date": "Samedi, le 24 octobre",
             "actions": [],
-            "conversations": []
+            "conversations": [],
+            "state": "closed"
         },
         {
             "id": "la-loi-de-dieu",
@@ -225,7 +232,8 @@ export const state = () => ({
             "publicationDate": "2020-10-25T19:00:00",
             "date": "Dimanche, le 25 octobre",
             "actions": [],
-            "conversations": []
+            "conversations": [],
+            "state": "closed"
         },
         {
             "id": "le-sabbat",
@@ -250,7 +258,8 @@ export const state = () => ({
             "publicationDate": "2020-10-26T19:00:00",
             "date": "Lundi, le 26 octobre",
             "actions": [],
-            "conversations": []
+            "conversations": [],
+            "state": "closed"
         },
         {
             "id": "le-bapteme",
@@ -275,7 +284,8 @@ export const state = () => ({
             "publicationDate": "2020-10-27T19:00:00",
             "date": "Mardi, le 27 octobre",
             "actions": [],
-            "conversations": []
+            "conversations": [],
+            "state": "closed"
         },
         {
             "id": "la-gestion-chretienne-de-la-vie",
@@ -300,13 +310,14 @@ export const state = () => ({
             "publicationDate": "2020-10-28T19:00:00",
             "date": "Mercredi, le 28 octobre",
             "actions": [],
-            "conversations": []
+            "conversations": [],
+            "state": "closed"
         },
         {
             "id": "l-etat-des-morts-et-la-resurrection",
             "title": "L’État des morts et la Résurrection",
             "alias": "l-etat-des-morts-et-la-resurrection",
-            "author": "Jacky Fle",
+            "author": "Jacky Fleury",
             "youtubeId": "wR6-VS2Y_2A",
             "soundcloud": "",
             "announce": {
@@ -325,7 +336,8 @@ export const state = () => ({
             "publicationDate": "2020-10-29T19:00:00",
             "date": "Jeudi, le 29 octobre",
             "actions": [],
-            "conversations": []
+            "conversations": [],
+            "state": "closed"
         },
         {
             "id": "la-seconde-venue-du-christ",
@@ -350,7 +362,8 @@ export const state = () => ({
             "publicationDate": "2020-10-30T19:00:00",
             "date": "Vendredi, le 30 octobre",
             "actions": [],
-            "conversations": []
+            "conversations": [],
+            "state": "closed"
         },
         {
             "id": "la-nouvelle-terre",
@@ -375,7 +388,8 @@ export const state = () => ({
             "publicationDate": "2020-10-31T19:00:00",
             "date": "Samedi, le 31 octobre",
             "actions": [],
-            "conversations": []
+            "conversations": [],
+            "state": "closed"
         },
         {
             "id": "l-eglise-du-reste-et-son-mandat",
@@ -400,18 +414,19 @@ export const state = () => ({
             "publicationDate": "2020-11-01T19:00:00",
             "date": "Dimanche, le 1er novembre",
             "actions": [],
-            "conversations": []
+            "conversations": [],
+            "state": "closed"
         },
     ],
     activeIndex: 0,
     episode: {
         "id": "intro",
-        "title": "Unlocking Bible Prophecies",
+        "title": "Peut-on espérer un avenir meilleur ?",
         "alias": "intro",
         "youtubeId": "Nf7u04TVgu8",
         "announce": {
             "ops": [{
-                "insert": "Throughout this series, you will learn that Jesus’ love for you can be found at the heart of Revelation, and that its prophecies reveal hope for your future.\\n"
+                "insert": "Peut-on espérer un avenir meilleur ?"
             }]
         },
         "publicationDate": "2020-05-27T00:00:00"
