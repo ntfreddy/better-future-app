@@ -4,13 +4,7 @@
       <div :class="$style.content">
         <div :class="{[$style.inner]: true, [$style.notRegistred]:!isRegistred}">
           <div :class="$style.closeBtn" v-on:click="close">
-            <Icon id="cross" fill="white" viewBox="0 0 18 18" :class="$style.close">
-              <path
-                d="M17.67.33a1.115 1.115 0 00-1.581 0L9 7.417 1.911.329a1.115 1.115 0 00-1.582 0 1.115 1.115 0 000 1.582L7.42 9l-7.09 7.088a1.115 1.115 0 000 1.582c.216.215.505.331.787.331.282 0 .571-.107.787-.331l7.089-7.089 7.089 7.089c.215.215.505.331.786.331.29 0 .572-.107.787-.331a1.115 1.115 0 000-1.582L10.582 9l7.089-7.09a1.115 1.115 0 000-1.58z"
-                fill-rule="nonzero"
-                stroke-width=".8"
-              ></path>
-            </Icon>
+            <Icon name="cross" viewBox="0 0 18 18" :class="$style.close" />
           </div>
           <div :class="$style.left">
             <div :class="$style.title">

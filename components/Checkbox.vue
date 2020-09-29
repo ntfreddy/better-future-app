@@ -11,9 +11,7 @@
     <label :for="id" :class="$style.label">
       <div :class="$style.wrapper">
         <span :class="{[$style.box]:true, [$style.hasBorder]:dark}">
-          <Icon id="check-2" viewBox="0 0 13 10" fill="none" :class="$style.checkIcon">
-              <path d="M1 3.5L6 8l5.5-7" stroke="#000" stroke-width="2" />
-            </Icon>
+          <Icon name="check-2" viewBox="0 0 13 10" :class="$style.checkIcon" />
         </span>
       </div>
       <span :class="$style.text" class="checkbox-text">
@@ -28,6 +26,7 @@
 </template>
 <script>
 import { required } from "vuelidate/lib/validators";
+import Icon from "./Icon";
 
 export default {
   props: ["invalidFeedback", "id", "dark", "value"],
@@ -46,17 +45,17 @@ export default {
   },
   methods: {
     onClickedOn: function (event) {
-      console.log("checky", this.checky);
+      //console.log("checky", this.checky);
       this.inputValue = !this.checky;
       
       this.$v.checky.$touch();
       this.$emit("clicked", this.inputValue == true);
-      console.log("checkedValue", this.inputValue);
+      //console.log("checkedValue", this.inputValue);
     },
   },
   mounted: function () {
     this.inputValue = this.value;
-    console.log("checky", this.checky);
+    //console.log("checky", this.checky);
   },
 };
 </script>

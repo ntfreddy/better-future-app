@@ -7,13 +7,7 @@
             <Logo />
             <div :class="$style.close" v-on:click="closeNavigation">
               {{$t('lifeMobileNav-close')}}
-              <Icon id="cross" fill="white" viewBox="0 0 18 18" :class="$style.cross">
-                <path
-                  d="M17.67.33a1.115 1.115 0 00-1.581 0L9 7.417 1.911.329a1.115 1.115 0 00-1.582 0 1.115 1.115 0 000 1.582L7.42 9l-7.09 7.088a1.115 1.115 0 000 1.582c.216.215.505.331.787.331.282 0 .571-.107.787-.331l7.089-7.089 7.089 7.089c.215.215.505.331.786.331.29 0 .572-.107.787-.331a1.115 1.115 0 000-1.582L10.582 9l7.089-7.09a1.115 1.115 0 000-1.58z"
-                  fill-rule="nonzero"
-                  stroke-width=".8"
-                ></path>
-              </Icon>
+              <Icon name="cross" viewBox="0 0 18 18" :class="$style.cross" />
             </div>
           </div>
           <div class="col-12" :class="$style.top" v-if="isAllEpisodes && hasEpisodes">
@@ -28,13 +22,7 @@
             </p>
             <div :class="$style.toogle" v-on:click="toogle">
               {{$t('lifeMobileNav-toggle')}}
-              <Icon id="dots" fill="none" viewBox="0 0 16 16" :class="$style.dots">
-                <g opacity=".4" fill="#fff">
-                  <path
-                    d="M0 0h3.2v3.2H0zM0 6.4h3.2v3.2H0zM0 12.8h3.2V16H0zM6.4 0h3.2v3.2H6.4zM6.4 6.4h3.2v3.2H6.4zM6.4 12.8h3.2V16H6.4zM12.8 0H16v3.2h-3.2zM12.8 6.4H16v3.2h-3.2zM12.8 12.8H16V16h-3.2z"
-                  ></path>
-                </g>
-              </Icon>
+              <Icon name="dots" viewBox="0 0 16 16" :class="$style.dots" />
             </div>
           </div>
           <div class="col-12" :class="$style.inner">

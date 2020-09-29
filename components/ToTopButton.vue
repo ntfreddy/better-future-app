@@ -1,11 +1,7 @@
 <template>
   <div ref="topBtn" :class="$style.wrapper" v-show="visible" v-on:click="backToTop">
     <div :class="$style.btn">
-      <Icon id="to-top" viewBox="0 0 23 32" fill="none" :class="$style.arrows">
-            <path d="M1 12.5L11.5 2l10 10" stroke="#fff" stroke-width="2" />
-            <path opacity=".6" d="M1 21.5L11.5 11l10 10" stroke="#fff" stroke-width="2" />
-            <path opacity=".3" d="M1 30.5L11.5 20l10 10" stroke="#fff" stroke-width="2" />
-      </Icon>
+      <Icon name="to-top" viewBox="0 0 23 32" :class="$style.arrows" />
     </div>
   </div>
 </template>

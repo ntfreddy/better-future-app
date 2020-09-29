@@ -3,9 +3,7 @@
     <Reminder v-show="showReminder" v-on:close="closeReminder($event)" v-on:remind="remind"/>
 
     <div :class="{[$style.burgerBox]:true, [$style.burgerBoxShift]:showReminder}" v-on:click="showNavigation($event)">
-      <Icon id="burger" viewBox="0 0 24 11" fill="none" :class="$style.burger">
-        <path stroke="#fff" stroke-width="2" d="M24 1H0M24 10H12" />
-      </Icon>
+      <Icon name="burger" viewBox="0 0 24 11" :class="$style.burger" />
     </div>
     <div class="container" :class="$style.container">
       <div class="row justify-content-center">
@@ -17,7 +15,7 @@
                 v-for="item in navigation"
                 :key="item.id"
                 :class="$style.link"
-                v-on:click="scrollTo('item.id')"
+                v-on:click="scrollTo(item.id)"
               >
                 <div :class="$style.line"></div>
                 <div :class="$style.title">{{item.title}}</div>
@@ -35,9 +33,7 @@
           <div :class="$style.content">
             <div :class="$style.logo"></div>
             <div :class="$style.mobileBurgerBox" v-on:click="openNavigation('life-mobile-nav')">
-              <Icon id="burger" viewBox="0 0 24 11" fill="none" :class="$style.mobileBurger">
-                <path stroke="#fff" stroke-width="2" d="M24 1H0M24 10H12" />
-              </Icon>
+              <Icon name="burger" viewBox="0 0 24 11" :class="$style.mobileBurger" />
             </div>
           </div>
         </div>
@@ -79,12 +75,12 @@ export default {
       return this.$store.state.navigation.list;
     },
     isRegistred: function () {
-      console.log(
+      /*console.log(
         "$session.exists : ",
         this.$session !== undefined &&
           this.$session.exists != undefined &&
           this.$session.exists()
-      );
+      );*/
       return (
         this.$session !== undefined &&
         this.$session.exists != undefined &&
@@ -113,31 +109,19 @@ export default {
     setNavigation: function () {
       var nav = [
         {
-          id: "author",
-          title: "Cami Oetman",
-        },
-        {
-          id: "benefits",
-          title: "Benefits",
-        },
-        {
-          id: "audience",
-          title: "Audience",
-        },
-        {
-          id: "advantages",
-          title: "Advantages",
-        },
-        {
-          id: "testimonials",
-          title: "Testimonials",
-        },
+        id: "actions",
+        title: "Service"
+    }, 
+    {
+        id: "episode-info",
+        title: "Message"
+    },
       ];
       "opened" === this.episode.state &&
         this.totalQuestions > 0 &&
         nav.unshift({
           id: "questions",
-          title: "FAQ",
+          title: "Questions",
         }),
         this.setNavList(nav);
     },
@@ -156,7 +140,7 @@ export default {
       this.$emit("update:show-nav", !this.showNav);
     },
     closeReminder: function () {
-      console.log("closeReminder");
+      //console.log("closeReminder");
       this.$session.set("hideReminder", true);
       this.$emit("update:show-reminder", false);
     },

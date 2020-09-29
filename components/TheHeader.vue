@@ -91,16 +91,16 @@ export default {
         this.$session.get("hideReminder") != undefined &&
         this.$session.get("hideReminder");
 
-      console.log("hideReminder : ", v);
+      //console.log("hideReminder : ", v);
       return v;
     },
     isRegistred: function () {
-      console.log(
+     /* console.log(
         "$session.exists : ",
         this.$session !== undefined &&
           this.$session.exists != undefined &&
           this.$session.exists()
-      );
+      );*/
       return (
         this.$session !== undefined &&
         this.$session.exists != undefined &&
@@ -115,7 +115,7 @@ export default {
     window.addEventListener("resize", this.onResize);
     this.ready = true;
     this.showReminder = !this.hideReminder && !this.isRegistred;
-    console.log("showReminder : ", this.showReminder);
+    //console.log("showReminder : ", this.showReminder);
   },
   methods: {
     ...mapMutations({

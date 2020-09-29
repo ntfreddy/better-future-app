@@ -18,13 +18,7 @@
             >{{$t('welcome-register')}}</div>
             <div class="d-lg-none d-flex" :class="$style.toogle" v-on:click="onOpenPopup('life-episode-nav')">
               {{$t('welcome-allEpisodes')}}
-              <Icon id="dots" fill="none" viewBox="0 0 16 16" :class="$style.dots">
-                <g opacity=".4" fill="#fff">
-                  <path
-                    d="M0 0h3.2v3.2H0zM0 6.4h3.2v3.2H0zM0 12.8h3.2V16H0zM6.4 0h3.2v3.2H6.4zM6.4 6.4h3.2v3.2H6.4zM6.4 12.8h3.2V16H6.4zM12.8 0H16v3.2h-3.2zM12.8 6.4H16v3.2h-3.2zM12.8 12.8H16V16h-3.2z"
-                  />
-                </g>
-              </Icon>
+              <Icon name="dots" viewBox="0 0 16 16" :class="$style.dots" />
             </div>
           </div>
         </div>

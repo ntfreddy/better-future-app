@@ -1,20 +1,22 @@
 <template>
-<div>
-  <div ssr="true" :class="{[$style.quill]: true, [$style.mini]: mini}">
-    <div class="notranslate quill-text ql-container ql-disabled" :class="$style.textarea">
-      <div class="ql-editor" data-gramm="false" contenteditable="false">
-        <p v-for="(op, index) in ops" :key="index">{{op.insert}}</p>
+  <div>
+    <div ssr="true" :class="{[$style.quill]: true, [$style.mini]: mini}">
+      <div class="notranslate quill-text ql-container ql-disabled" :class="$style.textarea">
+        <div class="ql-editor" data-gramm="false" contenteditable="false">
+          <div v-for="(op, index) in ops" :key="index">
+            <h2 v-if="op.title">{{op.title}}</h2>
+            <p v-if="op.insert">{{op.insert}}</p>
+          </div>
+        </div>
+        <div class="ql-clipboard" contenteditable="true" tabindex="-1"></div>
       </div>
-      <div class="ql-clipboard" contenteditable="true" tabindex="-1"></div>
     </div>
-  </div>
   </div>
 </template>
 
 <script>
 export default {
-  props:["ops", "mini"]
-  
+  props: ["ops", "mini"],
 };
 </script>
 

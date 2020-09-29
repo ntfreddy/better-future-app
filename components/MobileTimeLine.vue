@@ -16,9 +16,7 @@
           :class="{[$style.label]:true, [$style.active]: (activeIndex == index), [$style.today]: (episode.state == 'today'),[$style.closed]: (episode.state === 'closed'),[$style.finished]: (episode.state === 'finished'),}"
         >
           <div :class="$style.checked" v-show="(episode.state === 'finished')">
-            <Icon id="checked" fill="none" viewBox="0 0 14 10" :class="$style.check">
-              <path d="M1.5 4l4.75 4 6.25-6.5" stroke="#fff" stroke-width="2"></path>
-            </Icon>
+            <Icon name="checked" viewBox="0 0 14 10" :class="$style.check" />
           </div>
           <span v-if="index === 0">{{$t('timeLine-trailer')}}</span>
           <span v-else>{{$t('timeLine-episode') + " " + index}}</span>
@@ -30,16 +28,7 @@
           :class="$style.image"
         />
         <div :class="$style.clockBox" v-show="episode.state === 'today'">
-          <Icon id="clock" fill="none" viewBox="0 0 24 24" :class="$style.clock">
-            <path
-              d="M2.487 4.631a.934.934 0 00.6-.217L5.632 2.29a.938.938 0 00-1.2-1.44L1.886 2.974a.938.938 0 00.6 1.657zM18.366 2.29l2.546 2.124a.934.934 0 001.32-.12.937.937 0 00-.12-1.32L19.568.85a.937.937 0 10-1.2 1.44zM19.822 5.115a10.98 10.98 0 00-6.931-3.204V.937a.937.937 0 10-1.875 0v.982a10.979 10.979 0 00-6.838 3.196 10.99 10.99 0 00-3.24 7.822 10.99 10.99 0 003.24 7.823c.193.193.393.38.598.557l-.753 1.266a.938.938 0 001.61.959l.667-1.119A10.993 10.993 0 0012 24c2.032 0 3.983-.543 5.7-1.579l.666 1.12a.937.937 0 101.611-.958l-1.172-1.969a.937.937 0 00-1.361-.275A9.113 9.113 0 0112 22.125c-5.066 0-9.188-4.122-9.188-9.188C2.813 7.871 6.934 3.75 12 3.75c5.066 0 9.187 4.121 9.187 9.188a9.194 9.194 0 01-1.132 4.422.937.937 0 101.643.904 11.075 11.075 0 001.364-5.327 10.99 10.99 0 00-3.24-7.822z"
-              fill="#fff"
-            />
-            <path
-              d="M11.953 6.047a.937.937 0 00-.937.937v5.953c0 .25.098.488.274.663l2.652 2.652a.935.935 0 001.326 0 .938.938 0 000-1.326L12.89 12.55V6.984a.937.937 0 00-.938-.937z"
-              fill="#fff"
-            />
-          </Icon>
+          <Icon name="clock" viewBox="0 0 24 24" :class="$style.clock" />
         </div>
         <div :class="$style.content">
           <div :class="$style.date" v-show="episode.id !== 'intro'">{{episode.date}}</div>

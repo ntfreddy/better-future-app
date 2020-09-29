@@ -91,14 +91,12 @@
 //import LoginButton from "./LoginButton";
 //import Loading from "./Loading";
 import Checkbox from "./Checkbox";
-import Icon from "./Icon";
 
 import { required, email } from "vuelidate/lib/validators";
 
 export default {
   components: {
     Checkbox,
-    Icon,
   },
   validations: {
     firstName: {
@@ -136,10 +134,10 @@ export default {
           tag: "registration"
         })
         .then(function (response) {
-          console.log(response);
+          //console.log(response);
         })
         .catch(function (error) {
-          console.log(error);
+          //console.log(error);
         });
     },
     onSubmit: function () {
@@ -152,13 +150,13 @@ export default {
         this.$session.set("firstName", this.firstName);
         this.$session.set("email", this.email);
 
-        console.log("firstName", this.$session.get("firstName"));
-        console.log("email", this.$session.get("email"));
+        //console.log("firstName", this.$session.get("firstName"));
+        //console.log("email", this.$session.get("email"));
 
         this.subscribe();
 
         setTimeout(function () {
-          console.log("setTimeout");
+         // console.log("setTimeout");
           window.scrollTo(0, 0);
         }, 500);
       } else {

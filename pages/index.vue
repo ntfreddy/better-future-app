@@ -1,18 +1,24 @@
 <template>
   <div :class="$style.page">    
     <TheHeader />
+    <CallToActions />    
+    <EpisodeInfo />
     <Enroll />
   </div>
 </template>
 
 <script>
 import TheHeader from "../components/TheHeader";
+import CallToActions from "../components/CallToActions";
+import EpisodeInfo from "../components/EpisodeInfo";
 import Enroll from "../components/Enroll";
 
 export default {
   name: "index",
   components: {
     TheHeader,
+    CallToActions,
+    EpisodeInfo,
     Enroll,
   },
   data: function () {

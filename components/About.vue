@@ -12,9 +12,10 @@
       <p :class="$style.title">{{episode.title}}</p>
       <div :class="$style.bottom">
         <div>
-          <QuillPreview
+          <QuillContent
             :ops="episode.announce.ops"
             mini="false"
+            ref = "content"
             :class="$style.text"
             v-show="episode.announce"
           />
@@ -22,9 +23,7 @@
         <div :class="$style.buttons" v-show="!locked">
           <div :class="[$style.btn, $style.watchBtn]" v-on:click="watch">
             {{$t('about-watch') + ('intro' === episode.id ? $t('about-trailer') : $t('about-episode'))}}
-            <Icon id="play" viewBox="0 0 13 17" fill="white" :class="$style.play">
-              <path d="M13 8.5L0 17V0l13 8.5z" />
-            </Icon>
+            <Icon name ="play" viewBox="0 0 13 17" :class="$style.play" />
           </div>
           <div
             :class="[$style.btn, $style.listenBtn]"
@@ -39,14 +38,14 @@
 <script>
 import { mapActions } from "vuex";
 
-import QuillPreview from "./QuillPreview";
+import QuillContent from "./QuillContent";
 import Icon from "./Icon";
 
 export default {
   name: "About",
   props: ["episode"],
   components: {
-    QuillPreview,
+    QuillContent,
     Icon,
   },
   data() {
@@ -96,7 +95,7 @@ export default {
     },
   },
   mounted: function () {
-    console.log("announce : ", this.episode.announce);
+    //console.log("announce : ", this.episode.announce);
   },
 };
 </script>

@@ -3,6 +3,9 @@
     <LifeMobileNav v-if="activeId === 'life-mobile-nav'" :allEpisodes="false" :hasEpisodes="hasEpisodes" v-on:close="onClose" />
     <LifeMobileNav v-if="activeId === 'life-episode-nav'" :allEpisodes="true" :hasEpisodes="hasEpisodes" v-on:close="onClose" />
     <GetBook v-if="activeId === 'get-book'" v-on:close="onClose" />
+    <ActionPopup v-if="activeId === 'pray'" :activeId="activeId" v-on:close="onClose" />
+    <ActionPopup v-if="activeId === 'bible'" :activeId="activeId" v-on:close="onClose" />    
+    <ActionPopup v-if="activeId === 'question'" :activeId="activeId" v-on:close="onClose" />
   </div>
 </template>
 
@@ -11,11 +14,13 @@ import { mapState, mapActions } from "vuex";
 
 import LifeMobileNav from "./LifeMobileNav";
 import GetBook from "./GetBook";
+import ActionPopup from "./ActionPopup";
 
 export default {
   components: {
     LifeMobileNav,
     GetBook,
+    ActionPopup
   },
   data: function () {
     return {
