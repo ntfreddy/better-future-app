@@ -8,16 +8,21 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
     response.send("Hello from Firebase!");
 });
 
+require("dotenv").config();
+
+var appKey = process.env.MAILCHIMP_API_KEY;
+var audienceId = process.env.MAILCHIMP_AUDIENCE_ID;
+
 var Mailchimp = require('mailchimp-api-v3');
 
-var mailchimp = new Mailchimp("");
+var mailchimp = new Mailchimp(appKey);
 const cors = require('cors')({ origin: true });
 
 
 exports.subscribe = functions.https.onRequest((request, response) => {
     cors(request, response, () => {
 
-        mailchimp.post('/lists//members', {
+        mailchimp.post('/lists/' + audienceId + '/members ', {
                 email_address: request.body.email,
                 merge_fields: {
                     "FNAME": request.body.fname,
