@@ -178,7 +178,7 @@ export const state = () => ({
         },
         {
             "id": "vie-mort-et-resurrection-du-christ",
-            "title": "Vie, Mort et Résurrection du Christ",
+            "title": "Qui se soucie de ta vie ?",
             "alias": "vie-mort-et-resurrection-du-christ",
             "author": "Frédéric Ntawiniga",
             "youtubeId": "pNoIqJLJxF8",
@@ -210,7 +210,7 @@ export const state = () => ({
         },
         {
             "id": "l-experience-du-salut",
-            "title": "L’Expérience du Salut",
+            "title": "Poste ouvert à tous - sécurité permanente",
             "alias": "l-experience-du-salut",
             "author": "Barbara Cantave",
             "youtubeId": "OMOfznp4N38",
@@ -237,7 +237,7 @@ export const state = () => ({
         },
         {
             "id": "croitre-en-christ",
-            "title": "Croître",
+            "title": "Le méristème qui fait croître",
             "alias": "croitre-en-christ",
             "author": "Nahomy Noélizaire",
             "youtubeId": "wR6-VS2Y_2A",
@@ -261,7 +261,7 @@ export const state = () => ({
         },
         {
             "id": "la-loi-de-dieu",
-            "title": "La loi de Dieu",
+            "title": "Obéir à la loi de Dieu",
             "alias": "la-loi-de-dieu",
             "author": "Wadner Cadet",
             "youtubeId": "wR6-VS2Y_2A",
@@ -356,7 +356,7 @@ export const state = () => ({
         },
         {
             "id": "la-gestion-chretienne-de-la-vie",
-            "title": "La Gestion Chrétienne de la Vie",
+            "title": "Offre d'emploie",
             "alias": "la-gestion-chretienne-de-la-vie",
             "author": "Danielle Noélizaire",
             "youtubeId": "wR6-VS2Y_2A",
@@ -462,8 +462,7 @@ export const state = () => ({
                 }]
             },
             "description": {
-                "ops": [,
-                    {
+                "ops": [{
                         "title": "Voulez-vous être bien informé ?",
                         "insert": "La nouvelle de la nouvelle terre répond aux besoins de ceux qui ne sont pas informés à ce sujet de jeter un coup d'oeil sur l'offre disponible pour une nouvelle vie, de savoir qu'il y a de l'espoir  et que cette vie difficile n'est pas la seule option."
                     },
