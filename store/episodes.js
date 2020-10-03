@@ -3,18 +3,54 @@ export const state = () => ({
     startTime: 0,
     episodes: [{
             "id": "intro",
-            "title": "Peut-on espérer un meilleur avenir?",
+            "title": "Peut-on espérer un meilleur avenir ?",
             "alias": "intro",
             "youtubeId": "Nf7u04TVgu8",
             "announce": {
                 "ops": [{
-                    "insert": "Peut-on espérer un meilleur avenir?"
+                    "insert": "Peut-on espérer un meilleur avenir ?"
                 }]
             },
             "description": {
                 "ops": []
             },
             "publicationDate": "2020-10-18T19:00:00",
+        },
+        {
+            "id": "ta-sante-mentale-compte",
+            "title": "Ta santé mentale compte",
+            "alias": "ta-sante-mentale-compte",
+            "author": "Esther Fleurimond",
+            "youtubeId": "CBmYkpkwg0",
+            "soundcloud": "",
+            "announce": {
+                "ops": [
+                    { "insert": "Webinaire sur la gestion de stress." }
+                ]
+            },
+            "description": {
+                "ops": [{
+                        "title": "1. Comment identifier quand ma santé mentale craque sous le stress ?",
+                        "insert": "",
+                    },
+                    {
+                        "title": "2. Quels sont les indicateurs physiques et psychologiques de la détresse dûe au stress ?",
+                        "insert": ""
+                    },
+                    {
+                        "title": "3. Quelles sont les habitudes quotidiennes efficaces pour faire face au stress et maintenir une bonne santé mentale ?",
+                        "insert": ""
+                    }
+                ]
+            },
+            "content": {
+                "ops": []
+            },
+            "publicationDate": "2020-10-04T17:00:00",
+            "date": "Dimanche, le 4 octobre",
+            "actions": [],
+            "conversations": [],
+            "state": "closed"
         },
         {
             "id": "les-saintes-ecritures",
