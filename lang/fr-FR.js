@@ -23,6 +23,7 @@ export default {
     'bookBtn-text-2': " gratuit",
     'timeLine-trailer': "bande d'annonce",
     'timeLine-episode': "épisode",
+    'timeLine-webinar': "webinaire",
     'about-label': "Le sujet du jour",
     'about-watch': "Regarder ",
     'about-trailer': "la bande d'annonce",

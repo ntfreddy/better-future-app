@@ -23,6 +23,7 @@ export default {
     'bookBtn-text-2': " now",
     'timeLine-episode': "episode",
     'timeLine-trailer': "trailer",
+    'timeLine-webinar': "webinar",
     'about-label': "Today's topic",
     'about-watch': "Watch ",
     'about-trailer': "trailer",
