@@ -14,7 +14,7 @@ export const state = () => ({
             "description": {
                 "ops": []
             },
-            "publicationDate": "2020-09-15T00:00:00",
+            "publicationDate": "2020-10-18T19:00:00",
         },
         {
             "id": "les-saintes-ecritures",
@@ -24,7 +24,7 @@ export const state = () => ({
             "youtubeId": "7uwHK2amFCk",
             "soundcloud": "",
             "announce": {
-                "ops      ": [
+                "ops": [
                     { "insert": "Les Saintes Écritures – l’Ancien et le Nouveau Testament – sont la Parole de Dieu écrite, donnée par l’inspiration divine." }
                 ]
             },
@@ -58,7 +58,7 @@ export const state = () => ({
             "date": "Dimanche, le 18 octobre",
             "actions": [],
             "conversations": [],
-            "state": "finished"
+            "state": "closed"
         },
         {
             "id": "le-fils",
@@ -69,14 +69,11 @@ export const state = () => ({
             "soundcloud": "",
             "announce": {
                 "ops": [{
-                        "insert": "Dieu, le Fils éternel, s’est incarné en Jésus-Christ"
-                    },
-                    { "insert": "" }
-                ]
+                    "insert": "Dieu, le Fils éternel, s’est incarné en Jésus-Christ"
+                }]
             },
             "description": {
-                "ops": [,
-                    {
+                "ops": [{
                         "title": "Sentez-vous un vide dans votre vie ?",
                         "insert": "Découragé ; Désespéré; Déçu; Etc. Ce sont ces problèmes que  l’humanité vit, elle ne sait quoi faire pour palier à ces problèmes qui génèrent un vide insoutenable et qui pousse les gens à chercher des solutions dans plusieurs domaine, mais malheureusement il ne semble pas en trouver, puisque la seule et unique solution se trouve en christ le fils de Dieu, par son sacrifice expiatoire. Il suffit de lui donner sa vie en l’acceptant comme son sauveur personnel."
                     },
@@ -103,13 +100,12 @@ export const state = () => ({
             "youtubeId": "H6eCtwncaHI",
             "soundcloud": "",
             "announce": {
-                "ops ": [{
+                "ops": [{
                     "insert": "Dieu, dans les Écritures, a révélé le récit authentique et historique de son activité créatrice."
                 }]
             },
             "description": {
-                "ops": [,
-                    {
+                "ops": [{
                         "title": "Êtes-vous préoccupé par l'environnement ?",
                         "insert": "Cette présentation a pour prétention de faire la lumière sur les origines de la vie, beaucoup de personnes sont préoccupées par l’avenir de la terre et beaucoups de mouvement écologiques sont misent sur pieds dans le but de venir en aide à la nature cependant, très peux connaissent son origine (la terre), plusieurs théorie sont énoncées pour expliquer le phénomène de la vie, mais rare sont ceux qui se tournent vers le veritable createur. Cette prédication va rallumer les projecteurs sur le Dieu créateur , et ainsi les gens sauront vers qui diriger le regard, nous avons trois attentes."
                     },
@@ -178,7 +174,7 @@ export const state = () => ({
             "date": "Mercredi, le 21 octobre",
             "actions": [],
             "conversations": [],
-            "state": "today"
+            "state": "closed"
         },
         {
             "id": "vie-mort-et-resurrection-du-christ",
@@ -188,7 +184,7 @@ export const state = () => ({
             "youtubeId": "pNoIqJLJxF8",
             "soundcloud": "",
             "announce": {
-                "ops       ": [{
+                "ops": [{
                     "insert": "La vie du Christ, parfaitement soumise à la volonté divine, ses souffrances, sa mort et sa résurrection sont les moyens nécessaires auxquels Dieu a pourvu pour libérer l’homme du péché, en sorte que tous ceux qui, par la foi, acceptent ce rachat, obtiennent la vie éternelle."
                 }]
             },
@@ -220,7 +216,7 @@ export const state = () => ({
             "youtubeId": "OMOfznp4N38",
             "soundcloud": "",
             "announce": {
-                "ops         ": [
+                "ops": [
                     { "insert": "Le Christ n’a pas connu le péché. Pourtant, dans son amour infini, Dieu l’a fait péché pour nous, afin que nous devenions en lui justice de Dieu." }
                 ]
             },
@@ -247,12 +243,12 @@ export const state = () => ({
             "youtubeId": "wR6-VS2Y_2A",
             "soundcloud": "",
             "announce": {
-                "ops            ": [{
+                "ops": [{
                     "insert": "Par sa mort sur la croix, Jésus a triomphé des forces du mal."
                 }]
             },
             "description": {
-                "ops   ": []
+                "ops": []
             },
             "content": {
                 "ops": []
@@ -271,12 +267,12 @@ export const state = () => ({
             "youtubeId": "wR6-VS2Y_2A",
             "soundcloud": "",
             "announce": {
-                "ops   ": [{
+                "ops": [{
                     "insert": "Les grands principes de la loi de Dieu sont contenus dans les dix commandements et manifestés dans la vie du Christ."
                 }]
             },
             "description": {
-                "ops     ": [{
+                "ops": [{
                         "title": "Sentez-vous un vide dans votre vie ?",
                         "insert": "Le sermon sur la loi de Dieu va convaincre le public cible de la nécessité d’avoir une relation aimable et honnête avec Dieu et  son prochain. Une telle relation  va lui permettre de combler son vide et de vivre heureux sans avoir besoin de recourir à l’alcool, aux jeux, aux films et autres."
                     },
@@ -334,7 +330,7 @@ export const state = () => ({
             "youtubeId": "wR6-VS2Y_2A",
             "soundcloud": "",
             "announce": {
-                "ops        ": [{
+                "ops": [{
                     "insert": "Par le baptême, nous confessons notre foi en la mort et la résurrection de Jésus-Christ, et nous témoignons de notre mort au péché et de notre décision de mener une vie nouvelle."
                 }]
             },
@@ -393,12 +389,12 @@ export const state = () => ({
             "youtubeId": "wR6-VS2Y_2A",
             "soundcloud": "",
             "announce": {
-                "ops            ": [{
+                "ops": [{
                     "insert": "Le salaire du péché, c’est la mort. Mais Dieu, qui seul est immortel, accordera la vie éternelle à ses rachetés."
                 }]
             },
             "description": {
-                "ops    ": [{
+                "ops": [{
                         "title": "Voulez-vous être bien informé ?",
                         "insert": "Le message va aider le public cible à découvrir la vérité sur l’état des morts, et la résurrection. Cela le mènera à une vraie adoration de Dieu et de la compréhension du plan de Dieu pour chaque être humain. Ainsi le public cible pourra déceler les fausses doctrines populaires portant sur l’état des morts et de la résurrection. Et se sentira mieux outillé lorsqu’il  fait face à la mort."
                     },
@@ -425,7 +421,7 @@ export const state = () => ({
             "youtubeId": "wR6-VS2Y_2A",
             "soundcloud": "",
             "announce": {
-                "ops   ": [{
+                "ops": [{
                     "insert": "La seconde venue du Christ est la bienheureuse espérance de l’Église, le point culminant de l’Évangile."
                 }]
             },
@@ -461,12 +457,12 @@ export const state = () => ({
             "youtubeId": "wR6-VS2Y_2A",
             "soundcloud": "",
             "announce": {
-                "ops     ": [{
+                "ops": [{
                     "insert": ""
                 }]
             },
             "description": {
-                "ops        ": [,
+                "ops": [,
                     {
                         "title": "Voulez-vous être bien informé ?",
                         "insert": "La nouvelle de la nouvelle terre répond aux besoins de ceux qui ne sont pas informés à ce sujet de jeter un coup d'oeil sur l'offre disponible pour une nouvelle vie, de savoir qu'il y a de l'espoir  et que cette vie difficile n'est pas la seule option."
@@ -494,7 +490,7 @@ export const state = () => ({
             "youtubeId": "wR6-VS2Y_2A",
             "soundcloud": "",
             "announce": {
-                "ops        ": [{
+                "ops": [{
                     "insert": "L’Église universelle englobe tous ceux qui croient vraiment en Christ."
                 }]
             },
@@ -529,48 +525,19 @@ export const state = () => ({
     ],
     activeIndex: 0,
     episode: {
-        "id": "les-saintes-ecritures",
-        "title": "Les Saintes Écritures",
-        "alias": "les-saintes-ecritures",
-        "author": "Roselie Bernadin",
-        "youtubeId": "7uwHK2amFCk",
-        "soundcloud": "",
+        "id": "intro",
+        "title": "Peut-on espérer un meilleur avenir?",
+        "alias": "intro",
+        "youtubeId": "Nf7u04TVgu8",
         "announce": {
-            "ops": [
-                { "insert": "Les Saintes Écritures – l’Ancien et le Nouveau Testament – sont la Parole de Dieu écrite, donnée par l’inspiration divine." }
-            ]
+            "ops": [{
+                "insert": "Peut-on espérer un meilleur avenir?"
+            }]
         },
         "description": {
-            "ops": [{
-                    "title": "Sentez-vous un vide dans votre vie ?",
-                    "insert": "Le centre des saintes écritures c’est Dieu qui depuis longtemps a établi un plan pour que la race humaine vive éternellement. Ceux qui sentent le vide dans leur vie, les Saintes écritures leurs donnent un but dans leur vie et ce but c’est vivre pour Dieu.",
-                },
-                {
-                    "title": "Êtes-vous préoccupé par votre santé ?",
-                    "insert": "Les saintes écritures contiennent plusieurs conseils pour avoir une meilleur santé. Dieu nous a montré depuis le début quoi manger pour être en bonne santé. Il montre des boissons à proscrire et montre comment notre corps est le temple de Dieu qui doit être pur sans aucune impureté."
-                },
-                {
-                    "title": "Êtes-vous préoccupé par l'environnement ?",
-                    "insert": "La Bible commence en nous présentant le créateur le maître de toute chose. Si on fait sa volonté on respecte en même temps l’environnement qu’il a créé."
-                },
-                {
-                    "title": "Voulez-vous être bien informé ?",
-                    "insert": "La Bible est un livre d’information plus que tout autre livre car elle contient des informations nécessaires pour nous permettre d’avoir la vie éternelle. Elle a été écrit par plusieurs auteurs qui ont en commun le fait qu’ils étaient tous inspiré par le même Esprit qui connaît tout."
-                },
-                {
-                    "title": "Cherchez-vous l'assurance pour le futur ?",
-                    "insert": "La Bible contient des informations sur l’avenir. Avec elle, l’avenir est dévoilé aucune raison d’avoir peur."
-                }
-            ]
-        },
-        "content": {
             "ops": []
         },
         "publicationDate": "2020-10-18T19:00:00",
-        "date": "Dimanche, le 18 octobre",
-        "actions": [],
-        "conversations": [],
-        "state": "finished"
     },
 })
 
@@ -589,12 +556,53 @@ export const mutations = {
     },
     SET_EPISODE(state, episode) {
         state.episode = episode;
+        state.episode.distance = episode && episode.publicationDate ? new Date(episode.publicationDate).getTime() - (new Date).getTime() : "";
+        var index = state.episodes.findIndex(function(x) {
+            return x.id === episode.id;
+        });
+        state.activeIndex = index;
     },
     SET_ACTIVE_INDEX(state, index) {
         state.activeIndex = index;
     },
+    SET_DISTANCE_STATE(state, data) {
+        state.episodes[data.index].distance = data.distance;
+        state.episodes[data.index].state = data.state;
+    },
 }
 
 export const actions = {
-    UNLOCK_EPISODE(state) {},
+    UNLOCK_EPISODE(state, episode) {
+        var myState = state.state;
+        var myCommit = state.commit;
+        var index = myState.episodes.findIndex(function(x) {
+            return x.id === episode.id;
+        });
+
+        myState.episodes.map(function(episode, index) {
+
+            var publicationDate = new Date(episode.publicationDate);
+            var midNight = new Date(episode.publicationDate);
+            midNight.setHours(0, 0, 0, 0);
+            var diff = publicationDate.getTime() - midNight.getTime();
+
+            var dist = episode && episode.publicationDate ? new Date(episode.publicationDate).getTime() - (new Date).getTime() : "";
+            var st = dist <= 0 ? "opened" : dist <= diff ? "today" : "closed";
+
+            myCommit("SET_DISTANCE_STATE", {
+                distance: dist,
+                state: st,
+                index: index
+            });
+
+            return episode;
+        });
+
+        if (index !== -1) {
+            //var myEpisode = $(myState)[index];
+            var myEpisode = myState.episodes[index];
+            myCommit("SET_EPISODE", myEpisode);
+        }
+
+    },
 }

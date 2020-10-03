@@ -3,7 +3,7 @@
     <div :class="$style.wrapper">
       <div :class="$style.content">
         <div :class="$style.inner">
-          <div :class="$style.closeBtn">
+          <div :class="$style.closeBtn" v-on:click="close">
             <Icon name="cross" viewBox="0 0 18 18" :class="$style.close" />
           </div>
           <div :class="$style.left" :style="'background-image: url(' + form.image +');'"></div>
@@ -16,7 +16,7 @@
             <UniForm
               :type="activeId"
               :initiaFields="fields"
-              :btnText="form.btnTxt"
+              :btnText="form.btnText"
               :isRegistered="isRegistered"
               v-on:onSubmit="onSubmit"
             />
@@ -145,6 +145,9 @@ export default {
   },
   methods: {
     onSubmit: function (e) {},
+    close: function () {
+      this.$emit("close", false);
+    },
   },
 };
 </script>

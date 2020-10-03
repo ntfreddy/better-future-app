@@ -29,7 +29,7 @@
                 ></div>
                 <div
                   :class="$style.cami"
-                  :style="'background-image:url(https://raw.githubusercontent.com/ntfreddy/think-future-app/master/assets/episodes/episode1.png);'"
+                  :style="'background-image:url(https://raw.githubusercontent.com/ntfreddy/think-future-app/master/assets/presenter/' + episode.id + '.png);'"
                 ></div>
               </div>
             </div>
@@ -41,7 +41,7 @@
         <div class="container" :class="$style.container">
           <div class="row justify-content-center">
             <div class="col-12">
-              <Youtube :youtubeId="episode.youtubeId" />
+              <Youtube :youtubeId="episode.youtubeId" v-show="(episode.state === 'today' && episode.distance < 0) || (episode.state === 'opened')"/>
             </div>
           </div>
         </div>
@@ -116,6 +116,12 @@ export default {
     this.ready = true;
     this.showReminder = !this.hideReminder && !this.isRegistred;
     //console.log("showReminder : ", this.showReminder);
+
+    for(var index = 0;index < this.episodes.length;index++){
+      if(this.episodes[index].state === "today"){
+        this.SetEpisode(this.episodes[index]);
+      }
+    }
   },
   methods: {
     ...mapMutations({
@@ -231,7 +237,7 @@ export default {
 }
 @media (max-width: 575.98px) {
   .right {
-    min-height: 235px;
+    min-height: 400px;
   }
 }
 .cami {

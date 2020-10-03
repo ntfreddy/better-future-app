@@ -8,10 +8,12 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
     response.send("Hello from Firebase!");
 });
 
-require("dotenv").config();
+//require("dotenv").config();
 
-var appKey = process.env.MAILCHIMP_API_KEY;
-var audienceId = process.env.MAILCHIMP_AUDIENCE_ID;
+//var appKey = process.env.MAILCHIMP_API_KEY;
+//var audienceId = process.env.MAILCHIMP_AUDIENCE_ID;
+var appKey = functions.config().mailchimp.key;
+var audienceId = functions.config().mailchimp.id;
 
 var Mailchimp = require('mailchimp-api-v3');
 

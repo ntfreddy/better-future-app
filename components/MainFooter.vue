@@ -49,6 +49,11 @@ export default {
     return {
       items: [
         {
+          name: "Pensez L'Avenir ",
+          link:
+            "https://www.facebook.com/pensezlavenir",
+        },        
+        {
           name: "Centre de Formation Biblique",
           link:
             "https://www.facebook.com/Centre-de-Formation-Biblique-102112848280238",
@@ -56,6 +61,18 @@ export default {
         {
           name: "Radio EAFO",
           link: "https://www.radioeafo.net",
+        },
+        {
+          name: "Il est écrit",
+          link: "https://ilestecrit.tv",
+        },
+        {
+          name: "Vers Jésus",
+          link: "https://versjesus.org",
+        },
+        {
+          name: "Mieux Vivre",
+          link: "https://mieuxvivre.org",
         },
       ],
     };

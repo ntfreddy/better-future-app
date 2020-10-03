@@ -5,7 +5,7 @@
     id="hs-script-loader"
     async
     defer
-    src="//js.hs-scripts.com/8323783.js"
+    src="//js.hs-scripts.com/8548131.js"
   ></script>
   <!-- End of HubSpot Embed Code -->
 </template>

@@ -3,33 +3,77 @@
     <div :class="$style.blur">
       <div :class="$style.blurBackground"></div>
     </div>
-    <div :class="{[$style.content]: true, [$style.active]: !locked}">
+    <div :class="{ [$style.content]: true, [$style.active]: !locked }">
       <div
         :class="$style.label"
         v-show="episode.id !== 'intro'"
         v-on:click="onTimeout"
-      >{{$t('about-label')}}</div>
-      <p :class="$style.title">{{episode.title}}</p>
+      >
+        {{ $t("about-label") }}
+      </div>
+      <p :class="$style.title">{{ episode.title }}</p>
       <div :class="$style.bottom">
         <div>
           <QuillContent
             :ops="episode.announce.ops"
             mini="false"
-            ref = "content"
+            ref="content"
             :class="$style.text"
             v-show="episode.announce"
           />
         </div>
         <div :class="$style.buttons" v-show="!locked">
           <div :class="[$style.btn, $style.watchBtn]" v-on:click="watch">
-            {{$t('about-watch') + ('intro' === episode.id ? $t('about-trailer') : $t('about-episode'))}}
-            <Icon name ="play" viewBox="0 0 13 17" :class="$style.play" />
+            {{
+              $t("about-watch") +
+              ("intro" === episode.id
+                ? $t("about-trailer")
+                : $t("about-episode"))
+            }}
+            <Icon name="play" viewBox="0 0 13 17" :class="$style.play" />
           </div>
           <div
             :class="[$style.btn, $style.listenBtn]"
             v-show="episode.soundcloud"
-          >{{$t('about-listen')}}</div>
+          >
+            {{ $t("about-listen") }}
+          </div>
         </div>
+        <span v-show="episode.distance > 0 && locked">
+          <countdown
+            :time="episode.distance"
+            :transform="transform"
+            @end="onTimeout"
+          >
+            <template slot-scope="props">
+              <div :class="$style.start">
+                <div :class="$style.startTitle">{{$t("about-startTitle")}}</div>
+                <div :class="$style.time" >
+                  <div :class="$style.box">
+                    <div :class="$style.number">{{ props.days.digits }}</div>
+                    <div :class="$style.timeLabel">{{ $t(props.days.word) }}</div>
+                  </div>
+                  <div :class="$style.box">
+                    <div :class="$style.number">{{ props.hours.digits }}</div>
+                    <div :class="$style.timeLabel">{{ $t(props.hours.word) }}</div>
+                  </div>
+                  <div :class="$style.box">
+                    <div :class="$style.number">{{ props.minutes.digits }}</div>
+                    <div :class="$style.timeLabel">
+                      {{ $t(props.minutes.word) }}
+                    </div>
+                  </div>
+                  <div :class="$style.box">
+                    <div :class="$style.number">{{ props.seconds.digits }}</div>
+                    <div :class="$style.timeLabel">
+                      {{ $t(props.seconds.word) }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </template>
+          </countdown>
+        </span>
       </div>
     </div>
   </div>
@@ -50,7 +94,7 @@ export default {
   },
   data() {
     return {
-     /* content: {
+      /* content: {
         ops: [
           {
             insert:
@@ -73,11 +117,14 @@ export default {
         : null;
     },
     locked: function () {
-      if (!this.episode) return true;
-      var t = this.episode,
-        e = t.state,
-        n = t.distance;
-      return "closed" === e || ("today" === e && n > 0);
+      if (!this.episode) {
+        return true;
+      }
+
+      var episode = this.episode;
+      var state = episode.state;
+      var distance = episode.distance;
+      return "closed" === state || ("today" === state && distance > 0);
     },
   },
   methods: {
@@ -92,6 +139,23 @@ export default {
     },
     listen: function () {
       this.$emit("listen");
+    },
+    transform(props) {
+      Object.entries(props).forEach(([key, value]) => {
+        // Adds leading zero
+        const digits = value < 10 ? "0".concat(value) : value;
+
+        // uses singular form when the value is less than 2
+        const word = value < 2 ? key.replace(/s$/, "") : key;
+
+        props[key] = {
+          number: value,
+          digits : digits,
+          word: word
+        };
+      });
+
+      return props;
     },
   },
   mounted: function () {
@@ -210,17 +274,17 @@ export default {
   margin-bottom: 15px;
 }
 @media (max-width: 991.98px) {
-  .start_2PFRS {
+  .start {
     margin-bottom: 50px;
   }
 }
 @media (max-width: 767.98px) {
-  .start_2PFRS {
+  .start {
     margin-top: 30px;
     margin-bottom: 30px;
   }
 }
-.startTitle_1Ablt {
+.startTitle {
   font-weight: 700;
   font-size: 14px;
   line-height: 22px;
@@ -230,17 +294,17 @@ export default {
   letter-spacing: 1.8px;
 }
 @media (max-width: 767.98px) {
-  .startTitle_1Ablt {
+  .startTitle {
     margin-bottom: 28px;
   }
 }
-.box_1hdXF,
-.time_3G1h_ {
+.box,
+.time {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-.box_1hdXF {
+.box {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
@@ -251,10 +315,10 @@ export default {
   text-transform: lowecase;
   position: relative;
 }
-.box_1hdXF:not(:last-child) {
+.box:not(:last-child) {
   margin-right: 45px;
 }
-.box_1hdXF:not(:last-child):after {
+.box:not(:last-child):after {
   content: "";
   position: absolute;
   top: 34px;
@@ -265,17 +329,17 @@ export default {
   border-radius: 50%;
 }
 @media (max-width: 767.98px) {
-  .box_1hdXF:not(:last-child):after {
+  .box:not(:last-child):after {
     top: 24px;
     right: -23px;
   }
 }
 @media (max-width: 575.98px) {
-  .box_1hdXF:not(:last-child) {
+  .box:not(:last-child) {
     margin-right: 33px;
   }
 }
-.number_3lA5P {
+.number {
   font-family: Bebas Neue;
   font-size: 94px;
   line-height: 85px;
@@ -284,18 +348,18 @@ export default {
   letter-spacing: 1px;
 }
 @media (max-width: 767.98px) {
-  .number_3lA5P {
+  .number {
     font-size: 86px;
     line-height: 65px;
     margin-bottom: 12px;
   }
 }
 @media (max-width: 575.98px) {
-  .number_3lA5P {
+  .number {
     font-size: 60px;
   }
 }
-.timeLabel_2_e3h {
+.timeLabel {
   font-size: 14px;
   line-height: 21px;
   text-align: center;
