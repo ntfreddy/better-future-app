@@ -8,7 +8,7 @@ export default {};
 
 <style module>
 .logo {
-  background: url(../assets/unlocking-logo.svg);
+  background: url(../assets/logo.svg);
   background-position: 50%;
   background-size: cover;
   background-repeat: no-repeat;

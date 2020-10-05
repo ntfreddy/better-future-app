@@ -94,7 +94,7 @@ export default {
     download: function () {
       this.isRegistred
         ? window.open(
-            "https://storage.googleapis.com/bible.awr.org/pdf/".concat(
+            "https://raw.githubusercontent.com/ntfreddy/think-future-app/master/assets/documents/".concat(
               this.episode.id,
               ".pdf"
             ),

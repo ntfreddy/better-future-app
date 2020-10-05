@@ -4,7 +4,7 @@
       <div class="row" :class="$style.row">
         <div class="col-sm-12 col-lg-3 order-sm-1 order-md-2">
           <img
-            src="../assets/footer-logo.svg"
+            src="../assets/logo.svg"
             :alt="$t('mainFooter-logo-alt')"
             :class="$style.logo"
           />

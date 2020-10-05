@@ -5,7 +5,7 @@ export const state = () => ({
             "id": "intro",
             "title": "Peut-on espérer un meilleur avenir ?",
             "alias": "intro",
-            "youtubeId": "Nf7u04TVgu8",
+            "youtubeId": "CBmYkpDkwg0",
             "announce": {
                 "ops": [{
                     "insert": "Peut-on espérer un meilleur avenir ?"
@@ -21,7 +21,7 @@ export const state = () => ({
             "title": "Ta santé mentale compte",
             "alias": "ta-sante-mentale-compte",
             "author": "Esther Fleurimond",
-            "youtubeId": "CBmYkpkwg0",
+            "youtubeId": "CBmYkpDkwg0",
             "soundcloud": "",
             "announce": {
                 "ops": [
@@ -56,8 +56,8 @@ export const state = () => ({
             "id": "les-saintes-ecritures",
             "title": "Les Saintes Écritures",
             "alias": "les-saintes-ecritures",
-            "author": "Roselie Bernadin",
-            "youtubeId": "7uwHK2amFCk",
+            "author": "Pr. Sem Jean",
+            "youtubeId": "CBmYkpDkwg0",
             "soundcloud": "",
             "announce": {
                 "ops": [
@@ -98,10 +98,10 @@ export const state = () => ({
         },
         {
             "id": "le-fils",
-            "title": "Le fils",
+            "title": "Un don gratuit, pour un avenir meilleur !",
             "alias": "le-fils",
             "author": "Sympson Gracia",
-            "youtubeId": "tTk_bGfHVjE",
+            "youtubeId": "CBmYkpDkwg0",
             "soundcloud": "",
             "announce": {
                 "ops": [{
@@ -130,10 +130,10 @@ export const state = () => ({
         },
         {
             "id": "la-creation",
-            "title": "La création",
+            "title": "Sonder notre avenir par les mystères de la création",
             "alias": "la-creation",
             "author": "Ted Gracia",
-            "youtubeId": "H6eCtwncaHI",
+            "youtubeId": "CBmYkpDkwg0",
             "soundcloud": "",
             "announce": {
                 "ops": [{
@@ -169,55 +169,11 @@ export const state = () => ({
             "state": "closed"
         },
         {
-            "id": "le-grand-conflit",
-            "title": "Le Grand Conflit",
-            "alias": "the-wayle-grand-conflit",
-            "author": "Fulgence Ndagijimana",
-            "youtubeId": "v-FnIloVxUQ",
-            "soundcloud": "",
-            "announce": {
-                "ops": [{
-                    "insert": "L’humanité tout entière est actuellement impliquée dans un vaste conflit entre le Christ et Satan, concernant le caractère de Dieu, sa loi et sa souveraineté sur l’univers."
-                }]
-            },
-            "description": {
-                "ops": [{
-                        "title": "Sentez-vous un vide dans votre vie ?",
-                        "insert": "Le grand conflit est toujours présent dans les choix et décisions que l’homme prend au quotidien."
-                    },
-                    {
-                        "title": "Êtes-vous préoccupé par votre santé ?",
-                        "insert": "Satan provoque les désastres comme la pandémie et d’autres problèmes liés aux fléaux pour influencer les gens à se révolter contre Dieu. Mais Dieu par son amour inconditionnel pourvoit toujour aux besoins ultime des siens qui surpassent même les besoins physiques."
-                    },
-                    {
-                        "title": "Êtes-vous préoccupé par l'environnement ?",
-                        "insert": "Les gens ont besoin de savoir l'environnement pendant la création et après le péché. Et comment le péché a abimé l'environnement que Dieu avait créée. Ils ont aussi besoin de savoir qu'après le grand conflit cosmique, l'environnement édénique nous reviendra dans sa beauté totale de la création."
-                    },
-                    {
-                        "title": "Voulez-vous être bien informé ?",
-                        "insert": "Satan essaie de cacher et dissimuler la vérité pour que les gens ne découvrent pas la réalité du grand conflit. Par des media sociaux et des électroniques, il fait tout pour les occuper inutilement pour les faire perdre leur temps précieux! Dieu est patient et avec le Saint Esprit, Il ne les abandonne jamais avant qu’ils n’utilisent leur libre arbitre."
-                    },
-                    {
-                        "title": "Cherchez-vous l'assurance pour le futur ?",
-                        "insert": "Le fait de ne pas comprendre la raison de ce qui se passe, Satan se fait maître de la révélation pour le futur et cacher la réalité qui se trouve derrière le rideau de ce qui se passe et son rôle dans ce que les gens sont entrain de vivre. Le Saint Esprit fait le nécessaire pour démasquer les mensonges de Satan et donner la vraie signification pour permettre les gens à bien choisir."
-                    }
-                ]
-            },
-            "content": {
-                "ops": []
-            },
-            "publicationDate": "2020-10-21T19:00:00",
-            "date": "Mercredi, le 21 octobre",
-            "actions": [],
-            "conversations": [],
-            "state": "closed"
-        },
-        {
             "id": "vie-mort-et-resurrection-du-christ",
             "title": "Qui se soucie de ta vie ?",
             "alias": "vie-mort-et-resurrection-du-christ",
             "author": "Frédéric Ntawiniga",
-            "youtubeId": "pNoIqJLJxF8",
+            "youtubeId": "CBmYkpDkwg0",
             "soundcloud": "",
             "announce": {
                 "ops": [{
@@ -238,8 +194,8 @@ export const state = () => ({
             "content": {
                 "ops": []
             },
-            "publicationDate": "2020-10-22T19:00:00",
-            "date": "Jeudi, le 22 octobre",
+            "publicationDate": "2020-10-21T19:00:00",
+            "date": "Mercredi, le 21 octobre",
             "actions": [],
             "conversations": [],
             "state": "closed"
@@ -249,7 +205,7 @@ export const state = () => ({
             "title": "Poste ouvert à tous - sécurité permanente",
             "alias": "l-experience-du-salut",
             "author": "Barbara Cantave",
-            "youtubeId": "OMOfznp4N38",
+            "youtubeId": "CBmYkpDkwg0",
             "soundcloud": "",
             "announce": {
                 "ops": [
@@ -265,8 +221,8 @@ export const state = () => ({
             "content": {
                 "ops": []
             },
-            "publicationDate": "2020-10-23T19:00:00",
-            "date": "Vendredi, le 23 octobre",
+            "publicationDate": "2020-10-22T19:00:00",
+            "date": "Jeudi, le 22 octobre",
             "actions": [],
             "conversations": [],
             "state": "closed"
@@ -276,7 +232,7 @@ export const state = () => ({
             "title": "Le méristème qui fait croître",
             "alias": "croitre-en-christ",
             "author": "Nahomy Noélizaire",
-            "youtubeId": "wR6-VS2Y_2A",
+            "youtubeId": "CBmYkpDkwg0",
             "soundcloud": "",
             "announce": {
                 "ops": [{
@@ -289,8 +245,8 @@ export const state = () => ({
             "content": {
                 "ops": []
             },
-            "publicationDate": "2020-10-24T19:00:00",
-            "date": "Samedi, le 24 octobre",
+            "publicationDate": "2020-10-23T19:00:00",
+            "date": "Vendreddi, le 23 octobre",
             "actions": [],
             "conversations": [],
             "state": "closed"
@@ -300,7 +256,7 @@ export const state = () => ({
             "title": "Obéir à la loi de Dieu",
             "alias": "la-loi-de-dieu",
             "author": "Wadner Cadet",
-            "youtubeId": "wR6-VS2Y_2A",
+            "youtubeId": "CBmYkpDkwg0",
             "soundcloud": "",
             "announce": {
                 "ops": [{
@@ -321,8 +277,8 @@ export const state = () => ({
             "content": {
                 "ops": []
             },
-            "publicationDate": "2020-10-25T19:00:00",
-            "date": "Dimanche, le 25 octobre",
+            "publicationDate": "2020-10-24T19:00:00",
+            "date": "Samedi, le 24 octobre",
             "actions": [],
             "conversations": [],
             "state": "closed"
@@ -331,8 +287,8 @@ export const state = () => ({
             "id": "le-sabbat",
             "title": "Le Sabbat",
             "alias": "le-sabbat",
-            "author": "Kerby C. Beaubrun",
-            "youtubeId": "wR6-VS2Y_2A",
+            "author": "Pr. Sem Jean",
+            "youtubeId": "CBmYkpDkwg0",
             "soundcloud": "",
             "announce": {
                 "ops": [{
@@ -352,8 +308,8 @@ export const state = () => ({
             "content": {
                 "ops": []
             },
-            "publicationDate": "2020-10-26T19:00:00",
-            "date": "Lundi, le 26 octobre",
+            "publicationDate": "2020-10-25T19:00:00",
+            "date": "Dimanche, le 25 octobre",
             "actions": [],
             "conversations": [],
             "state": "closed"
@@ -363,7 +319,7 @@ export const state = () => ({
             "title": "Le Baptême",
             "alias": "le-bapteme",
             "author": "Paule Esther Jn Philippe",
-            "youtubeId": "wR6-VS2Y_2A",
+            "youtubeId": "CBmYkpDkwg0",
             "soundcloud": "",
             "announce": {
                 "ops": [{
@@ -384,18 +340,18 @@ export const state = () => ({
             "content": {
                 "ops": []
             },
-            "publicationDate": "2020-10-27T19:00:00",
-            "date": "Mardi, le 27 octobre",
+            "publicationDate": "2020-10-26T19:00:00",
+            "date": "Lundi, le 26 octobre",
             "actions": [],
             "conversations": [],
             "state": "closed"
         },
         {
             "id": "la-gestion-chretienne-de-la-vie",
-            "title": "Offre d'emploie",
+            "title": "Offre d'emploi",
             "alias": "la-gestion-chretienne-de-la-vie",
             "author": "Danielle Noélizaire",
-            "youtubeId": "wR6-VS2Y_2A",
+            "youtubeId": "CBmYkpDkwg0",
             "soundcloud": "",
             "announce": {
                 "ops": [{
@@ -411,76 +367,8 @@ export const state = () => ({
             "content": {
                 "ops": []
             },
-            "publicationDate": "2020-10-28T19:00:00",
-            "date": "Mercredi, le 28 octobre",
-            "actions": [],
-            "conversations": [],
-            "state": "closed"
-        },
-        {
-            "id": "l-etat-des-morts-et-la-resurrection",
-            "title": "L’État des morts et la Résurrection",
-            "alias": "l-etat-des-morts-et-la-resurrection",
-            "author": "Jacky Fleury",
-            "youtubeId": "wR6-VS2Y_2A",
-            "soundcloud": "",
-            "announce": {
-                "ops": [{
-                    "insert": "Le salaire du péché, c’est la mort. Mais Dieu, qui seul est immortel, accordera la vie éternelle à ses rachetés."
-                }]
-            },
-            "description": {
-                "ops": [{
-                        "title": "Voulez-vous être bien informé ?",
-                        "insert": "Le message va aider le public cible à découvrir la vérité sur l’état des morts, et la résurrection. Cela le mènera à une vraie adoration de Dieu et de la compréhension du plan de Dieu pour chaque être humain. Ainsi le public cible pourra déceler les fausses doctrines populaires portant sur l’état des morts et de la résurrection. Et se sentira mieux outillé lorsqu’il  fait face à la mort."
-                    },
-                    {
-                        "title": "Cherchez-vous l'assurance pour le futur ?",
-                        "insert": "Les croyances mondaines donnent de faux espoirs sur l’état des morts et la résurrection, ce message donnera l’assurance qu’un futur heureux est possible et accessible à tous ceux qui croient et obéissent à Dieu. Le message dissipera toute crainte ou peur que le public pourrait avoir face à la mort et la vie après la mort."
-                    }
-                ]
-            },
-            "content": {
-                "ops": []
-            },
-            "publicationDate": "2020-10-29T19:00:00",
-            "date": "Jeudi, le 29 octobre",
-            "actions": [],
-            "conversations": [],
-            "state": "closed"
-        },
-        {
-            "id": "la-seconde-venue-du-christ",
-            "title": "La Seconde venue du Christ",
-            "alias": "la-seconde-venue-du-christ",
-            "author": "Yvon Noel",
-            "youtubeId": "wR6-VS2Y_2A",
-            "soundcloud": "",
-            "announce": {
-                "ops": [{
-                    "insert": "La seconde venue du Christ est la bienheureuse espérance de l’Église, le point culminant de l’Évangile."
-                }]
-            },
-            "description": {
-                "ops": [{
-                        "title": "Sentez-vous un vide dans votre vie ?",
-                        "insert": "Dans ce monde troublé par la souffrance, la mort et l’incertitude du lendemain, ce message a pour de donner l’espoir aux âmes découragées et apporter de la joie dans les cœurs attristés."
-                    },
-                    {
-                        "title": "Voulez-vous être bien informé ?",
-                        "insert": "Dans ce monde troublé par la souffrance, la mort et l’incertitude du lendemain, ce message a pour but de donner l’espoir aux âmes découragées et apporter de la joie dans les cœurs attristés."
-                    },
-                    {
-                        "title": "Cherchez-vous l'assurance pour le futur ?",
-                        "insert": "Dans ce monde troublé par la souffrance, la mort et l’incertitude du lendemain, ce message a pour but de donner l’espoir aux âmes découragées et apporter de la joie dans les cœurs attristés."
-                    }
-                ]
-            },
-            "content": {
-                "ops": []
-            },
-            "publicationDate": "2020-10-30T19:00:00",
-            "date": "Vendredi, le 30 octobre",
+            "publicationDate": "2020-10-27T19:00:00",
+            "date": "Mardi, le 27 octobre",
             "actions": [],
             "conversations": [],
             "state": "closed"
@@ -490,7 +378,7 @@ export const state = () => ({
             "title": "La Nouvelle Terre",
             "alias": "la-nouvelle-terre",
             "author": "Adeline Emile",
-            "youtubeId": "wR6-VS2Y_2A",
+            "youtubeId": "CBmYkpDkwg0",
             "soundcloud": "",
             "announce": {
                 "ops": [{
@@ -511,48 +399,8 @@ export const state = () => ({
             "content": {
                 "ops": []
             },
-            "publicationDate": "2020-10-31T19:00:00",
-            "date": "Samedi, le 31 octobre",
-            "actions": [],
-            "conversations": [],
-            "state": "closed"
-        },
-        {
-            "id": "l-eglise-du-reste-et-son-mandat",
-            "title": "L’Église du Reste et son Mandat",
-            "alias": "l-eglise-du-reste-et-son-mandat",
-            "author": "Mae-Lyna Beaubrun-Fleury",
-            "youtubeId": "wR6-VS2Y_2A",
-            "soundcloud": "",
-            "announce": {
-                "ops": [{
-                    "insert": "L’Église universelle englobe tous ceux qui croient vraiment en Christ."
-                }]
-            },
-            "description": {
-                "ops": [{
-                        "title": "Sentez-vous un vide dans votre vie ?",
-                        "insert": "Le message va donner une meilleur compréhension de la nécessité de suivre les commandements de Dieu afin d’avoir un vie meilleure pour l’éternité.  Le public cible pourra questionner les multiples croyances populaires, identifier les fausses doctrines  et choisir la vérité pour la mettre en pratique dans sa vie. Il apprendra que le point central de la grande controverse est l’adoration du Dieu tout puissant. Avec des conseils dans le message, le public cible pourra combler le vide dans sa vie."
-                    },
-                    {
-                        "title": "Êtes-vous préoccupé par votre santé ?",
-                        "insert": "L’église du reste a le mandat d’enseigner la loi de Dieu qui inclue la saine gestion de son corps et de sa santé tandis que nous sommes sur cette terre. Et l’église du reste nous rappelle que pendant la vie éternelle, chaque être vivant aura une vie exempt de maladie et de douleurs."
-                    },
-                    {
-                        "title": "Voulez-vous être bien informé ?",
-                        "insert": "Le message va aider le public cible à identifier le vrai du faux: l’église du reste vs les autres églises, l’adoration attendue de Dieu vs les fausses adorations, le vrai Dieu vs les idoles."
-                    },
-                    {
-                        "title": "Cherchez-vous l'assurance pour le futur ?",
-                        "insert": "Le message va donner l’espoir aux gens pour leur avenir, en les rappelant leur destiné finale, en tant qu’enfant de Dieu. Ils sauront que la vrai adoration et leur association à l’église du reste mènera à une vie éternelle avec Dieu."
-                    }
-                ]
-            },
-            "content": {
-                "ops": []
-            },
-            "publicationDate": "2020-11-01T19:00:00",
-            "date": "Dimanche, le 1er novembre",
+            "publicationDate": "2020-10-28T19:00:00",
+            "date": "Mercredi, le 28 octobre",
             "actions": [],
             "conversations": [],
             "state": "closed"
@@ -563,7 +411,7 @@ export const state = () => ({
         "id": "intro",
         "title": "Peut-on espérer un meilleur avenir?",
         "alias": "intro",
-        "youtubeId": "Nf7u04TVgu8",
+        "youtubeId": "CBmYkpDkwg0",
         "announce": {
             "ops": [{
                 "insert": "Peut-on espérer un meilleur avenir?"
@@ -615,6 +463,12 @@ export const actions = {
         });
 
         myState.episodes.map(function(episode, index) {
+            /*
+            var n = new Date();
+
+            episode.publicationDate = "" +
+                n.getFullYear() + "-" +
+                "2020-10-18T19:00:00",*/
 
             var publicationDate = new Date(episode.publicationDate);
             var midNight = new Date(episode.publicationDate);

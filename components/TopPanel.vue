@@ -209,7 +209,7 @@ export default {
   margin: 0;
 }
 .logoInContainer {
-  background: url(../assets/unlocking-logo.svg);
+  background: url(../assets/logo.svg);
   background-position: 50%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -231,7 +231,7 @@ export default {
   }
 }
 .logo {
-  background: url(../assets/unlocking-logo.svg);
+  background: url(../assets/logo.svg);
   background-position: 50%;
   background-size: cover;
   background-repeat: no-repeat;
