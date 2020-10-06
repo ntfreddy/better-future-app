@@ -110,12 +110,12 @@ export default {
     },
   },
   created: function () {
-    for (var e = 0, t = Object.entries(this.initialFields); e < t.length; e++) {
+   /* for (var e = 0, t = Object.entries(this.initialFields); e < t.length; e++) {
       var o = (0, r.default)(t[e], 2),
         n = o[0],
         l = o[1];
       this[n] = l;
-    }
+    }*/
   },
   methods: {
     onSubmit: function () {
@@ -144,6 +144,10 @@ export default {
     validateValue: function (e) {
       return this.$v[e].$touch();
     },
+    onCheckBoxClicked: function(status){
+
+    }
+
   },
 };
 </script>

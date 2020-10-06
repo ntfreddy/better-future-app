@@ -39,23 +39,30 @@
             {{ $t("about-listen") }}
           </div>
         </div>
-        <span v-show="episode.distance > 0 && locked">
+        <client-only>
           <countdown
             :time="episode.distance"
             :transform="transform"
             @end="onTimeout"
+            v-show="episode.distance > 0 && locked"
           >
             <template slot-scope="props">
               <div :class="$style.start">
-                <div :class="$style.startTitle">{{$t("about-startTitle")}}</div>
-                <div :class="$style.time" >
+                <div :class="$style.startTitle">
+                  {{ $t("about-startTitle") }}
+                </div>
+                <div :class="$style.time">
                   <div :class="$style.box">
                     <div :class="$style.number">{{ props.days.digits }}</div>
-                    <div :class="$style.timeLabel">{{ $t(props.days.word) }}</div>
+                    <div :class="$style.timeLabel">
+                      {{ $t(props.days.word) }}
+                    </div>
                   </div>
                   <div :class="$style.box">
                     <div :class="$style.number">{{ props.hours.digits }}</div>
-                    <div :class="$style.timeLabel">{{ $t(props.hours.word) }}</div>
+                    <div :class="$style.timeLabel">
+                      {{ $t(props.hours.word) }}
+                    </div>
                   </div>
                   <div :class="$style.box">
                     <div :class="$style.number">{{ props.minutes.digits }}</div>
@@ -73,7 +80,7 @@
               </div>
             </template>
           </countdown>
-        </span>
+        </client-only>
       </div>
     </div>
   </div>
@@ -150,8 +157,8 @@ export default {
 
         props[key] = {
           number: value,
-          digits : digits,
-          word: word
+          digits: digits,
+          word: word,
         };
       });
 

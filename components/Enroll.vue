@@ -136,10 +136,10 @@ export default {
           tag: "registration"
         })
         .then(function (response) {
-          //console.log(response);
+          console.log(response);
         })
         .catch(function (error) {
-          //console.log(error);
+          console.log(error);
         });
     },
     onSubmit: function () {
@@ -383,6 +383,11 @@ export default {
 .input {
   margin-bottom: 40px;
 }
+
+.input:focus {
+  color: #fff;
+}
+
 .register {
   width: 100%;
   border-color: #2469c7 !important;

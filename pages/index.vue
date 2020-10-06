@@ -36,7 +36,7 @@ export default {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   border-radius: 8px;
-  /*color: #fff !important;*/
+  color: #fff;
   font-size: 16px;
   line-height: 24px;
   height: calc(1.5em + 2rem);

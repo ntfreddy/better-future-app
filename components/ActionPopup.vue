@@ -4,7 +4,7 @@
       <div :class="$style.content">
         <div :class="$style.inner">
           <div :class="$style.closeBtn" v-on:click="close">
-            <Icon name="cross" viewBox="0 0 18 18" :class="$style.close" />
+            <Icon name="cross-black" viewBox="0 0 18 18" :class="$style.close" />
           </div>
           <div :class="$style.left" :style="'background-image: url(' + form.image +');'"></div>
           <div :class="$style.right">
@@ -110,7 +110,7 @@ export default {
     };
   },
   computed: {
-    isRegistred: function () {
+    isRegistered: function () {
       return this.$session !== undefined && this.$session.exists;
     },
     form: function () {
@@ -360,4 +360,6 @@ export default {
 .fade-leave-to {
   opacity: 0;
 }
+
+
 </style>
