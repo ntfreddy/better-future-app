@@ -46,8 +46,8 @@ export default {
     },
     text: function () {
       return this.firstName
-        ? this.$t("welcome-text-desc-notRegistered")
-        : this.$t("welcome-text-desc-registered");
+        ? this.$t("welcome-text-desc-registered")
+        : this.$t("welcome-text-desc-notRegistered");
     },
   },
   methods: {

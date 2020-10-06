@@ -114,6 +114,8 @@ export default {
       loading: false,
       minLength: 1,
       agreed: true,
+      prodUrl : "https://us-central1-pensezlavenir-4df21.cloudfunctions.net/subscribe",
+      devUrl : "http://localhost:5001/pensezlavenir-4df21/us-central1/subscribe"
     };
   },
   computed: {
@@ -127,7 +129,7 @@ export default {
   methods: {
     async subscribe() {
       this.$axios
-        .$post("http://localhost:5001/pensezlavenir-4df21/us-central1/subscribe", {
+        .$post(this.prodUrl, {
           email: this.$session.get("email"),
           fname: this.$session.get("firstName"),
           lname: "",
