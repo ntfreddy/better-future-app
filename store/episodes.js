@@ -53,6 +53,30 @@ export const state = () => ({
             "state": "closed"
         },
         {
+            "id": "sortir-de-l-endettement",
+            "title": "Sortir de l'endettement",
+            "alias": "sortir-de-l-endettement",
+            "author": "Jephté Simon",
+            "youtubeId": "CBmYkpDkwg0",
+            "soundcloud": "",
+            "announce": {
+                "ops": [
+                    { "insert": "Webinaire sur la gestion de vos finances." }
+                ]
+            },
+            "description": {
+                "ops": []
+            },
+            "content": {
+                "ops": []
+            },
+            "publicationDate": "2020-10-11T17:00:00",
+            "date": "Dimanche, le 11 octobre",
+            "actions": [],
+            "conversations": [],
+            "state": "closed"
+        },
+        {
             "id": "les-saintes-ecritures",
             "title": "Les Saintes Écritures",
             "alias": "les-saintes-ecritures",

@@ -98,6 +98,7 @@ export default {
     'actionPopup-question-desc': "Send your Bible question and we will help you find the answer",
     'actionPopup-question-btnText': "Ask question",
     'actionPopup-bible-success-title': "Thank you for your question!",
+    'actionPopup-question-success-title': "We will definitely write you!",
     'actionPopup-question-success-desc': "We will definitely write you!",
     'actionPopup-decision-title': "Register",
     'actionPopup-decision-desc': "Tell us about your decision",

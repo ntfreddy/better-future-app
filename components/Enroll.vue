@@ -113,8 +113,8 @@ export default {
       registered: false,
       minLength: 1,
       agreed: true,
-      prodUrl : "https://us-central1-pensezlavenir-4df21.cloudfunctions.net/subscribe",
-      devUrl : "http://localhost:5001/pensezlavenir-4df21/us-central1/subscribe"
+      funcUrl : "https://us-central1-pensezlavenir-4df21.cloudfunctions.net/",
+      //funcUrl : "http://localhost:5001/pensezlavenir-4df21/us-central1/"
     };
   },
   computed: {
@@ -133,11 +133,24 @@ export default {
   methods: {
     async subscribe() {
       this.$axios
-        .$post(this.prodUrl, {
+        .$post(this.funcUrl + "subscribe", {
           email: this.$session.get("email"),
           fname: this.$session.get("firstName"),
           lname: "",
           tag: "registration"
+        })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    },
+    async register() {
+      this.$axios
+        .$post(this.funcUrl + "register", {
+          email: this.$session.get("email"),
+          firstname: this.$session.get("firstName"),
         })
         .then(function (response) {
           console.log(response);

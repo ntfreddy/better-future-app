@@ -69,10 +69,7 @@
         }}</a>
       </Checkbox>
 
-      <button
-        type="submit"
-        :class="$style.button"
-      >
+      <button type="submit" :class="$style.button">
         {{ btnText }}
       </button>
     </form>
@@ -113,6 +110,7 @@ export default {
       subject: "",
       registered: false,
       agreed: false,
+      funcUrl: "https://us-central1-pensezlavenir-4df21.cloudfunctions.net/",
     };
   },
   computed: {
@@ -124,13 +122,42 @@ export default {
         : this.$t("form-subject-placeholder-request");
     },
   },
-  created: function () {
-  },
+  created: function () {},
   methods: {
+    async sendAction(email, firstName, subject) {
+      var url = "";
+      switch (this.type) {
+        case "pray":
+          url = this.funcUrl + "sendPrayerRequest";
+          break;
+        case "question":
+          url = this.funcUrl + "sendAskQuestion";
+          break;
+        case "bible":
+          url = this.funcUrl + "sendBibleStudy";
+          break;
+        default:
+          url = this.funcUrl + "sendPrayerRequest";
+      }
+      this.$axios
+        .$post(url, {
+          email: email,
+          firstname: firstName,
+          message: subject,
+        })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    },
     onSubmit: function () {
       this.registered = false;
       if (this.validate() && this.agreed) {
         this.registered = true;
+
+        this.sendAction(this.email, this.firstName, this.subject);
         let that = this;
         setTimeout(function () {
           that.$emit("close-popup");
@@ -158,7 +185,7 @@ export default {
     },
     onCheckBoxClicked(value) {
       this.agreed = value;
-    } 
+    },
   },
 };
 </script>
