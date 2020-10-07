@@ -41,7 +41,7 @@
         </div>
         <client-only>
           <countdown
-            :time="episode.distance"
+            :time="episode.distance > 0 ? episode.distance : 0"
             :transform="transform"
             @end="onTimeout"
             v-show="episode.distance > 0 && locked"
