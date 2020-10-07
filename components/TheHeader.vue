@@ -6,12 +6,12 @@
     <div :class="[$style.inner, $style.ready]">
       <TopPanel
         :showNav="showNav"
-        v-on:update:show-nav="showNav = $event"
-        v-on:update:show-reminder="showReminder = $event"
-        :hideReminder="hideReminder"
+        @update-show-nav="showNav = $event"
+        @update-show-reminder="$emit('update-show-reminder',  $event)"
         :showReminder="showReminder"
+        :firstName="firstName" 
       />
-        <Welcome class="d-lg-none d-flex" />
+        <Welcome class="d-lg-none d-flex" :firstName="firstName" />
       <div :class="$style.introBox">
         <div class="container">
           <div class="row justify-content-center">
@@ -68,12 +68,11 @@ export default {
     About,
     Youtube,
   },
-  props: [],
+  props: ["showReminder", "firstName"],
   data: function () {
     return {
       ready: false,
       showNav: false,
-      showReminder: true,
       playerVars: {
         rel: 0,
         showinfo: 0,
@@ -85,28 +84,6 @@ export default {
       episode: (state) => state.episodes.episode,
       activeIndex: (state) => state.episodes.activeIndex,
     }),
-    hideReminder: function () {
-      let v =
-        this.$session !== undefined &&
-        this.$session.get("hideReminder") != undefined &&
-        this.$session.get("hideReminder");
-
-      //console.log("hideReminder : ", v);
-      return v;
-    },
-    isRegistred: function () {
-     /* console.log(
-        "$session.exists : ",
-        this.$session !== undefined &&
-          this.$session.exists != undefined &&
-          this.$session.exists()
-      );*/
-      return (
-        this.$session !== undefined &&
-        this.$session.exists != undefined &&
-        this.$session.exists()
-      );
-    },
     ...mapGetters({
       episodes: "episodes/episodes",
     }),
@@ -114,8 +91,6 @@ export default {
   mounted: function () {
     window.addEventListener("resize", this.onResize);
     this.ready = true;
-    this.showReminder = !this.hideReminder && !this.isRegistred;
-    //console.log("showReminder : ", this.showReminder);
 
     for(var index = 0;index < this.episodes.length;index++){
       if(this.episodes[index].state === "today"){

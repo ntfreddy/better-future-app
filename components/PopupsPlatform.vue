@@ -24,8 +24,6 @@ export default {
   },
   data: function () {
     return {
-      /*options: {},
-            visible: !1,*/
     };
   },
   computed: {

@@ -63,7 +63,7 @@ export default {
       episode: (state) => state.episodes.episode,
     }),
     isRegistred: function () {
-      return this.$session !== undefined && this.$session.exists;
+      return this.$session !== undefined && this.$session.exists != undefined && this.$session.exists();
     },
   },
   watch: {

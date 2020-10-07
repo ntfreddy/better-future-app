@@ -13,7 +13,7 @@ export default {
     'enroll-form-email-placeholder': "Votre courriel",
     'enroll-form-email-error': "Entrez votre courriel",
     'enroll-form-agree-error': "Vous devez accepter avant de soumettre.",
-    'enroll-joinedTitle': "Merci de nous rejoindre!",
+    'enroll-joinedTitle': "Merci de nous avoir rejoint!",
     'enroll-joinedDesc': "Nous vous rappellerons le prochain programme.",
     'enroll-form-privacy-policy': "J'accepte",
     'enroll-form-privacy-policy-text': "la politique de confidentialité",

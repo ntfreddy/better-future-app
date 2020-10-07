@@ -4,21 +4,25 @@
       <div :class="$style.content">
         <div :class="$style.inner">
           <div :class="$style.closeBtn" v-on:click="close">
-            <Icon name="cross-black" viewBox="0 0 18 18" :class="$style.close" />
+            <Icon
+              name="cross-black"
+              viewBox="0 0 18 18"
+              :class="$style.close"
+            />
           </div>
-          <div :class="$style.left" :style="'background-image: url(' + form.image +');'"></div>
+          <div
+            :class="$style.left"
+            :style="'background-image: url(' + form.image + ');'"
+          ></div>
           <div :class="$style.right">
             <!---->
-            <div :class="$style.title">{{form.title}}</div>
-            <div
-              :class="$style.desc"
-            >{{form.desc}}</div>
+            <div :class="$style.title">{{ form.title }}</div>
+            <div :class="$style.desc">{{ form.desc }}</div>
             <UniForm
+              :id="form.id"
               :type="activeId"
-              :initiaFields="fields"
               :btnText="form.btnText"
-              :isRegistered="isRegistered"
-              v-on:onSubmit="onSubmit"
+              @close-popup="close"
             />
           </div>
         </div>
@@ -34,117 +38,95 @@ export default {
     UniForm,
     //Success,
   },
-  //mixins: [m.default],
-  props: ["activeId", "fields"],
+  props: ["activeId"],
   data: function () {
     return {
-      firstName: "",
-      email: "",
+      firstName:
+        this.$session !== undefined && this.$session.get("firstName")
+          ? this.$session.get("firstName")
+          : "",
+      email:
+        this.$session !== undefined && this.$session.get("email")
+          ? this.$session.get("email")
+          : "",
       state: "form",
       map: {
         pray: {
-          title: this.$t('actionPopup-pray-title'),
-          desc: this.$t('actionPopup-pray-desc'),
+          title: this.$t("actionPopup-pray-title"),
+          desc: this.$t("actionPopup-pray-desc"),
           image: require("../assets/believe.jpg"),
           icon: "pray-hands",
-          btnText: this.$t('actionPopup-pray-btnText'),
+          btnText: this.$t("actionPopup-pray-btnText"),
           id: "prayRequest",
           hubspotId: "920f5366-8d6d-4e83-b881-71d75f603735",
           success: {
-            title: this.$t('actionPopup-pray-success-title'),
-            desc: this.$t('actionPopup-pray-success-desc'),
+            title: this.$t("actionPopup-pray-success-title"),
+            desc: this.$t("actionPopup-pray-success-desc"),
           },
         },
         bible: {
-          title: this.$t('actionPopup-bible-title'),
-          desc: this.$t('actionPopup-bible-desc'),
+          title: this.$t("actionPopup-bible-title"),
+          desc: this.$t("actionPopup-bible-desc"),
           image: require("../assets/study-image.jpg"),
-          btnText: this.$t('actionPopup-bible-btnText'),
+          btnText: this.$t("actionPopup-bible-btnText"),
           icon: "bible-closed",
           id: "bibleStudy",
           hubspotId: "514e1b13-68b0-4cd6-8323-fdae0ff1c6eb",
           success: {
-            title: this.$t('actionPopup-bible-success-title'),
-            desc: this.$t('actionPopup-bible-success-desc'),
+            title: this.$t("actionPopup-bible-success-title"),
+            desc: this.$t("actionPopup-bible-success-desc"),
             href: "https://bibleschools.com/1505",
           },
         },
         talk: {
-          title: this.$t('actionPopup-talk-title'),
-          desc: this.$t('actionPopup-talk-desc'),
+          title: this.$t("actionPopup-talk-title"),
+          desc: this.$t("actionPopup-talk-desc"),
           image: require("../assets/talk-image.jpg"),
           id: "talk",
           icon: "messages",
           success: {
-            title: this.$t('actionPopup-talk-success-title'),
-            desc: this.$t('actionPopup-talk-success-desc'),
+            title: this.$t("actionPopup-talk-success-title"),
+            desc: this.$t("actionPopup-talk-success-desc"),
           },
         },
         question: {
-          title:this.$t('actionPopup-question-title'),
-          desc: this.$t('actionPopup-question-desc'),
+          title: this.$t("actionPopup-question-title"),
+          desc: this.$t("actionPopup-question-desc"),
           image: require("../assets/question-image.jpg"),
-          btnText: this.$t('actionPopup-question-btnText'),
+          btnText: this.$t("actionPopup-question-btnText"),
           id: "askQuestion",
           icon: "answers",
           hubspotId: "bf88e843-7979-4413-bc0e-6be79c0e6629",
           success: {
-            title: this.$t('actionPopup-question-success-title'),
-            desc: this.$t('actionPopup-question-success-desc'),
+            title: this.$t("actionPopup-question-success-title"),
+            desc: this.$t("actionPopup-question-success-desc"),
           },
         },
         decision: {
-          title: this.$t('actionPopup-decision-title'),
-          desc: this.$t('actionPopup-decision-desc'),
+          title: this.$t("actionPopup-decision-title"),
+          desc: this.$t("actionPopup-decision-desc"),
           image: require("../assets/study-image.jpg"),
-          btnText: this.$t('actionPopup-decision-btnText'),
+          btnText: this.$t("actionPopup-decision-btnText"),
           id: "decision",
           icon: "bible-shine",
           hubspotId: "ef453086-1fb7-434a-a7c1-8006a6832086",
           success: {
-            title: this.$t('actionPopup-decision-success-title'),
-            desc: this.$t('actionPopup-decision-success-desc'),
+            title: this.$t("actionPopup-decision-success-title"),
+            desc: this.$t("actionPopup-decision-success-desc"),
           },
         },
       },
     };
   },
   computed: {
-    isRegistered: function () {
-      return this.$session !== undefined && this.$session.exists;
-    },
     form: function () {
       return this.map[this.activeId];
     },
-  },
-  created: function () {
-    if (this.isRegistred) {
-      if (this.activeId !== "bible" && this.activeId !== "decision") {
-        this.state = "success";
-      } else {
-        var result = this.onSubmit({
-          firstName: this.$session.get("firstName"),
-          email: this.$session.get("email"),
-        });
-
-        if (result) {
-          this.state = "success";
-        }
-      }
-    } else {
-      this.state = "form";
-    }
-    /* this.isRegistred ? "bible" !== this.activeId && "decision" !== this.activeId || (this.onSubmit({
-                firstName: this.$session.get("firstName"),
-                email: this.$session.get("email")
-            }),
-            this.state = "success") : this.state = "form"*/
   },
   mounted: function () {
     window.HubSpotConversations && window.HubSpotConversations.widget.close();
   },
   methods: {
-    onSubmit: function (e) {},
     close: function () {
       this.$emit("close", false);
     },
@@ -281,8 +263,6 @@ export default {
   }
 }
 
-
-
 .top {
   position: relative;
   margin-bottom: 17px;
@@ -360,6 +340,4 @@ export default {
 .fade-leave-to {
   opacity: 0;
 }
-
-
 </style>

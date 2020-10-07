@@ -1,7 +1,10 @@
 <template>
   <div :class="$style.form">
-    <form id="registration" :class="$style.register">
-      <div class="form-group" :class="{'form-group--error' : $v.firstName.$error}">
+    <form :id="id" :class="$style.register" @submit.prevent="onSubmit">
+      <div
+        class="form-group"
+        :class="{ 'form-group--error': $v.firstName.$error }"
+      >
         <input
           name="firstname"
           type="text"
@@ -13,9 +16,11 @@
         <div
           class="invalid-feedback"
           v-if="$v.firstName.$dirty && !$v.firstName.required"
-        >{{$t('form-firstname-error')}}</div>
+        >
+          {{ $t("form-firstname-error") }}
+        </div>
       </div>
-      <div class="form-group" :class="{'form-group--error' : $v.email.$error}">
+      <div class="form-group" :class="{ 'form-group--error': $v.email.$error }">
         <input
           name="email"
           type="email"
@@ -27,9 +32,11 @@
         <div
           class="invalid-feedback"
           v-if="$v.email.$dirty && !$v.email.required"
-        >{{$t('form-email-error')}}</div>
+        >
+          {{ $t("form-email-error") }}
+        </div>
       </div>
-      <div class="form-group" :class="{'form-group--error' : $v.email.$error}">
+      <div class="form-group" :class="{ 'form-group--error': $v.email.$error }">
         <textarea
           id="textarea"
           name="textarea"
@@ -44,7 +51,9 @@
         <div
           class="invalid-feedback"
           v-if="$v.subject.$dirty && !$v.subject.required"
-        >{{errorTextMessage}}</div>
+        >
+          {{ errorTextMessage }}
+        </div>
       </div>
       <Checkbox
         id="checkbox-id-301"
@@ -54,18 +63,18 @@
         @clicked="onCheckBoxClicked"
         :invalidFeedback="$t('form-agree-error')"
       >
-        {{$t('form-privacy-policy')}}
-        <a
-          href="/privacy"
-          target="_blank"
-          :class="$style.link"
-        >{{$t('form-privacy-policy-text')}}</a>
+        {{ $t("form-privacy-policy") }}
+        <a href="/privacy" target="_blank" :class="$style.link">{{
+          $t("form-privacy-policy-text")
+        }}</a>
       </Checkbox>
 
-      <div
-        :class="{[$style.button]:true, [$style.disabled]:loading}"
-        v-on:click="onSubmit"
-      >{{btnText}}</div>
+      <button
+        type="submit"
+        :class="$style.button"
+      >
+        {{ btnText }}
+      </button>
     </form>
   </div>
 </template>
@@ -78,7 +87,7 @@ export default {
   components: {
     Checkbox,
   },
-  props: ["isRegistred", "type", "initialFields", "btnText"],
+  props: ["id", "type", "btnText"],
   validations: {
     firstName: {
       required,
@@ -93,61 +102,63 @@ export default {
   },
   data: function () {
     return {
-      firstName: "",
-      email: "",
+      firstName:
+        this.$session !== undefined && this.$session.get("firstName")
+          ? this.$session.get("firstName")
+          : "",
+      email:
+        this.$session !== undefined && this.$session.get("email")
+          ? this.$session.get("email")
+          : "",
       subject: "",
-      loading: false,
-      agreed: true,
+      registered: false,
+      agreed: false,
     };
   },
   computed: {
     errorTextMessage: function () {
       return "pray" === this.type
-        ? this.$t('form-subject-placeholder-prayer-request')
+        ? this.$t("form-subject-placeholder-prayer-request")
         : "question" === this.type
-        ?  this.$t('form-subject-placeholder-question')
-        :  this.$t('form-subject-placeholder-request');
+        ? this.$t("form-subject-placeholder-question")
+        : this.$t("form-subject-placeholder-request");
     },
   },
   created: function () {
-   /* for (var e = 0, t = Object.entries(this.initialFields); e < t.length; e++) {
-      var o = (0, r.default)(t[e], 2),
-        n = o[0],
-        l = o[1];
-      this[n] = l;
-    }*/
   },
   methods: {
     onSubmit: function () {
-      (this.loading = !0),
-        this.validate() && (this.isRegistred || this.agreed)
-          ? ((this.loading = !1),
-            this.$emit("on-submit", {
-              firstName: this.isRegistred
-                ? this.$session.get("firstName")
-                : this.firstName,
-              email: this.isRegistred ? this.$session.get("email") : this.email,
-              subject: this.subject,
-            }))
-          : (this.loading = !1);
+      this.registered = false;
+      if (this.validate() && this.agreed) {
+        this.registered = true;
+        let that = this;
+        setTimeout(function () {
+          that.$emit("close-popup");
+        }, 500);
+      } else {
+        //console.log("invalid");
+        this.registered = false;
+      }
     },
     validate: function () {
-      var e = [];
-      this.isRegistred || (e.push("firstName"), e.push("email")),
-        ("pray" !== this.type && "question" !== this.type) || e.push("subject");
-      for (var t = !0, o = 0, n = e; o < n.length; o++) {
-        var r = n[o];
-        this[r] || (t && (t = !1), this.validateValue(r));
+      if (this.$v.$invalid) {
+        var controls = ["firstName", "email"];
+        ("pray" !== this.type && "question" !== this.type) ||
+          controls.push("subject");
+        for (var index = 0; index < controls.length; index++) {
+          var control = controls[index];
+          this[control] || this.validateValue(control);
+        }
+        return false;
       }
-      return t;
+      return true;
     },
-    validateValue: function (e) {
-      return this.$v[e].$touch();
+    validateValue: function (control) {
+      this.$v[control].$touch();
     },
-    onCheckBoxClicked: function(status){
-
-    }
-
+    onCheckBoxClicked(value) {
+      this.agreed = value;
+    } 
   },
 };
 </script>

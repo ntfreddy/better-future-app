@@ -119,7 +119,7 @@ export default {
   },
   computed: {
     isRegistred: function () {
-      return this.$session !== undefined && this.$session.exists;
+      return this.$session !== undefined && this.$session.exists != undefined && this.$session.exists();
     },
     title: function () {
       return "success" === this.state ? "Thank you!" : "";

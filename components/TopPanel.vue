@@ -21,9 +21,9 @@
                 <div :class="$style.title">{{item.title}}</div>
               </div>
             </div>
-            <div :class="$style.register" v-show="!firstName" v-on:click="register">{{$t('topPanel-btn')}}</div>
+            <div :class="$style.register" v-show="firstName === ''" v-on:click="register">{{$t('topPanel-btn')}}</div>
           </div>
-          <Welcome v-show="!showNav" />
+          <Welcome v-show="!showNav" :firstName="firstName"/>
         </div>
       </div>
     </div>
@@ -56,7 +56,7 @@ export default {
     Welcome,
     Icon,
   },
-  props: ["showNav", "showReminder"],
+  props: ["showNav", "showReminder", "firstName"],
   data: function () {
     return {};
   },
@@ -64,29 +64,23 @@ export default {
     ...mapState({
       totalQuestions: "total", // "total" same as "state => state.count"
     }),
-    firstName: function () {
+    /*firstName: function () {
       if (this.$session !== undefined) return this.$session.get("firstName");
       else return false;
-    },
+    },*/
     episode: function () {
       return this.$store.state.episodes.episode;
     },
     navigation: function () {
       return this.$store.state.navigation.list;
-    },
+    },/*
     isRegistred: function () {
-      /*console.log(
-        "$session.exists : ",
-        this.$session !== undefined &&
-          this.$session.exists != undefined &&
-          this.$session.exists()
-      );*/
       return (
         this.$session !== undefined &&
         this.$session.exists != undefined &&
         this.$session.exists()
       );
-    },
+    },*/
   },
   watch: {
     "$store.state.episodes.episode": function () {
@@ -130,19 +124,13 @@ export default {
     },
     scrollTo: function (id) {
       this.$scrollTo(document.getElementById("section-".concat(id)));
-    },/*
-    openNavigation: function () {
-      this.setActivePopup("PopupEpisodeNav");
-    },*/
+    },
     showNavigation: function () {
-      //this.showNav = !this.showNav;
-      //console.log("showNav Top : ", this.showNav);
-      this.$emit("update:show-nav", !this.showNav);
+      this.$emit("update-show-nav", !this.showNav);
     },
     closeReminder: function () {
-      //console.log("closeReminder");
       this.$session.set("hideReminder", true);
-      this.$emit("update:show-reminder", false);
+      this.$emit("update-show-reminder", false);
     },
     remind: function () {
       this.$form.goToRegister(this.$scrollTo);

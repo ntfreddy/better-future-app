@@ -3,18 +3,18 @@
     <div class="container">
       <div :class="$style.bg"></div>
       <img
-        alt="Bookmark – Unlocking Bible Prophecies"
+        alt="Peut-on espérer un meilleur avenir ?"
         src="../assets/open-bible-1.png"
         :class="$style.book1"
-        v-if="!loading"
+        v-if="!registered"
       />
       <img
-        alt="Open Bible – Unlocking Bible Prophecies"
+        alt="Peut-on espérer un meilleur avenir ?"
         src="../assets/open-bible-2.png"
         :class="$style.book2"
-        v-if="!loading"
+        v-if="!registered"
       />
-      <div class="row justify-content-center" v-if="loading">
+      <div class="row justify-content-center" v-if="registered">
         <div class="col-sm-10 col-md-7 col-lg-5 col-xl-4">
           <div :class="$style.joined">
             <img src="../assets/bell.svg" :class="$style.image" />
@@ -23,7 +23,7 @@
           </div>
         </div>
       </div>
-      <div class="row justify-content-center" v-if="!loading">
+      <div class="row justify-content-center" v-if="!registered">
         <div class="col-sm-10 col-md-7 col-lg-5 col-xl-4">
           <div :class="$style.label">{{$t('enroll-label')}}</div>
           <h2 :class="$style.action">{{$t('enroll-action')}}</h2>
@@ -88,8 +88,7 @@
   </div>
 </template>
 <script>
-//import LoginButton from "./LoginButton";
-//import Loading from "./Loading";
+
 import Checkbox from "./Checkbox";
 
 import { required, email } from "vuelidate/lib/validators";
@@ -111,7 +110,7 @@ export default {
     return {
       firstName: "",
       email: "",
-      loading: false,
+      registered: false,
       minLength: 1,
       agreed: true,
       prodUrl : "https://us-central1-pensezlavenir-4df21.cloudfunctions.net/subscribe",
@@ -124,8 +123,13 @@ export default {
         ? "joined"
         : "register";
     },
+    isRegistred: function () {
+      return this.$session !== undefined && this.$session.exists != undefined && this.$session.exists();
+    },
   },
-  mounted: function () {},
+  mounted: function () {
+    this.registered = this.isRegistred;
+  },
   methods: {
     async subscribe() {
       this.$axios
@@ -143,27 +147,27 @@ export default {
         });
     },
     onSubmit: function () {
-      //console.log("onSubmit");
-      this.loading = false;
+      this.registered = false;
       if (this.validate() && this.agreed) {
-        //console.log("valid");
-        this.loading = true;
+        this.registered = true;
         this.$session.start();
         this.$session.set("firstName", this.firstName);
         this.$session.set("email", this.email);
+        
+        this.$session.set("hideReminder", true);
+        
+        this.$emit("update-show-reminder", false);
 
-        //console.log("firstName", this.$session.get("firstName"));
-        //console.log("email", this.$session.get("email"));
+        this.$emit("update-user-info", {firstName:this.$session.get("firstName"), email:this.$session.get("email")});
 
         this.subscribe();
 
         setTimeout(function () {
-         // console.log("setTimeout");
           window.scrollTo(0, 0);
         }, 500);
       } else {
         console.log("invalid");
-        this.loading = false;
+        this.registered = false;
       }
     },
     validate: function () {

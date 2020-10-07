@@ -13,7 +13,7 @@
             </p>
             <div
               :class="$style.register"
-              v-show="!firstName"
+              v-show="firstName === ''"
               v-on:click="register"
             >{{$t('welcome-register')}}</div>
             <div class="d-lg-none d-flex" :class="$style.toogle" v-on:click="onOpenPopup('life-episode-nav')">
@@ -38,14 +38,15 @@ export default {
   components: {
     Icon,
   },
-  props: [],
+  props: ["firstName"],
   computed: {
+    /*
     firstName: function () {
       if (this.$session !== undefined) return this.$session.get("firstName");
       else return undefined;
-    },
+    },*/
     text: function () {
-      return this.firstName
+      return this.firstName !== ""
         ? this.$t("welcome-text-desc-registered")
         : this.$t("welcome-text-desc-notRegistered");
     },
@@ -57,11 +58,6 @@ export default {
     register: function () {
       this.$form.goToRegister(this.$scrollTo);
     },
-    /*openMobileNav: function () {
-      this.$popup.open("episodeNav", {
-        allEpisodes: true,
-      });
-    },*/
   },
 };
 </script>

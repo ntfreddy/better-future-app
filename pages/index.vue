@@ -1,9 +1,9 @@
 <template>
-  <div :class="$style.page">    
-    <TheHeader />
-    <CallToActions />    
+  <div :class="$style.page">
+    <TheHeader :showReminder="showReminder" :firstName="firstName" />
+    <CallToActions />
     <EpisodeInfo />
-    <Enroll />
+    <Enroll @update-show-reminder="showReminder = $event" @update-user-info="onUpdateUserInfo($event)"/>
   </div>
 </template>
 
@@ -23,9 +23,27 @@ export default {
   },
   data: function () {
     return {
-          }
+      showReminder: true,
+      firstName: "",
+      email: "",
+    };
   },
-  mounted() {
+  mounted: function () {
+    this.showReminder = !(
+      this.$session !== undefined &&
+      this.$session.get("hideReminder") != undefined &&
+      this.$session.get("hideReminder")
+    );
+
+    this.firstName = (this.$session !== undefined && this.$session.get("firstName") != undefined ? this.$session.get("firstName") : "");
+
+    this.email = (this.$session !== undefined && this.$session.get("email") != undefined ? this.$session.get("email") : "");
+  },
+  methods: {
+    onUpdateUserInfo: function (userInfo) {
+      this.firstName = userInfo.firstName;
+      this.email = userInfo.email;
+    },
   },
 };
 </script>
@@ -226,8 +244,8 @@ export default {
 }
 
 .form-group--error .input {
-    border: 2px solid #ffb9b9;
-    padding: 17px 21px;
+  border: 2px solid #ffb9b9;
+  padding: 17px 21px;
 }
 </style>
 
