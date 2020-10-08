@@ -2,17 +2,26 @@
   <div :class="$style.popup">
     <div :class="$style.wrapper">
       <div :class="$style.content">
-        <div :class="{[$style.inner]: true, [$style.notRegistred]:!isRegistred}">
+        <div
+          :class="{ [$style.inner]: true, [$style.notRegistred]: !isRegistred }"
+        >
           <div :class="$style.closeBtn" v-on:click="close">
             <Icon name="cross" viewBox="0 0 18 18" :class="$style.close" />
           </div>
           <div :class="$style.left">
             <div :class="$style.title">
-              <span :class="$style.highlight">{{highlightText}}</span>
+              <span :class="$style.highlight">{{ highlightText }}</span>
             </div>
-            <div :class="$style.desc">{{description}}</div>
-            <form id="registration" :class="$style.register" @submit.prevent="onSubmit">
-              <div class="form-group" :class="{'form-group--error' : $v.firstName.$error}">
+            <div :class="$style.desc">{{ description }}</div>
+            <form
+              id="registration"
+              :class="$style.register"
+              @submit.prevent="onSubmit"
+            >
+              <div
+                class="form-group"
+                :class="{ 'form-group--error': $v.firstName.$error }"
+              >
                 <input
                   id="__BVID__257"
                   name="firstname"
@@ -25,9 +34,14 @@
                 <div
                   class="invalid-feedback"
                   v-if="$v.firstName.$dirty && !$v.firstName.required"
-                >{{$t('getBook-form-firstname-error')}}</div>
+                >
+                  {{ $t("getBook-form-firstname-error") }}
+                </div>
               </div>
-              <div class="form-group" :class="{'form-group--error' : $v.email.$error}">
+              <div
+                class="form-group"
+                :class="{ 'form-group--error': $v.email.$error }"
+              >
                 <input
                   id="__BVID__258"
                   name="email"
@@ -40,7 +54,9 @@
                 <div
                   class="invalid-feedback"
                   v-if="$v.email.$dirty && !$v.email.required"
-                >{{$t('getBook-form-email-error')}}</div>
+                >
+                  {{ $t("getBook-form-email-error") }}
+                </div>
               </div>
 
               <Checkbox
@@ -51,16 +67,14 @@
                 @clicked="onCheckBoxClicked"
                 :invalidFeedback="$t('getBook-form-agree-error')"
               >
-                {{$t('getBook-form-privacy-policy')}}
-                <a
-                  href="/privacy"
-                  target="_blank"
-                  :class="$style.link"
-                >{{$t('getBook-form-privacy-policy-text')}}</a>
+                {{ $t("getBook-form-privacy-policy") }}
+                <a href="/privacy" target="_blank" :class="$style.link">{{
+                  $t("getBook-form-privacy-policy-text")
+                }}</a>
               </Checkbox>
-              <div :class="$style.button">
-                <span>{{$t('getBook-form-submit')}}</span>
-              </div>
+              <button type="submit" :class="$style.button">
+                {{ $t("getBook-form-submit") }}
+              </button>
             </form>
           </div>
           <div :class="$style.right">
@@ -112,30 +126,81 @@ export default {
           ? this.$session.get("email")
           : "",
       state: "form",
-      description: this.$t('getBook-desc'),
+      description: this.$t("getBook-desc"),
       highlightText: this.$t("getBook-highlight"),
       agreed: true,
+      funcUrl: "https://us-central1-pensezlavenir-4df21.cloudfunctions.net/",
     };
   },
   computed: {
     isRegistred: function () {
-      return this.$session !== undefined && this.$session.exists != undefined && this.$session.exists();
+      return (
+        this.$session !== undefined &&
+        this.$session.exists != undefined &&
+        this.$session.exists()
+      );
     },
     title: function () {
       return "success" === this.state ? "Thank you!" : "";
     },
   },
   mounted: function () {
-    !this.autoopen && this.isRegistred && this.submit();
+    // !this.autoopen && this.isRegistred && this.onSubmit();
   },
   methods: {
+    async subscribe(email, firstName) {
+      this.$axios
+        .$post(this.funcUrl + "subscribe", {
+          email: email,
+          fname: firstName,
+          lname: "",
+          tag: "registration",
+        })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    },
+    async register(email, firstname) {
+      this.$axios
+        .$post(this.funcUrl + "register", {
+          email: email,
+          firstname: firstName,
+        })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    },
     close: function () {
       this.$emit("close", false);
     },
-    submit: function () {},
+    onSubmit: function () {
+      this.$session.start();
+      this.$session.set("firstName", this.firstName);
+      this.$session.set("email", this.email);
+
+      this.$session.set("hideReminder", true);
+      this.$session.set("isBookWasOrdered", true);
+
+      //this.$emit("update-show-reminder", false);
+
+      /* this.$emit("update-user-info", {
+          firstName: this.firstName,
+          email: this.email,
+        });*/
+
+      this.register(this.email, this.firstName);
+      this.subscribe(this.email, this.firstName);
+      this.$emit("close", false);
+    },
     validate: function () {
       if (this.$v.$invalid) {
-        var controls = ["firstName", "email", "agreed"];
+        var controls = ["firstName", "email"];
         for (var index = 0; index < controls.length; index++) {
           var control = controls[index];
           this[control] || this.validateValue(control);

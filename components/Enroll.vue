@@ -18,18 +18,27 @@
         <div class="col-sm-10 col-md-7 col-lg-5 col-xl-4">
           <div :class="$style.joined">
             <img src="../assets/bell.svg" :class="$style.image" />
-            <div :class="$style.joinedTitle">{{$t('enroll-joinedTitle')}}</div>
-            <div :class="$style.desc">{{$t('enroll-joinedDesc')}}</div>
+            <div :class="$style.joinedTitle">
+              {{ $t("enroll-joinedTitle") }}
+            </div>
+            <div :class="$style.desc">{{ $t("enroll-joinedDesc") }}</div>
           </div>
         </div>
       </div>
       <div class="row justify-content-center" v-if="!registered">
         <div class="col-sm-10 col-md-7 col-lg-5 col-xl-4">
-          <div :class="$style.label">{{$t('enroll-label')}}</div>
-          <h2 :class="$style.action">{{$t('enroll-action')}}</h2>
-          <div :class="$style.subaction">{{$t('enroll-subaction')}}</div>
-          <form id="registration" :class="$style.register" @submit.prevent="onSubmit">
-            <div class="form-group" :class="{'form-group--error' : $v.firstName.$error}">
+          <div :class="$style.label">{{ $t("enroll-label") }}</div>
+          <h2 :class="$style.action">{{ $t("enroll-action") }}</h2>
+          <div :class="$style.subaction">{{ $t("enroll-subaction") }}</div>
+          <form
+            id="registration"
+            :class="$style.register"
+            @submit.prevent="onSubmit"
+          >
+            <div
+              class="form-group"
+              :class="{ 'form-group--error': $v.firstName.$error }"
+            >
               <input
                 id="reg-form-firstname"
                 name="firstname"
@@ -42,9 +51,14 @@
               <div
                 class="invalid-feedback"
                 v-if="$v.firstName.$dirty && !$v.firstName.required"
-              >{{$t('enroll-form-firstname-error')}}</div>
+              >
+                {{ $t("enroll-form-firstname-error") }}
+              </div>
             </div>
-            <div class="form-group" :class="{'form-group--error' : $v.email.$error}">
+            <div
+              class="form-group"
+              :class="{ 'form-group--error': $v.email.$error }"
+            >
               <input
                 name="email"
                 type="email"
@@ -57,7 +71,9 @@
               <div
                 class="invalid-feedback"
                 v-if="$v.email.$dirty && !$v.email.required"
-              >{{$t('enroll-form-email-error')}}</div>
+              >
+                {{ $t("enroll-form-email-error") }}
+              </div>
             </div>
             <div :class="$style.register">
               <Checkbox
@@ -68,18 +84,18 @@
                 @clicked="onCheckBoxClicked"
                 :invalidFeedback="$t('enroll-form-agree-error')"
               >
-                {{$t('enroll-form-privacy-policy')}}
-                <a
-                  href="/privacy"
-                  target="_blank"
-                  :class="$style.link"
-                >{{$t('enroll-form-privacy-policy-text')}}</a>
+                {{ $t("enroll-form-privacy-policy") }}
+                <a href="/privacy" target="_blank" :class="$style.link">{{
+                  $t("enroll-form-privacy-policy-text")
+                }}</a>
               </Checkbox>
               <button
                 type="submit"
                 class="btn btn-secondary btn-block"
                 :class="$style.button"
-              >{{$t('enroll-form-submit')}}</button>
+              >
+                {{ $t("enroll-form-submit") }}
+              </button>
             </div>
           </form>
         </div>
@@ -88,7 +104,6 @@
   </div>
 </template>
 <script>
-
 import Checkbox from "./Checkbox";
 
 import { required, email } from "vuelidate/lib/validators";
@@ -113,7 +128,7 @@ export default {
       registered: false,
       minLength: 1,
       agreed: true,
-      funcUrl : "https://us-central1-pensezlavenir-4df21.cloudfunctions.net/",
+      funcUrl: "https://us-central1-pensezlavenir-4df21.cloudfunctions.net/",
       //funcUrl : "http://localhost:5001/pensezlavenir-4df21/us-central1/"
     };
   },
@@ -124,20 +139,24 @@ export default {
         : "register";
     },
     isRegistred: function () {
-      return this.$session !== undefined && this.$session.exists != undefined && this.$session.exists();
+      return (
+        this.$session !== undefined &&
+        this.$session.exists != undefined &&
+        this.$session.exists()
+      );
     },
   },
   mounted: function () {
     this.registered = this.isRegistred;
   },
   methods: {
-    async subscribe() {
+    async subscribe(email, firstName) {
       this.$axios
         .$post(this.funcUrl + "subscribe", {
-          email: this.$session.get("email"),
-          fname: this.$session.get("firstName"),
+          email: email,
+          fname: firstName,
           lname: "",
-          tag: "registration"
+          tag: "registration",
         })
         .then(function (response) {
           console.log(response);
@@ -146,11 +165,11 @@ export default {
           console.log(error);
         });
     },
-    async register() {
+    async register(email, firstname) {
       this.$axios
         .$post(this.funcUrl + "register", {
-          email: this.$session.get("email"),
-          firstname: this.$session.get("firstName"),
+          email: email,
+          firstname: firstName,
         })
         .then(function (response) {
           console.log(response);
@@ -166,14 +185,18 @@ export default {
         this.$session.start();
         this.$session.set("firstName", this.firstName);
         this.$session.set("email", this.email);
-        
+
         this.$session.set("hideReminder", true);
-        
+
         this.$emit("update-show-reminder", false);
 
-        this.$emit("update-user-info", {firstName:this.$session.get("firstName"), email:this.$session.get("email")});
+        this.$emit("update-user-info", {
+          firstName: this.firstName,
+          email: this.email,
+        });
 
-        this.subscribe();
+        this.register(this.email, this.firstName);
+        this.subscribe(this.email, this.firstName);
 
         setTimeout(function () {
           window.scrollTo(0, 0);

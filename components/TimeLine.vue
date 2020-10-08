@@ -27,8 +27,8 @@
                   <Icon name="checked" viewBox="0 0 14 10" :class="$style.check" />
                 </div>
                 <span v-if="index === 0">{{$t('timeLine-trailer')}}</span>
-                <span v-else-if="index <= 1">{{$t('timeLine-webinar')}}</span>
-                <span v-else>{{$t('timeLine-episode') + " " + (index - 1)}}</span>
+                <span v-else-if="index <= 2">{{$t('timeLine-webinar')}}</span>
+                <span v-else>{{$t('timeLine-episode') + " " + (index - 2)}}</span>
               </div>
               <div :class="$style.line"></div>
             </div>
