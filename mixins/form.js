@@ -9,10 +9,10 @@ export default {
 
         },
         goToRegister: function(scrollToCallback) {
-            var thisObject = this;
+            var that = this;
             this.inFlyToTheRegisterForm = true;
             scrollToCallback(document.getElementById("section-enroll"), -50, 500, true, true, function() {
-                thisObject.inFlyToTheRegisterForm = false;
+                that.inFlyToTheRegisterForm = false;
                 var firstNameElement = document.getElementById("reg-form-firstname");
                 firstNameElement && firstNameElement.focus();
             })

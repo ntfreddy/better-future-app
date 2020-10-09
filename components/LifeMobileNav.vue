@@ -18,7 +18,7 @@
               {{$t('lifeMobileNav-text')}}
               <span
                 :class="$style.highlight"
-              >{{(userName || $t('lifeMobileNav-friend')) + "!"}}</span>
+              >{{(firstName || $t('lifeMobileNav-friend')) + "!"}}</span>
             </p>
             <div :class="$style.toogle" v-on:click="toogle">
               {{$t('lifeMobileNav-toggle')}}
@@ -27,7 +27,7 @@
           </div>
           <div class="col-12" :class="$style.inner">
             <div :class="$style.nav">
-               <div v-if="!userName" :class="$style.item" v-on:click="scrollTo('enroll')">
+               <div v-if="firstName === ''" :class="$style.item" v-on:click="scrollTo('enroll')">
                 <div :class="$style.line"></div>
                 <div :class="$style.title">{{$t('lifeMobileNav-registration')}}</div>
               </div>
@@ -66,24 +66,22 @@ export default {
   data: function () {
     return {
       isAllEpisodes: this.allEpisodes,
+      firstName: ""
     };
   },
   computed: {
     items: function () {
       return this.$store.state.navigation.list;
     },
-    /*...mapState({
-      items: "list", // "total" same as "state => state.count"
-    }),*/
-    userName: function () {
-      if (this.$session !== undefined) return this.$session.get("firstName");
-      else return undefined;
-    },
+  },
+  mounted: function(){
+    let that = this;
+    this.firstName = this.$ls.get("firstName", "");
+    this.$ls.on('firstName', function(){      
+       that.firstName = that.$ls.get("firstName", "");
+    });
   },
   methods: {
-    /*onVisibleUpdate: function (e) {
-      e || this.closeNavigation();
-    },*/
     scrollTo: function (id) {
       var t = this;
       this.closeNavigation(),

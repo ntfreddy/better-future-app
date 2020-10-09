@@ -21,17 +21,20 @@ export default {
   data: function() {
       return {
           inTopPosition: true,
+          isBookWasOrdered: false
       }
   },
   computed: { 
-      isBookWasOrdered: function() {
-          return this.$session !== undefined && this.$session.get("isBookWasOrdered");
-      }
   },
   mounted: function() {
-      var e = this;
+    let that = this;
+    this.isBookWasOrdered = this.$ls.get("isBookWasOrdered", false);
+    this.$ls.on('isBookWasOrdered', function(){      
+       that.isBookWasOrdered = that.$ls.get("isBookWasOrdered", false);
+    });
+    
       window.addEventListener("scroll", (function() {
-          window.pageYOffset > 20 ? e.inTopPosition && (e.inTopPosition = !1) : e.inTopPosition || (e.inTopPosition = !0)
+          window.pageYOffset > 20 ? that.inTopPosition && (that.inTopPosition = !1) : that.inTopPosition || (that.inTopPosition = !0)
       }
       ))
   },

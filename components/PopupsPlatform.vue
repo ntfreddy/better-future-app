@@ -38,36 +38,13 @@ export default {
       );
     },
   },
-  created: function () {
-    /* var e = this;
-        this.$popup.$on("open", (function(t) {
-            var o = t.popupId
-                , n = t.options
-                , r = void 0 === n ? {} : n;
-            e.options = r,
-            e.activeId = o,
-            setTimeout((function() {
-                e.visible = !0
-            }
-            ), 10)
-        }
-        ))*/
-  },
   mounted: function () {},
   methods: {
     ...mapActions({
       onClose: "CLOSE",
     }),
     onSubmit: function (e) {
-      //this.$popup.$emit("submit", e)
     },
-    /*onClose: function (e) {        
-      this.setActivePopup("");
-      e || (this.$popup.$emit("close", this.activeId),
-            this.activeId = ""),
-            this.options = {},
-            this.visible = e
-    },*/
   },
 };
 </script>

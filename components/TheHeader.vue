@@ -1,17 +1,14 @@
 <template>
   <div
     id="section-header"
-    :class="{[$style.header]:true, [$style.showReminder] : showReminder}"
+    :class="{[$style.header]:true, [$style.showReminder] : !hideReminder}"
   >
     <div :class="[$style.inner, $style.ready]">
       <TopPanel
         :showNav="showNav"
         @update-show-nav="showNav = $event"
-        @update-show-reminder="$emit('update-show-reminder',  $event)"
-        :showReminder="showReminder"
-        :firstName="firstName" 
       />
-        <Welcome class="d-lg-none d-flex" :firstName="firstName" />
+        <Welcome class="d-lg-none d-flex"/>
       <div :class="$style.introBox">
         <div class="container">
           <div class="row justify-content-center">
@@ -68,11 +65,12 @@ export default {
     About,
     Youtube,
   },
-  props: ["showReminder", "firstName"],
+  props: [],
   data: function () {
     return {
       ready: false,
       showNav: false,
+      hideReminder: false,
       playerVars: {
         rel: 0,
         showinfo: 0,
@@ -89,6 +87,11 @@ export default {
     }),
   },
   mounted: function () {
+    this.hideReminder = this.$ls.get("hideReminder", false);
+    let that = this;
+    this.$ls.on('hideReminder', function(){
+       that.hideReminder = that.$ls.get("hideReminder", false);
+    });
     window.addEventListener("resize", this.onResize);
     this.ready = true;
 

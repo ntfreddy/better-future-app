@@ -78,6 +78,10 @@ export default {
             src: "@/plugins/vue-countdown.client",
             mode: "client"
         },
+        {
+            src: "@/plugins/vue-storage-watcher.client",
+            mode: "client"
+        }
         /*
                 {
                     src: '@/plugins/firebase',

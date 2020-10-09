@@ -21,7 +21,7 @@
                 {{isFullHeight ? $t('episodeInfo-less-content') : $t('episodeInfo-load-more')}}
                 <Icon name="arrow-right" viewBox="0 0 49.656 49.656" :class="$style.btnArrow" />
               </div>
-              <div :class="$style.download">
+              <div :class="$style.download" v-on:click="download">
                 <Icon name="download" viewBox="0 0 28 28" :class="$style.downloadIcon" />
                 {{$t('episodeInfo-download')}}
               </div>
@@ -56,15 +56,13 @@ export default {
       currentHeight: 690,
       maxHeight: 690,
       isFullHeight: false,
+      registered: false,
     };
   },
   computed: {
     ...mapState({
       episode: (state) => state.episodes.episode,
     }),
-    isRegistred: function () {
-      return this.$session !== undefined && this.$session.exists != undefined && this.$session.exists();
-    },
   },
   watch: {
     "episode.id": function () {
@@ -72,6 +70,13 @@ export default {
     },
   },
   mounted: function () {
+    this.registered = this.$ls.get("firstName", "") !== "";
+
+    let that = this;
+    this.$ls.on('firstName', function(){      
+       that.registered = that.$ls.get("firstName", "") !== "";
+    });
+
     (this.currentHeight = 690), this.getMaxHeight();
   },
   methods: {
@@ -92,7 +97,7 @@ export default {
       }
     },
     download: function () {
-      this.isRegistred
+      this.registered
         ? window.open(
             "https://raw.githubusercontent.com/ntfreddy/think-future-app/master/assets/documents/".concat(
               this.episode.id,
@@ -100,7 +105,7 @@ export default {
             ),
             "_blank"
           )
-        : this.$form.goToRegister();
+        : this.$form.goToRegister(this.$scrollTo);
     },
   },
 };

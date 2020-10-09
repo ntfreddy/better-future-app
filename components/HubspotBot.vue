@@ -96,8 +96,8 @@ export default {
     this.isRegistred
       ? ("bible" !== this.activeId && "decision" !== this.activeId) ||
         (this.onSubmit({
-          firstName: this.$session.get("firstName"),
-          email: this.$session.get("email"),
+          firstName: this.$ls.get("firstName", ""),
+          email: this.$ls.get("email", ""),
         }),
         (this.state = "success"))
       : (this.state = "form");

@@ -41,14 +41,8 @@ export default {
   props: ["activeId"],
   data: function () {
     return {
-      firstName:
-        this.$session !== undefined && this.$session.get("firstName")
-          ? this.$session.get("firstName")
-          : "",
-      email:
-        this.$session !== undefined && this.$session.get("email")
-          ? this.$session.get("email")
-          : "",
+      //firstName: "",
+     // email:"",
       state: "form",
       map: {
         pray: {
@@ -124,6 +118,18 @@ export default {
     },
   },
   mounted: function () {
+   /* let that = this;
+    this.firstName = this.$ls.get("firstName", "");
+    this.$ls.on('firstName', function(){      
+       that.firstName = that.$ls.get("firstName", "");
+    });
+
+    this.email = this.$ls.get("email", "");
+    this.$ls.on('email', function(){
+       that.email = that.$ls.get("email", "");
+    });*/
+
+
     window.HubSpotConversations && window.HubSpotConversations.widget.close();
   },
   methods: {

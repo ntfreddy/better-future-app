@@ -8,7 +8,7 @@
             {{$t('callToActions-title')}}
             <span
               :class="$style.highlight"
-            >{{$t('callToActions-title-highlight') + (userName ? ', ': '?') + (userName ? userName: '')}}</span>
+            >{{$t('callToActions-title-highlight') + (firstName !== '' ? ', ': '?') + (firstName !== ''? firstName: '')}}</span>
           </p>
           <div :class="$style.description">{{$t('callToActions-description')}}</div>
         </div>
@@ -52,6 +52,7 @@ export default {
     return {
       popupVisible: false,
       activeId: "",
+      firstName: "",
       items: [
         {
           id: "pray",
@@ -85,10 +86,7 @@ export default {
       ],
     };
   },
-  computed: {
-    userName: function() {
-      return this.$session !== undefined && this.$session.get("firstName");
-    },
+  computed: {    
   },
   methods: {
     ...mapActions({
@@ -104,7 +102,11 @@ export default {
     }
   },
   mounted: function(){
-    console.log("openPopup(", "mounted");
+    let that = this;
+    this.firstName = this.$ls.get("firstName", "");
+    this.$ls.on('firstName', function(){      
+       that.firstName = that.$ls.get("firstName", "");
+    });
   }
 };
 </script>

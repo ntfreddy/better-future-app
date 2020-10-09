@@ -38,18 +38,24 @@ export default {
   components: {
     Icon,
   },
-  props: ["firstName"],
+  data: function(){
+    return {
+      firstName : "",
+    }
+  },
   computed: {
-    /*
-    firstName: function () {
-      if (this.$session !== undefined) return this.$session.get("firstName");
-      else return undefined;
-    },*/
     text: function () {
       return this.firstName !== ""
         ? this.$t("welcome-text-desc-registered")
         : this.$t("welcome-text-desc-notRegistered");
     },
+  },
+  mounted: function(){
+let that = this;
+    this.firstName = this.$ls.get("firstName", "");
+    this.$ls.on('firstName', function(){      
+       that.firstName = that.$ls.get("firstName", "");
+    });
   },
   methods: {
     ...mapActions({

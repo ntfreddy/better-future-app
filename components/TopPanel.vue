@@ -1,8 +1,8 @@
 <template>
   <div :class="$style.panel">
-    <Reminder v-show="showReminder" v-on:close="closeReminder($event)" v-on:remind="remind"/>
+    <Reminder v-show="!hideReminder" v-on:close="closeReminder($event)" v-on:remind="remind"/>
 
-    <div :class="{[$style.burgerBox]:true, [$style.burgerBoxShift]:showReminder}" v-on:click="showNavigation($event)">
+    <div :class="{[$style.burgerBox]:true, [$style.burgerBoxShift]:!hideReminder}" v-on:click="showNavigation($event)">
       <Icon name="burger" viewBox="0 0 24 11" :class="$style.burger" />
     </div>
     <div class="container" :class="$style.container">
@@ -56,31 +56,35 @@ export default {
     Welcome,
     Icon,
   },
-  props: ["showNav", "showReminder", "firstName"],
+  props: ["showNav"],
   data: function () {
-    return {};
+    return {      
+      firstName: "",
+      hideReminder: false
+    };
+  },
+  mounted: function(){
+    this.firstName = this.$ls.get("firstName", "");
+    let that = this;
+    this.$ls.on('firstName', function(){
+       that.firstName = that.$ls.get("firstName", "");
+    });
+
+    this.hideReminder = this.$ls.get("hideReminder", false);
+    this.$ls.on('hideReminder', function(){
+       that.hideReminder = that.$ls.get("hideReminder", false);
+    });
   },
   computed: {
     ...mapState({
       totalQuestions: "total", // "total" same as "state => state.count"
     }),
-    /*firstName: function () {
-      if (this.$session !== undefined) return this.$session.get("firstName");
-      else return false;
-    },*/
     episode: function () {
       return this.$store.state.episodes.episode;
     },
     navigation: function () {
       return this.$store.state.navigation.list;
-    },/*
-    isRegistred: function () {
-      return (
-        this.$session !== undefined &&
-        this.$session.exists != undefined &&
-        this.$session.exists()
-      );
-    },*/
+    },
   },
   watch: {
     "$store.state.episodes.episode": function () {
@@ -129,7 +133,7 @@ export default {
       this.$emit("update-show-nav", !this.showNav);
     },
     closeReminder: function () {
-      this.$session.set("hideReminder", true);
+      this.$ls.set("hideReminder", true);
       this.$emit("update-show-reminder", false);
     },
     remind: function () {

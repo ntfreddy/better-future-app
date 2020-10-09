@@ -99,14 +99,8 @@ export default {
   },
   data: function () {
     return {
-      firstName:
-        this.$session !== undefined && this.$session.get("firstName")
-          ? this.$session.get("firstName")
-          : "",
-      email:
-        this.$session !== undefined && this.$session.get("email")
-          ? this.$session.get("email")
-          : "",
+      firstName: "",
+     email:"",
       subject: "",
       registered: false,
       agreed: false,
@@ -122,7 +116,18 @@ export default {
         : this.$t("form-subject-placeholder-request");
     },
   },
-  created: function () {},
+  mounted: function () {
+ let that = this;
+    this.firstName = this.$ls.get("firstName", "");
+    this.$ls.on('firstName', function(){      
+       that.firstName = that.$ls.get("firstName", "");
+    });
+
+    this.email = this.$ls.get("email", "");
+    this.$ls.on('email', function(){
+       that.email = that.$ls.get("email", "");
+    });
+  },
   methods: {
     async sendAction(email, firstName, subject) {
       var url = "";

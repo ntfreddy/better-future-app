@@ -3,7 +3,7 @@
     <div :class="$style.wrapper">
       <div :class="$style.content">
         <div
-          :class="{ [$style.inner]: true, [$style.notRegistred]: !isRegistred }"
+          :class="{ [$style.inner]: true, [$style.notRegistred]: !registered }"
         >
           <div :class="$style.closeBtn" v-on:click="close">
             <Icon name="cross" viewBox="0 0 18 18" :class="$style.close" />
@@ -117,14 +117,9 @@ export default {
   data: function () {
     return {
       loading: false,
-      firstName:
-        this.$session !== undefined && this.$session.get("firstName")
-          ? this.$session.get("firstName")
-          : "",
-      email:
-        this.$session !== undefined && this.$session.get("email")
-          ? this.$session.get("email")
-          : "",
+       firstName: "",
+      email: "",     
+      registered: false,
       state: "form",
       description: this.$t("getBook-desc"),
       highlightText: this.$t("getBook-highlight"),
@@ -133,19 +128,24 @@ export default {
     };
   },
   computed: {
-    isRegistred: function () {
-      return (
-        this.$session !== undefined &&
-        this.$session.exists != undefined &&
-        this.$session.exists()
-      );
-    },
     title: function () {
-      return "success" === this.state ? "Thank you!" : "";
+      return "success" === this.state ? "Merci !" : "";
     },
   },
   mounted: function () {
-    // !this.autoopen && this.isRegistred && this.onSubmit();
+    let that = this;
+    this.firstName = this.$ls.get("firstName", "");
+    this.$ls.on('firstName', function(){      
+       that.firstName = that.$ls.get("firstName", "");
+       that.registered = that.$ls.get("firstName", "") !== "";
+    });
+
+    this.email = this.$ls.get("email", "");
+    this.$ls.on('email', function(){
+       that.email = that.$ls.get("email", "");
+    });
+
+    this.registered = this.$ls.get("firstName", "") !== "";
   },
   methods: {
     async subscribe(email, firstName) {
@@ -180,19 +180,10 @@ export default {
       this.$emit("close", false);
     },
     onSubmit: function () {
-      this.$session.start();
-      this.$session.set("firstName", this.firstName);
-      this.$session.set("email", this.email);
-
-      this.$session.set("hideReminder", true);
-      this.$session.set("isBookWasOrdered", true);
-
-      //this.$emit("update-show-reminder", false);
-
-      /* this.$emit("update-user-info", {
-          firstName: this.firstName,
-          email: this.email,
-        });*/
+      this.$ls.set("firstName",this.firstName);
+        this.$ls.set("email",this.email);
+        this.$ls.set("hideReminder",true);
+        this.$ls.set("isBookWasOrdered",true);
 
       this.register(this.email, this.firstName);
       this.subscribe(this.email, this.firstName);

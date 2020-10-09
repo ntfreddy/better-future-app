@@ -123,6 +123,7 @@ export default {
   },
   data: function () {
     return {
+      //storage: window.localStorage,
       firstName: "",
       email: "",
       registered: false,
@@ -134,20 +135,27 @@ export default {
   },
   computed: {
     state: function () {
-      return this.$session !== undefined && this.$session.get("firstName")
+      return this.firstName !== ""
         ? "joined"
         : "register";
     },
-    isRegistred: function () {
-      return (
-        this.$session !== undefined &&
-        this.$session.exists != undefined &&
-        this.$session.exists()
-      );
-    },
+  },
+  created: function() {
   },
   mounted: function () {
-    this.registered = this.isRegistred;
+    let that = this;
+    this.firstName = this.$ls.get("firstName", "");
+    this.$ls.on('firstName', function(){      
+       that.firstName = that.$ls.get("firstName", "");
+       that.registered = that.$ls.get("firstName", "") !== "";
+    });
+
+    this.email = this.$ls.get("email", "");
+    this.$ls.on('email', function(){
+       that.email = that.$ls.get("email", "");
+    });
+
+    this.registered = this.$ls.get("firstName", "") !== "";
   },
   methods: {
     async subscribe(email, firstName) {
@@ -181,19 +189,11 @@ export default {
     onSubmit: function () {
       this.registered = false;
       if (this.validate() && this.agreed) {
-        this.registered = true;
-        this.$session.start();
-        this.$session.set("firstName", this.firstName);
-        this.$session.set("email", this.email);
 
-        this.$session.set("hideReminder", true);
-
-        this.$emit("update-show-reminder", false);
-
-        this.$emit("update-user-info", {
-          firstName: this.firstName,
-          email: this.email,
-        });
+        this.$ls.set("firstName",this.firstName);
+        this.$ls.set("email",this.email);
+        this.$ls.set("hideReminder",true);        
+        this.$ls.set("isBookWasOrdered",true);
 
         this.register(this.email, this.firstName);
         this.subscribe(this.email, this.firstName);
@@ -203,12 +203,11 @@ export default {
         }, 500);
       } else {
         console.log("invalid");
-        this.registered = false;
       }
     },
     validate: function () {
       if (this.$v.$invalid) {
-        var controls = ["firstName", "email" /*, "agreed"*/];
+        var controls = ["firstName", "email"];
         for (var index = 0; index < controls.length; index++) {
           var control = controls[index];
           this[control] || this.validateValue(control);
