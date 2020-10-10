@@ -139,7 +139,8 @@ export default {
       UnlockEpisode: "episodes/UNLOCK_EPISODE",
     }),
     onTimeout: function () {
-      this.UnlockEpisode(this.episode);
+      this.UnlockEpisode(this.episode);      
+      this.$emit("update-show-player", this.episode);
     },
     watch: function () {
       this.$emit("watch");

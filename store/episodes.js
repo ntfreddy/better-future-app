@@ -451,13 +451,6 @@ export const actions = {
         });
 
         myState.episodes.map(function(episode, index) {
-            /*
-            var n = new Date();
-
-            episode.publicationDate = "" +
-                n.getFullYear() + "-" +
-                "2020-10-18T19:00:00",*/
-
             var publicationDate = new Date(episode.publicationDate);
             var midNight = new Date(episode.publicationDate);
             midNight.setHours(0, 0, 0, 0);
@@ -476,7 +469,6 @@ export const actions = {
         });
 
         if (index !== -1) {
-            //var myEpisode = $(myState)[index];
             var myEpisode = myState.episodes[index];
             myCommit("SET_EPISODE", myEpisode);
         }

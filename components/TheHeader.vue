@@ -19,6 +19,7 @@
                   :episode="episode"
                   v-on:watch="watch"
                   v-on:listen="listen"
+                  v-on:update-show-player="onUpdateShowPlayer($event)"
                 />
                 <div
                   :class="$style.right"
@@ -38,7 +39,7 @@
         <div class="container" :class="$style.container">
           <div class="row justify-content-center">
             <div class="col-12">
-              <Youtube :youtubeId="episode.youtubeId" v-show="(episode.state === 'today' && episode.distance < 0) || (episode.state === 'opened')"/>
+              <Youtube :youtubeId="episode.youtubeId" v-show="showPlayer"/>
             </div>
           </div>
         </div>
@@ -71,6 +72,7 @@ export default {
       ready: false,
       showNav: false,
       hideReminder: false,
+      showPlayer:false,
       playerVars: {
         rel: 0,
         showinfo: 0,
@@ -125,7 +127,15 @@ export default {
         ? "https://img.youtube.com/vi/".concat(t.youtubeId, "/sddefault.jpg")
         : "../assets/earth.jpg";
     },
+    onUpdateShowPlayer: function(episode){
+      this.showPlayer =  (episode.state === 'today' && episode.distance < 1000) || (episode.state === 'opened');
+    }
   },
+ watch: {
+    episode: function(newEpisode){
+      this.showPlayer =  (newEpisode.state === 'today' && newEpisode.distance < 1000) || (newEpisode.state === 'opened');
+    }
+  }
 };
 </script>
 

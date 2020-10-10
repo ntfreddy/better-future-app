@@ -81,14 +81,15 @@ export default {
   },
   methods: {
     getMaxHeight: function () {
-      (this.maxHeight = this.$refs.content.$el.offsetHeight),
+      this.maxHeight = this.$refs.content.$el.offsetHeight;
         this.currentHeight <= this.maxHeight && (this.isFullHeight = false);
     },
     loadMore: function () {
-      if (this.isFullHeight)
-        (this.currentHeight = 690),
-          (this.isFullHeight = false),
-          this.$scrollTo(document.getElementById("section-episode-info"));
+      if (this.isFullHeight) {
+        this.currentHeight = 690;
+        this.isFullHeight = false;
+      this.$scrollTo(document.getElementById("section-episode-info"));
+      }
       else {
         var t = this.currentHeight + 500;
         t > this.maxHeight
