@@ -3,7 +3,7 @@ export default {
      ** Nuxt rendering mode
      ** See https://nuxtjs.org/api/configuration-mode
      */
-    /* mode: 'universal',*/
+    ssr: true,
     /*
      ** Nuxt target
      ** See https://nuxtjs.org/api/configuration-target
@@ -30,10 +30,6 @@ export default {
                 rel: "stylesheet",
                 href: "https://fonts.googleapis.com/css?family=Roboto",
             },
-            /*{
-                rel: "stylesheet",
-                href: "https://cdn.quilljs.com/1.2.6/quill.snow.css"
-            }*/
         ]
     },
     /*
@@ -59,10 +55,6 @@ export default {
             src: "@/plugins/vuelidate"
         },
         {
-            src: "@/plugins/vue-session.client",
-            mode: "client"
-        },
-        {
             src: "@/plugins/vue-load-script.client",
             mode: "client"
         },
@@ -81,11 +73,11 @@ export default {
         {
             src: "@/plugins/vue-storage-watcher.client",
             mode: "client"
+        },
+        {
+            src: "@/plugins/google-analytics.client",
+            mode: "client"
         }
-        /*
-                {
-                    src: '@/plugins/firebase',
-                } */
     ],
     /*
      ** Auto import components

@@ -11,6 +11,17 @@
       :src="'https://www.youtube.com/embed/' + youtubeId + '?rel=0&amp;showinfo=0&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fbible.awr.org&amp;widgetid=1'"
       id="widget2"
     ></iframe>
+    <!--iframe
+      :class="$style.player"
+      frameborder="0"
+      allowfullscreen="1"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      title="YouTube video player"
+      width="640"
+      height="360"
+      :src="'https://www.facebook.com/plugins/video.php?show_text=false&href=https://www.facebook.com/Pensezlavenir/videos/3020501371510091'"
+      id="widget2"
+    ></iframe-->
   </div>
 </template>
 
