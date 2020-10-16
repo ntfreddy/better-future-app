@@ -7,7 +7,7 @@
 Merci de visiter le site du Centre de Formation Biblique (CFB) et de prendre connaissance de sa politique de confidentialité.
 </p>
 <p style="text-align: left">
-Bibliothèque et Archives nationales du Québec prend toutes les précautions nécessaires pour assurer la confidentialité des renseignements personnels et agit en conformité avec la <a href="http://www2.publicationsduquebec.gouv.qc.ca/dynamicSearch/telecharge.php?type=2&file=//A_2_1/A2_1.htm" target="_blank">Loi sur l'accès aux documents des organismes publics et sur la protection des renseignements personnels</a>.
+Le CFB prend toutes les précautions nécessaires pour assurer la confidentialité des renseignements personnels et agit en conformité avec la <a href="http://www2.publicationsduquebec.gouv.qc.ca/dynamicSearch/telecharge.php?type=2&file=//A_2_1/A2_1.htm" target="_blank">Loi sur l'accès aux documents des organismes publics et sur la protection des renseignements personnels</a>.
 </p>
 <p>
 <br /><br /><strong>1. L'INFORMATION TRANSMISE AUTOMATIQUEMENT</strong>
@@ -83,7 +83,7 @@ Prenez note que, l'activation de l'option cookies peut, selon la configuration c
 <br /><br /><strong>5. AUTRES SITES</strong>
 </p>
 <p style="text-align: left">
-Notre site contient des hyperliens vers d'autres sites. Lorsque vous suivez ces liens, vous quittez le site du CFB. Les renseignements alors échangés ne sont plus assujettis à la politique de confidentialité de Bibliothèque et Archives nationales du Québec.
+Notre site contient des hyperliens vers d'autres sites. Lorsque vous suivez ces liens, vous quittez le site du CFB. Les renseignements alors échangés ne sont plus assujettis à la politique de confidentialité du CFB.
 </p>
 <p style="text-align: left">
 Si vous avez des commentaires ou des questions, vous pouvez communiquer à l'adresse <a href="mailto:info@centredeformationbiblique.org">info@centredeformationbiblique.org</a>.
