@@ -1,6 +1,6 @@
 <template>
-  <div ref="youtube" :class="[$style.youtube, $style.videoBlock]">
-    <iframe
+  <div ref="videoPlayer" :class="[$style.videoPlayer, $style.videoBlock]">
+    <iframe v-if="isYoutube"
       :class="$style.player"
       frameborder="0"
       allowfullscreen="1"
@@ -8,36 +8,36 @@
       title="YouTube video player"
       width="640"
       height="360"
-      :src="'https://www.youtube.com/embed/' + youtubeId + '?rel=0&amp;showinfo=0&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fbible.awr.org&amp;widgetid=1'"
+      :src="'https://www.youtube.com/embed/' + videoPlayerId + '?rel=0&amp;showinfo=0&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fbible.awr.org&amp;widgetid=1'"
       id="widget2"
     ></iframe>
-    <!--iframe
+    <iframe v-if="isFacebook"
       :class="$style.player"
       frameborder="0"
       allowfullscreen="1"
       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-      title="YouTube video player"
+      title="Facebook video player"
       width="640"
       height="360"
-      :src="'https://www.facebook.com/plugins/video.php?show_text=false&href=https://www.facebook.com/Pensezlavenir/videos/3020501371510091'"
+      :src="'https://www.facebook.com/plugins/video.php?show_text=false&href=https://www.facebook.com/Pensezlavenir/videos/' + videoPlayerId + ''"
       id="widget2"
-    ></iframe-->
+    ></iframe>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["youtubeId"],
+  props: ["videoPlayerId", "isYoutube", "isFacebook"],
 };
 </script>
 
 <style module>
-.youtube {
+.videoPlayer {
   position: relative;
   padding-top: 56.25%;
 }
 .player,
-.youtube {
+.videoPlayer {
   height: 100%;
   width: 100%;
   overflow: hidden;

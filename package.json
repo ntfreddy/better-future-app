@@ -7,7 +7,7 @@
         "build": "nuxt build",
         "start": "nuxt start",
         "generate": "nuxt generate",
-        "deploy": "firebase deploy --only hosting"
+        "deploy": "npm run generate && firebase deploy --only hosting"
     },
     "dependencies": {
         "@chenfengyuan/vue-countdown": "^1.1.5",

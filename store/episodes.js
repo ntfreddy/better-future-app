@@ -5,7 +5,9 @@ export const state = () => ({
             "id": "intro",
             "title": "Peut-on espérer un meilleur avenir ?",
             "alias": "intro",
-            "youtubeId": "CBmYkpDkwg0",
+            "videoPlayerId": "1716835391828991",
+            "isYoutube": false,
+            "isFacebook": true,
             "announce": {
                 "ops": [{
                     "insert": "Peut-on espérer un meilleur avenir ?"
@@ -14,14 +16,16 @@ export const state = () => ({
             "description": {
                 "ops": []
             },
-            "publicationDate": "2020-10-18T19:00:00",
+            "publicationDate": "2020-10-17T19:30:00",
         },
         {
             "id": "sortir-de-l-endettement",
             "title": "Sortir de l'endettement",
             "alias": "sortir-de-l-endettement",
             "author": "Jephté Simon",
-            "youtubeId": "R_rhpy3R0iY",
+            "videoPlayerId": "778106889653504",
+            "isYoutube": false,
+            "isFacebook": true,
             "soundcloud": "",
             "announce": {
                 "ops": [
@@ -45,7 +49,9 @@ export const state = () => ({
             "title": "Les Saintes Écritures",
             "alias": "les-saintes-ecritures",
             "author": "Pr. Sem Jean",
-            "youtubeId": "CBmYkpDkwg0",
+            "videoPlayerId": "",
+            "isYoutube": false,
+            "isFacebook": true,
             "soundcloud": "",
             "announce": {
                 "ops": [
@@ -89,7 +95,9 @@ export const state = () => ({
             "title": "Un don gratuit, pour un avenir meilleur !",
             "alias": "le-fils",
             "author": "Sympson Gracia",
-            "youtubeId": "CBmYkpDkwg0",
+            "videoPlayerId": "CBmYkpDkwg0",
+            "isYoutube": false,
+            "isFacebook": true,
             "soundcloud": "",
             "announce": {
                 "ops": [{
@@ -121,7 +129,9 @@ export const state = () => ({
             "title": "Sonder notre avenir par les mystères de la création",
             "alias": "la-creation",
             "author": "Ted Gracia",
-            "youtubeId": "CBmYkpDkwg0",
+            "videoPlayerId": "CBmYkpDkwg0",
+            "isYoutube": false,
+            "isFacebook": true,
             "soundcloud": "",
             "announce": {
                 "ops": [{
@@ -161,7 +171,9 @@ export const state = () => ({
             "title": "Qui se soucie de ta vie ?",
             "alias": "vie-mort-et-resurrection-du-christ",
             "author": "Frédéric Ntawiniga",
-            "youtubeId": "CBmYkpDkwg0",
+            "videoPlayerId": "CBmYkpDkwg0",
+            "isYoutube": false,
+            "isFacebook": true,
             "soundcloud": "",
             "announce": {
                 "ops": [{
@@ -193,7 +205,9 @@ export const state = () => ({
             "title": "Poste ouvert à tous - sécurité permanente",
             "alias": "l-experience-du-salut",
             "author": "Barbara Cantave",
-            "youtubeId": "CBmYkpDkwg0",
+            "videoPlayerId": "CBmYkpDkwg0",
+            "isYoutube": false,
+            "isFacebook": true,
             "soundcloud": "",
             "announce": {
                 "ops": [
@@ -220,7 +234,9 @@ export const state = () => ({
             "title": "Le méristème qui fait croître",
             "alias": "croitre-en-christ",
             "author": "Nahomy Noélizaire",
-            "youtubeId": "CBmYkpDkwg0",
+            "videoPlayerId": "CBmYkpDkwg0",
+            "isYoutube": false,
+            "isFacebook": true,
             "soundcloud": "",
             "announce": {
                 "ops": [{
@@ -244,7 +260,9 @@ export const state = () => ({
             "title": "Obéir à la loi de Dieu",
             "alias": "la-loi-de-dieu",
             "author": "Wadner Cadet",
-            "youtubeId": "CBmYkpDkwg0",
+            "videoPlayerId": "CBmYkpDkwg0",
+            "isYoutube": false,
+            "isFacebook": true,
             "soundcloud": "",
             "announce": {
                 "ops": [{
@@ -276,7 +294,9 @@ export const state = () => ({
             "title": "Le Sabbat",
             "alias": "le-sabbat",
             "author": "Pr. Sem Jean",
-            "youtubeId": "CBmYkpDkwg0",
+            "videoPlayerId": "CBmYkpDkwg0",
+            "isYoutube": false,
+            "isFacebook": true,
             "soundcloud": "",
             "announce": {
                 "ops": [{
@@ -307,7 +327,9 @@ export const state = () => ({
             "title": "Le Baptême",
             "alias": "le-bapteme",
             "author": "Paule Esther Jn Philippe",
-            "youtubeId": "CBmYkpDkwg0",
+            "videoPlayerId": "CBmYkpDkwg0",
+            "isYoutube": false,
+            "isFacebook": true,
             "soundcloud": "",
             "announce": {
                 "ops": [{
@@ -339,7 +361,9 @@ export const state = () => ({
             "title": "Offre d'emploi",
             "alias": "la-gestion-chretienne-de-la-vie",
             "author": "Danielle Noélizaire",
-            "youtubeId": "CBmYkpDkwg0",
+            "videoPlayerId": "CBmYkpDkwg0",
+            "isYoutube": false,
+            "isFacebook": true,
             "soundcloud": "",
             "announce": {
                 "ops": [{
@@ -366,7 +390,9 @@ export const state = () => ({
             "title": "La Nouvelle Terre",
             "alias": "la-nouvelle-terre",
             "author": "Adeline Emile",
-            "youtubeId": "CBmYkpDkwg0",
+            "videoPlayerId": "CBmYkpDkwg0",
+            "isYoutube": false,
+            "isFacebook": true,
             "soundcloud": "",
             "announce": {
                 "ops": [{
@@ -399,7 +425,9 @@ export const state = () => ({
         "id": "intro",
         "title": "Peut-on espérer un meilleur avenir?",
         "alias": "intro",
-        "youtubeId": "CBmYkpDkwg0",
+        "videoPlayerId": "1716835391828991",
+        "isYoutube": false,
+        "isFacebook": true,
         "announce": {
             "ops": [{
                 "insert": "Peut-on espérer un meilleur avenir?"
@@ -408,7 +436,7 @@ export const state = () => ({
         "description": {
             "ops": []
         },
-        "publicationDate": "2020-10-18T19:00:00",
+        "publicationDate": "2020-10-19T19:30:00",
     },
 })
 

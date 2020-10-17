@@ -54,7 +54,7 @@ export default {
       this.$emit("close");
       var episode = this.episodes[index];
       this.$store.commit("episodes/SET_EPISODE", episode);
-    },
+    },/*
     getImage: function (episode) {
       return episode.youtubeId
         ? "https://img.youtube.com/vi/".concat(
@@ -62,7 +62,7 @@ export default {
             "/sddefault.jpg"
           )
         : "../assets/earth.jpg";
-    },
+    },*/
   },
 };
 </script>

@@ -39,7 +39,7 @@
         <div class="container" :class="$style.container">
           <div class="row justify-content-center">
             <div class="col-12">
-              <Youtube :youtubeId="episode.youtubeId" v-show="showPlayer"/>
+              <VideoPlayer :videoPlayerId="episode.videoPlayerId" :isYoutube="episode.isYoutube" :isFacebook="episode.isFacebook" v-show="showPlayer"/>
             </div>
           </div>
         </div>
@@ -55,7 +55,7 @@ import TopPanel from "./TopPanel";
 import Welcome from "./Welcome";
 import TimeLine from "./TimeLine";
 import About from "./About";
-import Youtube from "./Youtube";
+import VideoPlayer from "./VideoPlayer";
 
 export default {
   name: "TheHeader",
@@ -64,7 +64,7 @@ export default {
     Welcome,
     TimeLine,
     About,
-    Youtube,
+    VideoPlayer,
   },
   props: [],
   data: function () {
@@ -121,12 +121,12 @@ export default {
     },
     onResize: function () {
       this.showNav = false;
-    },
+    },/*
     getImage: function (t) {
       return t.youtubeId
         ? "https://img.youtube.com/vi/".concat(t.youtubeId, "/sddefault.jpg")
         : "../assets/earth.jpg";
-    },
+    },*/
     onUpdateShowPlayer: function(episode){
       this.showPlayer =  (episode.state === 'today' && episode.distance < 1000) || (episode.state === 'opened');
     }

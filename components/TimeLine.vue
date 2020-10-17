@@ -131,12 +131,12 @@ export default {
       var episode = this.episodes[index];
       this.$store.commit("episodes/SET_EPISODE", episode);
       this.$store.commit("episodes/SET_ACTIVE_INDEX", index);
-    },
+    },/*
     getImage: function (episode) {
       return episode.youtubeId
         ? "https://img.youtube.com/vi/".concat(episode.youtubeId, "/sddefault.jpg")
         : "../assets/earth.jpg";
-    },
+    },*/
   },
 };
 </script>

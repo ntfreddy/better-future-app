@@ -103,5 +103,9 @@ export default {
   width: 100vw;
   overflow: hidden;
   position: relative;
+  margin-top:50px;
+  margin-bottom:50px;
+  margin-left:50px;
+  padding-right:100px;
 }
 </style>
