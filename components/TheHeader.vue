@@ -97,17 +97,14 @@ export default {
     window.addEventListener("resize", this.onResize);
     this.ready = true;
 
-    for(var index = 0;index < this.episodes.length;index++){
-      if(this.episodes[index].state === "today"){
-        this.SetEpisode(this.episodes[index]);
-      }
-    }
+    this.InitEpisodesState();  
   },
   methods: {
     ...mapMutations({
       SetTime: "episodes/SET_TIME",
       SetStartTime: "episodes/SET_START_TIME",
       SetEpisode: "episodes/SET_EPISODE",
+      InitEpisodesState: "episodes/INIT_EPISODES_STATE",
     }),
     watch: function () {
       this.$scrollTo(

@@ -7,7 +7,7 @@
       <div
         :class="$style.label"
         v-show="episode.id !== 'intro'"
-        v-on:click="onTimeout"
+        v-on:click="onTimeout()"
       >
         {{ $t("about-label") }}
       </div>
@@ -43,7 +43,7 @@
           <countdown
             :time="episode.distance > 0 ? episode.distance : 0"
             :transform="transform"
-            @end="onTimeout"
+            @end="onTimeout()"
             v-show="episode.distance > 0 && locked"
           >
             <template slot-scope="props">
@@ -87,7 +87,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions } from "vuex";
 
 import QuillContent from "./QuillContent";
 import Icon from "./Icon";
@@ -116,9 +116,6 @@ export default {
     };
   },
   computed: {
-    ...mapGetters({
-      episodes: "episodes/episodes",
-    }),
     text: function () {
       return this.episode && this.episode.announce
         ? this.episode.announce
@@ -140,7 +137,6 @@ export default {
   methods: {
     ...mapActions({
       UnlockEpisode: "episodes/UNLOCK_EPISODE",
-      SetEpisode: "episodes/SET_EPISODE",
     }),
     onTimeout: function () {
       this.UnlockEpisode(this.episode);      

@@ -32,7 +32,7 @@ export const state = () => ({
             "title": "Manuel pour une vie de succès",
             "alias": "les-saintes-ecritures",
             "author": "Pr. Sem Jean",
-            "videoPlayerId": "",
+            "videoPlayerId": "1099670477115536",
             "isYoutube": false,
             "isFacebook": true,
             "soundcloud": "",
@@ -459,6 +459,22 @@ export const mutations = {
     SET_DISTANCE_STATE(state, data) {
         state.episodes[data.index].distance = data.distance;
         state.episodes[data.index].state = data.state;
+    },
+    INIT_EPISODES_STATE(state) {
+        for (var index = 0; index < state.episodes.length; index++) {
+            var episode = state.episodes[index];
+            var publicationDate = new Date(episode.publicationDate);
+            var midNight = new Date(episode.publicationDate);
+            midNight.setHours(0, 0, 0, 0);
+            var diff = publicationDate.getTime() - midNight.getTime();
+
+            state.episodes[index].distance = episode && episode.publicationDate ? new Date(episode.publicationDate).getTime() - (new Date).getTime() : "";
+            state.episodes[index].state = state.episodes[index].distance <= 0 ? "opened" : state.episodes[index].distance <= diff ? "today" : "closed";
+
+            if (state.episodes[index].state === "today") {
+                state.episode = state.episodes[index];
+            }
+        }
     },
 }
 
