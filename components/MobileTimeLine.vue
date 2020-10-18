@@ -1,38 +1,59 @@
 <template>
   <div :class="$style.timeline">
     <div :class="$style.message">
-      {{$t('mobile-time-line-message-1')}}
-      <strong>{{$t('mobile-time-line-message-2')}}</strong>
+      {{ $t("mobile-time-line-message-1") }}
+      <strong>{{ $t("mobile-time-line-message-2") }}</strong>
     </div>
     <div
       v-for="(episode, index) in episodes"
       :key="episode.id"
-      :class="{[$style.episode]:true, [$style.disableSlide]: episode.state === 'closed'}"
+      :class="{
+        [$style.episode]: true,
+        [$style.disableSlide]: episode.state === 'closed',
+      }"
       v-on:click="changeEpisode(index)"
     >
       <div :class="$style.left">
         <div :class="$style.line"></div>
         <div
-          :class="{[$style.label]:true, [$style.active]: (activeIndex == index), [$style.today]: (episode.state == 'today'),[$style.closed]: (episode.state === 'closed'),[$style.finished]: (episode.state === 'finished'),}"
+          :class="{
+            [$style.label]: true,
+            [$style.active]: activeIndex == index,
+            [$style.today]: episode.state == 'today',
+            [$style.closed]: episode.state === 'closed',
+            [$style.finished]: episode.state === 'finished',
+          }"
         >
-          <div :class="$style.checked" v-show="(episode.state === 'finished')">
+          <div :class="$style.checked" v-show="episode.state === 'finished'">
             <Icon name="checked" viewBox="0 0 14 10" :class="$style.check" />
           </div>
-          <span v-if="index === 0">{{$t('timeLine-trailer')}}</span>
-          <span v-else>{{$t('timeLine-episode') + " " + index}}</span>
+
+          <span v-if="episode.id === 'intro'">{{
+            $t("timeLine-trailer")
+          }}</span>
+          <span v-else-if="episode.id === 'sortir-de-l-endettement'">{{
+            $t("timeLine-webinar")
+          }}</span>
+          <span v-else>{{ $t("timeLine-episode") + " " + (index - 0) }}</span>
         </div>
       </div>
       <div :class="$style.right">
         <img
-          :src="'https://raw.githubusercontent.com/ntfreddy/think-future-app/master/assets/episodes/' + episode.id + '-small.jpg'"
+          :src="
+            'https://raw.githubusercontent.com/ntfreddy/think-future-app/master/assets/episodes/' +
+            episode.id +
+            '-small.jpg'
+          "
           :class="$style.image"
         />
         <div :class="$style.clockBox" v-show="episode.state === 'today'">
           <Icon name="clock" viewBox="0 0 24 24" :class="$style.clock" />
         </div>
         <div :class="$style.content">
-          <div :class="$style.date" v-show="episode.id !== 'intro'">{{episode.date}}</div>
-          <div :class="$style.title">{{episode.title}}</div>
+          <div :class="$style.date" v-show="episode.id !== 'intro'">
+            {{ episode.date }}
+          </div>
+          <div :class="$style.title">{{ episode.title }}</div>
         </div>
       </div>
     </div>
@@ -54,15 +75,7 @@ export default {
       this.$emit("close");
       var episode = this.episodes[index];
       this.$store.commit("episodes/SET_EPISODE", episode);
-    },/*
-    getImage: function (episode) {
-      return episode.youtubeId
-        ? "https://img.youtube.com/vi/".concat(
-            episode.youtubeId,
-            "/sddefault.jpg"
-          )
-        : "../assets/earth.jpg";
-    },*/
+    } 
   },
 };
 </script>

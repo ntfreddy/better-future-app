@@ -30,7 +30,10 @@ export default {
                 rel: "stylesheet",
                 href: "https://fonts.googleapis.com/css?family=Roboto",
             },
-        ]
+        ],
+        scripts: [{
+            src: "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"
+        }]
     },
     /*
      ** Global CSS

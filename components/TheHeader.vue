@@ -118,12 +118,7 @@ export default {
     },
     onResize: function () {
       this.showNav = false;
-    },/*
-    getImage: function (t) {
-      return t.youtubeId
-        ? "https://img.youtube.com/vi/".concat(t.youtubeId, "/sddefault.jpg")
-        : "../assets/earth.jpg";
-    },*/
+    },
     onUpdateShowPlayer: function(episode){
       this.showPlayer =  (episode.state === 'today' && episode.distance < 1000) || (episode.state === 'opened');
     }

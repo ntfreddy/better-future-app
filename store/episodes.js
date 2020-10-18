@@ -109,7 +109,7 @@ export const state = () => ({
         },
         {
             "id": "la-creation",
-            "title": "Sonder notre avenir par les mystères de la création",
+            "title": "Les mystères de la création",
             "alias": "la-creation",
             "author": "Ted Gracia",
             "videoPlayerId": "CBmYkpDkwg0",

@@ -114,29 +114,16 @@ export default {
   },
   mounted() {
     var slider = this.gallery;
-    //this.gallery.on('click', this.clickOnSlide);
     this.gallery.on("transitionEnd", function () {
       slider.activeSwiperIndex = slider.realIndex;
     });
-
-    //console.log("Current Swiper instance object", this.gallery);
-    //this.gallery.slideTo(2, 1000, false);
   },
   methods: {
-    /* clickOnSlide: function(event){
-      this.goToSlide(this.gallery.clickedIndex);
-    },*/
     goToSlide: function (index) {
-      //console.log("index", index);
       var episode = this.episodes[index];
       this.$store.commit("episodes/SET_EPISODE", episode);
       this.$store.commit("episodes/SET_ACTIVE_INDEX", index);
-    },/*
-    getImage: function (episode) {
-      return episode.youtubeId
-        ? "https://img.youtube.com/vi/".concat(episode.youtubeId, "/sddefault.jpg")
-        : "../assets/earth.jpg";
-    },*/
+    },
   },
 };
 </script>

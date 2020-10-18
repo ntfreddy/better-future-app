@@ -9,7 +9,7 @@
       width="640"
       height="360"
       :src="'https://www.youtube.com/embed/' + videoPlayerId + '?rel=0&amp;showinfo=0&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fbible.awr.org&amp;widgetid=1'"
-      id="widget2"
+      id="widgetYoutube"
     ></iframe>
     <iframe v-if="isFacebook"
       :class="$style.player"
@@ -20,7 +20,7 @@
       width="640"
       height="360"
       :src="'https://www.facebook.com/plugins/video.php?show_text=false&href=https://www.facebook.com/Pensezlavenir/videos/' + videoPlayerId + ''"
-      id="widget2"
+      id="widgetFacebook"
     ></iframe>
   </div>
 </template>
