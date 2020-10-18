@@ -87,7 +87,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 import QuillContent from "./QuillContent";
 import Icon from "./Icon";
@@ -116,6 +116,9 @@ export default {
     };
   },
   computed: {
+    ...mapGetters({
+      episodes: "episodes/episodes",
+    }),
     text: function () {
       return this.episode && this.episode.announce
         ? this.episode.announce
@@ -137,6 +140,7 @@ export default {
   methods: {
     ...mapActions({
       UnlockEpisode: "episodes/UNLOCK_EPISODE",
+      SetEpisode: "episodes/SET_EPISODE",
     }),
     onTimeout: function () {
       this.UnlockEpisode(this.episode);      

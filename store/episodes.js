@@ -2,30 +2,13 @@ export const state = () => ({
     time: 0,
     startTime: 0,
     episodes: [{
-            "id": "intro",
-            "title": "Peut-on espérer un meilleur avenir ?",
-            "alias": "intro",
-            "videoPlayerId": "1716835391828991",
-            "isYoutube": false,
-            "isFacebook": true,
-            "announce": {
-                "ops": [{
-                    "insert": "Peut-on espérer un meilleur avenir ?"
-                }]
-            },
-            "description": {
-                "ops": []
-            },
-            "publicationDate": "2020-10-17T19:30:00",
-        },
-        {
             "id": "sortir-de-l-endettement",
             "title": "Sortir de l'endettement",
             "alias": "sortir-de-l-endettement",
             "author": "Jephté Simon",
-            "videoPlayerId": "778106889653504",
-            "isYoutube": false,
-            "isFacebook": true,
+            "videoPlayerId": "R_rhpy3R0iY",
+            "isYoutube": true,
+            "isFacebook": false,
             "soundcloud": "",
             "announce": {
                 "ops": [
@@ -46,7 +29,7 @@ export const state = () => ({
         },
         {
             "id": "les-saintes-ecritures",
-            "title": "Les Saintes Écritures",
+            "title": "Manuel pour une vie de succès",
             "alias": "les-saintes-ecritures",
             "author": "Pr. Sem Jean",
             "videoPlayerId": "",
@@ -422,21 +405,30 @@ export const state = () => ({
     ],
     activeIndex: 0,
     episode: {
-        "id": "intro",
-        "title": "Peut-on espérer un meilleur avenir?",
-        "alias": "intro",
-        "videoPlayerId": "1716835391828991",
-        "isYoutube": false,
-        "isFacebook": true,
+        "id": "sortir-de-l-endettement",
+        "title": "Sortir de l'endettement",
+        "alias": "sortir-de-l-endettement",
+        "author": "Jephté Simon",
+        "videoPlayerId": "R_rhpy3R0iY",
+        "isYoutube": true,
+        "isFacebook": false,
+        "soundcloud": "",
         "announce": {
-            "ops": [{
-                "insert": "Peut-on espérer un meilleur avenir?"
-            }]
+            "ops": [
+                { "insert": "Webinaire sur la gestion de vos finances." }
+            ]
         },
         "description": {
             "ops": []
         },
-        "publicationDate": "2020-10-19T19:30:00",
+        "content": {
+            "ops": []
+        },
+        "publicationDate": "2020-10-11T17:00:00",
+        "date": "Dimanche, le 11 octobre",
+        "actions": [],
+        "conversations": [],
+        "state": "closed"
     },
 })
 
