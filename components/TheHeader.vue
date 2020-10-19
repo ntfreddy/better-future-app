@@ -39,7 +39,7 @@
         <div class="container" :class="$style.container">
           <div class="row justify-content-center">
             <div class="col-12">
-              <VideoPlayer :videoPlayerId="episode.videoPlayerId" :isYoutube="episode.isYoutube" :isFacebook="episode.isFacebook" v-show="showPlayer"/>
+              <VideoPlayer :videoPlayerId="episode.videoPlayerId" :isYoutube="episode.isYoutube" :isFacebook="episode.isFacebook" v-if="showPlayer"/>
             </div>
           </div>
         </div>

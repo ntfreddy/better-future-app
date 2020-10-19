@@ -78,7 +78,7 @@ export const state = () => ({
             "title": "Un don gratuit, pour un avenir meilleur !",
             "alias": "le-fils",
             "author": "Sympson Gracia",
-            "videoPlayerId": "CBmYkpDkwg0",
+            "videoPlayerId": "778106889653504",
             "isYoutube": false,
             "isFacebook": true,
             "soundcloud": "",
