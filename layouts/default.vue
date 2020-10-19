@@ -6,8 +6,8 @@
       <ToTopButton />
       <BookBtn />
       <MainFooter />
-      <HubspotBot />
       <PopupsPlatform />
+      <HubspotBot />
     </div>   
   </div>
   <!-- End of HubSpot Embed Code -->

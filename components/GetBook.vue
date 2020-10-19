@@ -5,7 +5,7 @@
         <div
           :class="{ [$style.inner]: true, [$style.notRegistred]: !registered }"
         >
-          <div :class="$style.closeBtn" v-on:click="close">
+          <div :class="$style.closeBtn" @click="close">
             <Icon name="cross" viewBox="0 0 18 18" :class="$style.close" />
           </div>
           <div :class="$style.left">

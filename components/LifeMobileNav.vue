@@ -5,13 +5,13 @@
         <div class="row align-items-center">
           <div class="col-12" :class="$style.top">
             <Logo />
-            <div :class="$style.close" v-on:click="closeNavigation">
+            <div :class="$style.close" @click="closeNavigation">
               {{$t('lifeMobileNav-close')}}
               <Icon name="cross" viewBox="0 0 18 18" :class="$style.cross" />
             </div>
           </div>
           <div class="col-12" :class="$style.top" v-if="isAllEpisodes && hasEpisodes">
-            <MobileTimeLine v-on:close="closeNavigation"/>
+            <MobileTimeLine @close="closeNavigation"/>
           </div>
           <div class="col-12" :class="[$style.block, $style.top]" v-else>
             <p :class="$style.text">
@@ -20,18 +20,18 @@
                 :class="$style.highlight"
               >{{(firstName || $t('lifeMobileNav-friend')) + "!"}}</span>
             </p>
-            <div :class="$style.toogle" v-on:click="toogle">
+            <div :class="$style.toogle" @click="toogle">
               {{$t('lifeMobileNav-toggle')}}
               <Icon name="dots" viewBox="0 0 16 16" :class="$style.dots" />
             </div>
           </div>
           <div class="col-12" :class="$style.inner">
             <div :class="$style.nav">
-               <div v-if="firstName === ''" :class="$style.item" v-on:click="scrollTo('enroll')">
+               <div v-if="firstName === ''" :class="$style.item" @click="scrollTo('enroll')">
                 <div :class="$style.line"></div>
                 <div :class="$style.title">{{$t('lifeMobileNav-registration')}}</div>
               </div>
-              <div v-for="item in items" :key="item.id" :class="$style.item" v-on:click="scrollTo(item.id)">
+              <div v-for="item in items" :key="item.id" :class="$style.item" @click="scrollTo(item.id)">
                 <div :class="$style.line"></div>
                 <div :class="$style.title">{{item.title}}</div>
               </div>

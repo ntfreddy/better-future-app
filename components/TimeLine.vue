@@ -1,79 +1,126 @@
 <template>
   <div class="d-lg-flex d-none" :class="[$style.timeLine, $style.ready]">
-    <div class="container">
-      <div
-        v-swiper:gallery="swiperOption"
-        class="swiper-container swiper-container-horizontal"
-        :class="$style.swiperContainer"
-      >
+      <div class="container"> 
         <div
-          class="swiper-wrapper"
-          style="transition-duration: 0ms; transform: translate3d(-1560px, 0px, 0px);"
+          v-swiper:gallery="swiperOption"
+          class="swiper-container swiper-container-horizontal"
+          :class="$style.swiperContainer"
         >
           <div
-            ref="slide"
-            v-for="(episode, index) in episodes"
-            :key="episode.id"
-            class="swiper-slide"
-            :class="{[$style.slide]: true ,[$style.disableSlide]: ('closed' === episode.state)}"
-            style="margin-right: 20px;"
-            v-on:click="goToSlide(index)"
+            class="swiper-wrapper"
+            style="
+              transition-duration: 0ms;
+              transform: translate3d(-1560px, 0px, 0px);
+            "
           >
-            <div :class="$style.top">
-              <div
-                :class="{[$style.label]:true, [$style.active]: (activeIndex === index), [$style.today]: (episode.state == 'today'),[$style.closed]: (episode.state === 'closed'),[$style.finished]: (episode.state === 'finished'),}"
-              >
-                <div :class="$style.checked" v-show="(episode.state === 'finished')">
-                  <Icon name="checked" viewBox="0 0 14 10" :class="$style.check" />
+            <div
+              ref="slide"
+              v-for="(episode, index) in episodes"
+              :key="episode.id"
+              class="swiper-slide"
+              :class="{
+                [$style.slide]: true,
+                [$style.disableSlide]: 'closed' === episode.state,
+              }"
+              style="margin-right: 20px"
+              @click="goToSlide(index)"
+            >
+              <div :class="$style.top">
+                <div
+                  :class="{
+                    [$style.label]: true,
+                    [$style.active]: activeIndex === index,
+                    [$style.today]: episode.state == 'today',
+                    [$style.closed]: episode.state === 'closed',
+                    [$style.finished]: episode.state === 'finished',
+                  }"
+                >
+                  <div
+                    :class="$style.checked"
+                    v-show="episode.state === 'finished'"
+                  >
+                    <Icon
+                      name="checked"
+                      viewBox="0 0 14 10"
+                      :class="$style.check"
+                    />
+                  </div>
+                  <span v-if="episode.id === 'intro'">{{
+                    $t("timeLine-trailer")
+                  }}</span>
+                  <span v-else-if="episode.id === 'sortir-de-l-endettement'">{{
+                    $t("timeLine-webinar")
+                  }}</span>
+                  <span v-else>{{
+                    $t("timeLine-episode") + " " + (index - 0)
+                  }}</span>
                 </div>
-                <span v-if="episode.id === 'intro'">{{$t('timeLine-trailer')}}</span>
-                <span v-else-if="episode.id === 'sortir-de-l-endettement'">{{$t('timeLine-webinar')}}</span>
-                <span v-else>{{$t('timeLine-episode') + " " + (index - 0)}}</span>
+                <div :class="$style.line"></div>
               </div>
-              <div :class="$style.line"></div>
+              <div :class="$style.bottom">
+                <img
+                  :src="
+                    'https://raw.githubusercontent.com/ntfreddy/think-future-app/master/assets/episodes/' +
+                    episode.id +
+                    '-small.jpg'
+                  "
+                  :class="$style.image"
+                />
+                <div
+                  :class="$style.clockBox"
+                  v-show="episode.state === 'today'"
+                >
+                  <Icon
+                    name="clock"
+                    viewBox="0 0 24 24"
+                    :class="$style.clock"
+                  />
+                </div>
+                <div :class="$style.content">
+                  <div :class="$style.date" v-show="episode.id !== 'intro'">
+                    {{ episode.date }}
+                  </div>
+                  <div :class="$style.title">{{ episode.title }}</div>
+                </div>
+              </div>
             </div>
-            <div :class="$style.bottom">
-              <img
-                :src="'https://raw.githubusercontent.com/ntfreddy/think-future-app/master/assets/episodes/' + episode.id + '-small.jpg'"
-                :class="$style.image"
-              />
-              <div :class="$style.clockBox" v-show="episode.state === 'today'">
-                <Icon name="clock" viewBox="0 0 24 24" :class="$style.clock" />
-              </div>
-              <div :class="$style.content">
-                <div :class="$style.date" v-show="episode.id !== 'intro'">{{episode.date}}</div>
-                <div :class="$style.title">{{episode.title}}</div>
-              </div>
-            </div>
+            <div
+              class="swiper-slide"
+              :class="$style.empty"
+              style="margin-right: 20px"
+            ></div>
           </div>
-          <div class="swiper-slide" :class="$style.empty" style="margin-right: 20px;"></div>
+          <span
+            class="swiper-notification"
+            aria-live="assertive"
+            aria-atomic="true"
+          ></span>
         </div>
-        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+        
+        <div
+          class="swiper-button-prev"
+          :class="$style.prev"
+          tabindex="0"
+          role="button"
+          aria-label="Previous slide"
+          aria-disabled="false"
+          style
+          ref="btnPrev"
+        >
+          <Icon name="prev-slide" viewBox="0 0 32 32" :class="$style.iconBtm" />
+        </div>
+        <div
+          class="swiper-button-next"
+          :class="$style.next"
+          tabindex="0"
+          role="button"
+          aria-label="Next slide"
+          aria-disabled="false"
+          ref="btnNext"
+        >
+          <Icon name="next-slide" viewBox="0 0 32 32" :class="$style.iconBtm" />
+        </div>
       </div>
-      <div
-        class="swiper-button-prev"
-        :class="$style.prev"
-        tabindex="0"
-        role="button"
-        aria-label="Previous slide"
-        aria-disabled="false"
-        style
-        ref="btnPrev"
-      >
-        <Icon name="prev-slide" viewBox="0 0 32 32" :class="$style.iconBtm" />
-      </div>
-      <div
-        class="swiper-button-next"
-        :class="$style.next"
-        tabindex="0"
-        role="button"
-        aria-label="Next slide"
-        aria-disabled="false"
-        ref="btnNext"
-      >
-        <Icon name="next-slide" viewBox="0 0 32 32" :class="$style.iconBtm" />
-      </div>
-    </div>
   </div>
 </template>
 
@@ -411,5 +458,4 @@ export default {
 .iconBtm:hover {
   opacity: 0.8;
 }
-
 </style>

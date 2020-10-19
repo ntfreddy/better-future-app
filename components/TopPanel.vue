@@ -1,8 +1,8 @@
 <template>
   <div :class="$style.panel">
-    <Reminder v-show="!hideReminder" v-on:close="closeReminder($event)" v-on:remind="remind"/>
+    <Reminder v-show="!hideReminder" @close="onCloseReminder" @remind="remind"/>
 
-    <div :class="{[$style.burgerBox]:true, [$style.burgerBoxShift]:!hideReminder}" v-on:click="showNavigation($event)">
+    <div :class="{[$style.burgerBox]:true, [$style.burgerBoxShift]:!hideReminder}" @click="showNavigation($event)">
       <Icon name="burger" viewBox="0 0 24 11" :class="$style.burger" />
     </div>
     <div class="container" :class="$style.container">
@@ -15,13 +15,13 @@
                 v-for="item in navigation"
                 :key="item.id"
                 :class="$style.link"
-                v-on:click="scrollTo(item.id)"
+                @click="scrollTo(item.id)"
               >
                 <div :class="$style.line"></div>
                 <div :class="$style.title">{{item.title}}</div>
               </div>
             </div>
-            <div :class="$style.register" v-show="firstName === ''" v-on:click="register">{{$t('topPanel-btn')}}</div>
+            <div :class="$style.register" v-show="firstName === ''" @click="register">{{$t('topPanel-btn')}}</div>
           </div>
           <Welcome v-show="!showNav" :firstName="firstName"/>
         </div>
@@ -32,7 +32,7 @@
         <div class="col-12" :class="$style.mobileColumn">
           <div :class="$style.content">
             <div :class="$style.logo"></div>
-            <div :class="$style.mobileBurgerBox" v-on:click="openNavigation('life-mobile-nav')">
+            <div :class="$style.mobileBurgerBox" @click="openNavigation('life-mobile-nav')">
               <Icon name="burger" viewBox="0 0 24 11" :class="$style.mobileBurger" />
             </div>
           </div>
@@ -132,7 +132,8 @@ export default {
     showNavigation: function () {
       this.$emit("update-show-nav", !this.showNav);
     },
-    closeReminder: function () {
+    onCloseReminder: function () {
+     // alert("close");
       this.$ls.set("hideReminder", true);
       this.$emit("update-show-reminder", false);
     },
@@ -276,7 +277,14 @@ export default {
   -webkit-box-pack: end;
   -ms-flex-pack: end;
   justify-content: flex-end;
+  z-index:10;
 }
+@media (max-width: 991.98px) {
+  .burgerBox {
+  z-index: auto !important;
+  }
+}
+
 .burgerBox.movedBurger {
   top: 137px;
 }

@@ -5,7 +5,7 @@
       type="checkbox"
       :class="$style.input"
       :value="inputValue"
-      v-on:click="onClickedOn($event)"
+      @click="onClickedOn($event)"
       v-model.trim="checky"
     />
     <label :for="id" :class="$style.label">

@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.wrapper" v-show="!isBookWasOrdered" v-on:click="onOpenPopup('get-book')">
+  <div :class="$style.wrapper" v-show="!isBookWasOrdered" @click="onOpenPopup('get-book')">
     <div :class="$style.content">
       <div :class="$style.image"></div>
       <div :class="$style.text">

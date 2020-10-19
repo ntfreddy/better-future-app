@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.reminder">
-    <div :class="$style.closeBox" v-on:click="$emit('close')">
+    <div :class="$style.closeBtn" @click="$emit('close')">
       <Icon name="cross" viewBox="0 0 18 18" :class="$style.close" />
     </div>
     <div class="container">
@@ -9,7 +9,7 @@
           <img src="../assets/reminder.svg" :class="$style.image" />
         </div>
         <div class="col-sm-12 col-lg-8">
-          <div :class="$style.content" v-on:click="$emit('remind')">
+          <div :class="$style.content" @click="$emit('remind')">
             <div :class="$style.text">{{$t("reminder-text")}}</div>
             <div :class="$style.btn">
               <span>{{$t("reminder-btn")}}</span>
@@ -139,6 +139,15 @@ export default {
 .btn:hover:before {
   opacity: 0.05;
 }
+
+.closeBtn {
+  cursor: pointer;
+  z-index: 100;
+}
+.closeBtn:hover .close {
+  opacity: 0.6;
+}
+/*
 .closeBox {
   width: 40px;
   height: 40px;
@@ -162,6 +171,7 @@ export default {
 .closeBox:hover .close {
   color: hsla(0, 0%, 100%, 0.8);
 }
+
 @media (max-width: 1199.98px) {
   .closeBox {
     right: 5px;
@@ -172,8 +182,20 @@ export default {
     right: 24px;
   }
 }
+*/
 .close {
-  font-size: 15px;
-  color: hsla(0, 0%, 100%, 0.6);
+  /*font-size: 15px;
+  color: hsla(0, 0%, 100%, 0.6);*/
+
+   font-size: 20px;
+  position: absolute;
+  top: 35px;
+  right: 29px;
+  color: #000;
+  cursor: pointer;
+  opacity: 0.4;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  z-index:100;
 }
 </style>

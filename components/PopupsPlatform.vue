@@ -1,11 +1,11 @@
 <template>
   <div>
-    <LifeMobileNav v-if="activeId === 'life-mobile-nav'" :allEpisodes="false" :hasEpisodes="hasEpisodes" v-on:close="onClose" />
-    <LifeMobileNav v-if="activeId === 'life-episode-nav'" :allEpisodes="true" :hasEpisodes="hasEpisodes" v-on:close="onClose" />
-    <GetBook v-if="activeId === 'get-book'" v-on:close="onClose" />
-    <ActionPopup v-if="activeId === 'pray'" :activeId="activeId" v-on:close="onClose" />
-    <ActionPopup v-if="activeId === 'bible'" :activeId="activeId" v-on:close="onClose" />    
-    <ActionPopup v-if="activeId === 'question'" :activeId="activeId" v-on:close="onClose" />
+    <LifeMobileNav v-if="activeId === 'life-mobile-nav'" :allEpisodes="false" :hasEpisodes="hasEpisodes" @close="onClose" />
+    <LifeMobileNav v-if="activeId === 'life-episode-nav'" :allEpisodes="true" :hasEpisodes="hasEpisodes" @close="onClose" />
+    <GetBook v-if="activeId === 'get-book'" @close="onClose" />
+    <ActionPopup v-if="activeId === 'pray'" :activeId="activeId" @close="onClose" />
+    <ActionPopup v-if="activeId === 'bible'" :activeId="activeId" @close="onClose" />    
+    <ActionPopup v-if="activeId === 'question'" :activeId="activeId" @close="onClose" />
   </div>
 </template>
 

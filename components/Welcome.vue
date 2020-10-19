@@ -14,9 +14,9 @@
             <div
               :class="$style.register"
               v-show="firstName === ''"
-              v-on:click="register"
+              @click="register"
             >{{$t('welcome-register')}}</div>
-            <div class="d-lg-none d-flex" :class="$style.toogle" v-on:click="onOpenPopup('life-episode-nav')">
+            <div class="d-lg-none d-flex" :class="$style.toogle" @click="onOpenPopup('life-episode-nav')">
               {{$t('welcome-allEpisodes')}}
               <Icon name="dots" viewBox="0 0 16 16" :class="$style.dots" />
             </div>

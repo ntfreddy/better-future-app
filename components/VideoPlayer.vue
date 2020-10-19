@@ -1,6 +1,6 @@
 <template>
   <div ref="videoPlayer" :class="[$style.videoPlayer, $style.videoBlock]">
-    <iframe v-if="isYoutube"
+    <iframe v-show="isYoutube"
       :class="$style.player"
       frameborder="0"
       allowfullscreen="1"
@@ -11,7 +11,7 @@
       :src="'https://www.youtube.com/embed/' + videoPlayerId + '?rel=0&amp;showinfo=0&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fbible.awr.org&amp;widgetid=1'"
       id="widgetYoutube"
     ></iframe>
-    <iframe v-if="isFacebook"
+    <iframe v-show="isFacebook"
       :class="$style.player"
       frameborder="0"
       allowfullscreen="1"

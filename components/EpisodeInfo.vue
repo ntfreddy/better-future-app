@@ -17,11 +17,11 @@
               />
             </div>
             <div :class="$style.buttons">
-              <div :class="{[$style.more]:true, [$style.less]: isFullHeight}" v-on:click="loadMore">
+              <div :class="{[$style.more]:true, [$style.less]: isFullHeight}" @click="loadMore">
                 {{isFullHeight ? $t('episodeInfo-less-content') : $t('episodeInfo-load-more')}}
                 <Icon name="arrow-right" viewBox="0 0 49.656 49.656" :class="$style.btnArrow" />
               </div>
-              <div :class="$style.download" v-on:click="download">
+              <div :class="$style.download" @click="download">
                 <Icon name="download" viewBox="0 0 28 28" :class="$style.downloadIcon" />
                 {{$t('episodeInfo-download')}}
               </div>

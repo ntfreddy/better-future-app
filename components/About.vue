@@ -7,7 +7,7 @@
       <div
         :class="$style.label"
         v-show="episode.id !== 'intro'"
-        v-on:click="onTimeout()"
+        @click="onTimeout()"
       >
         {{ $t("about-label") }}
       </div>
@@ -23,7 +23,7 @@
           />
         </div>
         <div :class="$style.buttons" v-show="!locked">
-          <div :class="[$style.btn, $style.watchBtn]" v-on:click="watch">
+          <div :class="[$style.btn, $style.watchBtn]" @click="watch">
             {{
               $t("about-watch") +
               ("intro" === episode.id

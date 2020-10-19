@@ -14,7 +14,7 @@ export default {
      ** See https://nuxtjs.org/api/configuration-head
      */
     head: {
-        title: "Pensez L'Avenir",
+        title: "PenseZLAvenir",
         meta: [
             { charset: 'utf-8' },
             { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -32,8 +32,17 @@ export default {
             },
         ],
         scripts: [{
-            src: "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"
-        }]
+                src: "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"
+            },
+            /*
+                        {
+                            type: "text/javascript",
+                            id: "hs-script-loader",
+                            async,
+                            defer,
+                            src: "https://js.hs-scripts.com/8548131.js",
+                        }*/
+        ]
     },
     /*
      ** Global CSS

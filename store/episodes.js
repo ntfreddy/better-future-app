@@ -464,12 +464,24 @@ export const mutations = {
         for (var index = 0; index < state.episodes.length; index++) {
             var episode = state.episodes[index];
             var publicationDate = new Date(episode.publicationDate);
-            var midNight = new Date(episode.publicationDate);
-            midNight.setHours(0, 0, 0, 0);
-            var diff = publicationDate.getTime() - midNight.getTime();
+            var prevMidNight = new Date(episode.publicationDate);
+            prevMidNight.setHours(0, 0, 0, 0);
+            //var diff = publicationDate.getTime() - prevMidNight.getTime();
 
-            state.episodes[index].distance = episode && episode.publicationDate ? new Date(episode.publicationDate).getTime() - (new Date).getTime() : "";
-            state.episodes[index].state = state.episodes[index].distance <= 0 ? "opened" : state.episodes[index].distance <= diff ? "today" : "closed";
+            var nextMidNight = new Date(episode.publicationDate);
+            nextMidNight.setHours(23, 59, 59, 999);
+
+            var todayDate = new Date();
+
+            state.episodes[index].distance = episode && episode.publicationDate ? new Date(episode.publicationDate).getTime() - todayDate.getTime() : "";
+
+            if (todayDate.getTime() > nextMidNight.getTime()) {
+                state.episodes[index].state = "opened";
+            } else if (todayDate.getTime() < prevMidNight.getTime()) {
+                state.episodes[index].state = "closed";
+            } else {
+                state.episodes[index].state = "today";
+            }
 
             if (state.episodes[index].state === "today") {
                 state.episode = state.episodes[index];
@@ -488,12 +500,25 @@ export const actions = {
 
         myState.episodes.map(function(episode, index) {
             var publicationDate = new Date(episode.publicationDate);
-            var midNight = new Date(episode.publicationDate);
-            midNight.setHours(0, 0, 0, 0);
-            var diff = publicationDate.getTime() - midNight.getTime();
+            var prevMidNight = new Date(episode.publicationDate);
+            prevMidNight.setHours(0, 0, 0, 0);
+            //var diff = publicationDate.getTime() - prevMidNight.getTime();
 
-            var dist = episode && episode.publicationDate ? new Date(episode.publicationDate).getTime() - (new Date).getTime() : "";
-            var st = dist <= 0 ? "opened" : dist <= diff ? "today" : "closed";
+            var nextMidNight = new Date(episode.publicationDate);
+            nextMidNight.setHours(23, 59, 59, 999);
+
+            var todayDate = new Date();
+
+            var dist = episode && episode.publicationDate ? new Date(episode.publicationDate).getTime() - todayDate.getTime() : "";
+            var st = "";
+
+            if (todayDate.getTime() > nextMidNight.getTime()) {
+                st = "opened";
+            } else if (todayDate.getTime() < prevMidNight.getTime()) {
+                st = "closed";
+            } else {
+                st = "today";
+            }
 
             myCommit("SET_DISTANCE_STATE", {
                 distance: dist,

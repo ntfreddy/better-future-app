@@ -17,9 +17,9 @@
                 <About
                   :class="$style.left"
                   :episode="episode"
-                  v-on:watch="watch"
-                  v-on:listen="listen"
-                  v-on:update-show-player="onUpdateShowPlayer($event)"
+                  @watch="watch"
+                  @listen="listen"
+                  @update-show-player="onUpdateShowPlayer($event)"
                 />
                 <div
                   :class="$style.right"

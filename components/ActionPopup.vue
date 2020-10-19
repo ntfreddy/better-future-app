@@ -3,7 +3,7 @@
     <div :class="$style.wrapper">
       <div :class="$style.content">
         <div :class="$style.inner">
-          <div :class="$style.closeBtn" v-on:click="close">
+          <div :class="$style.closeBtn" @click="close">
             <Icon
               name="cross-black"
               viewBox="0 0 18 18"
@@ -41,8 +41,6 @@ export default {
   props: ["activeId"],
   data: function () {
     return {
-      //firstName: "",
-     // email:"",
       state: "form",
       map: {
         pray: {
@@ -118,18 +116,6 @@ export default {
     },
   },
   mounted: function () {
-   /* let that = this;
-    this.firstName = this.$ls.get("firstName", "");
-    this.$ls.on('firstName', function(){      
-       that.firstName = that.$ls.get("firstName", "");
-    });
-
-    this.email = this.$ls.get("email", "");
-    this.$ls.on('email', function(){
-       that.email = that.$ls.get("email", "");
-    });*/
-
-
     window.HubSpotConversations && window.HubSpotConversations.widget.close();
   },
   methods: {

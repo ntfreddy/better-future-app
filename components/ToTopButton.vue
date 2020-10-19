@@ -1,5 +1,5 @@
 <template>
-  <div ref="topBtn" :class="$style.wrapper" v-show="visible" v-on:click="backToTop">
+  <div ref="topBtn" :class="$style.wrapper" v-show="visible" @click="backToTop">
     <div :class="$style.btn">
       <Icon name="to-top" viewBox="0 0 23 32" :class="$style.arrows" />
     </div>

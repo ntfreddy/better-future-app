@@ -11,7 +11,7 @@
         [$style.episode]: true,
         [$style.disableSlide]: episode.state === 'closed',
       }"
-      v-on:click="changeEpisode(index)"
+      @click="changeEpisode(index)"
     >
       <div :class="$style.left">
         <div :class="$style.line"></div>
