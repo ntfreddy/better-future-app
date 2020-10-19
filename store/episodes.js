@@ -274,7 +274,7 @@ export const state = () => ({
         },
         {
             "id": "le-sabbat",
-            "title": "Le Sabbat",
+            "title": "Le repos",
             "alias": "le-sabbat",
             "author": "Pr. Sem Jean",
             "videoPlayerId": "CBmYkpDkwg0",
@@ -307,7 +307,7 @@ export const state = () => ({
         },
         {
             "id": "le-bapteme",
-            "title": "Le Baptême",
+            "title": "L'eau",
             "alias": "le-bapteme",
             "author": "Paule Esther Jn Philippe",
             "videoPlayerId": "CBmYkpDkwg0",
@@ -466,7 +466,6 @@ export const mutations = {
             var publicationDate = new Date(episode.publicationDate);
             var prevMidNight = new Date(episode.publicationDate);
             prevMidNight.setHours(0, 0, 0, 0);
-            //var diff = publicationDate.getTime() - prevMidNight.getTime();
 
             var nextMidNight = new Date(episode.publicationDate);
             nextMidNight.setHours(23, 59, 59, 999);
@@ -502,7 +501,6 @@ export const actions = {
             var publicationDate = new Date(episode.publicationDate);
             var prevMidNight = new Date(episode.publicationDate);
             prevMidNight.setHours(0, 0, 0, 0);
-            //var diff = publicationDate.getTime() - prevMidNight.getTime();
 
             var nextMidNight = new Date(episode.publicationDate);
             nextMidNight.setHours(23, 59, 59, 999);
