@@ -52,7 +52,7 @@
                     $t("timeLine-webinar")
                   }}</span>
                   <span v-else>{{
-                    $t("timeLine-episode") + " " + (index - 0)
+                    $t("timeLine-episode") + " " + (index - 1)
                   }}</span>
                 </div>
                 <div :class="$style.line"></div>

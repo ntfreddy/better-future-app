@@ -2,6 +2,31 @@ export const state = () => ({
     time: 0,
     startTime: 0,
     episodes: [{
+            "id": "intro",
+            "title": "Peut-on espérer un avenir meilleur?",
+            "alias": "intro",
+            "author": "Kerby B.",
+            "videoPlayerId": "jqqec4OINxI",
+            "isYoutube": true,
+            "isFacebook": false,
+            "soundcloud": "",
+            "announce": {
+                "ops": [
+                    { "insert": "Peut-on espérer un avenir meilleur?" }
+                ]
+            },
+            "description": {
+                "ops": []
+            },
+            "content": {
+                "ops": []
+            },
+            "publicationDate": "2020-10-18T19:00:00",
+            "date": "Dimanche, le 18 octobre",
+            "actions": [],
+            "conversations": [],
+            "state": "closed"
+        }, {
             "id": "sortir-de-l-endettement",
             "title": "Sortir de l'endettement",
             "alias": "sortir-de-l-endettement",
@@ -112,7 +137,7 @@ export const state = () => ({
             "title": "Les mystères de la création",
             "alias": "la-creation",
             "author": "Ted Gracia",
-            "videoPlayerId": "CBmYkpDkwg0",
+            "videoPlayerId": "292059831765618",
             "isYoutube": false,
             "isFacebook": true,
             "soundcloud": "",
@@ -154,7 +179,7 @@ export const state = () => ({
             "title": "Qui se soucie de ta vie ?",
             "alias": "vie-mort-et-resurrection-du-christ",
             "author": "Frédéric Ntawiniga",
-            "videoPlayerId": "CBmYkpDkwg0",
+            "videoPlayerId": "721939331755224",
             "isYoutube": false,
             "isFacebook": true,
             "soundcloud": "",
@@ -306,40 +331,6 @@ export const state = () => ({
             "state": "closed"
         },
         {
-            "id": "le-bapteme",
-            "title": "L'eau",
-            "alias": "le-bapteme",
-            "author": "Paule Esther Jn Philippe",
-            "videoPlayerId": "CBmYkpDkwg0",
-            "isYoutube": false,
-            "isFacebook": true,
-            "soundcloud": "",
-            "announce": {
-                "ops": [{
-                    "insert": "Par le baptême, nous confessons notre foi en la mort et la résurrection de Jésus-Christ, et nous témoignons de notre mort au péché et de notre décision de mener une vie nouvelle."
-                }]
-            },
-            "description": {
-                "ops": [{
-                        "title": "Sentez-vous un vide dans votre vie ?",
-                        "insert": "Le baptême est un symbole d’engagement. Par ce sermon le public sera convaincu du fait qu’il existe une alternative à leur mode de vie et qu’il leur est vital de laisser tomber leur dépendance et de prendre la décision de faire de Dieu le centre de leur existence. En acceptant de se laisser guider par l’esprit de Dieu, ils trouveront leur mission sur terre et un but à leur existence. L’avenir leur sera plus clair sachant que Jésus les soutient tout le long du chemin."
-                    },
-                    {
-                        "title": "Cherchez-vous l'assurance pour le futur ?",
-                        "insert": "Le baptême est un symbole d’engagement. Par ce sermon le public sera convaincu du fait qu’il existe une alternative à leur mode de vie et qu’il leur est vital de laisser tomber leur dépendance et de prendre la décision de faire de Dieu le centre de leur existence. En acceptant de se laisser guider par l’esprit de Dieu, ils trouveront leur mission sur terre et un but à leur existence. L’avenir leur sera plus clair sachant que Jésus les soutient tout le long du chemin."
-                    }
-                ]
-            },
-            "content": {
-                "ops": []
-            },
-            "publicationDate": "2020-10-26T19:00:00",
-            "date": "Lundi, le 26 octobre",
-            "actions": [],
-            "conversations": [],
-            "state": "closed"
-        },
-        {
             "id": "la-gestion-chretienne-de-la-vie",
             "title": "Offre d'emploi",
             "alias": "la-gestion-chretienne-de-la-vie",
@@ -362,8 +353,8 @@ export const state = () => ({
             "content": {
                 "ops": []
             },
-            "publicationDate": "2020-10-27T19:00:00",
-            "date": "Mardi, le 27 octobre",
+            "publicationDate": "2020-10-26T19:00:00",
+            "date": "Lundi, le 26 octobre",
             "actions": [],
             "conversations": [],
             "state": "closed"
@@ -396,6 +387,40 @@ export const state = () => ({
             "content": {
                 "ops": []
             },
+            "publicationDate": "2020-10-27T19:00:00",
+            "date": "Mardi, le 27 octobre",
+            "actions": [],
+            "conversations": [],
+            "state": "closed"
+        },
+        {
+            "id": "le-bapteme",
+            "title": "L'eau",
+            "alias": "le-bapteme",
+            "author": "Pr. Sem Jean",
+            "videoPlayerId": "CBmYkpDkwg0",
+            "isYoutube": false,
+            "isFacebook": true,
+            "soundcloud": "",
+            "announce": {
+                "ops": [{
+                    "insert": "Par le baptême, nous confessons notre foi en la mort et la résurrection de Jésus-Christ, et nous témoignons de notre mort au péché et de notre décision de mener une vie nouvelle."
+                }]
+            },
+            "description": {
+                "ops": [{
+                        "title": "Sentez-vous un vide dans votre vie ?",
+                        "insert": "Le baptême est un symbole d’engagement. Par ce sermon le public sera convaincu du fait qu’il existe une alternative à leur mode de vie et qu’il leur est vital de laisser tomber leur dépendance et de prendre la décision de faire de Dieu le centre de leur existence. En acceptant de se laisser guider par l’esprit de Dieu, ils trouveront leur mission sur terre et un but à leur existence. L’avenir leur sera plus clair sachant que Jésus les soutient tout le long du chemin."
+                    },
+                    {
+                        "title": "Cherchez-vous l'assurance pour le futur ?",
+                        "insert": "Le baptême est un symbole d’engagement. Par ce sermon le public sera convaincu du fait qu’il existe une alternative à leur mode de vie et qu’il leur est vital de laisser tomber leur dépendance et de prendre la décision de faire de Dieu le centre de leur existence. En acceptant de se laisser guider par l’esprit de Dieu, ils trouveront leur mission sur terre et un but à leur existence. L’avenir leur sera plus clair sachant que Jésus les soutient tout le long du chemin."
+                    }
+                ]
+            },
+            "content": {
+                "ops": []
+            },
             "publicationDate": "2020-10-28T19:00:00",
             "date": "Mercredi, le 28 octobre",
             "actions": [],
@@ -405,17 +430,17 @@ export const state = () => ({
     ],
     activeIndex: 0,
     episode: {
-        "id": "sortir-de-l-endettement",
-        "title": "Sortir de l'endettement",
-        "alias": "sortir-de-l-endettement",
-        "author": "Jephté Simon",
-        "videoPlayerId": "R_rhpy3R0iY",
+        "id": "intro",
+        "title": "Peut-on espérer un avenir meilleur?",
+        "alias": "intro",
+        "author": "Kerby B.",
+        "videoPlayerId": "jqqec4OINxI",
         "isYoutube": true,
         "isFacebook": false,
         "soundcloud": "",
         "announce": {
             "ops": [
-                { "insert": "Webinaire sur la gestion de vos finances." }
+                { "insert": "Peut-on espérer un avenir meilleur?" }
             ]
         },
         "description": {
@@ -424,12 +449,12 @@ export const state = () => ({
         "content": {
             "ops": []
         },
-        "publicationDate": "2020-10-11T17:00:00",
-        "date": "Dimanche, le 11 octobre",
+        "publicationDate": "2020-10-18T19:00:00",
+        "date": "Dimanche, le 18 octobre",
         "actions": [],
         "conversations": [],
         "state": "closed"
-    },
+    }
 })
 
 export const getters = {

@@ -34,7 +34,7 @@
           <span v-else-if="episode.id === 'sortir-de-l-endettement'">{{
             $t("timeLine-webinar")
           }}</span>
-          <span v-else>{{ $t("timeLine-episode") + " " + (index - 0) }}</span>
+          <span v-else>{{ $t("timeLine-episode") + " " + (index - 1) }}</span>
         </div>
       </div>
       <div :class="$style.right">
