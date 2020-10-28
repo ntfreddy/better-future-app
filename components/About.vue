@@ -101,14 +101,7 @@ export default {
   },
   data() {
     return {
-      /* content: {
-        ops: [
-          {
-            insert:
-              "Throughout this series, you will learn that Jesus’ love for you can be found at the heart of Revelation, and that its prophecies reveal hope for your future.\\n",
-          },
-        ],
-      },*/
+      locked: true,
       config: {
         readOnly: false,
         placeholder: "Compose an epic...",
@@ -122,7 +115,7 @@ export default {
         : this.episode && this.episode.description
         ? this.episode.description
         : null;
-    },
+    },/*
     locked: function () {
       if (!this.episode) {
         return true;
@@ -131,8 +124,14 @@ export default {
       var episode = this.episode;
       var state = episode.state;
       var distance = episode.distance;
-      return "closed" === state || ("today" === state && distance > 0);
-    },
+
+      if(this.unlockedForced) {
+        return false;
+      }
+      else {
+        return "closed" === state || ("today" === state && distance > 0);
+      }
+    },*/
   },
   methods: {
     ...mapActions({
@@ -141,6 +140,10 @@ export default {
     onTimeout: function () {
       this.UnlockEpisode(this.episode);      
       this.$emit("update-show-player", this.episode);
+      if(this.episode.state === 'today' && this.episode.distance < 1000) {
+        this.locked = false;
+        this.$emit("watch");
+      }
     },
     watch: function () {
       this.$emit("watch");
@@ -168,6 +171,14 @@ export default {
   },
   mounted: function () {
     //console.log("announce : ", this.episode.announce);
+  },
+   watch: {
+    "episode.id": function () {
+      var episode = this.episode;
+      var state = episode.state;
+      var distance = episode.distance;
+      this.locked = "closed" === state || ("today" === state && distance > 0);
+    },
   },
 };
 </script>

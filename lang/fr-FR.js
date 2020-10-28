@@ -32,7 +32,7 @@ export default {
     'mainFooter-logo-alt': "Peut-on espérer un avenir meilleur ?",
     'mainFooter-organizer-text': "Cette série est présentée par les étudiants du Centre de Formation Biblique.",
     'mainFooter-privacy-policy-link': "politique de confidentialité",
-    'mainFooter-partners-title': "Devenir un partenaire",
+    'mainFooter-partners-title': "Liens importants",
     'copyright': "© 2020 Pensez l'avenir. Tous droits réservés.",
     'reminder-text': "Inscrivez-vous pour recevoir des mises à jour",
     'reminder-btn': "S'inscrire",
